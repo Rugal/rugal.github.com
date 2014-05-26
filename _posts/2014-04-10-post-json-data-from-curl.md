@@ -1,0 +1,18 @@
+---
+layout: post
+title: "post JSON data from Curl"
+description: ""
+category: operation
+tags: [curl,linux]
+---
+{% include JB/setup %}
+Really very useful tip.  
+To post JSON format data in `CURL` from termial, you need to specify `-H "Content-Type: application/json"`.  
+Springmvc would reject this request body if `JSON` header not specified.
+{%highlight bash%}
+curl -H "Content-Type: application/json" \
+    -d '{"username":"xyz","password":"xyz"}'  \
+    http://localhost:8080/api/login
+{%endhighlight%}
+Also note that, you could use `-X GET` option to indicate using `GET` method at the meantime of using `-d` option, which might originally treat as a way of `POST` data.  
+Actually `-d` option just indicate the data within it need to be treat as `request body`.

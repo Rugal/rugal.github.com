@@ -1,0 +1,20 @@
+*{ padding:0px; margin:0px;}
+
+*html{background-image:url(about:blank);background-attachment:fixed;}
+
+#_side_bar{width:47px; height:73px; float:right; position:fixed;
+           _position:absolute;
+           _bottom:auto;
+           _top:expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0)));
+           _margin-bottom:10px;
+}
+
+/*#_about_me{ width:50px; height:25px; background:url(../images/suggest.png) no-repeat; position:absolute; bottom:0px; cursor:pointer}*/
+
+#_go_top{ width:50px; height:50px; background:url(/assets/images/arrow-up-black.png) no-repeat; position:absolute; top:0px; display:none; cursor:pointer}
+/*#_go_top{ width:50px; height:50px; background:url(/assets/images/arrow-up-opaque.png) no-repeat; position:absolute; top:0px; display:none; cursor:pointer}*/
+
+/*#_about_me:hover{ background:url(../images/suggest.png) no-repeat 0px -26px;}*/
+
+#_go_top:hover{ background:url(/assets/images/arrow-up-opaque.png) no-repeat;}
+/*#_go_top:hover{ background:url(/assets/images/arrow-up-black.png) no-repeat;}*/
