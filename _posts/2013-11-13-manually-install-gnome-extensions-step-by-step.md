@@ -41,7 +41,7 @@ So you need to revert the version of NetSpeed code, is that possible? of course 
 first you need to see what version you can revert and properly can with `git log`  
 in this time I found the 1f17b3ce08c40f347e5659bcd8d01ddf79381de2  version is just fit for my need, then I use  
 `git reset --hard 1f17b3ce08c40f347e5659bcd8d01ddf79381de2`  
-for detailed introduction of [git reset](/linux/2013/11/13/git-rollback-to-commit) .  
+for detailed introduction of [git reset]( /operation/2013/11/13/git-rollback-to-commit ) .  
 so as to revert the version, and now I could use that extensions.  
 just repeat the procedures above untill all your extensions were installed.  
 Never forget to full copy with all your extensions after successfully installed, it is a tought assignment!

@@ -44,44 +44,48 @@ unarchive the hadoop to your tools directory ,for me is the same as eclipse
 4.then you shoud make some change on hadoop's configuration files.  
   edit the `conf/core-site.xml`
 
-        <configuration>
-            <property>
-                <name>fs.default.name</name>
-                <value>hdfs://localhost:8000</value>
-            </property>
-            <property>
-                <name>hadoop.tmp.dir</name>
-                <value>/opt/hadoop/tmp</value>
-            </property>
-        </configuration>
-  this configure allow your datanode to listen on the port of `:8000` on localhost and decided to change temporary directory to `/opt/tmp`  
+    <configuration>
+        <property>
+            <name>fs.default.name</name>
+            <value>hdfs://localhost:8000</value>
+        </property>
+        <property>
+            <name>hadoop.tmp.dir</name>
+            <value>/opt/hadoop/tmp</value>
+        </property>
+    </configuration>
+
+this configure allow your datanode to listen on the port of `:8000` on localhost and decided to change temporary directory to `/opt/tmp`  
    
 
   edit `conf/mapred-site.xml` ,as:
 
-        <configuration>
-            <property>
-                <name>mapred.job.tracker</name>
-                <value>localhost:9001</value>
-            </property>
-        </configuration>
-  this file configure the job tracker node in cluster,remember port `:9001`  
+    <configuration>
+        <property>
+            <name>mapred.job.tracker</name>
+            <value>localhost:9001</value>
+        </property>
+    </configuration>
+
+this file configure the job tracker node in cluster,remember port `:9001`  
 
   next edit the file named `conf/hdfs-site.xml`  
 
-        <configuration>
-            <property>
-                <name>dfs.replication</name>
-                <value>1</value>
-            </property>
-        </configuration>
+    <configuration>
+        <property>
+            <name>dfs.replication</name>
+            <value>1</value>
+        </property>
+    </configuration>
+
   the configuration above is to determeine now many replication of hdfs will be stored, because HADOOP is a distributed system, distributed and replication strategy must be the best method to store large scale of data.  
 
-5.  initialize the hdfs and startup HADOOP daemon  
+5.initialize the hdfs and startup HADOOP daemon  
 `[root@localhost hadoop-1.0.4]# ./bin/hadoop namenode -format`  
 `[root@localhost hadoop-1.0.4]# ./bin/start-all.sh`  
 
-6. get corresponding eclipse plugin  
+
+6.get corresponding eclipse plugin  
 As my hadoop version is 1.0.4, the version of plugin must be 1.0.4  
 I have to compile a plugin jar file myself, because the version after 0.20 in hadoop release, the hadoop releaser will not compile the eclipse plugin in advance, whilst they just put source code in   
 `src/contrib/eclipse-plugin/`   
@@ -89,11 +93,11 @@ Hence you can use `ant` or `ivy` to compile yourself accordent with your operati
 you can also download 1.0.4 plugin on [internet](http://yiyujia.blogspot.com/2012/10/eclipse-mapreduce-plugin-build-for.html)  
 that is much easier!  
 
-7.   put eclipse plugin in $ECLIPSE_HOME/plugin  
+7.put eclipse plugin in $ECLIPSE_HOME/plugin  
 in my situation, `/opt/eclipse/plugins/`  
 now your eclipse have the capability to develop hadoop project.  
 
-8.  launch eclipse  
+8.launch eclipse  
 then startup your eclipse and click this little button named "open perspective"  
 ![map-reduce-perspective](http://githubpage.u.qiniudn.com/Map-Reduce-perspective.png)  
 then enter the Map/reduce location tab  
@@ -114,24 +118,22 @@ now it seems your HADOOP development environment is complete now lets test it to
 
 
 
-
-
 ##test our hadoop env
-9.  sample data
+9.sample data
 
         java c++ python c  
         java c++ javascript  
         helloworld hadoop  
         mapreduce java hadoop hbase
 
-10.  create HDFS folder
+10.create HDFS folder
 create folder on HDFS through hadoop command named `/tmp/workcount`  notice this named folder is virtually mounted in HDFS, thus it is located in the folder you have defined in configuration file.  
 `bin/hadoop fs -mkdir /tmp/wordcount`  
 then transmit this data file into HDFS   
 `bin/hadoop fs -copyFromLocal /home/rugal/word.txt  /tmp/wordcount/word.txt`  
 
 
-11.  execute hadoop job
+11.execute hadoop job
 run this project but you have to make some change in parameters  
 right click on wordcount.java file in eclipse -->Run as-->Run Configurations  
 add  parameter below seperated by space  
@@ -149,20 +151,20 @@ after the completion of running,you can see that result of program by hadoop com
 `bin/hadoop fs -ls /tmp/wordcount/out`  
 you should know folder is refer to your command above so be careful create folders 
 
-12.  display result
+12.display result
 let see the result by HADOOP command  
 `bin/hadoop fs -cat /tmp/wordcount/out/part-r-00000`  
 
 
-            c         1
-            c++       2
-            hadoop    2
-            hbase     1
-            helloworld 1
-            java       3
-            javascript  1
-            mapreduce  1
-            python    1
+    c         1
+    c++       2
+    hadoop    2
+    hbase     1
+    helloworld 1
+    java       3
+    javascript  1
+    mapreduce  1
+    python    1
 
 
 ok, here we have finished all the hadoop configuration and developing environment deployment.  

@@ -18,11 +18,11 @@ console when use 'zerofill' function, rather than storage length.
 Hence, the number or another calling bits has no significance in mysql type
 definition.  
 
-###TINYINT\[(M)\] \[UNSIGNED\] \[ZEROFILL\]  
+`TINYINT[(M)] [UNSIGNED] [ZEROFILL]`  
 A very small integer. The signed range is -128 to 127. The unsigned range is 0 to 255.  
 
-###INT\[(M)\] \[UNSIGNED\] \[ZEROFILL\]  
+`INT[(M)] [UNSIGNED] [ZEROFILL]`   
 A normal-size integer. The signed range is -2147483648 to 2147483647. The unsigned range is 0 to 4294967295.  
 
-###BIGINT
+`BIGINT`  
 from -2^63 (-9223372036854775808) to 2^63-1 (9223372036854775807) all intege type, the storage space is 8 bytes.

@@ -85,4 +85,5 @@ And this time, I could `make` successfully!
 I have learned it is the reason that the first time I `make`, those `.y` files are generated automatically, but they would not deleted by `make distclean`, which result in the above error.  
 Also I got to know, `make maintainer-clean` can clean all unnecessary file, hackers will use this to clean all no-needed files when they coding.  
 I have learnt more from this, `compilation principle` is so important that it was a great pity for my school do not have this class!  
+
 ##Let's start developing [Postgres](http://wiki.postgresql.org/wiki/Todo)
