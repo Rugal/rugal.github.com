@@ -7,6 +7,7 @@ tags: [java]
 ---
 {% include JB/setup %}
 It is said that we could conveniently sending email in Java. with the requirement of my project, I started to use it for my solution.  
+
 ##package requirement
 sending email in Java needs two part of `jar`, First of it is the `JavaEE` declared API which do not includes implementation. Another part is provided by vendor, different web server may have disparate support.  
 For me, `com.sun.mail` has rather enough function.  
@@ -25,6 +26,7 @@ In maven you need to add two `<dependency>`
 </dependency>
 {%endhighlight%}
 Please refer to [JavaMail API](https://java.net/projects/javamail/pages/Home) for further exploration.  
+
 ##coding
 I want to implement the mailing function in a clear way, hence I separate it into three parts by `sender-info` `mail-info` and `mail-sending`.  
 First part includes information about the sender, the procedure of sending email regularly needs a logined session from sender, which is similar to the procedure of logining `mail.google.com` by your `gmail` account.  

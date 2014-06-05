@@ -24,29 +24,29 @@ a chain that contain all the interceptors that need to execute, way and order ar
 
 
 ##preHandler
-1.execution sequence:  
+1. execution sequence:  
   the execution order comply to execution chain.
-2.execution position:  
+2. execution position:  
   execute after HandlerMapping determined an appropriate handler but just before invoking handler method
-3.result:  
+3. result:  
   if return true in this method, next interceptor in execution chain or the handler if no other interceptors after it will be invoked.  
   if return false or throw exception in this method, `DispatcherServlet` assumes this interceptor has already taken care of the response itself.  
 
 
 ##postHandler
-1.execution sequence:  
+1. execution sequence:  
 execution order in a invert order to execution chain.  
-2.execution position:  
+2. execution position:  
   this method will be executed after handler actually invoked, and before `DispatcherServlet` render the view.  
-3.significance:  
+3. significance:  
   this method is to do some modification or surviliance the `ModelAndView` object.  
 
 
 ##afterCompletion
-1.execution sequence:  
+1. execution sequence:  
 execution order is invert with execution chain, thus first interceptor will be the last one to execute.  
-2.execution position:  
+2. execution position:  
 this method will only be called if this preHandler method is successfully executed and return true, which means throwing exception or returning false will not intended to enter this method.  
 Will be invoked after view was rendered by `DispatcherServlet`  
-3.significance:  
+3. significance:  
 This method is designed to do some cleanup work.  

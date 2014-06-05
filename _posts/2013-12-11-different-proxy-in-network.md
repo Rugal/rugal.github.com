@@ -7,6 +7,7 @@ tags: [network]
 ---
 {% include JB/setup %}
 It might be confusing to tell `Forward Proxy` `Reverse Proxy` `transparent proxy`, let me clarify these:  
+
 ##forward proxy
 This kind of proxy is used manually by user or software itself, which means user or software itself aware the existance of proxy  
 For instance, `goagent` is a breaking GFW proxy that used in chrome and firefox, while configure with `goagent`.  

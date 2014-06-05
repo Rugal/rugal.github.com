@@ -16,5 +16,4 @@ $  convert $FILE  \
     -fill white  -stroke black  -strokewidth 5  -annotate  +20+25 'Rugal Bernstein'  \
     to $OUTPUTFILE
 {%endhighlight%}
-This command will resize the picture and make a annotation on it named 
-"Rugal Bernstein"
+This command will resize the picture and make a annotation on it named `Rugal Bernstein`

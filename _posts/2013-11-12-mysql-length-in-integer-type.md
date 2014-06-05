@@ -10,7 +10,9 @@ For a very long time not only me but also my friends think that types like
 int(1) and tinyint is almost the same. In that way, int(1) has no disparate
 with tinyint and int(10) has no difference with bigint.  
 is that correct?  
-Actually is not true:  
+
+##Actually is not true
+
 As a matter of fact, in mysql database that `number` in `int(number)` represent
 only displaying length, which is just to show the length of number of digits in
 console when use 'zerofill' function, rather than storage length.  

@@ -18,7 +18,10 @@ Here I will introduce the representation of streams in linux bash programming:
 upon which we could use that number to redirect data or information into
 another stream.  
 Here is our example:  
-`$CommandThatProduceOutputs 1>/dev/null 2>&1`
+
+{%highlight bash%}
+$CommandThatProduceOutputs 1>/dev/null 2>&1
+{%endhighlight%}
 
 As we could see that,through `>`, we could redirect the number represented
 stream into another place.  

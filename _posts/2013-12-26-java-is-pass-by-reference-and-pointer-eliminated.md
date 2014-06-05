@@ -40,11 +40,12 @@ print result:
     3 3 3
 
 from this instance, we got to know three things:  
+
 1. variable, pointer and reference have the capability to change the value of variable.  
 2. pointer is a kind of method that will affect variable it pointed to, but it can not change value if this pointer is pointing to another variable (sounds like bullshit!).  
 3. reference is a kind of alias that also behave like pointer, but what alias mean is the variable and reference are binded together, when reference or variable changed, the other one also varied.  
-  
-  
+
+
 After review pointer and reference behavior in C++, now let us see what that behave in `Java`  
 {%highlight java%}
 public class Main
@@ -86,8 +87,10 @@ Do you feel puzzled? because they said java is passed by value, and there is no 
 what is wrong with you? what is wrong with me?  
 
 To keep you clarified, Let me explain this to you   
+
 ###hint one:  
 there is no one to gurrantee `reference` in java is what `reference` like in `C/C++`  
+
 ###hint two:  
 Don't you think this so called `reference` in java behave just like what pointer do in `C/C++`  
 

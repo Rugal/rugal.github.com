@@ -8,6 +8,7 @@ tags: [postgresql]
 {% include JB/setup %}
 ##way to get extensions in ubuntu
 `sudo apt-get install postgresql-contrib`  
+
 1. libossp-uuid16:amd64 (1.6.2-1.3, automatic)
 2. postgresql-contrib-9.1:amd64 (9.1.12-0ubuntu0.13.10, automatic)
 3. postgresql-contrib:amd64 (9.3+146really9.1+148)

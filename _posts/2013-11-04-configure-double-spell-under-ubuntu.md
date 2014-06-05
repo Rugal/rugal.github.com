@@ -6,8 +6,10 @@ category: operation
 tags: [linux]
 ---
 {% include JB/setup %}
+
 ##install fcitx:  
 `sudo apt-get install fcitx;sudo reboot`  
+
 ##configure paging setting:  
 edit `~/.config/fcitx/config` and change properties below:  
 {%highlight properties%}
