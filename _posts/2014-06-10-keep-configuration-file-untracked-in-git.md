@@ -6,9 +6,9 @@ category: operation
 tags: [git]
 ---
 {% include JB/setup %}
-In now came to bother me when I trying to keep configuration file such as `log4j` and `jdbc` in project while avoiding versioning by git automatically.  
+It recently came to bother me when I trying to keep configuration file such as `log4j` and `jdbc` in project while avoiding versioning by git automatically.  
 For synchronization aspect, different coder and application need basic file content to tackle with; Whilst various coder and production environment will definitely have disparate configuration.  
-So I need to git to control those configuration file while cloning with default configuration, but to keep them untracked if individual coder changed the content in it.  
+So I need git to control those configuration file while cloning with default configuration, but to keep them untracked if individual coder changed the content in it.  
 
 Try this after commit your last version:
 {%highlight bash%}
