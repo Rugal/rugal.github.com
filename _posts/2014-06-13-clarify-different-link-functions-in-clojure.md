@@ -42,3 +42,20 @@ To import `Java` class into namespace and shorten the invock name.
 {%endhighlight%}
 You could shorten the canonical name and just need to use simple name of a `class` to refer to target class
 
+
+
+##namespace declare
+To simply those kinds of link function, use `(ns)` function to bring them all together.  
+{%highlight clojure%}
+(ns my-great-project.core
+    "This namespace is CRAZY!"
+    (:use [clojure.string :only [split join]] :reload)
+    (:require clojure.stacktrace
+        [clojure.test :as test]
+        (clojure template walk) 
+        :verbose
+    )
+    (:import (java.util Date GregorianCalendar))
+)
+{%endhighlight%}
+You could use random quantity of any `:use` `:require` and `:import` in this function.
