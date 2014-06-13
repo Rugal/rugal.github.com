@@ -26,6 +26,7 @@ To import another class/function into our namespace, hence target namespace just
 {%highlight clojure%}
 user=> (use 'clojure.string)
 user=> (use '[clojure.string :only [split]])
+user=> (use '[clojure.string :exclude [replace reverse]]) ; To import all except those
 ;since USE will merge target ns into current ns
 ; [:only] option makes it possible to merge partially.
 user=> (split "a,b,c" #",") ;split is a function defined in [string] ns
