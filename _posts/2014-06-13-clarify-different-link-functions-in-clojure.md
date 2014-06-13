@@ -59,3 +59,31 @@ To simply those kinds of link function, use `(ns)` function to bring them all to
 )
 {%endhighlight%}
 You could use random quantity of any `:use` `:require` and `:import` in this function.
+
+
+##example
+{%highlight clojure%}
+(ns rugal.core
+    "This namespace is belong to Rugal Bernstein!"
+    (:use [clojure.contrib.math :only [sqrt]])
+)
+(println "Rugal Bernstein")
+
+(defn aliquot? "To  determine if a could be aliquoted by b"
+	[a b]
+	(= 0 (mod a b))
+)	
+(defn prime? "To determine if given number is prime"
+	[n]
+	(if (even? n) 
+		false
+		(if (some true? 
+				(for  [i  (range 3  (+ 1 (int (ceil (sqrt n)))) 2) ] (aliquot? n i)) 
+			)
+			false true
+		)
+	)
+) 
+{%endhighlight%}
+
+
