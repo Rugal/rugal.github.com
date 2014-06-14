@@ -62,26 +62,27 @@ You could use random quantity of any `:use` `:require` and `:import` in this fun
 
 
 ##example
+An original innovated prime number function:  
 {%highlight clojure%}
 (ns rugal.core
-    "This namespace is belong to Rugal Bernstein!"
-    (:use [clojure.contrib.math :only [sqrt ceil]])
-)
-(println "Rugal Bernstein")
+    "This namespace is belong to Rugal Bernstein!")
 (defn aliquot? "To  determine if a could be aliquoted by b"
     [a b]
-    (= 0 (mod a b))
-)
+    (= 0 (mod a b)))
+(defn smallest-divisor
+	"Get smallest divisor of a given number"
+	[n]
+	(if (even? n)
+		2
+		(loop [i 3]
+			(if (aliquot? n i)
+				i
+				(recur (+ i 2))
+			))))
 (defn prime? "To determine if given number is prime"
     [n]
-    (if (even? n) 
-        false
-        (if (some true? (for  [i  (range 3  (+ 1 (int (ceil (sqrt n)))) 2) ] (aliquot? n i)) )
-	    false true
-	)
-    )
-) 
-
+    (if (= n (smallest-divisor n))
+    	true
+    	false
+    ))
 {%endhighlight%}
-
-
