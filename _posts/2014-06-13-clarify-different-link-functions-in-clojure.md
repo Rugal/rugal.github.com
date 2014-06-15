@@ -70,19 +70,19 @@ An original innovated prime number function:
     [a b]
     (= 0 (mod a b)))
 (defn smallest-divisor
-	"Get smallest divisor of a given number"
-	[n]
-	(if (even? n)
-		2
-		(loop [i 3]
-			(if (aliquot? n i)
-				i
-				(recur (+ i 2))
-			))))
+  "Get smallest divisor of a given number"
+  [n]
+  (if (even? n)
+    2
+    (loop [i 3]
+      (if (aliquot? n i)
+      i
+      (recur (+ i 2))
+    ))))
 (defn prime? "To determine if given number is prime"
     [n]
     (if (= n (smallest-divisor n))
-    	true
-    	false
+      true
+      false
     ))
 {%endhighlight%}
