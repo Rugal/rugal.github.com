@@ -23,7 +23,7 @@ tagline:  Study Harder
         "Facebook" : "Rugal Bernstein",
         "Gmail" : "ryujinwrath",
         "Nature language":[ "Chinese","English" ],
-        "Programming language":["C","Java","Python","Bash","Perl"],
+        "Programming language":["C","Java","Clojure","Python","Bash","Perl"],
         "Blog": "http://rugal.ml"
     },
     "Editor": "Vim",
@@ -34,7 +34,7 @@ tagline:  Study Harder
     "Interests":["database system","distributed system"],
     "Certificate":"Oracle Certified Professional 10G",
     "Expert":["Java","C","Vim","Linux","Oracle","Mysql"],
-    "Familiar":["Python","Bash","Hadoop","Postgres"],
+    "Familiar":["Python","Bash","Clojure","Hadoop","Postgres"],
     "Motto":"Never yield to your destiny!",
     "Recent plan":"study abroad"
 }
