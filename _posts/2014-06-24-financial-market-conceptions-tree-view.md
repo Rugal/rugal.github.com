@@ -18,8 +18,8 @@ Three main asset classes:
 ###security
 A security is a tradable asset of any kind. Securities are broadly categorized into:
 >1. debt securities (such as `banknotes`, `bonds`);
-2. equity securities, e.g., `common stocks`;
-3. derivative contracts, such as `forwards`, `futures`, `options` and `swaps`.
+>2. equity securities, e.g., `common stocks`;
+>3. derivative contracts, such as `forwards`, `futures`, `options` and `swaps`.
 
 
 
