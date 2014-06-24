@@ -7,20 +7,20 @@ tags: [java]
 ---
 {% include JB/setup %}
 
-###JVM component
+##JVM component
 
-1. `class loader subsystem`
-2. `runtime data area(memory space)`
-    3. `method area`(shared by all threads)
-    4. `heap` (shared by all threads)
-    5. `Java stack` (thread specific)
-    6. `PC register` (thread specific)
-    7. `local method stack` (thread specific)
-3. `execute engine`
-4. `local method interface`
+1. class loader subsystem
+2. runtime data area(memory space)
+    3. method area (shared by all threads)
+    4. heap (shared by all threads)
+    5. Java stack (thread specific)
+    6. PC register (thread specific)
+    7. local method stack (thread specific)
+3. execute engine
+4. local method interface
 
 
-###classloader category
+##classloader category
 
 1. `BootStrap Class Loader`:Is responsible for loading all java class in `rt.jar` file, which means all Java core classes is loaded by this `classloader`. implemented by `C++` in `Sun JDK`. No any reflection could get their reference.
 2. `Extension Class Loader`:Loading some functional extensible jar.
@@ -29,11 +29,11 @@ tags: [java]
 
 
 
-###ClassLoader  working  principle
+##ClassLoader  working  principle
 
 Class loading procedure divided into three phases:  
 
-####1. Load
+###1. Load
 Loading class through Class's `canonical name`: load specific `.class` file into `JVM`. After load completion, identify the classloader as `CanonicalName+ClassLoader`.  
 Classloader instance and Class instance live in heap, their class properties and information located in method area.  
 Loading procedure adapt `Parent delegation model`, when classloader plan to load class, it will request its parent classloader, while its parent classloader will move on to forward loading request to upper classloader until `bootstrap classloader`. Classload would load lass only if its parent unable load specific class.  
@@ -41,7 +41,7 @@ Loading procedure adapt `Parent delegation model`, when classloader plan to load
 
 Beware, developer must ensure loading security if they define their own classloader.
 
-####2. Linkage
+###2. Linkage
 Linkage is to merge binary class information into JVM runtime state.   
 Linkage task separate into three steps:   
 
@@ -49,7 +49,7 @@ Linkage task separate into three steps:
 2. preparation: allocation memory for class, meanwhile initialize static variable with default value.
 3. Resolve(optional): resolve class token constant pool into direct reference, but actually it could postponed while referring it in usage.
 
-####3. Initialization
+###3. Initialization
 Initialize static variable in class, and execute static code and constructor defined in class.   
 `JVM` specification strictly defined when to do initialization.:   
 
