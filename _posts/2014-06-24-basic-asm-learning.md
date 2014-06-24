@@ -1,3 +1,11 @@
+---
+layout: post
+title: "basic asm learning"
+description: ""
+category: development
+tags: [asm]
+---
+{% include JB/setup %}
 Well, I have to say learn some `ASM` is mandatory while inspecting linux kernel code, hence I give a sample of simply write an `asm` code.   
 
 There are six registers that are used for the arguments that the system call takes.   
