@@ -6,8 +6,9 @@ category: development
 tags: [clojure]
 ---
 {% include JB/setup %}
-###clojure build-in types
 
+
+###clojure build-in types
 
 name |example|underlying java interface
 --|--|--
@@ -28,6 +29,7 @@ Set | #{1 2 3}| `java.util.Set`
 -----
 
 ###Number
+
 {%highlight clojure%}
 1. (+)
 2. (-)
@@ -43,6 +45,7 @@ Set | #{1 2 3}| `java.util.Set`
 
 
 ###Strings
+
 {%highlight clojure%}
 1. (str)
 2. (subs string from end)   
@@ -53,6 +56,7 @@ Set | #{1 2 3}| `java.util.Set`
 
 
 ###Regular Expression Functions
+
 {%highlight clojure%}
 1. (re-pattern "[a-z]")
 2. (re-matches #"[a-zA-Z]* " "test")
@@ -60,6 +64,7 @@ Set | #{1 2 3}| `java.util.Set`
 
 
 ###Boolean
+
 {%highlight clojure%}
 1. (not)
 2. (and)
@@ -74,6 +79,7 @@ Set | #{1 2 3}| `java.util.Set`
 
 
 ###Keywords
+
 {%highlight clojure%}
 1. (keyword string)
 2. (keyword?)
@@ -81,10 +87,12 @@ Set | #{1 2 3}| `java.util.Set`
 
 
 ###Lists
+
 List is a linked list, which is convenient in insertion and deletion, but not perform good in traverse and random indexing.  
 So for a list, modification, appending and conjunction is happened on the top/head of a list.
 
 {%highlight clojure%}
+
 1. '(1 2 3)    ; (list) are the same
 2. (peek '(1 2 3))   ;get first element of list;
 3. (pop ‘(1 2 3))    ;returns a new list with the first item removed.
@@ -93,6 +101,7 @@ So for a list, modification, appending and conjunction is happened on the top/he
 
 
 ###vector
+
 Vector is like an array, hence perform good in traverse, data appending and  random selection, but disappointing in insertion and deletion.  
 So for a vector, modification, append and conjunction is happened on the tail of a vector.
 
@@ -108,8 +117,9 @@ So for a vector, modification, append and conjunction is happened on the tail of
 
 
 ###map
+
 very similar to an Object in OOP:  
- {%highlight clojure%}
+{%highlight clojure%}
 1. (def my-map {:a 1 :b 2 :c 3}) ;map definition
 2. (my-map :a)  ;normal map get
 3. (defstruct person :first-name :last-name) ;define struct for frequently used map structure
@@ -126,6 +136,7 @@ very similar to an Object in OOP:
 
 
 ###set
+
 {%highlight clojure%}
 1. (def languages #{:java :lisp :c++})
 2. (clojure.set/union #{:a :b} #{:c :d})
