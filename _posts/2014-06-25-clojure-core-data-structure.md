@@ -11,22 +11,22 @@ tags: [clojure]
 ###clojure build-in types
 
 name |example|underlying java interface
---|--|--
+:--|--:|--:
 Number|100|`java.lang.Number`
 String|"Rugal"|`java.lang.String`
 Boolean|true, false|`java.lang.Boolean`
 Character|\R|`java.lang.Character`
 Keyword |:key| `clojure.lang.Keyword`
-List|  '(1 2 3), (list 1 2 3)|
-Vector |[1 2 3]|
+List|  '(1 2 3), (list 1 2 3)|`nil`
+Vector |[1 2 3]|`nil`
 Map | {:key val :key val}| `java.util.Map`
 Set | #{1 2 3}| `java.util.Set`
 
 
 
-
-
 -----
+
+##primitive type
 
 ###Number
 
@@ -69,7 +69,7 @@ Set | #{1 2 3}| `java.util.Set`
 1. (not)
 2. (and)
 3. (or)
-{%highlight clojure%}
+{%endhighlight%}
 
 
 ###Characters
@@ -85,6 +85,12 @@ Set | #{1 2 3}| `java.util.Set`
 2. (keyword?)
 {%endhighlight%}
 
+
+
+--------
+
+
+##collection
 
 ###Lists
 
