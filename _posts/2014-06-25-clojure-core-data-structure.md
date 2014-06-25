@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "some oracle tools and introduction"
+title: "clojure core data structure"
 description: ""
-category: operation
-tags: [oracle]
+category: development
+tags: [clojure]
 ---
 {% include JB/setup %}
 
