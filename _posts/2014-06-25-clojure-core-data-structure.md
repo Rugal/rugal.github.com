@@ -101,8 +101,8 @@ So for a list, modification, appending and conjunction is happened on the top/he
 
 1. '(1 2 3)    ; (list) are the same
 2. (peek '(1 2 3))   ;get first element of list;
-3. (pop ‘(1 2 3))    ;returns a new list with the first item removed.
-4. (conj `(1 2 3) 4)  ;conjunct last parameter into mid parameter represented list
+3. (pop '(1 2 3))    ;returns a new list with the first item removed.
+4. (conj '(1 2 3) 4)  ;conjunct last parameter into mid parameter represented list
 {%endhighlight%}
 
 
