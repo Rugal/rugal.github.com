@@ -21,7 +21,7 @@ state management seems pretty significant in `clojure`:
 4. (dosync (ref-set my-ref 6))
 5. (dosync (alter my-ref + 3))
 
-sample:
+;sample
 (def my-contacts (ref []))
 (defn add-contact
     "adds a contact to the provided contact list"
