@@ -3,7 +3,7 @@ layout: post
 title: "fetch html file in Java"
 description: ""
 category: development
-tags: [java,http]
+tags: [java]
 ---
 {% include JB/setup %}
 How to get an html file in Java?  
