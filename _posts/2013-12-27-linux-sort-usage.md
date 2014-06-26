@@ -3,7 +3,7 @@ layout: post
 title: "linux sort usage"
 description: ""
 category: operation
-tags: [bash,sort]
+tags: [bash]
 ---
 {% include JB/setup %}
 I found it is great useful to enroll sort as my bash tool:
