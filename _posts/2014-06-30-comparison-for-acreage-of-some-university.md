@@ -14,7 +14,7 @@ Seems `wateroo` is pretty huge campus, `manitoba` is also appreciated.
 
 
 name|area
----|---
+---:|:---
 wateroo| 6 070 acre
 TsingHua    |5 886 acre
 manitoba |4 103 acre
