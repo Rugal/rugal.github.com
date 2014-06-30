@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "basic asm learning"
+title: "device type in kernel"
 description: ""
 category: development
-tags: [asm]
+tags: [linux]
 ---
 {% include JB/setup %}
 
