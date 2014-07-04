@@ -63,56 +63,52 @@ user=> `['~name]     ;[(quote #<core$name clojure.core$name@d75415>)]
 
 ##4. @
   
+If you have seen my post of [state management](/2014/06/26/clojure-state-management-introduction/), you will know the `@` is about to derefer the `ref/atom/Agent`.   
+But here this symbol again have another behavior that is `~` alike.  
+`@` symbol must combined use with `~`, which finally become `~@`, called `unquote-splicing` symbol.   
+It could expand all elements in a `list` to  inserted in the place of a single `unquote-splicing` symbol.   
  
+ 
+sample code:  
+
 {%highlight clojure%}
-user=> `(max ~@(shuffle (range 10)))
-(clojure.core/max 0 4 7 5 1 2 6 3 9 8)
-user=> `(max @(shuffle (range 10)))
-(clojure.core/max (clojure.core/deref (clojure.core/shuffle (clojure.core/range 10))))
-user=> `(max ~(shuffle (range 10)))
-(clojure.core/max [8 2 6 7 3 9 5 1 0 4])
+user=> `(max @(shuffle (range 10)))     ;have no effect without ~ as prefix
+;(clojure.core/max (clojure.core/deref (clojure.core/shuffle (clojure.core/range 10))))
+
+user=> `(max ~(shuffle (range 10)))       ; just behave as what syntax-quote and unquote could
+;(clojure.core/max [8 2 6 7 3 9 5 1 0 4]) ;There is an square parenthesis there
+
+user=> `(max ~@(shuffle (range 10)))      ;~@ replace items in list just onto its symbol without parenthesis.
+;(clojure.core/max 0 4 7 5 1 2 6 3 9 8)   ;There got rid of the square parenthesis
 {%endhighlight%}  
     
 ##5. let's confusing    
+You will graduately get accustom to it.  
+`syntax-quote` will affect items one by one in it follow scope, while encounter `~` then temporary disabled `syntax-quote`'s ability in this the scope of `~`.   
+
+Try to learn more by yourself.  
 
 
 {%highlight clojure%}
-user=> `[:a ~(+ 1 1) c]
-[:a 2 user/c]
+user=> `{:a 1 :b '~(+ 1 2)}  ;{:a 1, :b (quote 3)}
 
+user=> `[:a ~(+ 1 1) c]     ;[:a 2 user/c]
+user=> `[:a ~(+ 1 1) ~`c]   ;[:a 2 user/c]
+user=> `[:a ~(+ 1 1) ~'c]    ;[:a 2 c]
+user=> `[:a ~(+ 1 1) 'c]     ;[:a 2 (quote user/c)]
+user=> `[:a ~(+ 1 1) '~'c]   ;[:a 2 (quote c)]
 
-user=> `[:a ~(+ 1 1) ~'c]
-[:a 2 c]
-
-
-user=> `[:a ~(+ 1 1) ~`c]
-[:a 2 user/c]
-
-
-user=> `{:a 1 :b '~(+ 1 2)}
-{:a 1, :b (quote 3)}
-
-
-user=> `[:a ~(+ 1 1) '~'c]
-[:a 2 (quote c)]
-
-
-user=> `{:a 1 :b '~@(list 1 2)}
-{:a 1, :b (quote 1 2)}
+user=> `{:a 1 :b '~@(list 1 2)}  ;{:a 1, :b (quote 1 2)}
 
 
 user=> `(1 `(2 3) 4)
-(1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list 3))) 4)
-
-
+;(1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list 3))) 4)
 user=> `(list 1 `(2 ~(- 9 6)) 4)
-(clojure.core/list 1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list (clojure.core/- 9 6)))) 4)
-
-
+;(clojure.core/list 1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list (clojure.core/- 9 6)))) 4)
 user=> `(list 1 `(2 ~~(- 9 6)) 4)
-(clojure.core/list 1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list 3))) 4)
+;(clojure.core/list 1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list 3))) 4)
+user=> (eval `(list 1 `(2 ~~(- 9 6)) 4))   ;(1 (2 3) 4)
+{%endhighlight%}
 
-
-user=> (eval `(list 1 `(2 ~~(- 9 6)) 4))
-(1 (2 3) 4)
-{%endhighlight%}  
+###Congratulation
+You finally complete this article, what have you learnt about the `quote` and `unquote` symbol in clojure?
