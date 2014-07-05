@@ -18,3 +18,4 @@ Those are all project that completed in between my university
 5. springmvc-spring-mybatis skeleton
 6. Task tracker
 7. Vocabulary reciter
+8. springmvc-spring-hibernate archetype in maven
