@@ -9,6 +9,24 @@ tags: [java,maven]
 
 Welcome to my [archetype](https://github.com/Rugal/springmvc-spring-hibernate) that integrate `springmvc/spring/hibernate` together.  
 
+maven repository:  
+{%highlight xml%}
+<groupId>ml.rugal.archetype</groupId>
+<artifactId>springmvc-spring-hibernate</artifactId>
+<version>0.1</version>
+{%endhighlight%}
+
+
+Create archetype from command line using maven:  
+{%highlight bash%}
+mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
+                        -DarchetypeArtifactId=springmvc-spring-hibernate  \
+                        -DarchetypeVersion=0.1          \
+                        -DgroupId=your.group.id         \
+                        -DartifactId=your.artifact.id   \
+                        -Dversion=your.version
+{%endhighlight%}
+
 ###Specification
 1. Springmvc
 2. Spring
