@@ -17,8 +17,7 @@ MathJax.Hub.Config({
     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
     TeX: { equationNumbers: { autoNumber: "AMS" },
          extensions: ["AMSmath.js", "AMSsymbols.js"] }
-  }
-});
+  }});
 </script>
 
 <script type="text/x-mathjax-config">
