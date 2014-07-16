@@ -21,7 +21,7 @@ MathJax.Hub.Config({
 </script>
 
 
-###premise
+##premise
 1. $X$ is a `matrix` which has `m` rows and `n` columns, that means it is a $m \times n$ matrix, represents for training set.
 2. $\theta$ is a $1 \times n$ `vector`, stands for hypothesis parameter.
 3. $y$ is a $m \times 1$ `vector`, stands for real value of training set.
@@ -29,19 +29,42 @@ MathJax.Hub.Config({
 
 
 
-##Hypothesis
+------
+
+#1. Hypothesis
+
+>Draw hypothesis of a pattern.
 
 $$
 h_{\theta}(X) = X \times \theta^T
 $$
 
-##Cost function
+#2. Cost
+
+>Calculate the Cost for single training point.
+
+$$Cost(X^{(i)},y^{(i)})=[h_{\theta}(X^{(i)}) - y^{(i)}]^2$$
+
+#3. Cost function
+
+>Draw cost function for iterating whole training set.
 
 $$
-J(\theta)=\left(\frac{1}{2m}\right)\sum_{i=1}^m[h_{\theta}(X^{(i)}) - y^{(i)}]^2
+\begin{aligned}
+J(\theta) &=\left(\frac{1}{2m}\right)\sum_{i=1}^m Cost(X^{(i)},y^{(i)})    \\
+          &=\left(\frac{1}{2m}\right)\sum_{i=1}^m[h_{\theta}(X^{(i)}) - y^{(i)}]^2
+\end{aligned}
 $$
 
-##Gradient Descend
+
+#4. Get optimized parameter
+
+>Learn from training set to get optimized parameter for proposed algorithm.
+
+##Gradient Descend##
+
+>Complicate to implement.  
+>suitable for any senario.  
 
 $$
 \begin{aligned}
@@ -50,9 +73,13 @@ grad(j) &= \frac{\partial}{\partial \theta_j} J(\theta)  \\
 \end{aligned}
 $$
 
+$$\theta_j=\theta_j - \alpha \times grad(j)\ \ Repeat\ many\ times $$  
 
-##Gradient Descend for Linear Regression
+## Normal equation##
+
+>Convenient, but performance bad while `m` grow large than 100000.  
+>Unable to conquer non-invertable matrix.  
 
 $$
-\theta_j=\theta_j - \alpha \times grad(j)
+\theta = (X^{T}X)^{\prime}X^{T}y
 $$
