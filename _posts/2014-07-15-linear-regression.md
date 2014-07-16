@@ -26,6 +26,7 @@ MathJax.Hub.Config({
 2. $\theta$ is a $1 \times n$ `vector`, stands for hypothesis parameter.
 3. $y$ is a $m \times 1$ `vector`, stands for real value of training set.
 4. $\alpha$ named `learning rate` for defining learning or descending speed.
+5. $S(X_j)$ means to get standard deviation of the j feature from training set.
 
 
 
@@ -61,7 +62,7 @@ $$
 
 >Learn from training set to get optimized parameter for proposed algorithm.
 
-##Gradient Descend##
+###Gradient Descend###
 
 >Complicate to implement.  
 >suitable for any senario.  
@@ -75,11 +76,28 @@ $$
 
 $$\theta_j=\theta_j - \alpha \times grad(j)\ \ Repeat\ many\ times $$  
 
-## Normal equation##
+### Normal equation###
 
 >Convenient, but performance bad while `m` grow large than 100000.  
 >Unable to conquer non-invertable matrix.  
 
 $$
 \theta = (X^{T}X)^{\prime}X^{T}y
+$$
+
+
+
+##Feature scaling
+>Use feature scaling to optimize training set.  
+>Make gradient descend converge much faster.
+
+$$X_j=\frac{X_j - \mu}{a}$$
+
+
+$$
+\begin{aligned}
+a &= max(X_j)-min(X_j) \\
+  &  or \\
+  &= S(X_j)
+\end{aligned}
 $$
