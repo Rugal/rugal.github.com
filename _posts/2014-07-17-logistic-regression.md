@@ -1,0 +1,82 @@
+---
+layout: post
+title: "logistic regression"
+description: ""
+category: development
+tags: [machine learning]
+---
+{% include JB/setup %}
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }});
+</script>
+
+##premise
+1. $X$ is a `matrix` which has `m` rows and `n` columns, that means it is a $m \times n$ matrix, represents for training set.
+2. $\theta$ is a $1 \times n$ `vector`, stands for hypothesis parameter.
+3. $y$ is a $m \times 1$ `vector`, stands for real value of training set.
+4. $\alpha$ named `learning rate` for defining learning or descending speed.
+
+
+
+-------
+
+
+#1. Hypothesis
+
+>Draw hypothesis of a pattern.  
+>Since classification problem range from 0 to 1  
+>We need to make use of this `sigmoid` function  
+
+$$
+h_{\theta}(X) = g(X \times \theta^T)  \\
+g(z) = \frac{1}{1 + e^{-z}}
+$$
+
+#2. Cost
+
+>Calculate the Cost for single training point.
+
+$$Cost(X^{(i)},y^{(i)})=[h_{\theta}(X^{(i)}) - y^{(i)}]^2$$
+
+#3. Cost function
+
+>Draw cost function for iterating whole training set.
+
+$$
+\begin{aligned}
+J(\theta) &=\left(\frac{1}{2m}\right)\sum_{i=1}^m Cost(X^{(i)},y^{(i)})    \\
+          &=\left(\frac{1}{2m}\right)\sum_{i=1}^m[h_{\theta}(X^{(i)}) - y^{(i)}]^2
+\end{aligned}
+$$
+
+
+#4. Get optimized parameter
+
+>Learn from training set to get optimized parameter for proposed algorithm.
+
+###Gradient Descend###
+
+$$
+\begin{aligned}
+grad(j) &= \frac{\partial}{\partial \theta_j} J(\theta)  \\
+        &= \frac{1}{m}\sum_{i=1}^m[(h_{\theta}(X^{(i)}) - y^{(i)}) X_{j}^{(i)}]
+\end{aligned}
+$$
+
+$$\theta_j=\theta_j - \alpha \times grad(j)\ \ Repeat\ many\ times $$  
+
+### Others ###
+
+1. Conjugated gradient
+2. BFPM
+3. L-BFPM
