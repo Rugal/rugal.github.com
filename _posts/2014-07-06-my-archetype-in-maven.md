@@ -7,25 +7,31 @@ tags: [java,maven]
 ---
 {% include JB/setup %}
 
+###20140716
+` important release update`:  
+switch XML based configuration into Java based style.  
+
+
+--------
+
 Welcome to my [archetype](https://github.com/Rugal/springmvc-spring-hibernate) that integrate `springmvc/spring/hibernate` together.  
 
 maven repository:  
-{%highlight xml%}
-<groupId>ml.rugal.archetype</groupId>
-<artifactId>springmvc-spring-hibernate</artifactId>
-<version>0.1</version>
-{%endhighlight%}
-
 
 Create archetype from command line using maven:  
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
-                        -DarchetypeVersion=0.1          \
+                        -DarchetypeVersion=0.2          \
                         -DgroupId=your.group.id         \
                         -DartifactId=your.artifact.id   \
                         -Dversion=your.version
 {%endhighlight%}
+
+
+
+
+---------
 
 ###Specification
 1. Springmvc
@@ -33,4 +39,4 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
 3. Hibernate
 4. BoneCP
 
-My archetype aimed to provide `Restful` web service, but it could also provide regular view configuration.
+My archetype aimed to provide `Restful` web service, but it could also provide regular view resolvation.
