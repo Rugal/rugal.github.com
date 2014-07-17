@@ -69,7 +69,7 @@ $$
 $$
 \begin{aligned}
 grad(j) &= \frac{\partial}{\partial \theta_j} J(\theta)  \\
-        &= \frac{1}{m}\sum_{i=1}^m[(h_{\theta}(X^{(i)}) - y^{(i)}) X_{j}^{(i)}]
+        &= \frac{-1}{m}\sum_{i=1}^m[y^{(i)}log(h_\thetaX^{(i)})+(1-y^{(i)}log(1-h_\theta(X^{(i)})))]
 \end{aligned}
 $$
 
@@ -77,6 +77,6 @@ $$\theta_j=\theta_j - \alpha \times grad(j)\ \ Repeat\ many\ times $$
 
 ### Others ###
 
-1. Conjugated gradient
-2. BFPM
-3. L-BFPM
+1. Conjugate gradient
+2. BFGS
+3. L-BFGS
