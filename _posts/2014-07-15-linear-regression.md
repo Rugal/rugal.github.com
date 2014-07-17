@@ -74,7 +74,7 @@ grad(j) &= \frac{\partial}{\partial \theta_j} J(\theta)  \\
 \end{aligned}
 $$
 
-$$\theta_j=\theta_j - \alpha \times grad(j)\ \ Repeat\ many\ times $$  
+$$\theta_j := \theta_j - \alpha \times grad(j) \quad \text{Repeat many times}  $$  
 
 ### Normal equation###
 
