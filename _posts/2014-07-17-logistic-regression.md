@@ -69,7 +69,7 @@ $$
 $$
 \begin{aligned}
 grad(j) &= \frac{\partial}{\partial \theta_j} J(\theta)  \\
-        &= \frac{-1}{m}\sum_{i=1}^m[y^{(i)}log(h_\theta(X^{(i)})))+(1-y^{(i)}log(1-h_\theta(X^{(i)})))]
+        &= \frac{-1}{m}\sum_{i=1}^m[y^{(i)}log(h_\theta(X^{(i)}))+(1-y^{(i)})log(1-h_\theta(X^{(i)}))]
 \end{aligned}
 $$
 
