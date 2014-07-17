@@ -10,6 +10,9 @@ tags: [charset]
 There are many discrepancy towards `unicode` and `UTF=8`, for very long time I did tno figure out what the difference between thiese two things.  
 
 
+
+------
+
 #character set
 Also known as `char set`, defined some specific word or character on this world into sequential number.  
 There ever have some sort of `char set` in this world:  
@@ -31,6 +34,7 @@ ASCII use `7` bits to represent `128` characters.
 
 
 ####sample `ASCII` character set table
+
 Binary |	Oct| 	Dec| 	Hex| 	Glyph
 --|--|--|--|--
 010 0100| 	044| 	36| 	24| 	$
@@ -51,6 +55,7 @@ Just like `ASCII`, `Unicode` not only provide all ASCII character set with its o
 Unicode use `24` bits to represent, that is almost 3 bytes.
 
 ####sample `UNICODE` character set table
+
 Dec| Hex | Glyph
 --|--|--
 36|U+0024|$
@@ -58,6 +63,8 @@ Dec| Hex | Glyph
 8364|U+20AC|€ 
 
 
+
+-----------
 
 #character encoding
 In this chapter I just want to talk about `encoding` with `Unicode` for simplicity.  
@@ -87,6 +94,7 @@ Bits of code point| First code point| Last code point| Bytes in sequence| Byte 1
 So use this binary code point table along with Unicode character set, we can now have better performed encoding system:  
 
 ####sample `UTF-8`  mapping table 
+
 Glyph| unicode 	|Binary code point |	Binary UTF-8| 	Hexadecimal UTF-8
 --|--|--|--|--
 $ |	U+0024| 	0100100 	|00100100| 	24
