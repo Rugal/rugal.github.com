@@ -57,7 +57,8 @@ $$
 $$
 \text{simplified as below for any $y$} \\
 Cost(X,y) =-[y \times log(h_\theta(X))+(1-y) \times log(1-h_\theta(X))]
-$$
+$$  
+
 
 #3. Cost function
 
