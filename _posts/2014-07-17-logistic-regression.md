@@ -46,16 +46,26 @@ $$
 
 >Calculate the Cost for single training point.
 
-$$Cost(X^{(i)},y^{(i)})=[h_{\theta}(X^{(i)}) - y^{(i)}]^2$$
+$$
+Cost(X,y) = \left\{
+  \begin{array}{l l}
+    -log(h_\theta (X)) & \quad \text{if $y = 1$  } \\
+    -log(1-h_\theta (X))   &\quad \text{if $y = 0$ } \\
+  \end{array} \right.   \\
+$$
 
+$$
+\text{simplified as below for any $y$} \\
+Cost(X,y) =-[y \times log(h_\theta(X))+(1-y) \times log(1-h_\theta(X))]
+$$
 #3. Cost function
 
 >Draw cost function for iterating whole training set.
 
 $$
 \begin{aligned}
-J(\theta) &=\left(\frac{1}{2m}\right)\sum_{i=1}^m Cost(X^{(i)},y^{(i)})    \\
-          &=\left(\frac{1}{2m}\right)\sum_{i=1}^m[h_{\theta}(X^{(i)}) - y^{(i)}]^2
+J(\theta) &=(\frac{1}{m})\sum_{i=1}^m Cost(X^{(i)},y^{(i)})    \\
+&= \frac{-1}{m}\sum_{i=1}^m[y^{(i)}log(h_\theta(X^{(i)}))+(1-y^{(i)})log(1-h_\theta(X^{(i)}))]
 \end{aligned}
 $$
 
@@ -69,11 +79,18 @@ $$
 $$
 \begin{aligned}
 grad(j) &= \frac{\partial}{\partial \theta_j} J(\theta)  \\
-        &= \frac{-1}{m}\sum_{i=1}^m[y^{(i)}log(h_\theta(X^{(i)}))+(1-y^{(i)})log(1-h_\theta(X^{(i)}))]
+        &= \frac{1}{m}\sum_{i=1}^m[(h_\theta(X^{(i)}) - y^{(i)}) \times X^{(i)}_j] \\
 \end{aligned}
 $$
 
-$$\theta_j=\theta_j - \alpha \times grad(j)\ \ Repeat\ many\ times $$  
+$$
+\begin{aligned}
+\theta_j &:= \theta_j - \alpha \times grad(j) \quad \text{Repeat many times}  \\
+          &:= \theta_j - \alpha \sum_{i=1}^m[(h_\theta(X^{(i)}) - y^{(i)}) \times X^{(i)}_j] 
+\end{aligned}
+$$
+
+
 
 ### Others ###
 
