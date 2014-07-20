@@ -1,9 +1,9 @@
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Consolas';
   font-style: normal;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'),
-  url(font/Lato/Lato.woff) format('woff');
+  src: local('Consolas Regular'), local('Consolas-Regular'),
+  url(font/Consolas/Consolas.ttf) format('ttf');
 }
 @font-face {
   font-family: 'Monaco';
@@ -32,7 +32,7 @@ body {
   color: #bbb;
   text-shadow: 1px 1px 1px #000;
   height: 100%;
-  font-family: 'Lato';
+  font-family: 'Consolas';
   font-size: 15px;
 }
 
@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   color: #999;
   text-rendering: optimizelegibility;
-  font-family: 'Lato';
+  font-family: 'Consolas';
 }
 
 /* line 35, ../_sass/_base.scss */
