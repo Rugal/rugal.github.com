@@ -33,4 +33,22 @@ mvn dependency:tree -Dverbose
 
 #skip test
 mvn -Dmaven.test.skip=true
+
+#use nexus plugin to deploy artifact
+#will release if set true for auto release
+maven clean deploy
+#manual release if set false for auto release
+mvn nexus-staging:release
+#drop staging artifact
+mvn nexus-staging:drop
+
+
+#release artifact by maven replease plugin
+#this plugin will automatically tag on SCM
+#Thus is powerful to do automation deployment between SCM and maven repo
+#first prepare it with SNAPSHOT version
+mvn release:clean release:prepare
+#perform release after this
+mvn release:perform
+
 {%endhighlight%}
