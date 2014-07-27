@@ -3,7 +3,7 @@ layout: post
 title: "postgres command"
 description: ""
 category: operation
-tags: [postgres]
+tags: [postgresql]
 ---
 {% include JB/setup %}
 Postgres is a super excellent RDBMS and object database which integreted with various number of functionalities exceed current average level of other database productions.  

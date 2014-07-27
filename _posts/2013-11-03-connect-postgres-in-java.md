@@ -3,7 +3,7 @@ layout: post
 title: "connect Postgres in Java"
 description: ""
 category: development
-tags: [java,postgres]
+tags: [java,postgresql]
 ---
 {% include JB/setup %}
 
