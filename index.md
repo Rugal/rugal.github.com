@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Rugal Bernstein's official blog
-tagline:  Study Harder
+title: Rugal Bernstein's official site
+tagline:  Tenjin Descend
 ---
 {% include JB/setup %}
     
@@ -10,33 +10,36 @@ tagline:  Study Harder
 {
     "Author" : 
     {
-        "Given name": "Rugal",
+        "First name": "Rugal",
         "Family name": "Bernstein",
         "Location":"temporarily in HangZhou China",
         "Degree":"bachelor degree of engineering",
-        "Major":"Software Engineering",
+        "Major":"Master of Science in Computer",
         "University":"University of Manitoba",
         "QQ" : "359788955",
         "Github" : "Rugal",
+        "StackOverflow" : "Rugal",
+        "Quora" : "Rugal",
         "Twitter" : "@ryujinwrath",
         "LinkedIn" : "Yunheng Yao",
         "Facebook" : "Rugal Bernstein",
         "Gmail" : "ryujinwrath",
         "Nature language":[ "Chinese","English" ],
-        "Programming language":["C","Java","Clojure","Python","Bash","Perl"],
-        "Blog": "http://rugal.ml"
+        "Programming language":["Java","C","Bash","Clojure","Octave","Python"]
     },
+    "Recent plan":"study abroad",
+    "Blog": "http://rugal.ml",
     "Editor": "Vim",
     "IDE": "Netbeans",
     "OS": "Ubuntu Precise",
     "Phone": "Iphone 5C",
-    "Opensource community":["Postgres","Ubuntu", "Hadoop"],
+    "Community":["Postgres","Ubuntu", "Hadoop"],
     "Interests":["database system","distributed system"],
     "Certificate":"Oracle Certified Professional 10G",
-    "Expert":["Java","C","Vim","Linux","Oracle","Mysql"],
-    "Familiar":["Python","Bash","Clojure","Hadoop","Postgres"],
-    "Motto":"Never yield to your destiny!",
-    "Recent plan":"study abroad"
+    "Expert":["Java","C","Linux","Oracle","Mysql"],
+    "Familiar":["Python","Bash","Hadoop","Postgres"],
+    "Learning":["machine learning","data mining","Clojure","Octave","Hive","Hbase"],
+    "Motto":"Never yield to destiny!"
 }
 {%endhighlight%}
 
