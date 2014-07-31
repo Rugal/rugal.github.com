@@ -21,7 +21,7 @@ TsingHua | |5 886 acre
 manitoba| | 4 103 acre
 Toranto ||  3 900 acre
 Peking   ||  3 478 acre
-ZJUT    || 3200 acre
+ZJUT    || 3 200 acre
 Princeton  ||  3 035 acre
 alberta ||  1 335 acre
 Yale   || 1 062 acre
