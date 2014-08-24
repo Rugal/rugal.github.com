@@ -12,7 +12,7 @@ tagline:  Tenjin Descend
     {
         "First name": "Rugal",
         "Family name": "Bernstein",
-        "Location":"temporarily in ShangHai China",
+        "Location":"Winnipeg, Manitoba, Canada",
         "Degree":"Master degree of Science",
         "Major":"Computer Science",
         "Field":["data mining","database"],
