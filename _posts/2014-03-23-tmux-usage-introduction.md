@@ -3,7 +3,7 @@ layout: post
 title: "tmux usage introduction"
 description: ""
 category: operation
-tags: [tmux]
+tags: [linux]
 ---
 {% include JB/setup %}
 
