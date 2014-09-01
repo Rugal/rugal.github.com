@@ -6,10 +6,14 @@ category: development
 tags: [java,maven]
 ---
 {% include JB/setup %}
+###20140802
+` important release update`:  
+Extract `ssh-common` package out.  
+
 
 ###20140716
 ` important release update`:  
-switch XML based configuration into Java based style.  
+Switch XML based configuration into Java based style.  
 
 
 --------
@@ -22,7 +26,7 @@ Create archetype from command line using maven:
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
-                        -DarchetypeVersion=0.2          \
+                        -DarchetypeVersion=0.3          \
                         -DgroupId=your.group.id         \
                         -DartifactId=your.artifact.id   \
                         -Dversion=your.version
