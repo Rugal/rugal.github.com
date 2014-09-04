@@ -39,6 +39,9 @@ By simply replace variable name with list, the code of map seems like this:
 {%endhighlight%}
 then this code is become below after `rest` executed:  
 
+{%highlight clojure%}
+(map + [1 ..] [0 1 ..] )
+{%endhighlight%}
 
 As `map` generate lazy sequence, it is instructed to generate the first item of it, so by `map` these two lists, we got an item `1=(+ 1 0)` which is the result of both the first item of these two lists add together.  
 Then the `map` stop generate item as it have no instruction to do so.  Now after generate the new item `1` and concatenate it with `[0 1]`, our `fib-seq` now look like this:  
