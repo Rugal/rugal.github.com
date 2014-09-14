@@ -3,7 +3,7 @@ layout: post
 title: "good glossary"
 description: ""
 category: myself
-tags: [english]
+tags: [language]
 ---
 {% include JB/setup %}
 
