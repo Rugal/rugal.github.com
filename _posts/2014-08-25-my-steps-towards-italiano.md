@@ -3,7 +3,7 @@ layout: post
 title: "my steps towards italiano"
 description: ""
 category: myself
-tags: []
+tags: [language]
 ---
 {% include JB/setup %}
 I have to say the `Assassin Creed` makes me to believe it is a world for real hero who determined with what he want.  
