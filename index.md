@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Rugal Bernstein's official site
-tagline:  Tenjin Descend
+title: personal site for Rugal Bernstein
+tagline:  La vie est drôle
 ---
 {% include JB/setup %}
     
@@ -28,7 +28,7 @@ tagline:  Tenjin Descend
         "Nature language":[ "Chinese","English" ],
         "Programming language":["Java","C","Bash","Clojure","Octave","Python"]
     },
-    "Recent plan":"study abroad",
+    "Recent plan":"study human learning procedure",
     "Blog": "http://rugal.ml",
     "Editor": "Vim",
     "IDE": "Netbeans",
@@ -39,7 +39,7 @@ tagline:  Tenjin Descend
     "Certificate":"Oracle Certified Professional 10G",
     "Expert":["Java","C","Linux","Oracle","Mysql"],
     "Familiar":["Python","Bash","Hadoop","Postgres"],
-    "Learning":["machine learning","data mining","Clojure","Octave","Hive","Hbase"],
+    "Learning":["artificial intellegence","machine learning","data mining","Hive","Hbase"],
     "Motto":"Never yield to destiny!"
 }
 {%endhighlight%}
