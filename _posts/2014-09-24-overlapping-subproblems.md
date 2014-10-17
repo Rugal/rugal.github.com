@@ -2,7 +2,7 @@
 layout: post
 title: "Overlapping Subproblems"
 description: ""
-category: developme
+category: development
 tags: [algorithm]
 ---
 {% include JB/setup %}
