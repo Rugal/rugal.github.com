@@ -39,21 +39,3 @@ Examples:
 2. $S=\{(0000),(1111)\} \subseteq V_4(Z_2)$
 3. $S=\{(0000),(1111),(1100),(0110),(0011),(1001),(1010),(0101)\} \subseteq V_4(Z_2)$
 
-
------
-
-
-##rings
-A commutative ring with unity $(R,+,*)$ is an algebraic structure consisting of a set of elements R together with two binary operations denoted `+` and `*` which satisfy the follow properties for all elements in `R`:  
-
-1. $(R,+)$ is an abelian group with identity $e$.
-2. $(R,*)$ is not a group, but associative, with identity element $1$, commutative.
-3. `*` upon `+` is distributive(* prior to +).
-
-
-
-##ideal ring
-Let $(R,+,*)$ be a ring; A non-empty subset $I$ of $R$ called a `ideal` of the ring if:
-
-1. $(I,+)$ is a group.
-2. $i*r \in I$ for all $i \in I$ and $r \in R$.

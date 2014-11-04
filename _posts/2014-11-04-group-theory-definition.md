@@ -78,7 +78,7 @@ distributive||$\times$
 ##rings
 A commutative ring with unity $(R,+,*)$ is an algebraic structure consisting of a set of elements R together with two binary operations denoted `+` and `*` which satisfy the follow properties for all elements in `R`:  
 
-property|+|*
+property|$+$|$*$
 ---|---:|---:
 clojure|$\checkmark$|$\checkmark$
 associative|$\checkmark$|$\checkmark$
@@ -96,7 +96,14 @@ Let $(R,+,*)$ be a ring; A non-empty subset $I$ of $R$ called a `ideal` of the r
 1. $(I,+)$ is a group.
 2. $i*r \in I$ for all $i \in I$ and $r \in R$.
 
-
+property||$+$
+---|---|---:
+clojure||$\checkmark$
+associative||$\checkmark$
+identity||$\checkmark$
+inversible||$\checkmark$
+commutative||$\times$
+distributive||$\times$
 
 ---------
 
@@ -104,11 +111,11 @@ Let $(R,+,*)$ be a ring; A non-empty subset $I$ of $R$ called a `ideal` of the r
 field is a set of elements which is closed under two binary operations, which we denote by $+$ and $\times$.
 
 
----|+|$\cdot$
----|---|---:
+property|$+$|$\times$
+---|---:|---:
 clojure|$\checkmark$|$\checkmark$
 associative|$\checkmark$|$\checkmark$
 commutative|$\checkmark$|$\checkmark$
 identity|0|1
-inversible|$\checkmark$|not 0
+inversible|$\checkmark$|!0
 distributive|$\times$|$\checkmark$
