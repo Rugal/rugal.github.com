@@ -34,7 +34,7 @@ There exists an element $e \in G$, such that for all elements $a \in G$, the equ
 5. `Inversible`:  
 For each $a \in G$, there exists an element $a^{-1} \in G$ such that $a \bullet a^{-1} = e$, where $e$ is the identity element. 
 6. `Distributive`:  
-For all $a, b \in G$, the equation $(a+b) \bullet c=a \bullet c+b \bullet c$ holds.
+For all $a, b, c \in G$, the equation $(a+b) \bullet c=a \bullet c+b \bullet c$ holds.
 
 
 
