@@ -47,7 +47,7 @@ Examples:
 A commutative ring with unity $(R,+,*)$ is an algebraic structure consisting of a set of elements R together with two binary operations denoted `+` and `*` which satisfy the follow properties for all elements in `R`:  
 
 1. $(R,+)$ is an abelian group with identity $e$.
-2. $(R,*)$ is an abelian group with identity $1$.
+2. $(R,*)$ is not a group, but associative, with identity element $1$, commutative.
 3. `*` upon `+` is distributive(* prior to +).
 
 
