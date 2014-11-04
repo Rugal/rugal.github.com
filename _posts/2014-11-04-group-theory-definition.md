@@ -19,21 +19,96 @@ MathJax.Hub.Config({
          extensions: ["AMSmath.js", "AMSsymbols.js"] }
   }});
 </script>
-##group(G,•)
-consists of a set of elements together with an operation * such that:  
+
+##properties
+Before introduce group definition, let me list those properties mentioned.  
 
 1. `Closure`:  
-For all $a, b \in G$, the result of the operation $a • b \in G$ holds.
-2. `Association:`  
-For all $a, b, c \in G$, the equation $(a • b) • c = a • (b • c)$ holds.
-3. `Identity element`:  
-There exists an element $e \in G$, such that for all elements $a \in G$, the equation $e • a = a • e = a$ holds.
-4. `Inverse element`:  
-For each $a \in G$, there exists an element $b \in G$ such that $a • b = b • a = e$, where e is the identity element. We use $a^{-1}$ to represent its inverse element.
+For all $a, b \in G$, the relation $a \bullet b \in G$ holds.
+2. `associative:`  
+For all $a, b, c \in G$, the equation $(a \bullet b) \bullet c = a \bullet (b \bullet c)$ holds.
+3. `Commutative`  
+For all $a, b \in G$, $a \bullet b = b \bullet a$.
+4. `Identity element`:  
+There exists an element $e \in G$, such that for all elements $a \in G$, the equation $e \bullet a = a$ holds.
+5. `Inversible`:  
+For each $a \in G$, there exists an element $a^{-1} \in G$ such that $a \bullet a^{-1} = e$, where $e$ is the identity element. 
+6. `Distributive`:  
+For all $a, b \in G$, the equation $(a+b) \bullet c=a \bullet c+b \bullet c$ holds.
 
+
+
+----------
+
+##group(G,•)
+consists of a set of elements together with an operation $\bullet$ such that:  
+
+property||$\bullet$
+---|---|---:
+clojure||$\checkmark$
+associative||$\checkmark$
+identity||$\checkmark$
+inversible||$\checkmark$
+commutative||$\times$
+distributive||$\times$
+
+
+
+
+----------
 
 ##abelian group (A, •)
 Abelian group is a `group`, but also have one additional property:
 
-1. `Commutative`  
-For all $a, b \in A$, $a • b = b • a$.
+
+property||$\bullet$
+---|---|---:
+clojure||$\checkmark$
+associative||$\checkmark$
+identity||$\checkmark$
+inversible||$\checkmark$
+commutative||$\checkmark$
+distributive||$\times$
+
+
+-----------
+
+
+
+##rings
+A commutative ring with unity $(R,+,*)$ is an algebraic structure consisting of a set of elements R together with two binary operations denoted `+` and `*` which satisfy the follow properties for all elements in `R`:  
+
+property|+|*
+---|---:|---:
+clojure|$\checkmark$|$\checkmark$
+associative|$\checkmark$|$\checkmark$
+commutative|$\checkmark$|$\checkmark$
+identity|$\checkmark$|$\checkmark$
+inversible|$\checkmark$|N/A
+distributive|$\times$|$\checkmark$
+
+
+-----------
+
+##ideal ring
+Let $(R,+,*)$ be a ring; A non-empty subset $I$ of $R$ called a `ideal` of the ring if:
+
+1. $(I,+)$ is a group.
+2. $i*r \in I$ for all $i \in I$ and $r \in R$.
+
+
+
+---------
+
+##field 
+field is a set of elements which is closed under two binary operations, which we denote by $+$ and $\times$.
+
+
+---|+|$\cdot$
+---|---|---:
+clojure|$\checkmark$|$\checkmark$
+associative|$\checkmark$|$\checkmark$
+commutative|$\checkmark$|$\checkmark$
+identity|0|1
+inversible|$\checkmark$|not 0
+distributive|$\times$|$\checkmark$

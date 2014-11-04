@@ -108,6 +108,8 @@ hr {
 /* Layout */
 /* line 81, ../_sass/_base.scss */
 .navbar {
+  position:relative;
+  z-index:999;
   margin-bottom: 0;
 }
 /* line 83, ../_sass/_base.scss */
