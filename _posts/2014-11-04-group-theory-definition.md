@@ -3,7 +3,7 @@ layout: post
 title: "group theory definition"
 description: ""
 category: math
-tags: [group]
+tags: []
 ---
 {% include JB/setup %}
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
