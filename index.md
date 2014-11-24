@@ -29,17 +29,17 @@ tagline:  La vie est drôle
         "Programming language":["Java","C","Bash","Clojure","Octave","Python"]
     },
     "Recent plan":"study human learning procedure",
-    "Blog": "http://rugal.ml",
+    "Blog": "http://rugal.ga",
     "Editor": "Vim",
     "IDE": "Netbeans",
     "OS": "Ubuntu Precise",
     "Phone": "Iphone 5C",
-    "Community":["Postgres","Ubuntu", "Hadoop"],
-    "Interests":["database system","distributed system"],
+    "Community":["Postgres","Ubuntu","Hadoop"],
+    "Interests":["database system","Artificial Intelligence"],
     "Certificate":"Oracle Certified Professional 10G",
     "Expert":["Java","C","Linux","Oracle","Mysql"],
-    "Familiar":["Python","Bash","Hadoop","Postgres"],
-    "Learning":["artificial intellegence","machine learning","data mining","Hive","Hbase"],
+    "Familiar":["Bash","Hadoop","Postgres","Clojure","Octave","Python"],
+    "Learning":["artificial intellegence","machine learning","data mining"],
     "Motto":"Never yield to destiny!"
 }
 {%endhighlight%}
