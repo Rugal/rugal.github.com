@@ -10,7 +10,8 @@ tags: [hadoop]
 When using eclipse on window to connect to remote hadoop server in Linux.  
 But when add a new location: `Cannot connect to the Map/Reduce location: `  
 
-    Call to 172.18.3.198/172.18.3.198:9001 failed on connection exception: java.net.ConnectException: Connection refused: no further information.
+    Call to 172.18.3.198/172.18.3.198:9001 failed on connection exception: 
+    java.net.ConnectException: Connection refused: no further information.
 
 
 
