@@ -2,7 +2,7 @@
 layout: post
 title: "java scanner chinese character"
 description: ""
-category: operation
+category: development
 tags: [java]
 ---
 {% include JB/setup %}
