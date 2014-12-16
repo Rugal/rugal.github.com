@@ -20,6 +20,7 @@ By using `require` with `:all` ane `:refer` options, you could do the same work 
 
 {%highlight clojure%}
 ;Also write some tips for loading `.clj` files manully.
+;; file located at src/address_book/core.clj
 (load "address_book/core") ;just need class name with slash
 (load-file "src/address_book/core.clj");need canonical name and full clj extention
 ;remove namespace from current one
