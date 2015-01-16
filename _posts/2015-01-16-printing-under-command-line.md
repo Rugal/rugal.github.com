@@ -7,9 +7,7 @@ tags: [linux]
 ---
 {% include JB/setup %}
 Long time no see! Today I am going to have a very exciting thing:  
-
-    printing under command line in linux
-    
+`printing under command line in linux`  
 Which is very useful if you need to do the work very fluently!  
 First install `cups` and its pdf converter by:  
 {%highlight bash%}
