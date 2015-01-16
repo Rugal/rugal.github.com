@@ -62,4 +62,5 @@ Also in `lp` you could specify a lot of printing options, you instance two side 
 lp -o sides=two-sided-long-edge -d Diamond filename
 {%endhighlight%}
 
+But the bad thing is, you could only print `txt` and `pdf` files, still a long way to go!  
 I can wait to use it! Have a try!
