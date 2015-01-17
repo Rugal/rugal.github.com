@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "oracle-internal-table"
+title: "oracle internal table"
 description: ""
 category: operation
 tags: [oracle]
