@@ -14,6 +14,7 @@ Any installed kit and environment by `apt-get` will automatically registered in 
 The strategy above ensured the flexibility to switch between different software and environment, you just need to use  
 
     sudo update-alternatives --config <name>
+    
 or  
 
     sudo update-alternatives --set <name> <bin_path>
