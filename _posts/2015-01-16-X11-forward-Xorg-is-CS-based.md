@@ -20,5 +20,5 @@ If you do not know the display location, you could just by trying to launch an d
     
     
 Nice, now you get the display address, just fill it in that blank and reconnect.  
-
-Magical right? Have a good day!
+How could that happen? Recalling the Xorg is `C/S` based, your `Xming` is a implementation of client of `Xorg`, this explained everything!  
+It is Magical, isn't it? Have a good day!
