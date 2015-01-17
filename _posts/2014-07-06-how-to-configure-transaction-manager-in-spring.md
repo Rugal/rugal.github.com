@@ -28,10 +28,10 @@ Session session = sessionFactory.getCurrentSession();
 But you will receive Exception if `getCurrentSession` without invoking create session first.  
 {%highlight java%}
 Session session = sessionFactory.getCurrentSession();
-//Exception there
+//Exception here
 {%endhighlight%}
 
-After explaining the exception above, you now may know root cause of this problem so as to better understand its strategy.  
+After explaining the exception above, you now may know root cause of this problem so as to better understand its scheme.  
 
 ##Now
 let's learn to configure transaction manager.  
@@ -41,8 +41,8 @@ There are two way of configuring transaction manager in spring integrated with h
 1. programmatic
 2. Declarative
 
-You can easily understand that the programmatic way of configuring transaction manager is to `beginTransaction` and `commit` manually in Java code, which is cumbersome but is actually ease you worries.   
-But I will not recommend it to you so this article will not introduce it in detail.   
+You can easily understand that the programmatic way of configuring transaction manager is to `beginTransaction` and `commit` manually in Java code, which is cumbersome but is actually ease your worries as everything are under your control.  This article will not introduce it at all.    
+I will not recommend it to you, because `Declarative` could still have very good control but much higher productivity and better code style by good modularization.   
 
 ###1. Add Spring transaction manager for Hibernate
 Add this bean in spring's `applicationContext.xml` configuration file to enable spring delegate transaction manager functionality.  
@@ -59,24 +59,36 @@ The declaration for this could have three ways of configuring this step.
 It is recommended to annotate `@Transactional` on `service layer` since service will handle most of business logic and could guarantee the overall business transactional consistency.  
 There is another thing to refer, the `propagation` of transaction mean to spread from invoker to invokee, rather passing from bilateral method, see examples:  
 {%highlight java%}
-//If this method somehow being transactional
+//If this method somehow being transactional by inheritence or directly annotated
+//if dao.save() and  dao.update() are annotated with @transactional respectively
 //the invoked dao.save() then could get transaction that is opened by invoker saveRoot
 @Transactional
 public Address saveRoot(Address bean)
 {
+    //The transaction opened by saveRoot will pass to method in it
+    //This transaction is exactly the same one with saveRoot one
+    //So this transaction is consistent.
+    dao.update(bean);
+    //So as this method.
     return dao.save(bean);
+    //The whole saveRoot method is transactional consistent, and will commit if nothing bad happen, or just rollback automatically if exception thrown
 }
 
+//another example for showing
 //if dao.save() and  dao.update() are annotated with @transactional respectively
-public void root(Address bean)
+//notice there is no @Transactional on the doSave method
+public void doSave(Address bean)
 {
+    //The transaction opened by the first dao.save method
     dao.save(bean);
-    //The transaction opened by save will commit here
+    //That transaction will commit here
+
     //So there is no transactional consistency.
-    
     //transaction will open separately for update
     dao.update(bean);
     //Then update method transaction commited here.
+    //Thus operations will commit separately, which result in very bad transaction management
+    //like nothing useful
 }
 {%endhighlight%}
 
