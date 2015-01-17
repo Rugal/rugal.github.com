@@ -3,7 +3,7 @@ layout: post
 title: "kvm virtual machine usage"
 description: ""
 category: operation
-tags: [virtualization]
+tags: [virtualization, linux]
 ---
 {% include JB/setup %}
 I have successfully installed KVM virtual machine for a very long time, but I did not do some actual jobs on it yet.  
