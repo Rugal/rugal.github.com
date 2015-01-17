@@ -9,7 +9,7 @@ tags: [oracle]
 
 By `v$lock`, we could have a look at lock in every session. Lock have a lot of mode:  
 
-mode|name|desc
+mode|name||desc
 --|--||--
 0|none|
 1|null|
