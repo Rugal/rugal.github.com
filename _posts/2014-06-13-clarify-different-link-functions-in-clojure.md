@@ -27,6 +27,7 @@ user=> (require 'clojure.string 'clojure.test :verbose :reload) ;separately
 user=> (require '[clojure.string :as string]) ;use alias
 user=> (require '(clojure string test)) ;import NS of same root
 user=> (require '(clojure [string :as string] test)) ; combination
+user=> (require '[clojure.data.json :refer :all]) ; this :refer is the most encouraged method
 
 user=> (clojure.string/join [1 2 3])  ;use ns/fn to invoke
 user=> (string/join [1 2 3])  ;use alias to shorten if alias exists
@@ -36,7 +37,7 @@ As you need to use `namespace/function` to refer to target function.
 
 ##use
 To import another class/function into our namespace, hence target namespace just like `merged` into your namespace.  
-This function combined `require` and `refer`.  
+This function combined `require` and `refer`.  But for recent version, they tend to deprecated `use` by using `(require '[clojure.data.json :refer :all])`.  
 {%highlight clojure%}
 user=> (use 'clojure.string)
 user=> (use '[clojure.string :only [split]])
