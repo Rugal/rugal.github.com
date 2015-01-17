@@ -3,11 +3,12 @@ layout: post
 title: "post JSON data from Curl"
 description: ""
 category: operation
-tags: [curl,linux]
+tags: [curl]
 ---
 {% include JB/setup %}
 Really very useful tip.  
-To post JSON format data in `CURL` from termial, you need to specify `-H "Content-Type: application/json"`.  
+To post JSON format data in `CURL` from termial, you need to specify header parameter  
+`-H "Content-Type: application/json"`.  
 Springmvc would reject this request body if `JSON` header not specified.
 {%highlight bash%}
 curl -H "Content-Type: application/json" \
