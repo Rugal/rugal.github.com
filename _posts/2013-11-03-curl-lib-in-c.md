@@ -3,7 +3,7 @@ layout: post
 title: "curl lib in C"
 description: ""
 category: development
-tags: [c]
+tags: [c, curl]
 ---
 {% include JB/setup %}
 
