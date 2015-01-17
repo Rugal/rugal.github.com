@@ -14,7 +14,7 @@ for you want to load a jar in `repl`
 New version of clojure deprecated the `use` function.  
 They trying to propagate `require`.  
 Since load all functions into current namespace will result into a banch of problems.  
-By using `require` with `:all` ane `:refer` options, you could do the same work in a more flexible way.  
+By using `require` by `:refer` with `:all` options, you could do the same work in a more flexible way.  
 
 ----
 
