@@ -31,7 +31,8 @@ S = show system objects
 {%endhighlight%}
 
 When thinking about postgres's data organization, I made a conclusion below:  
-##datafile -> tablespace -> database ->schema -> table
-But I did not get detailed knowledge like `segment/extent` in Oracle.  
 
+    datafile -> tablespace -> database ->schema -> table
+    
+But I did not get detailed knowledge like `segment/extent` in Oracle.  
 I think Postgres is awesome, high performance and well organized.  Good resource to study and backended as DBMS.
