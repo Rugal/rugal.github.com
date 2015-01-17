@@ -3,7 +3,7 @@ layout: post
 title: "install monaco font in ubuntu"
 description: ""
 category: operation
-tags: [linux]
+tags: [linux, font]
 ---
 {% include JB/setup %}
 With perfectly performance on Mac os, Monaco is my favorite font while programming.  
