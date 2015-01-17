@@ -3,7 +3,7 @@ layout: post
 title: "compilation error with postgres 9.3 on ubuntu"
 description: ""
 category: operation
-tags: [c,postgresql]
+tags: [c, postgresql, linux]
 ---
 {% include JB/setup %}
 I start on studying database development with `postgres` recently, and I'm sure I need to start from compilation of the source code, but a compilation problem comes to me.  
