@@ -3,7 +3,7 @@ layout: post
 title: "install KVM on ubuntu"
 description: ""
 category: operation
-tags: [virtualization]
+tags: [virtualization, linux]
 ---
 {% include JB/setup %}
 
