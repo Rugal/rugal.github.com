@@ -16,8 +16,8 @@ example: `X$KVIT`
 example: `OBJ$`
 
 ##static data dictionary(view)
-more stable than DD, based on `X$%` and `%$`.  
-A user have different levels of SDD.  
+>more stable than DD, based on `X$%` and `%$`.  
+>A user have different levels of SDD.  
 
 type||desc||example
 --|-|--|-|--
@@ -27,10 +27,11 @@ dba_% || all table, only for sysdba role || dba_users
 
 ##dynamic performance view(view)
 Including and reflect performance of system, dynamic, based on `X$%`  
-type|desc|example
---|--|--
-GV$%|including all instances|GV$METRIC
-V$%|local instance only|V$METRIC
+
+type||desc||example
+--|-|--|-|--
+GV$%||including all instances||GV$METRIC
+V$%||local instance only||V$METRIC
 
 ----
 
