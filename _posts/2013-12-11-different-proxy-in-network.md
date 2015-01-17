@@ -3,7 +3,7 @@ layout: post
 title: "different proxy in network"
 description: ""
 category: operation
-tags: [network]
+tags: [network, proxy]
 ---
 {% include JB/setup %}
 It might be confusing to tell `Forward Proxy` `Reverse Proxy` `transparent proxy`, let me clarify these:  
