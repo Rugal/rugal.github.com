@@ -3,7 +3,7 @@ layout: post
 title: "financial market conception tree view"
 description: ""
 category: myself
-tags: [finance]
+tags: []
 ---
 {% include JB/setup %}
 
