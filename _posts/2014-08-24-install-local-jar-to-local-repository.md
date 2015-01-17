@@ -3,7 +3,7 @@ layout: post
 title: "install local jar to local repository"
 description: ""
 category: development
-tags: [maven]
+tags: [maven, java]
 ---
 {% include JB/setup %}
 
