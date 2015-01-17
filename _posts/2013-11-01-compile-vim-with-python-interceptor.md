@@ -3,7 +3,7 @@ layout: post
 title: "compile vim with python interceptor"
 description: ""
 category: operation
-tags: [vim]
+tags: [vim, python]
 ---
 {% include JB/setup %}
 
