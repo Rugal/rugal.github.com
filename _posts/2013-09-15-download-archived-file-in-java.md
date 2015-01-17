@@ -7,7 +7,7 @@ tags: [java]
 ---
 {% include JB/setup %}
 
-{% highlight java linenos=table%}
+{% highlight java%}
 public byte[] request(String urlString)
 {
     URL url = null;
