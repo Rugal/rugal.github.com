@@ -57,7 +57,7 @@ Take instance if you want to print something with `Diamond` printer, you need to
 lp -d Diamond filename
 {%endhighlight%}
 
-Also in `lp` you could specify a lot of printing options, you instance two side printing if your printer supported:  
+Also in `lp` you could specify a lot of printing options, for instance do `two side` printing if your printer supported:  
 {%highlight bash%}
 lp -o sides=two-sided-long-edge -d Diamond filename
 {%endhighlight%}
