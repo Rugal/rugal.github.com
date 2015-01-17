@@ -10,8 +10,8 @@ tags: [postgresql]
 postgresql use `serial` as sequence type.  
 It conveniently generate a sequence named `$tablename_$columnname_seq` by default, which I think is so easy to use.  
 
-1. set `last_value` for `sequence_name`  
+set `last_value` for `sequence_name`  
 
-    SELECT setval('sequence_name', 21, true);
+        SELECT setval('sequence_name', 21, true);
 
 For which the last parameter `true` is the tag for `first use`; if true, it cannot be used as sequencer.
