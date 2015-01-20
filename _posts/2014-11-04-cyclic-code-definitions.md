@@ -2,8 +2,8 @@
 layout: post
 title: "cyclic code definitions"
 description: ""
-category: math
-tags: []
+category: study
+tags: [math]
 ---
 {% include JB/setup %}
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
