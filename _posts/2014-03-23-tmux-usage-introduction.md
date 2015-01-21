@@ -31,6 +31,8 @@ CTRL+B <window number>  #switch between windows
 
 CTRL+B d  #detach window
 
+CTRL+B [  #browser mode
+
 tmux ls #list tmux windows
 
 tmux attach -t 0 #reattach window
