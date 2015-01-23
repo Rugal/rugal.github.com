@@ -33,6 +33,7 @@ tagline:  La vie est drôle
     "Editor": "Vim",
     "IDE": "Netbeans",
     "OS": "Ubuntu Precise",
+    "Font": "HeyMono(Monaco)",
     "Phone": "Iphone 5C",
     "Community":["Postgres","Ubuntu","Hadoop"],
     "Interests":["database system","Artificial Intelligence"],

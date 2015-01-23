@@ -19,10 +19,10 @@ author :
   name : Rugal Bernstein
   email : ryujinwrath<AT>gmail.com
   facebook: rugal.bernstein.50
-  googleplus: 
+  #googleplus: 
   github : Rugal
   twitter : ryujinwrath
-  feedburner : Rugal
+  #feedburner : Rugal
 
 
 
@@ -82,8 +82,8 @@ JB :
   #categories_path : /categories.html
   #about_path : /about-author.html
   #tags_path : /tags.html
-  atom_path : /atom.xml
-  rss_path : /rss.xml
+  #atom_path : /atom.xml
+  #rss_path : /rss.xml
   
   # Settings for comments helper
   # Set 'provider' to the comment provider you want to use.
