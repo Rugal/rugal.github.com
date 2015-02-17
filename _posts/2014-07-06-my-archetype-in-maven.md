@@ -9,6 +9,7 @@ tags: [java,maven]
 
 ###20150217
 Replace Jackson with Gson in `messageConverter`  
+Replace BoneCP with HikariCP
 
 
 
@@ -47,6 +48,7 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
 1. Springmvc
 2. Spring
 3. Hibernate
-4. BoneCP
+4. HikariCP
+5. Gson
 
 My archetype aimed to provide `Restful` web service, but it could also provide regular view resolvation.
