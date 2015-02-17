@@ -33,7 +33,7 @@ Create archetype from command line using maven:
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
-                        -DarchetypeVersion=0.3          \
+                        -DarchetypeVersion=0.5          \
                         -DgroupId=your.group.id         \
                         -DartifactId=your.artifact.id   \
                         -Dversion=your.version
