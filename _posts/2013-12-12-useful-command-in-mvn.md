@@ -36,7 +36,7 @@ mvn -Dmaven.test.skip=true
 
 #use nexus plugin to deploy artifact
 #will release if set true for auto release
-maven clean deploy
+mvn clean deploy
 #manual release if set false for auto release
 mvn nexus-staging:release
 #drop staging artifact
