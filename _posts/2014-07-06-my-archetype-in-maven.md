@@ -6,6 +6,12 @@ category: development
 tags: [java,maven]
 ---
 {% include JB/setup %}
+
+###20150217
+Replace Jackson with Gson in `messageConverter`  
+
+
+
 ###20140802
 ` important release update`:  
 Extract `ssh-common` package out.  
