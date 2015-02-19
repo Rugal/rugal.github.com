@@ -6,6 +6,13 @@ category: development
 tags: [java,maven]
 ---
 {% include JB/setup %}
+
+###20150217
+Replace Jackson with Gson in `messageConverter`  
+Replace BoneCP with HikariCP
+
+
+
 ###20140802
 ` important release update`:  
 Extract `ssh-common` package out.  
@@ -26,7 +33,7 @@ Create archetype from command line using maven:
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
-                        -DarchetypeVersion=0.3          \
+                        -DarchetypeVersion=0.5          \
                         -DgroupId=your.group.id         \
                         -DartifactId=your.artifact.id   \
                         -Dversion=your.version
@@ -41,6 +48,7 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
 1. Springmvc
 2. Spring
 3. Hibernate
-4. BoneCP
+4. HikariCP
+5. Gson
 
 My archetype aimed to provide `Restful` web service, but it could also provide regular view resolvation.

@@ -81,6 +81,7 @@ pitfally, the actual print is:
     inner before Rugal
     inner after Bernstein
     outer after Rugal
+
 the `outer after Rugal` means inner `original` ref is not the same thing in outer `a`.  
 which is not an alias like `referece` in C++.  
 Do you feel puzzled? because they said java is passed by value, and there is no more pointer.
