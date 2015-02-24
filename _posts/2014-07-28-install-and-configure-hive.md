@@ -123,4 +123,4 @@ After the creation of table and the import, now check the HDFS for imported data
     hadoop fs -cat /user/hive/warehouse/t_hive/t_hive.txt
 
 Seems good, Cong!  
-For further steps, please visit [official](hive.apache.org).
+For further steps, please visit [official](http://hive.apache.org).
