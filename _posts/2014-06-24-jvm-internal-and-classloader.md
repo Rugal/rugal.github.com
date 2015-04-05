@@ -10,11 +10,13 @@ tags: [java]
 ##JVM component
 1. class loader subsystem
 2. runtime data area(memory space)
-    3. method area (shared by all threads)
-    4. heap (shared by all threads)
-    5. Java stack (thread specific)
-    6. PC register (thread specific)
-    7. local method stack (thread specific)
+    5. PC register (thread specific)
+    6. VM stack/Local variable table(threads specific)(Basic variables, reference, returnAddress)
+    4. Local method stack (thread specific)(For native code execution)
+    2. Heap (shared by all threads)(Almost all instance, GC's primary working place)
+    1. Non-heap/Method area (shared by all threads)(loaded Class, final, static, JIT code)
+    3. Runtime constant pool(Part of method area)(Class version, fields, methods, interfaces depiction)
+    4. Direct memory(Not in specification but frequently used)
 3. execute engine
 4. local method interface
 
