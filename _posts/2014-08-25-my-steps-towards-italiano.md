@@ -14,15 +14,5 @@ But first I need to learn Italiano.
 
 
 
-
 --------------
-
-word|value
----|---
-arrivederci|goodbye
-bene|ok
-bello|nice
-grazie|thanks
-ciao|hello
-excusa|excuse me
-Requiescat in pace|rest in peace
+[Glossary](/myself/2014/09/14/italiano/) 
