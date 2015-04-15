@@ -1,6 +1,6 @@
 ---
 layout: page
-title: personal site for Rugal Bernstein
+title: Grazie, Rugal Bernstein
 tagline:  La vie est drôle
 ---
 {% include JB/setup %}
@@ -15,7 +15,7 @@ tagline:  La vie est drôle
         "Location":"Winnipeg, Manitoba, Canada",
         "Degree":"Master degree of Science",
         "Major":"Computer Science",
-        "Field":["data mining","database"],
+        "Field":["Data Mining","Database"],
         "University":"University of Manitoba",
         "QQ" : "359788955",
         "Github" : "Rugal",
@@ -25,10 +25,10 @@ tagline:  La vie est drôle
         "LinkedIn" : "Yunheng Yao",
         "Facebook" : "Rugal Bernstein",
         "Gmail" : "ryujinwrath",
-        "Nature language":[ "Chinese","English" ],
+        "Nature language":[ "Chinese","English","Italiano" ],
         "Programming language":["Java","C","Bash","Clojure","Octave","Python"]
     },
-    "Recent plan":"study human learning procedure",
+    "Recent plan":"Study human learning procedure",
     "Blog": "http://rugal.ga",
     "Editor": "Vim",
     "IDE": "Netbeans",
@@ -36,11 +36,11 @@ tagline:  La vie est drôle
     "Font": "HeyMono(Monaco)",
     "Phone": "Iphone 5C",
     "Community":["Postgres","Ubuntu","Hadoop"],
-    "Interests":["database system","Artificial Intelligence"],
+    "Interests":["Database System","Artificial Intelligence"],
     "Certificate":"Oracle Certified Professional 10G",
     "Expert":["Java","C","Linux","Oracle","Mysql"],
     "Familiar":["Bash","Hadoop","Postgres","Clojure","Octave","Python"],
-    "Learning":["artificial intellegence","machine learning","data mining"],
+    "Learning":["Artificial Intellegence","Machine Learning","Data Mining"],
     "Motto":"Never yield to destiny!"
 }
 {%endhighlight%}
