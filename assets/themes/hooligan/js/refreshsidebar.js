@@ -14,14 +14,14 @@ function detect() {
     }
 }
 $(document).ready(function(e) {
-    a(10, 100);
+    a(-40, 100);
     detect();
     $('#_go_top').click(function() {
         $(document).scrollTop(0);
     })
 });
 $(window).resize(function() {
-    a(10, 100);
+    a(-40, 100);
 });
 
 $(window).scroll(function(e) {
