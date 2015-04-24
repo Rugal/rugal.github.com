@@ -16,3 +16,4 @@ Here I list same commands I think is most useful.
 * `cd`    similar as `cd` in shell, change `PWD` into this folder
 * `m`     open NERDTree menu
 * `I`     Toggle hidden files
+* `r`     Refresh file list
