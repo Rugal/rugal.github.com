@@ -103,3 +103,45 @@ Content of pointer: 0x400904
 Content of pointer: 0x400904  
 Content of pointer: 0x400905  
 Address of pointer: 0x7ffff11f1eb8
+
+
+##function*
+
+{%highlight c%}
+#include<stdio.h>
+#include<stdbool.h>
+#include<stdlib.h>
+void t1(int data)
+{
+    printf("T1 %d\n",data);
+}
+void t2(int data)
+{
+    printf("T2 %d\n",data);
+}
+void (*function)(int);
+int main()
+{
+    function=&t1;
+    function(6);
+    function=&t2;
+    function(232);
+    printf("Content of t1     :%p\n",t1);
+    printf("Content of t2     :%p\n",t2);
+    printf("Address of t1     :%p\n",&t1);
+    printf("Address of t2     :%p\n",&t2);
+
+    printf("Content of pointer:%p\n",function);
+    printf("Address of pointer:%p\n",&function);
+    return 0;
+}
+{%endhighlight%}
+
+>T1 6  
+T2 232  
+Content of t1     :0x4007fd  
+Content of t2     :0x40081e  
+Address of t1     :0x4007fd   
+Address of t2     :0x40081e  
+Content of pointer:0x40081e  
+Address of pointer:0x601048
