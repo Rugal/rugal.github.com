@@ -24,7 +24,7 @@ Following is my personal experience on 2014/05/16. Notice this instruction and g
 
 ##quick test API
 7. You can download sample audio file from [here](https://github.com/gillesdemey/google-speech-v2) for your convenience.
-8. use `API key` to call google speech API use [curl](/operation/2013/11/22/linux-curl-command-usage/) if you are using linux, this will save you a lot of time to see a quick result:  
+8. use `API key` to call google speech API use [curl]({% post_url 2013-11-22-linux-curl-command-usage %}) if you are using linux, this will save you a lot of time to see a quick result:  
 {%highlight bash%}
 curl -X POST --data-binary @./good-morning-google.flac --header 'Content-Type: audio/x-flac; rate=44100;' 'https://www.google.com/speech-api/v2/recognize?output=json&lang=en-us&key=yourkey'
 {%endhighlight%}
