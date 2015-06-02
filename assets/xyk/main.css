@@ -1,0 +1,190 @@
+/*
+* Credit to the original author XYKbear
+* https://github.com/xykbear/xykbear.github.io
+* code by XYKbear
+*/
+/* Common style */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    list-style-type: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    display: table;
+    zoom: 1;
+    width: 100%;
+}
+/* homepage */
+
+.site {
+    position: static;
+}
+
+.header {
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.header.header_invert {
+    padding: 20px 0;
+    background: none;
+}
+
+.header,
+.header.header_invert {
+    -webkit-transition: all 100ms linear;
+    transition: all 100ms linear;
+}
+
+.header_container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.site_title {
+    margin: auto 16px auto 16px;
+    font-size: 1.5em;
+    color: crimson;
+}
+
+.nav {
+    float: right;
+    line-height: 45px;
+}
+
+.nav a {
+    margin: auto 16px auto 16px;
+    font-size: 1.5em;
+    color: #FFF;
+}
+
+.cover {
+    background: url(http://78rgbs.com1.z0.glb.clouddn.com/EVA-cross.jpg) 50% 50% no-repeat;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.copy {
+    position: absolute;
+    font-size: 14px;
+    bottom: 10px;
+    right: 10px;
+    color: #666;
+}
+
+.contents {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 2;
+    -webkit-backface-visibility: hidden;
+}
+
+.contents section {
+    padding: 20px 0;
+    background-color: #2a2a2a;
+}
+
+.inner_section {
+    max-width: 1000px;
+    padding: 0 50px;
+    margin: auto;
+}
+
+.section_title {
+    font-size: 4em;
+    color: #eee;
+    margin-left: -20px;
+}
+
+.section_title span,
+.contents_title span {
+    font-size: 0.3em;
+    color: #999;
+}
+
+.section_title span:before,
+.contents_title span:before {
+    content: "|";
+}
+
+.section_block {
+    background-color: #111111;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+.section_grid {
+    background-color: #111111;
+    padding: 0 20px;
+    margin-left: -20px;
+    margin-bottom: 20px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.block_contents.left_coloum {
+    width: 60%;
+    padding-right: 30px;
+    min-width: 300px;
+}
+
+.block_contents.right_coloum{
+    width: 30%;
+    min-width: 300px;
+}
+
+.contents_title {
+    font-size: 2em;
+    padding-bottom: 0.6em;
+}
+
+.contents_list li {
+    color: #bbb;
+    font-size: 1.0em;
+    padding-bottom: 0.5em;
+}
+
+.contents_list li:before {
+    content: ">";
+}

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: rugal
 title: Grazie, Rugal Bernstein
 tagline:  La vie est drôle
 ---
@@ -44,5 +44,3 @@ tagline:  La vie est drôle
     "Motto":"Never yield to destiny!"
 }
 {%endhighlight%}
-
-![logo]( http://githubpage.u.qiniudn.com/orochi.png )
