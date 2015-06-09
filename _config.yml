@@ -5,7 +5,6 @@ permalink: /:categories/:year/:month/:day/:title
 markdown: kramdown
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-auto: true
 highlighter : pygments
 safe : true
 excerpt_separator: ""

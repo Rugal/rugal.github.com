@@ -2,7 +2,7 @@
 layout: post
 title: "tutorial to use google speech API"
 description: ""
-category: developement
+category: development
 tags: [java]
 ---
 {% include JB/setup %}
