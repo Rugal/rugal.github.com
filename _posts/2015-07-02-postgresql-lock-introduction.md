@@ -57,6 +57,9 @@ Many forms of `ALTER TABLE` also acquire a lock at this level (see [ALTER TABLE]
 This is also the default lock mode for `LOCK TABLE` statements that do not specify a mode explicitly.
 
 
+
+-----------
+
 ##Row level
 PostgreSQL doesn't remember any information about modified rows in memory, so there is no limit on the number of rows locked at one time. However, locking a row might cause a disk write, e.g., SELECT FOR UPDATE modifies selected rows to mark them locked, and so will result in disk writes.  
 
@@ -77,6 +80,7 @@ A shared lock blocks other transactions from performing `UPDATE`, `DELETE`, `SEL
 Behaves similarly to `FOR SHARE`, except that the lock is weaker: `SELECT FOR UPDATE` is blocked, but not `SELECT FOR NO KEY UPDATE`.   
 A key-shared lock blocks other transactions from performing `DELETE` or any `UPDATE` that changes the key values, but not other `UPDATE`, and neither does it prevent `SELECT FOR NO KEY UPDATE`, `SELECT FOR SHARE`, or `SELECT FOR KEY SHARE`.
 
+----------------
 
 ##Page level
 In addition to table and row locks, page-level share/exclusive locks are used to control read/write access to table pages in the shared buffer pool.   
