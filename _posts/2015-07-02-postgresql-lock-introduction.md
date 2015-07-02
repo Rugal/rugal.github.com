@@ -78,9 +78,6 @@ Behaves similarly to `FOR SHARE`, except that the lock is weaker: `SELECT FOR UP
 A key-shared lock blocks other transactions from performing `DELETE` or any `UPDATE` that changes the key values, but not other `UPDATE`, and neither does it prevent `SELECT FOR NO KEY UPDATE`, `SELECT FOR SHARE`, or `SELECT FOR KEY SHARE`.
 
 
-
 ##Page level
-
-##Deadlock
-
-##Advisory
+In addition to table and row locks, page-level share/exclusive locks are used to control read/write access to table pages in the shared buffer pool.   
+These locks are released immediately after a row is fetched or updated. Application developers normally need not be concerned with page-level locks, but they are mentioned here for completeness.
