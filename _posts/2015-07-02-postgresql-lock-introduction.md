@@ -57,8 +57,27 @@ Many forms of `ALTER TABLE` also acquire a lock at this level (see [ALTER TABLE]
 This is also the default lock mode for `LOCK TABLE` statements that do not specify a mode explicitly.
 
 
-
 ##Row level
+PostgreSQL doesn't remember any information about modified rows in memory, so there is no limit on the number of rows locked at one time. However, locking a row might cause a disk write, e.g., SELECT FOR UPDATE modifies selected rows to mark them locked, and so will result in disk writes.  
+
+1. FOR UPDATE  
+This prevents them from being locked, modified or deleted by other transactions until the current transaction ends.   
+That is, other transactions that attempt `UPDATE`, `DELETE`, `SELECT FOR UPDATE`, `SELECT FOR NO KEY UPDATE`, `SELECT FOR SHARE` or `SELECT FOR KEY SHARE` of these rows will be blocked until the current transaction ends;   
+conversely, `SELECT FOR UPDATE` will wait for a concurrent transaction that has run any of those commands on the same row, and will then lock and return the updated row (or no row, if the row was deleted).
+
+2. FOR NO KEY UPDATE  
+Behaves similarly to FOR UPDATE, except that the lock acquired is weaker: this lock will not block `SELECT FOR KEY SHARE` commands that attempt to acquire a lock on the same rows.   
+This lock mode is also acquired by any `UPDATE` that does not acquire a `FOR UPDATE` lock.  
+
+3. FOR SHARE  
+Behaves similarly to `FOR NO KEY UPDATE`, except that it acquires a shared lock rather than exclusive lock on each retrieved row.   
+A shared lock blocks other transactions from performing `UPDATE`, `DELETE`, `SELECT FOR UPDATE` or `SELECT FOR NO KEY UPDATE` on these rows, but it does not prevent them from performing `SELECT FOR SHARE` or `SELECT FOR KEY SHARE`.  
+
+4. FOR KEY SHARE  
+Behaves similarly to `FOR SHARE`, except that the lock is weaker: `SELECT FOR UPDATE` is blocked, but not `SELECT FOR NO KEY UPDATE`.   
+A key-shared lock blocks other transactions from performing `DELETE` or any `UPDATE` that changes the key values, but not other `UPDATE`, and neither does it prevent `SELECT FOR NO KEY UPDATE`, `SELECT FOR SHARE`, or `SELECT FOR KEY SHARE`.
+
+
 
 ##Page level
 
