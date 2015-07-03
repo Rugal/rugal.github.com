@@ -32,7 +32,7 @@ END;
 --COMMIT
 {%endhighlight%}
 {%highlight sql%}
-postgres=# SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test;
+SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test;
  xmin | xmax | cmin | cmax | ctid  | id | name
 ------+------+------+------+-------+----+-------
   700 |    0 |    0 |    0 | (0,1) |  2 | Rugal
