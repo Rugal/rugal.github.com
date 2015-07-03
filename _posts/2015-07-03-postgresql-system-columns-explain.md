@@ -7,17 +7,17 @@ tags: [postgresql]
 ---
 {% include JB/setup %}
 
-1. xmin 
+1. xmin   
 Transaction ID for insert. For identify different transactions.  
 Will changes after new transaction(Whether `Insert`/`Update`) commits.  
-2. xmax 
+2. xmax   
 是删除更新的事务标识符，如果该值不为0，则说明该行数据当前还未提交或回滚。比如设置begin事务时可以明显看到该值的变化 
-3. cmin 
+3. cmin   
 Command ID for one transaction.  
 Identify different commands in one transaction.  Start from 0.  
-4. cmax 
+4. cmax   
 删除事务的命令标识符，或者为0 
-5. ctid 
+5. ctid   
 Similar to Oracle `rowid`, but will this ID will change as transactions on current row take effect.
 
 
