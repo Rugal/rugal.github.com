@@ -8,10 +8,10 @@ tags: [postgresql]
 {% include JB/setup %}
 
 1. `xmin`   
-Transaction ID for insert. For identify different transactions.  
+Transaction ID for insertion. For identifying different transactions.  
 Will changes after new transaction(Whether `Insert`/`Update`) commits.  
 2. `xmax`   
-Transaction ID for delete. Not being 0 means this row is not yet committed or rollbacked.  
+Transaction ID for deletion. Not being 0 means this row is not yet committed or rollbacked.  
 3. `cmin`   
 Command ID for one transaction.  
 Identify different commands in one transaction.  Start from 0.  
