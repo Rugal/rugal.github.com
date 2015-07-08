@@ -23,7 +23,7 @@ I personally love the feel of reincarnation, again and over again, which is to k
 Now it is the time to continue this trip, for the glory liberty, for the spectacular dream.  
 
  
-Bookmark and visit [rugal.ga](http://rugal.ml) for my quotidian updates if you do like me, it carries almost all my basic contact information and recent meditation.   
+Bookmark and visit [rugal.ga](http://rugal.ga) for my quotidian updates if you do like me, it carries almost all my basic contact information and recent meditation.   
 I do not like to use so many prevalent IM softwares except for QQ (`359788955`).   
 Hence it is best to keep in touch via [gmail](mailto:ryujinwrath), I would check mailbox frequently.  
 

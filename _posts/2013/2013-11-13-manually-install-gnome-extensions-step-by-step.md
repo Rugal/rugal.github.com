@@ -28,7 +28,7 @@ then just rename the root folder `NetSpeed` into `netspeed@hedayaty.gmail.com`
 after the procedure above, just copy the whole folder into `~/.local/share/gnome-shell/extensions`  
 But there will have no any changes, you need to restart the `gnome-shell`  
 press `ALT` `F2`  to call the gnome-shell command window up, and input `r` which represent restart and press `enter`  
-after a little bit of time, your gnome-shell's restart progress is finished.
+after a little bit of time, your gnome-shell  restart progress is finished.
 
 ##enable your extensions
 this time is easy to do with that, just use `gnome-shell-extensions-pref` or `gnome-tweak-tool` to enable that extension.  
@@ -41,7 +41,7 @@ So you need to revert the version of NetSpeed code, is that possible? of course 
 first you need to see what version you can revert and properly can with `git log`  
 in this time I found the 1f17b3ce08c40f347e5659bcd8d01ddf79381de2  version is just fit for my need, then I use  
 `git reset --hard 1f17b3ce08c40f347e5659bcd8d01ddf79381de2`  
-for detailed introduction of [git reset]( /operation/2013/11/13/git-rollback-to-commit ) .  
+for detailed introduction of [git reset]({%post_url 2013/2013-11-13-git-rollback-to-commit %}) .  
 so as to revert the version, and now I could use that extensions.  
 just repeat the procedures above untill all your extensions were installed.  
 Never forget to full copy with all your extensions after successfully installed, it is a tought assignment!

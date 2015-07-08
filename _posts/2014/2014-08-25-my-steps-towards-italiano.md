@@ -15,4 +15,4 @@ But first I need to learn Italiano.
 
 
 --------------
-[Glossary](/myself/2014/09/14/italiano/) 
+[Glossary]({%post_url 2014/2014-09-14-italiano %}) 

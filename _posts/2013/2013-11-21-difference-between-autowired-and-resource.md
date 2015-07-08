@@ -6,7 +6,7 @@ category: development
 tags: [java]
 ---
 {% include JB/setup %}
-Even if using these two annotation for a while, I still forget the difference between @autowired and @resource:  
+Even if using these two annotation for a while, I still forget the difference between `@autowired` and `@resource`:  
 {%highlight java%}
 //this annotation is belong to spring,
 //assembled by type in default then name

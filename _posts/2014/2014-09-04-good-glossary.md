@@ -7,6 +7,7 @@ tags: [language]
 ---
 {% include JB/setup %}
 
+Words below are some good English words that I think can used for replacing old style words.  
 
 word|explaination
 ---|---:
