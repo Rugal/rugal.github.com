@@ -12,7 +12,16 @@ But there still another thing I like the most which come from the influence of `
 I want to explore Italy if I have this capability with my dear Lulu.  
 But first I need to learn Italiano.  
 
+--------------
 
+1. when `r` in between 2 vowels, it pronounce more like `d`
+
+A == the  
+a + il ==> Al  
+A + l' ==> All'  
+
+il == the  
+but if `il` followed by a word that start with a vowel, `il` will be transformed into `l'`  
 
 --------------
 [Glossary]({%post_url 2014/2014-09-14-italiano %}) 
