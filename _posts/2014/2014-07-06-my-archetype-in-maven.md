@@ -7,27 +7,17 @@ tags: [java,maven]
 ---
 {% include JB/setup %}
 
-###20150217
-Replace Jackson with Gson in `messageConverter`  
-Replace BoneCP with HikariCP
+This archetype based on:  
 
+1. Springmvc 4
+2. Spring 4
+3. Hibernate 4
 
+###Important components used
 
-###20140802
-` important release update`:  
-Extract `ssh-common` package out.  
+1. Connection pool: `HikarCP`
+2. JSON mapper:   `Gson`
 
-
-###20140716
-` important release update`:  
-Switch XML based configuration into Java based style.  
-
-
---------
-
-Welcome to my [archetype](https://github.com/Rugal/springmvc-spring-hibernate) that integrate `springmvc/spring/hibernate` together.  
-
-maven repository:  
 
 Create archetype from command line using maven:  
 {%highlight bash%}
@@ -40,15 +30,31 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
 {%endhighlight%}
 
 
+Since `0.6`, I started to use Java based configuration only.  
+
+Please modify some configuration files under `conf` package.  
+
+1. `ServletContainerInitializer`: Container support java only configuration since Servlet 3.0. As long as you specify this file, container will use this class as configuration file.  
+2. `ApplicationContext`: specify entity scanning, data source configuration and transaction.  
+3. `SpringMVCApplicationContext`: specify web SpringMVC related configuration such like argument resolution, message converter, view resolution etc.,  
+4. Some other files such like `log4j` and `jdbc` in `resources` folder.   
+
+-----------------
+
+#version log
+Since version `0.6`, Replace all XML file with Java based configuration.   
+Since version `0.5`, I start to use [HikariCP](https://github.com/brettwooldridge/HikariCP) as connection pool. Replace Jackson with Gson.  
+Since version `0.3`, I extract basic Hibernate util classes into [ssh-common](https://github.com/Rugal/ssh-common).  
+Since version `0.2`, I start to use Java based configuration for application context and web context. But `web.xml` is not included.   
 
 
----------
+#commit log
 
-###Specification
-1. Springmvc
-2. Spring
-3. Hibernate
-4. HikariCP
-5. Gson
+###2015-07-24 15:14
+Remove all xml configuration file. Use annotation based configuration only.  
+Remove embeded tomcat plugin.  
+Use new embeded Jetty plugin to replace the old one.  
+Clean Pom file a little bit.  
 
-My archetype aimed to provide `Restful` web service, but it could also provide regular view resolvation.
+###2015-02-17
+Deprecate Jackson data binding, use Gson instead.  
