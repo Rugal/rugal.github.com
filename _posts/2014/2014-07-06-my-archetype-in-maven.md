@@ -7,17 +7,22 @@ tags: [java,maven]
 ---
 {% include JB/setup %}
 
+#Components
+
 This archetype based on:  
 
 1. Springmvc 4
 2. Spring 4
 3. Hibernate 4
 
-###Important components used
+###Important artifacts
 
 1. Connection pool: `HikarCP`
 2. JSON mapper:   `Gson`
 
+-------------------
+
+#Usage
 
 Create archetype from command line using maven:  
 {%highlight bash%}
@@ -29,23 +34,30 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -Dversion=your.version
 {%endhighlight%}
 
-
 Since `0.6`, I started to use Java based configuration only.  
 
-Please modify some configuration files under `conf` package.  
+Please modify configuration files under `conf` package.  
 
-1. `ServletContainerInitializer`: Container support java only configuration since Servlet 3.0. As long as you specify this file, container will use this class as configuration file.  
-2. `ApplicationContext`: specify entity scanning, data source configuration and transaction.  
-3. `SpringMVCApplicationContext`: specify web SpringMVC related configuration such like argument resolution, message converter, view resolution etc.,  
-4. Some other files such like `log4j` and `jdbc` in `resources` folder.   
+1. `ServletContainerInitializer.java`: Container support java only configuration since Servlet 3.0. As long as you specify this file, container will use this class as configuration file.  
+2. `ApplicationContext.java`: specify entity scanning, data source configuration and transaction.  
+3. `SpringMVCApplicationContext.java`: specify web SpringMVC related configuration such like argument resolution, message converter, view resolution etc.,  
+4. Some properties files such like `log4j` and `jdbc` in `resources` folder.   
 
 -----------------
 
 #version log
-Since version `0.6`, Replace all XML file with Java based configuration.   
-Since version `0.5`, I start to use [HikariCP](https://github.com/brettwooldridge/HikariCP) as connection pool. Replace Jackson with Gson.  
-Since version `0.3`, I extract basic Hibernate util classes into [ssh-common](https://github.com/Rugal/ssh-common).  
-Since version `0.2`, I start to use Java based configuration for application context and web context. But `web.xml` is not included.   
+
+###0.6
+Replace all XML file with Java based configuration.   
+
+###0.5
+I start to use [HikariCP](https://github.com/brettwooldridge/HikariCP) as connection pool. Replace Jackson with Gson.  
+
+###0.3
+I extract basic Hibernate util classes into [ssh-common](https://github.com/Rugal/ssh-common).  
+
+###0.2 
+I start to use Java based configuration for application context and web context. But `web.xml` is not included.   
 
 
 #commit log

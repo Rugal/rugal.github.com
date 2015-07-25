@@ -17,15 +17,18 @@ This artifact is a useful common package for integrating springmvc-spring-hibern
 <groupId>ml.rugal</groupId>
 <artifactId>ssh-common</artifactId>
 <version>0.1</version>
-
 {%endhighlight%}
+
 I extract `common` package from original `springmvc-spring-hibernate` archetype for better organize. Wish this could better decoupling.  
 I extract the original `rugal.common` package out to make it independently deployed in central maven repository.  
 I try the best of me to keep this artifact fresh and well documented.  
 Contribution is welcomed!  
 
 
-##version log
+#version log
 
-0.2: Remove Jackson related class files.  
-0.1: Initial commit.  
+###0.2
+Remove Jackson related class files.  
+
+###0.1
+Initial commit.  
