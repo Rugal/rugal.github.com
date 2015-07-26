@@ -19,6 +19,7 @@ This archetype based on:
 
 1. Connection pool: `HikarCP`
 2. JSON mapper:   `Gson`
+3. [ssh-common]({%post_url 2014/2014-07-20-ssh-common-for-my-own-archetype-released %})
 
 -------------------
 
