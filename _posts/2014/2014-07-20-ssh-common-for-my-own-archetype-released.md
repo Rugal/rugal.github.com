@@ -16,7 +16,7 @@ This artifact is a useful common package for integrating springmvc-spring-hibern
 {%highlight xml%}
 <groupId>ml.rugal</groupId>
 <artifactId>ssh-common</artifactId>
-<version>0.1</version>
+<version>0.2</version>
 {%endhighlight%}
 
 I extract `common` package from original `springmvc-spring-hibernate` archetype for better organize. Wish this could better decoupling.  
