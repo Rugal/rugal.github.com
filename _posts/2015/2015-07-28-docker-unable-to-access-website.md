@@ -9,7 +9,7 @@ tags: [linux, network, docker]
 
 After came to my girlfriend's home, I find my docker unable to access website.  
 I could not ping by domain name, I thought it is the problem of my gf's router.  
-Any ping could only return unable `unknown host XXXXXX`, this seems not on problem on network connection but something else.  
+Any ping could only return unable `unknown host XXXXXX`, this seems not problem of network connection but something else.  
 
 Today I find the problem is in domain name resolution.  A similar [issue](https://github.com/docker/docker/issues/541) on github.  
 Accroding to this page, I modified `/etc/resolv.conf` as my host machine's, then DNS problem solved.  
