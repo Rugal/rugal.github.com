@@ -28,7 +28,7 @@ Create archetype from command line using maven:
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
-                        -DarchetypeVersion=0.5          \
+                        -DarchetypeVersion=0.6          \
                         -DgroupId=your.group.id         \
                         -DartifactId=your.artifact.id   \
                         -Dversion=your.version
@@ -61,6 +61,9 @@ I start to use Java based configuration for application context and web context.
 
 
 #commit log
+
+###2015-07-29 1:27
+Clean readme up. Move most of content to my [website](http://rugal.ga)
 
 ###2015-07-24 15:14
 Remove all xml configuration file. Use annotation based configuration only.  
