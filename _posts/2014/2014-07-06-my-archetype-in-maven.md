@@ -50,6 +50,7 @@ Please modify configuration files under `conf` package.
 
 ###0.6
 Replace all XML file with Java based configuration.   
+Use ssh-common 0.3 version.  Removed local full coded `ExceptionAction` and `Message` class.  
 
 ###0.5
 I start to use [HikariCP](https://github.com/brettwooldridge/HikariCP) as connection pool. Replace Jackson with Gson.  
