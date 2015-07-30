@@ -64,6 +64,9 @@ I start to use Java based configuration for application context and web context.
 
 #commit log
 
+###2015/07/30 19:02
+Use ssh-common 0.3 to replace local coded Message and ExceptionAction.  
+
 ###2015-07-29 1:27
 Clean readme up. Move most of content to my [website](http://rugal.ga)
 
