@@ -9,6 +9,11 @@ tags: [java, maven]
 SpringMVC Spring MongoDB
 ==============
 
+This is my second archetype in maven.  
+A good archetype, please refer to [github](https://github.com/Rugal/springmvc-spring-mongodb) for real code.  
+After releasing my first [archetype]({%post_url 2014/2014-07-06-my-archetype-in-maven %}), I decided to use Java based configuration only, even in my future release.  
+
+Maven command:  
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-mongodb  \
@@ -18,15 +23,18 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -Dversion=your.version
 {%endhighlight%}
 
-
-An excellent skeleton code for JavaEE application based on:  
+Now you got an excellent skeleton code for JavaEE application based on:  
 
 1. Springmvc
 2. Spring
 3. Spring-data-mongo
 4. MongoDB
-5. Spring-test
 
+##Important components used
+1. JSON mapper: `GSON`  
+2. Test framework: Spring-test
+
+---------------
 
 Please modify configuration files under `config` package.  
 
@@ -37,12 +45,9 @@ Please modify configuration files under `config` package.
 
 
 ------------------
-This is my second archetype in maven.  
-A good archetype, please refer to [github](https://github.com/Rugal/springmvc-spring-mongodb) for real code.  
-After releasing my first [archetype]({%post_url 2014/2014-07-06-my-archetype-in-maven %}), I decided to use Java based configuration only, even in my future release.  
-
 
 #version log
+
 ###0.1
 Java base configuration only.  
 Remove `web.xml`.  
