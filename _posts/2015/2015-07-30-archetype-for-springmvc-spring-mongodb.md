@@ -23,8 +23,8 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
 
 Now you got an excellent skeleton code for JavaEE application based on:  
 
-1. Springmvc
-2. Spring
+1. Springmvc 4
+2. Spring 4 
 3. Spring-data-mongo
 4. MongoDB
 
