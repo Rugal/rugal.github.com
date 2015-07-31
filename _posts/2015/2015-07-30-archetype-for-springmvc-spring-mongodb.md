@@ -40,3 +40,10 @@ Please modify configuration files under `config` package.
 This is my second archetype in maven.  
 A good archetype, please refer to [github](https://github.com/Rugal/springmvc-spring-mongodb) for real code.  
 After releasing my first [archetype]({%post_url 2014/2014-07-06-my-archetype-in-maven %}), I decided to use Java based configuration only, even in my future release.  
+
+
+#version log
+###0.1
+Java base configuration only.  
+Remove `web.xml`.  
+Use `ssh-common` 0.3  
