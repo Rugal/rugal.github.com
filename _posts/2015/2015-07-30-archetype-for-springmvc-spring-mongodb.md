@@ -6,8 +6,6 @@ category: development
 tags: [java, maven]
 ---
 {% include JB/setup %}
-SpringMVC Spring MongoDB
-==============
 
 This is my second archetype in maven.  
 A good archetype, please refer to [github](https://github.com/Rugal/springmvc-spring-mongodb) for real code.  
