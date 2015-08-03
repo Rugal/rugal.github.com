@@ -28,7 +28,9 @@ Contribution is welcomed!
 #version log
 
 ###0.3
-Extract ExceptionAction and Message to this artifact.
+Extract ExceptionAction and Message to this artifact.  
+Remove otherException from ExceptionAction class.  
+
 
 ###0.2
 Remove Jackson related class files.  
