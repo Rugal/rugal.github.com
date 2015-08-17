@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Transient and @transient in java"
+title: "@Transient and transient in java"
 description: ""
 category: development
 tags: [java]
