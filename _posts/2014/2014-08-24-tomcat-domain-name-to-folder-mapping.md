@@ -3,7 +3,7 @@ layout: post
 title: "tomcat domain name to folder mapping"
 description: ""
 category: operation
-tags: [linux]
+tags: [linux, tomcat]
 ---
 {% include JB/setup %}
 

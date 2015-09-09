@@ -3,7 +3,7 @@ layout: post
 title: "apache port forward"
 description: ""
 category: operation
-tags: [linux]
+tags: [linux, apache]
 ---
 {% include JB/setup %}
 You have to use `http://localhost:port` to visit `http://localhost`, to help you omit the `port` part, now let us learn to configure `apache2`.  
