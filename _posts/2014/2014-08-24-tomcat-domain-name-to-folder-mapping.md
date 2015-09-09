@@ -26,8 +26,8 @@ You need to add a `Host` tag just in the same level of the `localhost` one, or y
 
 After this, deploy your application just right at the `appBase` attribution indicated, for instance, I deploy my application `rugal` under `$CATALINA_HOME/webapps`, hence the appBase is `webapps/rugal`
 
-Now sure everything on the go then restart tomcat.  
+Now make sure everything on the go then restart tomcat.  
 Here, of course you have to point the A record of you domain name to specific IP, I mean, the machine you have just configured.  
 See if `you.domain.name:port/path` could get the right app?  It is domain name mapping that help you implicitly map onto `the/path/to/app` so you could omit the `app` in original URL.  
 
-But this still need to specify the `port`, to address it, you could either configure `port` attribution of `Service` tag with `80` if not occupied already, or with some [`port forward`](/operation/2014/08/24/apache-port-forward/).
+But this still need to specify the `port`, to address it, you could either configure `port` attribution of `Service` tag with `80` if not occupied already, or with some [port forward]({%post_url 2014/2014-08-24-apache-port-forward %)} .
