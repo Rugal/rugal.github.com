@@ -23,8 +23,8 @@ For the part of `protocols`, I actually just used and enhanced the  [ttorrent](h
 
 ##JSON
 1. [Message]({%post_url 2015/2015-09-14-jpt-message-object %})
-2. Pagination
-3. User
+2. [Pagination]({%post_url 2015/2015-09-28-jpt-pagination-object %})
+3. [User]({%post_url 2015/2015-09-18-jpt-user-object %})
 4. Post
 5. Thread
 6. UserLevel
