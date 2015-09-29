@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "jpt Pagination object"
+title: "JPT Pagination object"
 description: ""
 category: development
 tags: [jpt]
