@@ -21,7 +21,7 @@ tags: [java]
 6. PM software: TBD
 7. Documentation: git WIKI, [rugal](rugal.ga)
 8. Design: Visio, Gliffy, Dia: `eps`, `svg`
-8. Continues Integration: [travis](https://travis-ci.org/)
+8. Continuous Integration: [travis](https://travis-ci.org/)
 9. DB: Mysql/Postgresql
 10. Code review: mandatory
 
