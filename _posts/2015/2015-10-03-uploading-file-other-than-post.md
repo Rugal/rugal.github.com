@@ -25,6 +25,7 @@ But most of the uploading APIs are designed to use POST, even in springmvc's `or
 
 Other than using `POST`, what we could do to achieve this is like below, idea is part from [SOF](http://stackoverflow.com/a/10041789/1242236):  
 
+##MultipartResovler
 Extends `CommonsMultipartResolver` to enable multipart resolvation other than `POST`.  
 {%highlight java%}
 public class ExtendedMultipartResolver extends CommonsMultipartResolver
@@ -46,7 +47,7 @@ public class ExtendedMultipartResolver extends CommonsMultipartResolver
 }
 {%endhighlight%}
 
-
+##Springmvc configuration
 In springmvc application context file, add the last class we created:
 {%highlight java%}
 @Bean
@@ -59,3 +60,51 @@ public MultipartResolver multipartResolver()
     return emr;
 }
 {%endhighlight%}
+
+##JAR
+Because we introduced `CommonsMultipartResolver`, which uses 2 apache jars, we also need to import them in pom file:  
+{%highlight xml%}
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.4</version>
+</dependency>
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.3.1</version>
+</dependency>
+{%endhighlight%}
+
+##Unit test
+Now seem all configuration are done let us start coding for unit test:  
+
+{%highlight java%}
+@Test
+public void testUpdateOperation() throws Exception
+{
+    System.out.println("update operation");
+    FileInputStream fis = new FileInputStream(file);
+    MockMultipartFile multipartFile = new MockMultipartFile("file", fis);
+    Map<String, String> contentTypeParams = new HashMap<>();
+    //The boundary parameter is important!
+    contentTypeParams.put("boundary", "RugalBernstein");
+    MediaType mediaType = new MediaType("multipart", "form-data", contentTypeParams);
+    MvcResult result = this.mockMvc.perform(put("/tag/" + db.getTid())
+        .header(SystemDefaultProperties.ID, user.getUid())
+        .header(SystemDefaultProperties.CREDENTIAL, user.getPassword())
+        .param("name", db.getName() + "Updated")
+        .content(multipartFile.getBytes())
+        .contentType(mediaType)
+        .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andDo(print())
+        .andReturn();
+    Message message = GSON.fromJson(result.getResponse().getContentAsString(), Message.class);
+    Tag updated = tag.backToObject(message.getData());
+    Assert.assertEquals(db.getName() + "Updated", updated.getName());
+}
+{%endhighlight%}
+Notice the `boundary` parameter in content type is mandatory.  
+
+Hope this post could help someone!
