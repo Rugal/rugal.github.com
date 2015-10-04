@@ -104,7 +104,7 @@ public void testUpdateOperation() throws Exception
         .andReturn();
 }
 {%endhighlight%}  
-This should be pretty satisfying, because we not only stick to the Restful style, but also upload file successfully  
+This should be pretty satisfying, because we not only stick to the Restful style, but also upload file successfully.   
 
 -----------------
 
