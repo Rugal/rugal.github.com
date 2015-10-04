@@ -108,6 +108,5 @@ This should be pretty satisfying, because we not only stick to the Restful style
 
 -----------------
 
-Notice the `boundary` parameter in content type is mandatory.  
-
+Notice the `boundary` parameter in content type is mandatory.  For people do not know what boundary is, [here](http://www.w3.org/Protocols/rfc1341/7_2_Multipart.html) are some [posts](http://stackoverflow.com/a/10932533/1242236).  
 Hope this post could help someone!
