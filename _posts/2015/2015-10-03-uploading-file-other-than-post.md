@@ -7,7 +7,7 @@ tags: [java]
 ---
 {% include JB/setup %}
 
-Restful style of API design broaden my horizon by standardizing the rule for API.  
+Restful style of API designing broaden my horizon by standardizing the rule for API.  
 
 ###POST
 must be something `new` into server, which means creating a new resource. 
