@@ -79,7 +79,7 @@ Because we introduced `CommonsMultipartResolver`, which uses 2 apache jars, we a
 {%endhighlight%}
 
 ##Unit test
-Now seem all configuration are done let us start coding for unit test:  
+Now seems all configuration are done, time to start coding for unit test:  
 
 {%highlight java%}
 @Test
@@ -102,11 +102,9 @@ public void testUpdateOperation() throws Exception
         .andExpect(status().isOk())
         .andDo(print())
         .andReturn();
-    Message message = GSON.fromJson(result.getResponse().getContentAsString(), Message.class);
-    Tag updated = tag.backToObject(message.getData());
-    Assert.assertEquals(db.getName() + "Updated", updated.getName());
 }
 {%endhighlight%}  
+This should be pretty satisfying, because we not only stick to the Restful style, but also upload file successfully  
 
 -----------------
 
