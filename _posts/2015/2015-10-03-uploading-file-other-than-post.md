@@ -25,6 +25,8 @@ But most of the uploading APIs are designed to use POST, even in springmvc's `or
 
 Other than using `POST`, what we could do to achieve this is like below, idea is part from [SOF](http://stackoverflow.com/a/10041789/1242236):  
 
+-------------------
+
 ##MultipartResovler
 Extends `CommonsMultipartResolver` to enable multipart resolvation other than `POST`.  
 {%highlight java%}
@@ -104,7 +106,10 @@ public void testUpdateOperation() throws Exception
     Tag updated = tag.backToObject(message.getData());
     Assert.assertEquals(db.getName() + "Updated", updated.getName());
 }
-{%endhighlight%}
+{%endhighlight%}  
+
+-----------------
+
 Notice the `boundary` parameter in content type is mandatory.  
 
 Hope this post could help someone!
