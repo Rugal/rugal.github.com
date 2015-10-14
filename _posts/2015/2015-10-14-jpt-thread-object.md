@@ -81,6 +81,7 @@ public class Thread
      {"uid":2171,"password":"test123","username":"tenjin",
       "email":"testhappy@128.com","uploadByte":0,"downloadByte":0,
       "credit":0,"registerTime":1444797182983,"status":"VALID"
-     }
+     },
+   "rate":5
 }
 {%endhighlight%}
