@@ -111,7 +111,8 @@ An example post object in json format is shown as below:
   "infoHash":"7036CA4C717C0D9FEABB26F9A60C63DD887F8FCC","size":100,
   "minLevel":{"lid":1895,"minimum":2147483647,"name":"Test"},
   "rate":0.0,"enabled":true,
-  "uid":{"uid":2031,"password":"test123","username":"tenjin","email":"testhappy@128.com",
-         "uploadByte":0,"downloadByte":0,"credit":0,"registerTime":1444791559685,"status":"VALID"}
+  "uid":{"uid":2031,"password":"test123","username":"tenjin",
+         "email":"testhappy@128.com","uploadByte":0,"downloadByte":0,
+         "credit":0,"registerTime":1444791559685,"status":"VALID"}
  }
 {%endhighlight%}
