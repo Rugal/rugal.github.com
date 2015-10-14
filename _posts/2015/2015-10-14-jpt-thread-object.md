@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to JavaPT"
+title: "JPT Thread object"
 description: ""
 category: development
 tags: [jpt]
