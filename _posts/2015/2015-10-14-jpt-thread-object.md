@@ -20,7 +20,7 @@ Column  || Type
  uid       || integer 
  content   || text    
  post_time || bigint  
- rate   || smallint
+ rate   || integer
 
 
 #Class
