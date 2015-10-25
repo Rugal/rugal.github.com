@@ -51,13 +51,13 @@ public class Thread
     @JoinColumn(name = "pid", referencedColumnName = "pid")
     @ManyToOne
     @Expose
-    private Post pid;
+    private Post post;
     //the parent post
 
     @JoinColumn(name = "uid", referencedColumnName = "uid")
     @ManyToOne
     @Expose
-    private User uid;
+    private User user;
     //the user who made this thread
 //...
 {%endhighlight%}
