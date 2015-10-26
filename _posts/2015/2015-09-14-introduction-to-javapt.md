@@ -15,13 +15,39 @@ For `JSON` part, I will list all entities that are involved in the data transmis
 For the part of `protocols`, I actually just used and enhanced the  [ttorrent](https://github.com/mpetazzoni/ttorrent) tracker server. I will introduce the [BitTorrent](https://wiki.theory.org/BitTorrentSpecification) implemented in this project, answer some confusing questions about Bit Torrent.  
 
 ##Interfaces
-1. User
+One important thing is the `Authentication fields` in request header.  
+`Authentication fields` are `id` and `credential` fields in header. Corresponding to the information of user who currently log in client.  
+A sample request is shown as below:  
+{%highlight http%}
+PUT /user/{uid} HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+id: {uid}
+credential: {credential}
+
+{"password":"unencrypted-password"}
+{%endhighlight%}
+
+Almost every `POST` `PUT` and `DELETE` request are required to include authentication fields for user identity verification. Some `GET` are also require to do so. This is actually a good way to simplify `Restful`.  
+Some special requests are not authetication required. Please strictly follow the sample HTTP request in each specific API.  
+Request that should have authetication fields but does not will get:  
+{%highlight json%}
+{"status":"FAIL","message":"Unmatched combination of username and credential"}
+{%endhighlight%}
+
+
+
+1. [User]({%post_url 2015/2015-10-25-jpt-user-interface %})
 2. Post
 3. Thread
 4. Signin
 
 
 ##JSON
+JSON data format are generally used througout this application.  
+Listed classes are for demonstration usage.   
+If developers want to set up client or front-end, please also follow the same rule of class structure.  
+
 1. [Message]({%post_url 2015/2015-09-14-jpt-message-object %})
 2. [Pagination]({%post_url 2015/2015-09-28-jpt-pagination-object %})
 3. [User]({%post_url 2015/2015-09-18-jpt-user-object %})

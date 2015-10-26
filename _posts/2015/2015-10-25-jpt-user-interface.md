@@ -43,6 +43,23 @@ id: {uid}
 credential: {credential}
 {%endhighlight%}
 
+##Check email availibility
+Check if the email is available for registration.  
+Return Message object, `SUCCESS` means available and `FAIL` corresponding to `unavailable`.  
+
+{%highlight http%}
+GET /user?email={email} HTTP/1.1
+Accept: application/json
+{%endhighlight%}
+
+##Check username availibility
+Check if the username is available for registration.  
+Return Message object, `SUCCESS` means available and `FAIL` corresponding to `unavailable`.  
+
+{%highlight http%}
+GET /user?username={username} HTTP/1.1
+Accept: application/json
+{%endhighlight%}
 
 ##Update User Profile
 Update user profile. Basically including all field except `username`, `uid`, `email`.  
