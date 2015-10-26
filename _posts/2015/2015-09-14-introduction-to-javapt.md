@@ -27,7 +27,7 @@ For the part of `protocols`, I actually just used and enhanced the  [ttorrent](h
 3. [User]({%post_url 2015/2015-09-18-jpt-user-object %})
 4. [Post]({%post_url 2015/2015-10-13-jpt-post-object %})
 5. [Thread]({%post_url 2015/2015-10-14-jpt-thread-object%})
-6. UserLevel
+6. [UserLevel]({%post_url 2015/2015-10-25-jpt-user-level-object%})
 7. Tag
 8. SigninLog
 9. PostTags
