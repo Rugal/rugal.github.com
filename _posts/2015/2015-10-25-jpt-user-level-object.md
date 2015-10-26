@@ -2,7 +2,7 @@
 layout: post
 title: "JPT User Level object"
 description: ""
-category: 
+category: development
 tags: [jpt]
 ---
 {% include JB/setup %}
