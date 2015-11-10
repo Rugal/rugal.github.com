@@ -25,7 +25,6 @@ Or you could:
     echo $DISPLAY
 
 
-~~Nice, now you get the display address, just fill it in that blank and reconnect.~~  
 
 But I don't know why I could only set this address as `localhost:0.0` to make it work! Anyone could give some assistance?  
 
