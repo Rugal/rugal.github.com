@@ -6,15 +6,15 @@ category: development
 tags: [clojure]
 ---
 {% include JB/setup %}
-I have been studying `clojure` for a few days, but I need to write test code in files then use `lein run` to do the test work, which is definitely productiveless.  
-for you want to load a jar in `repl`  
+I have been studying `clojure` for a few days, but I need to write test code in files before using `lein run` to test it, which is definitely productiveless.   
+Way to load a jar in `repl`    
 {%highlight clojure%}
 (require '[clojure.data.json :as json])
 {%endhighlight%}
-New version of clojure deprecated the `use` function.  
-They trying to propagate `require`.  
-Since load all functions into current namespace will result into a banch of problems.  
-By using `require` by `:refer` with `:all` options, you could do the same work in a more flexible way.  
+New version of clojure deprecated the `use` function to make it more consistant to "import` a package.  Since loading all functions into current namespace will result into a bunch of confliction problems.  
+So they trying to propagate `require`.  
+
+By using `require` with `:refer` and `:all` options, you could achieve the same work in a more flexible and consistant way.  
 
 ----
 
