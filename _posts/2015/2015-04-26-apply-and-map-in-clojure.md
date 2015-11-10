@@ -13,7 +13,7 @@ It is a very confusing comparison between `map` and `apply`.
 (def data  [[1,2,3],[1,3,4],[1,5,6]])
 {%endhighlight%}
 
-The famous function `map` means to call function provided to each elements in collections once at a time.  
+The famous function `map` means to call function provided to each element in collection once at a time.  
 {%highlight clojure%}
 (map println data)
 
@@ -24,14 +24,14 @@ The famous function `map` means to call function provided to each elements in co
 {%endhighlight%}
 There are 3 elements in `data`, `map` calls `println` for each element.  
 
-Whereas `appy` just call function once, but extract all elements from collection first.  
+Whereas `appy` just call function once, but extract all elements from collection before calling.  
 {%highlight clojure%}
 (apply println data)
 
 ;[1 2 3] [1 3 4] [1 5 6]
 ;nil
 {%endhighlight%}
-Here only 1 line of printing.  
+Here only has 1 line of printing.  
 
 Some more experiments:  
 {%highlight clojure%}
@@ -43,10 +43,10 @@ Some more experiments:
 ;(nil nil nil)
 {%endhighlight%}
 
-Obviously apply extract elements from collection.  
+Obviously, apply extracts elements from collection.  
 {%highlight clojure%}
 (eval `(map println ~@data))
-;this is equavalent to 
+;this is equivalent to 
 (map println [1,2,3] [1,3,4] [1,5,6])
 
 ;1 1 1
