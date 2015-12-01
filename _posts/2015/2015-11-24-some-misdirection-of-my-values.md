@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Som misdirection of my values"
+title: "Some misdirection of my values"
 description: ""
 category: myself
 tags: []
