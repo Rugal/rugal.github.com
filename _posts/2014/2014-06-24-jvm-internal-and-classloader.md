@@ -16,7 +16,7 @@ tags: [java]
     2. Heap `shared by all threads`   
     Almost all instance, array, GC's primary working place
     1. Method area `shared by all threads`
-    Class information, final, static, JIT code,  Runtime Constant Pool  
+    Class information, final, static, JIT code   
         3. Runtime constant pool`Part of method area`  
         Class version, fields, methods, interfaces depiction  
     4. Local method stack `thread specific`   
