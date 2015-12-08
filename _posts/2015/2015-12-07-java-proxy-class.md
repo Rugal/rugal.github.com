@@ -7,6 +7,8 @@ tags: [java]
 ---
 {% include JB/setup %}
 
+#Introduction
+
 Java has 2 kinds of proxy, `static` and `dynamic`.  
 I will introduce them one by one. But for demonstrating usage, I need to declare several java bean here.  
 {%highlight java%}
@@ -25,7 +27,7 @@ public class WorkImpl implements Work
 {%endhighlight%}
 These 2 classes are common ones for later tests.
 
-##Static Proxy
+#Static Proxy
 `Static proxy` means to build the proxy before runtime, so static proxy class needs to be compiled for usage. In addition, static proxy needs to implement all involved proxyed methods, which is really painful.  
 {%highlight java%}
 public class WorkProxy implements Work
@@ -62,14 +64,15 @@ public class StaticWorkTest
 }
 {%endhighlight%}
 
-##Dynamic Proxy
+#Dynamic Proxy
 `Dynamic proxy` means to proxy methods during runtime. Dynamic proxy need to setup only one method for encapsulating. But for the convenience, performance is sacrificed. Dynamic proxy is 100 times slower than static one.   
 Actually there are two dynamic proxies: one is the Java supported interface way, another is CGlib based. I will showcase them later on.   
 
 >One thing I need to emphesis here is, even though I wrote subsection name with `Java Reflection` and `Code Generation`, they both utimately achieve proxy function by byte code generation. 
 
 Still, Different way of dynamic proxying has different restriction, choose the best one to fit your project.  
-###Java Reflection
+
+##Java Reflection
 In Java reflection supported dynamic proxy solution, the proxyed class has to implement one interface named `InvocationHandler`.   
 {%highlight java%}
 public class WorkProxy implements InvocationHandler
@@ -113,7 +116,7 @@ public class WorkTest
 But because we could only proxy interface implemented classes, we are unable to make use of this method in some cases.  
 
 
-###Code Generation
+##Code Generation
 So to solve this problem, `CGLib` provisioned another way to proxy dynamically.  
 By generating `subclass` of the target, this dynamic proxy method now could proxy any class except those with `final` ones.  
 
