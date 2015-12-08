@@ -66,8 +66,9 @@ public class StaticWorkTest
 `Dynamic proxy` means to proxy methods during runtime. Dynamic proxy need to setup only one method for encapsulating. But for the convenience, performance is sacrificed. Dynamic proxy is 100 times slower than static one.   
 Actually there are two dynamic proxies: one is the Java supported interface way, another is CGlib based. I will showcase them later on.   
 
->One thing I need to emphesis here is, even though I wrote subsection name with `Java Reflection` and `Code Generation`, they both utimately achieve proxy function by byte code generation.  I will explain the detail in corresponding subsection.  
+>One thing I need to emphesis here is, even though I wrote subsection name with `Java Reflection` and `Code Generation`, they both utimately achieve proxy function by byte code generation. 
 
+Still, Different way of dynamic proxying has different restriction, choose the best one to fit your project.  
 ###Java Reflection
 In Java reflection supported dynamic proxy solution, the proxyed class has to implement one interface named `InvocationHandler`.   
 {%highlight java%}
@@ -90,14 +91,14 @@ public class WorkProxy implements InvocationHandler
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
     {
-        System.out.println("Before");
+        System.out.println("Before Reflection");
         Object result = method.invoke(object, args);
-        System.out.println("After");
+        System.out.println("After Reflection");
         return result;
     }
 }
 {%endhighlight%}
-As you can see, class that want to be proxied has to implement `InvocationHandler` interface. This is the only restriction of Java Reflection supported dynamic proxy.  
+As you can see, class want to be proxied has to implement `InvocationHandler` interface. This is the only restriction of Java Reflection supported dynamic proxy.  
 {%highlight java%}
 public class WorkTest
 {//Test class
@@ -109,12 +110,46 @@ public class WorkTest
     }
 }
 {%endhighlight%}
-But because we could only proxy interface implemented classes, we could not make use of this method in some situations.  
+But because we could only proxy interface implemented classes, we are unable to make use of this method in some cases.  
 
 
 ###Code Generation
 So to solve this problem, `CGLib` provisioned another way to proxy dynamically.  
-By generating subclass of the target, this dynamic proxy method now could proxy any class except those with `final` ones.  
+By generating `subclass` of the target, this dynamic proxy method now could proxy any class except those with `final` ones.  
 
 {%highlight java%}
+public class WorkProxy implements MethodInterceptor
+{
+    public static Object getInstance(Object target)
+    {
+        Enhancer enhancer = new Enhancer();
+        // call back
+        enhancer.setCallback(new WorkProxy());
+        enhancer.setSuperclass(target.getClass());
+        // create proxy object
+        return enhancer.create();
+    }
+
+    @Override
+    public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable
+    {
+        System.out.println("Before CG");
+        method.invoke(proxy, args);
+        Object result = proxy.invokeSuper(obj, args);
+        System.out.println("After CG");
+        return result;
+    }
+}
+{%endhighlight%}
+In this instance we build a class that implement a CGLib interface `MethodInterceptor`, but now we could proxy any `not final` classes by using this proxy class.  
+{%highlight java%}
+public class WorkTest
+{//Test code
+    @Test
+    public void testWork()
+    {
+        Work proxyedWork = (Work) WorkProxy.getInstance(new WorkImpl());
+        proxyedWork.print();
+    }
+}
 {%endhighlight%}
