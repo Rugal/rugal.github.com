@@ -68,7 +68,7 @@ public class StaticWorkTest
 `Dynamic proxy` means to proxy methods during runtime. Dynamic proxy need to setup only one method for encapsulating. But for the convenience, performance is sacrificed. Dynamic proxy is 100 times slower than static one.   
 Actually there are two dynamic proxies: one is the Java supported interface way, another is CGlib based. I will showcase them later on.   
 
->One thing I need to emphesis here is, even though I wrote subsection name with `Java Reflection` and `Code Generation`, they both utimately achieve proxy function by byte code generation. 
+>One thing I need to emphasis here is, even though I wrote subsection name with `Java Reflection` and `Code Generation`, they both utimately achieve proxy function by byte code generation. 
 
 Still, Different way of dynamic proxying has different restriction, choose the best one to fit your project.  
 
