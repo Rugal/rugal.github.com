@@ -117,7 +117,7 @@ But because we could only proxy interface implemented classes, we are unable to 
 
 
 ##Code Generation
-So to solve this problem, `CGLib` provisioned another way to proxy dynamically.  
+So to solve this problem, [CGLib](http://search.maven.org/#artifactdetails%7Ccglib%7Ccglib%7C3.2.0%7Cjar) provisioned another way to proxy dynamically.  
 By generating `subclass` of the target, this dynamic proxy method now could proxy any class except those with `final` ones.  
 
 {%highlight java%}
