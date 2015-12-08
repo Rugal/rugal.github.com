@@ -48,7 +48,7 @@ public class WorkProxy implements Work
     }
 }
 {%endhighlight%}
-Quite straight forward, static proxy is a simple wrapper that implement the same interface.  
+Quite straight forward, static proxy is a simple wrapper that implements the same interface.  
 But be aware, you need to implement all method for wrapping one class. This is reall tedious, especially if all wrapping functions are the same.  
 
 {%highlight java%}
@@ -144,7 +144,7 @@ public class WorkProxy implements MethodInterceptor
     }
 }
 {%endhighlight%}
-In this instance we build a class that implement a CGLib interface `MethodInterceptor`, but now we could proxy any `not final` classes by using this proxy class.  
+In this instance we build a class that implements a CGLib interface `MethodInterceptor`, but now we could proxy any `not final` classes by using this proxy class.  
 {%highlight java%}
 public class WorkTest
 {//Test code
