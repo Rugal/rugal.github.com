@@ -31,4 +31,4 @@ symbol|description
 {min,}|$x\geq min$
 {min,max}|$min<x<max$
 $[ ]$|Match a single character in
-$[^{}  ]$|Match a single character not in
+$[\text{^}  ]$|Match a single character not in
