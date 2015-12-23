@@ -30,5 +30,5 @@ symbol|description
 {n}|$x=n$
 {min,}|$x\geq min$
 {min,max}|$min<x<max$
-\[ \]|Match a single character in
-\[^  \]|Match a single character not in
+$[ ]$|Match a single character in
+$[^  ]$|Match a single character not in
