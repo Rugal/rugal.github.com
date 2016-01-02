@@ -128,4 +128,8 @@ id: {uid}
 credential: {credential}
 {%endhighlight%}
 
-If everything run smoothly, client side will get a response with header `Content-Disposition: attachment; filename=hash.torrent;`, which means user will get browser prompt to get download.  Depending on browser implementation in detail.  
+If everything run smoothly, client side will get a response with header  
+
+    Content-Disposition: attachment; filename=hash.torrent;
+    
+which means user will get browser prompt to get download.  Depending on browser implementation in detail.  
