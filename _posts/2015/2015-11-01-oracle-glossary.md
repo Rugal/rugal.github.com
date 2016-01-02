@@ -39,13 +39,16 @@ Create a service alias and name it something that will be meaningful to the user
 
 
 ##Automatic workload repository
-The Automatic Workload Repository ([AWR](https://docs.oracle.com/cd/E11882_01/server.112/e41573/autostat.htm#PFGRF02601)) collects, processes, and maintains performance statistics for problem detection and self-tuning purposes.
+The Automatic Workload Repository ([AWR](https://docs.oracle.com/cd/E11882_01/server.112/e41573/autostat.htm#PFGRF02601)) collects, processes, and maintains performance statistics for problem detection and self-tuning purposes.  
+New feature of 10G, similar to `statpack` but even simpler.  Store last 7 days information in `sys` and `sysaux` tablespace.  
 
 ##Automatic Database Diagnostic Monitor
-The Automatic Database Diagnostic Monitor ([ADDM](https://docs.oracle.com/cd/B19306_01/server.102/b14211/diagnsis.htm#i37241)) provides a holistic tuning solution. ADDM analysis can be performed over any time period defined by a pair of AWR snapshots taken on a particular instance. Analysis is performed top down, first identifying symptoms and then refining them to reach the root causes of performance problems.
+The Automatic Database Diagnostic Monitor ([ADDM](https://docs.oracle.com/cd/B19306_01/server.102/b14211/diagnsis.htm#i37241)) provides a holistic tuning solution. ADDM analysis can be performed over any time period defined by a pair of AWR snapshots taken on a particular instance. Analysis is performed top down, first identifying symptoms and then refining them to reach the root causes of performance problems.  
+Provision SQL tunning, index creation, gathering of statistics recommendation.  
 
 ##Active Session History
-To capture a detailed history of database activity, Oracle Database samples active sessions each second with the Active Session History ([ASH](https://docs.oracle.com/cd/E11882_01/server.112/e10822/tdppt_transient.htm#TDPPT065)) sampler. AWR snapshot processing collects the sampled data into memory and writes it to persistent storage. ASH is an integral part of the Oracle Database self-management framework and is extremely useful for diagnosing performance problems.
+To capture a detailed history of database activity, Oracle Database samples active sessions each second with the Active Session History ([ASH](https://docs.oracle.com/cd/E11882_01/server.112/e10822/tdppt_transient.htm#TDPPT065)) sampler. AWR snapshot processing collects the sampled data into memory and writes it to persistent storage. ASH is an integral part of the Oracle Database self-management framework and is extremely useful for diagnosing performance problems.  
+Based on `v$session`, sampling ever second.  
 
 -----------------
 
