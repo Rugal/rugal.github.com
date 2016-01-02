@@ -91,7 +91,8 @@ credential: {credential}
 the target post is specified in URL, replyer is specified in request header `uid`.  
 
 ##Get Thread page for a Post
-Get a page of threads, page number starts from 1 and default as 1. Default page size is 5.  
+Get a page of threads, page number starts from 1 and default as 1.   
+Default page size is 5.  
 {%highlight http%}
 GET /post/{pid}/thread?pageNo={pageNo}&pageSize={pageSize} HTTP/1.1
 Accept: application/json
@@ -101,9 +102,21 @@ credential: {credential}
 {%endhighlight%}
 
 ##Upload torrent file of a Post
+Upload the corresponding torrent file of a post.  
+Only author could upload it.  
+A torrent file could and only could upload to a post once.  If user finds the torrent is incorrect, they have to re-post and upload again.  
 {%highlight http%}
+POST /post/{pid}/metainfo HTTP/1.1
+Content-Type: multipart/form-data
+Accept: application/json
+id: {uid}
+credential: {credential}
 
+{Byte array of torrent file in multipart}
 {%endhighlight%}
+
+Just like other file uploads, must upload the origin torrent file directly to server.  
+It actually uploads the torrent file as byte array.  
 
 ##Download torrent file of a Post
 {%highlight http%}
