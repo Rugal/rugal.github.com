@@ -56,9 +56,13 @@ credential: {credential}
 This interface has the same restriction as `Add post`.   
 The target post to be updated will be and only be the `{pid}` specified in URL.  
 
-##Geut Post content
+##Get Post metadata and content
 {%highlight http%}
-
+GET /post/{pid} HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+id: {uid}
+credential: {credential}
 {%endhighlight%}
 
 ##Delete Post
