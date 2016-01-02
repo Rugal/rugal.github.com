@@ -88,11 +88,16 @@ credential: {credential}
 {"content":"TEST CONTENT", "rate":5}
 {%endhighlight%}
 `Thread` object is exactly as [specification]({%post_url 2015/2015-10-14-jpt-thread-object%}). But for user could specify few fields as the example above.  
-the target post is specified in URL, replyer is in request header.  
+the target post is specified in URL, replyer is specified in request header `uid`.  
 
 ##Get Thread page for a Post
+Get a page of threads, page number starts from 1 and default as 1. Default page size is 5.  
 {%highlight http%}
-
+GET /post/{pid}/thread?pageNo={pageNo}&pageSize={pageSize} HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+id: {uid}
+credential: {credential}
 {%endhighlight%}
 
 ##Upload torrent file of a Post
