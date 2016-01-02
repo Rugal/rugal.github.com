@@ -119,6 +119,13 @@ Just like other file uploads, must upload the origin torrent file directly to se
 It actually uploads the torrent file as byte array.  
 
 ##Download torrent file of a Post
+Only users that reach `minLevel` requirement of a post could download the torrent file.  
 {%highlight http%}
-
+GET /post/{pid}/metainfo HTTP/1.1
+Content-Type: application/json
+Accept: [application/x-bittorrent, application/json]
+id: {uid}
+credential: {credential}
 {%endhighlight%}
+
+If everything run smoothly, client side will get a response with header `Content-Disposition: attachment; filename=hash.torrent;`, which means user will get browser prompt to get download.  Depending on browser implementation in detail.  
