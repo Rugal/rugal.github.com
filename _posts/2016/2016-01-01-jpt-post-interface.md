@@ -57,6 +57,7 @@ This interface has the same restriction as `Add post`.
 The target post to be updated will be and only be the `{pid}` specified in URL.  
 
 ##Get Post metadata and content
+Anyone could see any post.  
 {%highlight http%}
 GET /post/{pid} HTTP/1.1
 Accept: application/json
@@ -66,14 +67,28 @@ credential: {credential}
 {%endhighlight%}
 
 ##Delete Post
+Only author and administrators could delete a post.  
 {%highlight http%}
-
+DELETE /post/{pid} HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+id: {uid}
+credential: {credential}
 {%endhighlight%}
 
 ##Add Thread for a Post
+Any user could reply thread to post
 {%highlight http%}
+POST /post/{pid}/thread HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+id: {uid}
+credential: {credential}
 
+{"content":"TEST CONTENT", "rate":5}
 {%endhighlight%}
+`Thread` object is exactly as [specification]({%post_url 2015/2015-10-14-jpt-thread-object%}). But for user could specify few fields as the example above.  
+the target post is specified in URL, replyer is in request header.  
 
 ##Get Thread page for a Post
 {%highlight http%}
