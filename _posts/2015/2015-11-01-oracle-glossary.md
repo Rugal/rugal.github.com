@@ -45,6 +45,7 @@ New feature of 10G, similar to `statpack` but even simpler.  Store last 7 days i
 ##Automatic Database Diagnostic Monitor
 The Automatic Database Diagnostic Monitor ([ADDM](https://docs.oracle.com/cd/B19306_01/server.102/b14211/diagnsis.htm#i37241)) provides a holistic tuning solution. ADDM analysis can be performed over any time period defined by a pair of AWR snapshots taken on a particular instance. Analysis is performed top down, first identifying symptoms and then refining them to reach the root causes of performance problems.  
 Provision SQL tunning, index creation, gathering of statistics recommendation.  
+When comparing a pair of AWR snapshot, it detects workload changes, configuration changes and shows the resource usage for CPU, memory, and I/O in both time periods.  
 
 ##Active Session History
 To capture a detailed history of database activity, Oracle Database samples active sessions each second with the Active Session History ([ASH](https://docs.oracle.com/cd/E11882_01/server.112/e10822/tdppt_transient.htm#TDPPT065)) sampler. AWR snapshot processing collects the sampled data into memory and writes it to persistent storage. ASH is an integral part of the Oracle Database self-management framework and is extremely useful for diagnosing performance problems.  
