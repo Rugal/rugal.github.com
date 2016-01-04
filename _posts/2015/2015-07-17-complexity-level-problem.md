@@ -22,7 +22,7 @@ Informally, NP is set of decision problems which can be solved by a polynomial t
 Hence NP is the super set of P.  
 
 #NP-Complete
-Such like Hamilton problem.  
+Such like `SAT`, `Mine sweep`, `Sudoku`, `Travel sales path` problem.  
 
 1. Is an NP problem.
 2. any NP problem could be reduced to this problem.
