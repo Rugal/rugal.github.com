@@ -15,6 +15,7 @@ Exists a polynomial algorithm to solve this problem.
 is set of problems that can be solved by a [deterministic Turing machine]({%post_url 2016/2016-01-04-turing-machine %}) in Polynomial time.  
 
 #NP
+Such as `Tetrics` problem.  
 Exists a polynomial algorithm to verify this problem.  
 is set of decision problems that can be solved by a [Non-deterministic Turing Machine]({%post_url 2016/2016-01-04-turing-machine %}) in Polynomial time.  
 Informally, NP is set of decision problems which can be solved by a polynomial time via a “Lucky Algorithm”, a magical algorithm that always makes a right guess among the given set of choices.  
@@ -35,6 +36,7 @@ Hence NP-Hard is the super set of NP-Complete.
 
 
 #EXP
+Such as `Chess` problem.  
 Means could solve a problem in exponetial time.  
 Apparantly EXP is the super set of NP.  
 
