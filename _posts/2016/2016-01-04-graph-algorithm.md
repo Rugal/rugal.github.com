@@ -17,7 +17,7 @@ The Greedy Choice is to pick the smallest weight edge that doesn’t cause a cyc
 
 #Prim
 `Minimum Spanning Tree`   
-In Prim’s algorithm also, we create a MST by picking edges one by one.   
+In Prim’s algorithm also, we create a MST by picking edges one by one.    
 We maintain two sets: 
 
 1. set of the vertices already included in MST. 
@@ -27,7 +27,7 @@ The Greedy Choice is to pick the smallest weight edge that connects the two sets
 
 #Dijkstra
 `Shortest Path`  
-The Dijkstra’s algorithm is very similar to Prim’s algorithm. The shortest path tree is built up, edge by edge. 
+The Dijkstra’s algorithm is very similar to Prim’s algorithm. The shortest path tree is built up, edge by edge.   
 We maintain two sets: 
 
 1. set of the vertices already included in the tree. 
