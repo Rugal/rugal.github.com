@@ -7,12 +7,13 @@ tags: [clojure]
 ---
 {% include JB/setup %}
 I have been studying `clojure` for a few days, but I need to write test code in files before using `lein run` to test it, which is definitely productiveless.   
-Way to load a jar in `repl`    
+One way to load a jar in `repl`    
 {%highlight clojure%}
 (require '[clojure.data.json :as json])
 {%endhighlight%}
-New version of clojure deprecated the `use` function to make it more consistant to "import` a package.  Since loading all functions into current namespace will result into a bunch of confliction problems.  
-So they trying to propagate `require`.  
+New version of clojure deprecated the `use`  to make it more consistant to import a package.   
+Since loading all functions into current namespace will result into a bunch of confliction problems.  
+So it is recommended to use `require`.  
 
 By using `require` with `:refer` and `:all` options, you could achieve the same work in a more flexible and consistant way.  
 
