@@ -88,16 +88,14 @@ Try to learn more by yourself.
 
 
 {%highlight clojure%}
-user=> `{:a 1 :b '~(+ 1 2)}  ;{:a 1, :b (quote 3)}
-
+user=> `{:a 1 :b '~(+ 1 2)} ;{:a 1, :b (quote 3)}
 user=> `[:a ~(+ 1 1) c]     ;[:a 2 user/c]
 user=> `[:a ~(+ 1 1) ~`c]   ;[:a 2 user/c]
-user=> `[:a ~(+ 1 1) ~'c]    ;[:a 2 c]
-user=> `[:a ~(+ 1 1) 'c]     ;[:a 2 (quote user/c)]
-user=> `[:a ~(+ 1 1) '~'c]   ;[:a 2 (quote c)]
+user=> `[:a ~(+ 1 1) ~'c]   ;[:a 2 c]
+user=> `[:a ~(+ 1 1) 'c]    ;[:a 2 (quote user/c)]
+user=> `[:a ~(+ 1 1) '~'c]  ;[:a 2 (quote c)]
 
 user=> `{:a 1 :b '~@(list 1 2)}  ;{:a 1, :b (quote 1 2)}
-
 
 user=> `(1 `(2 3) 4)
 ;(1 (clojure.core/seq (clojure.core/concat (clojure.core/list 2) (clojure.core/list 3))) 4)
