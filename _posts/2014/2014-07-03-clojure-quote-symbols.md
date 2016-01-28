@@ -77,7 +77,7 @@ user=> `(max ~(shuffle (range 10)))  ; just behaves as what syntax-quote could d
 ;(clojure.core/max [8 2 6 7 3 9 5 1 0 4]) ;There is an square parenthesis there
 
 user=> `(max ~@(shuffle (range 10))) ; ~@ extract list without parenthesis.
-;(clojure.core/max 0 4 7 5 1 2 6 3 9 8)   ;There got rid of the square parenthesis
+;(clojure.core/max 0 4 7 5 1 2 6 3 9 8)
 {%endhighlight%}  
     
 ##5. let's confusing    
