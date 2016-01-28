@@ -7,16 +7,15 @@ tags: [clojure]
 ---
 {% include JB/setup %}
 
-Well quote and its related symbol is too confusing for a clojure newbie.  
+Well, quote and its related symbols is too confusing for a clojure newbie.  
 Thanks to this excellent [article](http://blog.8thlight.com/colin-jones/2012/05/22/quoting-without-confusion.html).  
 
 
 ##1. '
-The symbol `'`, which is a single quote symbol just near the `Enter` button on your keyboard.  Can turn off evaluation functionality in its following expression, its functionality is totally equivalent to `(quote)`.   
-`quote`'s functionality is simple and decicate, which means the expression after this symbol will be treated just as literal, just by literal, no other feature.  
+The symbol `'`, the single quote symbol near the `Enter` button in your keyboard.  Can turn off evaluation functionality for the following expression, its functionality is totally equivalent to `(quote)`.   
+Functionality of `quote` is simple and dedicate, which means the expression after this symbol will be treated just as literal, nothing more.  
 
-
-Let's take some samples:   
+Let's take some examples:   
 
 {%highlight clojure%}
 user=> '()                   ;()
@@ -26,17 +25,17 @@ user=> '(list 1 2 3)         ;(list 1 2 3)
 user=> (eval '(list 1 2 3))  ;(1 2 3)
 {%endhighlight%}
 
-As you can see the `(eval)` can evaluate the quoted or unevaluated(literal) expression and offer its original ability.  
-
+As you can see the `(eval)` can evaluate the quoted or unevaluated(literal) expression and unveil its original ability.  
 
 ##2. `
-This is a confusing symbol just because it looks alike with `'`, actually this symbol called `back-quote` locate above the `Tab` button on your keyboard. But clojure call it `syntax-quote`, pretty cool right?    
-Much similar to `quote`, this `syntax-quote `, will left expression behind it unevaluated or quoted, but it has some difference with the first `quote`.  
+This is a confusing symbol just because it looks like `'`. But actually this symbol called `back-quote`, located above the `Tab` button in your keyboard.   
+Clojure call it `syntax-quote`.     
+Very similar to `quote`, this `syntax-quote `, will left expression behind it unevaluated, but it has some more functionalities.  
 
-1. `syntax-quote` will evaluate each function and expression one by one to  guess their namespace
-2. `syntax-quote` can combination use with `~`, whereas `quote` can not.
+1. `syntax-quote` will try to find out the corresponding namespace of following symbols.   
+2. `syntax-quote` could combine use with some other special characters such like `~`, whereas `quote` could not.   
 
-let's have some samples:  
+let us have some examples:  
 
 {%highlight clojure%}
 user=> `[name]      ;[clojure.core/name]
@@ -51,7 +50,7 @@ You could use `'` as short for `quote`, but there have no short hand for `syntax
 This is a magic symbol to unquote expression within the effect area of `syntax-quote`, you could only use it in the scope of a `syntax-quote`, it named `unquote`.    
 By unquoting, the expression affected by `~` now can be evaluated again even if it in domain of a `syntax-quote`.  
 
-Sample below:  
+Examples below:  
 
 {%highlight clojure%}
 user=> `[~(quote name)]   ;[name], same as `[~'name]
@@ -61,24 +60,23 @@ user=> `[`~name]     ;[clojure.core/name], same as `[name]
 user=> `['~name]     ;[(quote #<core$name clojure.core$name@d75415>)]
 {%endhighlight%}
 
-##4. @
+##4. ~@
   
 If you have seen my post of [state management]({%post_url 2014/2014-06-26-clojure-state-management-introduction%}), you will know the `@` is about to derefer the `ref/atom/Agent`.   
 But here this symbol again have another behavior that is `~` alike.  
-`@` symbol must combined use with `~`, which finally become `~@`, called `unquote-splicing` symbol.   
-It could expand all elements in a `list` to  inserted in the place of a single `unquote-splicing` symbol.   
- 
+`@` symbol must combined use with `~`, which finally becomes `~@`, called `unquote-splicing` symbol.   
+It could extract the inner elementns from the quoted `list`.   
  
 sample code:  
 
 {%highlight clojure%}
-user=> `(max @(shuffle (range 10)))     ;have no effect without ~ as prefix
+user=> `(max @(shuffle (range 10)))  ; have no effect without ~ as prefix
 ;(clojure.core/max (clojure.core/deref (clojure.core/shuffle (clojure.core/range 10))))
 
-user=> `(max ~(shuffle (range 10)))       ; just behave as what syntax-quote and unquote could
+user=> `(max ~(shuffle (range 10)))  ; just behaves as what syntax-quote could do
 ;(clojure.core/max [8 2 6 7 3 9 5 1 0 4]) ;There is an square parenthesis there
 
-user=> `(max ~@(shuffle (range 10)))      ;~@ replace items in list just onto its symbol without parenthesis.
+user=> `(max ~@(shuffle (range 10))) ; ~@ extract list without parenthesis.
 ;(clojure.core/max 0 4 7 5 1 2 6 3 9 8)   ;There got rid of the square parenthesis
 {%endhighlight%}  
     
