@@ -9,7 +9,8 @@ tags: [jpt]
 
 
 
-#Introduction
+Introduction
+================
 
 `PostAction` is associated with all post and partly thread related jobs.  
 All interfaces of this controller is placed under `/user` path.   
