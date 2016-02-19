@@ -20,7 +20,8 @@ All interfaces require [authentication fields]({%post_url 2015-09-14-introductio
 
 #API
 
-##Add Post
+##Add Post  
+
 To add a new post. Use this interface to create post metadata without uploading the torrent file.  
 {%highlight http%}
 POST /post HTTP/1.1
