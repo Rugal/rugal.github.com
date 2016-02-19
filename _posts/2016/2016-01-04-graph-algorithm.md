@@ -10,6 +10,7 @@ tags: [math, algorithm]
 [Geeks for Geeks](http://www.geeksforgeeks.org/greedy-algorithms-set-1-activity-selection-problem/)
 
 #Kruskal
+
 `Minimum Spanning Tree`  
 In Kruskal’s algorithm, we create a MST by picking edges one by one.   
 The Greedy Choice is to pick the smallest weight edge that doesn’t cause a cycle in the MST constructed so far.
