@@ -1,11 +1,11 @@
 # This is the default format. 
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /:categories/:year/:month/:day/:title 
+permalink: /:categories/:year/:month/:day/:title
 
 markdown: kramdown
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-highlighter : pygments
+highlighter : rouge
 safe : true
 excerpt_separator: ""
 
@@ -16,12 +16,10 @@ title : Rugal
 tagline: Site Tagline
 author :
   name : Rugal Bernstein
-  email : ryujinwrath<AT>gmail.com
+  email : rugal.bernstein.0<AT>gmail.com
   facebook: rugal.bernstein.50
-  #googleplus: 
   github : Rugal
   twitter : ryujinwrath
-  #feedburner : Rugal
 
 
 

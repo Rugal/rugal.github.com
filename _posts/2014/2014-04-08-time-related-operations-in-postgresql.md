@@ -19,5 +19,4 @@ select to_timestamp(1284352323);
 
 --Convert a given Timestamp into another time zone, before using new date format.
 select to_char(timezone('UTC', to_timestamp(1372204800)), 'DD-Mon-YY');
-
 {%endhighlight%}
