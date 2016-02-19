@@ -8,7 +8,7 @@ tags: [java,maven]
 {% include JB/setup %}
 
 Hello user,  
-If you see this post, you might interested in my [ssh archetype]({%post_url 2014/2014-07-06-my-archetype-in-maven%}).  
+If you see this post, you might interested in my [ssh archetype]({%post_url 2014-07-06-my-archetype-in-maven%}).  
 They will cooperate nicely.  
 
 This artifact is a useful common package for integrating springmvc-spring-hibernate.   

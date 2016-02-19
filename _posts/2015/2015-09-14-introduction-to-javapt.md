@@ -37,7 +37,7 @@ Request that should have authetication fields but does not will get:
 
 
 
-1. [User]({%post_url 2015/2015-10-25-jpt-user-interface %})
+1. [User]({%post_url 2015-10-25-jpt-user-interface %})
 2. Post
 3. Thread
 4. Signin
@@ -48,12 +48,12 @@ JSON data format are generally used througout this application.
 Listed classes are for demonstration usage.   
 If developers want to set up client or front-end, please also follow the same rule of class structure.  
 
-1. [Message]({%post_url 2015/2015-09-14-jpt-message-object %})
-2. [Pagination]({%post_url 2015/2015-09-28-jpt-pagination-object %})
-3. [User]({%post_url 2015/2015-09-18-jpt-user-object %})
-4. [Post]({%post_url 2015/2015-10-13-jpt-post-object %})
-5. [Thread]({%post_url 2015/2015-10-14-jpt-thread-object%})
-6. [UserLevel]({%post_url 2015/2015-10-25-jpt-user-level-object%})
+1. [Message]({%post_url 2015-09-14-jpt-message-object %})
+2. [Pagination]({%post_url 2015-09-28-jpt-pagination-object %})
+3. [User]({%post_url 2015-09-18-jpt-user-object %})
+4. [Post]({%post_url 2015-10-13-jpt-post-object %})
+5. [Thread]({%post_url 2015-10-14-jpt-thread-object%})
+6. [UserLevel]({%post_url 2015-10-25-jpt-user-level-object%})
 7. Tag
 8. SigninLog
 9. PostTags

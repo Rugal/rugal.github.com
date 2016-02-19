@@ -13,7 +13,7 @@ tags: [jpt]
 
 `PostAction` is associated with all post and partly thread related jobs.  
 All interfaces of this controller is placed under `/user` path.   
-All interfaces require [authentication fields]({%post_url 2015/2015-09-14-introduction-to-javapt %}).    
+All interfaces require [authentication fields]({%post_url 2015-09-14-introduction-to-javapt %}).    
 
 
 -----------------
@@ -34,7 +34,7 @@ credential: {credential}
   "content":"This could be a very long content..."
 }
 {%endhighlight%}
-The `post` object is exactly as [specification]({%post_url 2015/2015-10-13-jpt-post-object%}), but user could not specify the id of post to be persisted as well as some of other fields like `postTime`, `infoHash`, `rate`.   
+The `post` object is exactly as [specification]({%post_url 2015-10-13-jpt-post-object%}), but user could not specify the id of post to be persisted as well as some of other fields like `postTime`, `infoHash`, `rate`.   
 Note that the `minLevel` is to set the minimum required level of user to download. User could not `create` a level without proper permission. Ideally, user should choose a level from list.  
 
 ##Update Post meta and content
@@ -87,7 +87,7 @@ credential: {credential}
 
 {"content":"TEST CONTENT", "rate":5}
 {%endhighlight%}
-`Thread` object is exactly as [specification]({%post_url 2015/2015-10-14-jpt-thread-object%}). But for user could specify few fields as the example above.  
+`Thread` object is exactly as [specification]({%post_url 2015-10-14-jpt-thread-object%}). But for user could specify few fields as the example above.  
 the target post is specified in URL, replyer is specified in request header `uid`.  
 
 ##Get Thread page for a Post

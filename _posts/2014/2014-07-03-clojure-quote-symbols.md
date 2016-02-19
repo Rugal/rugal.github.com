@@ -62,7 +62,7 @@ user=> `['~name]     ;[(quote #<core$name clojure.core$name@d75415>)]
 
 ##4. ~@
   
-If you have seen my post of [state management]({%post_url 2014/2014-06-26-clojure-state-management-introduction%}), you will know the `@` is about to derefer the `ref/atom/Agent`.   
+If you have seen my post of [state management]({%post_url 2014-06-26-clojure-state-management-introduction%}), you will know the `@` is about to derefer the `ref/atom/Agent`.   
 But here this symbol again have another behavior that is `~` alike.  
 `@` symbol must combined use with `~`, which finally becomes `~@`, called `unquote-splicing` symbol.   
 It could extract the inner elementns from the quoted `list`.   

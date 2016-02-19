@@ -30,5 +30,5 @@ In Ubuntu OS, what you need to do is to modify `/etc/network/interfaces`:
     
 Change the interface name `eth0` if you wish to modify other interfaces.  
 After edition, you need to restart your network.  
-You can simply reboot ubuntu or use [network restart]({%post_url 2015/2015-08-17-ubuntu-restart-network-interfaces %}).
+You can simply reboot ubuntu or use [network restart]({%post_url 2015-08-17-ubuntu-restart-network-interfaces %}).
 Notice by editing interface file, the change are permanent and will also be effective after reboot.

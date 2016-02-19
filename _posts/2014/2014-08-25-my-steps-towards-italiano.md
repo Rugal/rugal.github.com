@@ -24,4 +24,4 @@ il == the
 but if `il` followed by a word that start with a vowel, `il` will be transformed into `l'`  
 
 --------------
-[Glossary]({%post_url 2014/2014-09-14-italiano %}) 
+[Glossary]({%post_url 2014-09-14-italiano %}) 

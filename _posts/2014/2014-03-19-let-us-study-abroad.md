@@ -80,7 +80,7 @@ DIY申请，又靠谱，又便宜。克服了自己懒惰/不愿意面对/不自
 
 ---------------------
 
-1. [prepare for standardized examination](/myself/2014/03/19/standardized-examination)
-2. [searching for applicable university](/myself/2014/03/19/find-applicable-destination)
-3. [apply for university](/myself/2014/03/19/apply-for-ideal-university)
-4. [apply for study permit](/myself/2014/03/19/get-your-study-permit)
+1. [prepare for standardized examination]({%post_url 2014-03-19-standardized-examination %})
+2. [searching for applicable university]({%post_url 2014-03-19-find-applicable-destination %})
+3. [apply for university]({%post_url 2014-03-19-apply-for-ideal-university %})
+4. [apply for study permit]({%post_url 2014-03-19-get-your-study-permit %})

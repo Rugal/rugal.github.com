@@ -86,4 +86,4 @@ I have learned it is the reason that the first time I `make`, those `.y` files a
 Also I got to know, `make maintainer-clean` can clean all unnecessary file, hackers will use this to clean all no-needed files when they coding.  
 I have learnt more from this, `compilation principle` is so important that it was a great pity for my school do not have this class!  
 
-##Let's start developing [Postgres](http://wiki.postgresql.org/wiki/Todo)
+##Let's start developing [PostgreSQL](http://wiki.postgresql.org/wiki/Todo)

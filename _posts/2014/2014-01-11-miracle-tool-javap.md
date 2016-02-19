@@ -7,7 +7,7 @@ tags: [java]
 ---
 {% include JB/setup %}
 It has been disturbing  me for a very long time that how Java byte-code are executed and the organization of heap/stack in JVM:  
-Now I have a tutorial over steps towards [JVM inner](http://blog.jamesdbloom.com/JVMInternals.html)   
+Now I have a tutorial over steps towards [JVM Internals](http://blog.jamesdbloom.com/JVMInternals.html)   
 Today I will introduce the code dissamble tool: `javap`, which could be great helpfull when dive into JVM  
 {%highlight bash%}
 javap  [options]  [classes]
