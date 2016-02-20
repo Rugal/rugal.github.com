@@ -28,7 +28,7 @@ While it is rather easy to understand that accessing the first two item just mea
 As `fib-seq` do not have third item for now, it need to generate it when thread need to accessing the 3rd item, here is where my assumption start:  
 
 
-#stem
+# stem
 Since `(map + (rest fib-seq) fib-seq )` is a `lazy-seq` itself, it contain no item in it currently and waiting for calling `more` command on it.   
 Here calling the 3rd item of `fib-seq` means calling the first item of lazy sequence `(map...)`, hence it need to generate and real execute the code.  
 By simply replace variable name with list, the code of map seems like this:  
@@ -86,7 +86,7 @@ For this `Fibonacci number generator`, it just shift two list and add them one b
 Which of course is a very deft way to generate `Fibo`.  
 
 
-#summary
+# summary
 To sum up, from human's view, lazy seq will generate item always from its last status/position rather than starting from its initial state.
 
 Please correct me if I am wrong, I am a newbie in `clojure` and I am eagerly to learn it well.  

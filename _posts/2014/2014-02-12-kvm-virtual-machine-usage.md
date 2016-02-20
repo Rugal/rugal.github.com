@@ -9,7 +9,7 @@ tags: [virtualization, linux]
 I have successfully installed KVM virtual machine for a very long time, but I did not do some actual jobs on it yet.  
 Today I am started to do some developing jobs towards Hadoop eco-system, which needs virtual machines for a better and clean workspace.  
 
-##create VM
+## create VM
 Operate according to this [doc](http://www.havetheknowhow.com/Configure-the-server/Configure-KVM.html), which is already detailed to fully create a KVM machine. I rewrite the [build-vm](http://githubpage.u.qiniudn.com/build-vm) script for creating VM.  
 During the installation, I encountered some problems. I just wanna share them online.  
 Notice that `--dest` is the parameter that VM file will be stored, you need to create the folder name yourself, or KVM will have error stack at the final stage! killing time.  
@@ -21,12 +21,12 @@ After fetching bin files from source server, maybe it will have a error that sho
 
 After a around  15 mins, the automatical installation procedure already finished and it will deploy to the folder that you specified in `build-vm` script.  
 
-##clone VM
+## clone VM
 It also very simple and easy to clone a VM rather than recreate a VM from network again!  
 For more details, please refer to [clone](http://www.havetheknowhow.com/Configure-the-server/Configure-KVM.html)  
 `> virt-clone --connect=qemu:///system -o oldVM -n newVM -f /home/rugal/VM/new/NewVM.gcow2`  
 
-##step into VM
+## step into VM
 Now its time to startup our VM, how exciting!  
 Use `list` command:  
 {%highlight bash%}
@@ -72,9 +72,9 @@ Welcome to Ubuntu 12.04.4 LTS (GNU/Linux 3.2.0-58-virtual x86_64)
 {%endhighlight%}
 Wow it works!
 
-##close VM
+## close VM
 It also very easy to do the reverse action to shutdown VM, just as command below:  
 `> virsh --connect qemu:///system shutdown master`  
 
-##drop VM
+## drop VM
 I wrote a [script](http://githubpage.u.qiniudn.com/vmdelete) to delete a VM in one command, you will find it rather easy!

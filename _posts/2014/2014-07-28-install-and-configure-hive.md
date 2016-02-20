@@ -9,10 +9,10 @@ tags: [hadoop]
 
 Personally, the configuration procedure of Hive is much easier than Hbase.  
 
-#download
+# download
 [hive](http://www.apache.org/dyn/closer.cgi/hive/)  
 
-#install
+# install
 Move to installation folder, copy configuration files  
 {%highlight bash%}
 tar -zxf apache-hive-0.13.1-bin.tar.gz
@@ -40,7 +40,7 @@ export PATH=$HIVE_HOME/bin:$PATH
 {%endhighlight%}
 
 
-#configure
+# configure
 Actually this configuration comprise of two parts, first one is call `metastore`, in which the data structure and definition stored.  
 Another is the so called data stored in HDFS.  
 
@@ -95,21 +95,21 @@ $HADOOP_HOME/bin/hadoop fs -chmod g+w /user/hive/warehouse
 
 
 
-#start
+# start
 
 {%highlight bash%}
-#startup metastore service
+# startup metastore service
 hive --service metastore &
 
-#startup hive server
+# startup hive server
 hive --service hiveserver &
 
-#launch hive interactive client
+# launch hive interactive client
 hive shell
 {%endhighlight%}
 
 
-#basic usage
+# basic usage
 
 
 {%highlight bash%}

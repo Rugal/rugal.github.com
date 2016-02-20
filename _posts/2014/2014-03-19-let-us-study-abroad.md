@@ -14,7 +14,7 @@ tags: [abroad]
 然后对老夫自己的情况有一个基本的介绍以供后人参考吧，毕竟有相近的程度来进行参考才可以让自己觉得比较可信吧，至少这是我在看了好多文章以后仍然不太确信的原因。  
 
 
-###self introduction
+### self introduction
 
 name||value
 :--|--|--:
@@ -40,7 +40,7 @@ Target Degress||Master
 本人总共申请了8所学校，其中包括：  
 
 
-###applied university
+### applied university
 1. University of Manitoba(`Offer`)
 2. University of Ontario Institute of Technology(`Got no Idea`)
 3. University of Ottawa(`insufficient Application Material`)
@@ -55,7 +55,7 @@ Target Degress||Master
 最后，老夫去了`University of Manitoba`，因为个人原因。  研究方向是`data mining & database`，欢迎朋友们来交流。  
 
 
-###DIY留学费用粗略统计
+### DIY留学费用粗略统计
 
 item||price(RMB if not set)
 :---|---|---:

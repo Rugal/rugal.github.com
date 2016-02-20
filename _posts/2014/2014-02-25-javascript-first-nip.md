@@ -9,14 +9,14 @@ tags: [javascript]
 I told myself that I do not like javascript, actually it is just a joke, you never know when there is a requirement to use it.  
 Honestly, Javascript is very powerful. Now, I learn JS not for further deeping, but for slightly using its async-functionality in AJAX.  
 
-##load JS in html
+## load JS in html
 {%highlight html%}
 <script src="js/jquery.js"></script>
 {%endhighlight%}
 it's alright to put it in any position for my level of JS. Actually I hear about the position and sequence of loading JS will have some influence on rendering performance and some logic.  
 
 
-##navigation
+## navigation
 Navigating through HTML is a tough work, but a JS library called `jQuery` could achieve this without too much burden.  
 {%highlight javascript%}
 var rows = $("tr", "#bodystart");

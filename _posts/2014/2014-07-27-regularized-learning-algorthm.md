@@ -30,7 +30,7 @@ There will have many problems when training machine learning algorithm.
 
 Regularization could ameliorate or to reduce over-fitting problem.  
 
-###premise
+### premise
 1. $m$ is the number of training set records.
 2. $n$ is the number of features
 3. $\lambda$ is penality value for reducing high polynomial features' effect, with larger this value is, smaller the effect is, but learning algorithm turn out to under fitting if $\lambda$ too high.
@@ -39,7 +39,7 @@ Regularization could ameliorate or to reduce over-fitting problem.
 
 --------
 
-##regularized Linear regression
+## regularized Linear regression
 
 >Cost function
 
@@ -56,7 +56,7 @@ $$
 \end{aligned}
 $$
 
-##regularized logistic regression
+## regularized logistic regression
 
 
 

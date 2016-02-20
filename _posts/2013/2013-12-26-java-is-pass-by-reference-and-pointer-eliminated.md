@@ -9,7 +9,7 @@ tags: [java]
 In many blogs and documents, people will say, Java is already eliminat pointer, hence what java pass as parameter is value, the `thing` that pass through method parameter list is named `reference`  
 Let us review what reference and point like in C/C++, which is the most standard stem of program  
 {%highlight c++%}
-#include<stdio.h>
+# include<stdio.h>
 int main()
 {
     int data=100, example=3;
@@ -89,10 +89,10 @@ what is wrong with you? what is wrong with me?
 
 To keep you clarified, Let me explain this to you   
 
-###hint one:  
+### hint one:  
 there is no one to gurrantee `reference` in java is what `reference` like in `C/C++`  
 
-###hint two:  
+### hint two:  
 Don't you think this so called `reference` in java behave just like what pointer do in `C/C++`  
 
 
@@ -102,5 +102,5 @@ Even if official documentation demonstrated there is no more pointer in Java, an
 Thus let us make a deal, that Java is pass-by-value, because what passed into parameter list is the actual address value of a object.  
 But here is a thing, all the so called `reference` in java is not what `reference` behave in C++, it is more likely with `pointer`. nevertheless, this `pointer` do not have the capability to dereference the address of which it point to.  
 
-##conclusion
+## conclusion
 Java is indeed `pass-by-value` but the reference is just actually a fundamental functionalitied `pointer`.

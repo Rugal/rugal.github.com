@@ -7,14 +7,14 @@ tags: [latex,linux]
 ---
 {% include JB/setup %}
 
-##Development Environment
+## Development Environment
 
 
     sudo apt-get install texlive-latex-base  texlive-latex-extra xzdec
 
 
 
-##Package Management
+## Package Management
 Init `tlmgr` with command:  
 
 
@@ -30,7 +30,7 @@ Yet, the recommend way is to install full package in `apt-get`.
 
 
 
-##Sample Content
+## Sample Content
 
 {%highlight latex%}
 \documentclass[12pt]{article}
@@ -67,12 +67,12 @@ Part B is due on January 22 at 12 Noon.
 
 
 
-##Compile
+## Compile
 
     latex sample.tex
 
 
-##PDF Reader
+## PDF Reader
 There is `okular` in KDE.
 
     okular sample.pdf

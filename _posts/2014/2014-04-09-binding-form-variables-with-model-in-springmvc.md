@@ -8,7 +8,7 @@ tags: [java]
 {% include JB/setup %}
 Even if `springmvc` provides `@ModelAttribute`, it could only bind name that not start with root variable name, for instance:  
 
-###Model: 
+### Model: 
 {%highlight java%}
 class OrderLog
 {
@@ -25,7 +25,7 @@ class Restaurant
 }
 {%endhighlight%}
 
-###Action class:
+### Action class:
 {%highlight java%}
 @Controller
 @RequestMapping(value = "/order")
@@ -63,7 +63,7 @@ It did not includes root name: `orderLog`, makes it not easy and cosy enough to 
 
 -------
 
-##solution
+## solution
 After Googling, I found a great [solution](http://jinnianshilongnian.iteye.com/blog/1717180) and [assist](http://www.java-allandsundry.com/2013/01/spring-mvc-customizing.html).  
 By adding `@formModel` annotation and related resolving methods, springmvc now could tackle with it with great convenience.  
 While in integration, you need to register the customized arguments resolver into springmvc framework by add them in `springmvc-servlet.xml` to prevent potential risks.  

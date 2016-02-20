@@ -8,7 +8,7 @@ tags: [clojure]
 {% include JB/setup %}
 
 
-###clojure build-in types
+### clojure build-in types
 
 name |example|underlying java interface
 :--|--:|--:
@@ -26,9 +26,9 @@ Set | #{1 2 3}| `java.util.Set`
 
 -----
 
-##primitive type
+## primitive type
 
-###Number
+### Number
 
 {%highlight clojure%}
 1. (+)
@@ -44,7 +44,7 @@ Set | #{1 2 3}| `java.util.Set`
 {%endhighlight%}
 
 
-###Strings
+### Strings
 
 {%highlight clojure%}
 1. (str)
@@ -55,7 +55,7 @@ Set | #{1 2 3}| `java.util.Set`
 {%endhighlight%}
 
 
-###Regular Expression Functions
+### Regular Expression Functions
 
 {%highlight clojure%}
 1. (re-pattern "[a-z]")
@@ -63,7 +63,7 @@ Set | #{1 2 3}| `java.util.Set`
 {%endhighlight%}
 
 
-###Boolean
+### Boolean
 
 {%highlight clojure%}
 1. (not)
@@ -72,13 +72,13 @@ Set | #{1 2 3}| `java.util.Set`
 {%endhighlight%}
 
 
-###Characters
+### Characters
 {%highlight clojure%}
 1. (char ASCII/Unicode)
 {%endhighlight%}
 
 
-###Keywords
+### Keywords
 
 {%highlight clojure%}
 1. (keyword string)
@@ -90,9 +90,9 @@ Set | #{1 2 3}| `java.util.Set`
 --------
 
 
-##collection
+## collection
 
-###Lists
+### Lists
 
 List is a linked list, which is convenient in insertion and deletion, but not perform good in traverse and random indexing.  
 So for a list, modification, appending and conjunction is happened on the top/head of a list.
@@ -106,7 +106,7 @@ So for a list, modification, appending and conjunction is happened on the top/he
 {%endhighlight%}
 
 
-###vector
+### vector
 
 Vector is like an array, hence perform good in traverse, data appending and  random selection, but disappointing in insertion and deletion.  
 So for a vector, modification, append and conjunction is happened on the tail of a vector.
@@ -122,7 +122,7 @@ So for a vector, modification, append and conjunction is happened on the tail of
 {%endhighlight%}
 
 
-###map
+### map
 
 very similar to an Object in OOP:  
 {%highlight clojure%}
@@ -141,7 +141,7 @@ very similar to an Object in OOP:
 {%endhighlight%}
 
 
-###set
+### set
 
 {%highlight clojure%}
 1. (def languages #{:java :lisp :c++})

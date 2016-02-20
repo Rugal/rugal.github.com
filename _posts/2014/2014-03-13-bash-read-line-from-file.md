@@ -9,16 +9,16 @@ tags: [bash]
 Sometimes the `readline` functionality is required and `bash` could tackle it.  
 Seems it needs redirect or pipe to provide data.  
 {%highlight bash%}
-#!/bin/bash
+# !/bin/bash
 
-#using pipe
+# using pipe
 cat txt | \
 while read line
 do
     echo $line
 done
 
-#using redirect
+# using redirect
 while read line
 do
     echo $line

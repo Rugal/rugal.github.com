@@ -64,26 +64,26 @@ SELECT id,pid,misc,depth,path FROM tree order by depth;
 {%endhighlight%}
 According to official Document, `WITH` syntax means to use a temporary table to simpify query.  
 
-###1. define temporary table  
+### 1. define temporary table  
 `tree(id,pid,misc,depth,path)` defines columns of temporary table to project in query after this.  
 As you could tell that `id` `pid` and `misc` columns are originally existed in main table.  
 `depth` and `path` column are defined to adopt to different search strategies.  
 
-###2. initial row of recursion  
+### 2. initial row of recursion  
 `SELECT` snipplet above `UNION` is defined as initial statement.  
 `SELECT id, pid, misc, 1, ARRAY[id] FROM test WHERE id=1`  
 This defines the start position of a recursive search, which id is 1, just like the root of a tree.  
 All the rest queries are based on this statement.  
 `ARRAY[id]` create an array to record hierachy of a spcified rows.
 
-###3. recursion statement  
+### 3. recursion statement  
 The `SELECT` statement under `UNION` is defined as recursive statement, temporary table itself could be referred in this section.  
 `SELECT a.id, a.pid, a.misc, b.depth+1, b.path||a.id FROM test a, tree b WHERE a.pid=b.id`  
 `projection` must be identical with initial statement, thus makes it possible to recurse.  
 This statement join with temporary table and search specified rows that match predication. This is how recursion happened.  
 `b.path||a.id` makes pre-defined array to append with newest row.  
 
-###4. return statement  
+### 4. return statement  
 A semicolon is used to indicate an end of a SQL.  
 `SELECT id,pid,misc,depth,path FROM tree order by path;`  
 `order by` syntax will affect different strategies of searching.  

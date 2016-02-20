@@ -14,16 +14,16 @@ Even many articles on website introduced the details of sequence or conception o
 
 
 
-##handler
+## handler
 handler is the real method that deal with request, which in springmvc is the methods that have `@RequestMapping` on it.  
 handler will be executed only if all interceptors' preHandler method return true  
 
 
-##execution chain
+## execution chain
 a chain that contain all the interceptors that need to execute, way and order are defined manually  
 
 
-##preHandler
+## preHandler
 1. execution sequence:  
   the execution order comply to execution chain.
 2. execution position:  
@@ -33,7 +33,7 @@ a chain that contain all the interceptors that need to execute, way and order ar
   if return false or throw exception in this method, `DispatcherServlet` assumes this interceptor has already taken care of the response itself.  
 
 
-##postHandler
+## postHandler
 1. execution sequence:  
 execution order in a invert order to execution chain.  
 2. execution position:  
@@ -42,7 +42,7 @@ execution order in a invert order to execution chain.
   this method is to do some modification or surviliance the `ModelAndView` object.  
 
 
-##afterCompletion
+## afterCompletion
 1. execution sequence:  
 execution order is invert with execution chain, thus first interceptor will be the last one to execute.  
 2. execution position:  

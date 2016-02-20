@@ -20,7 +20,7 @@ MathJax.Hub.Config({
   }});
 </script>
 
-##premise
+## premise
 1. $X$ is a `matrix` which has `m` rows and `n` columns, that means it is a $m \times n$ matrix, represents for training set.
 2. $\theta$ is a $1 \times n$ `vector`, stands for hypothesis parameter.
 3. $y$ is a $m \times 1$ `vector`, stands for real value of training set.
@@ -31,7 +31,7 @@ MathJax.Hub.Config({
 -------
 
 
-#1. Hypothesis
+# 1. Hypothesis
 
 >Draw hypothesis of a pattern.  
 >Since classification problem range from 0 to 1  
@@ -42,7 +42,7 @@ h_{\theta}(X) = g(X \times \theta^T)  \\
 g(z) = \frac{1}{1 + e^{-z}}
 $$
 
-#2. Cost
+# 2. Cost
 
 >Calculate the Cost for single training point.
 
@@ -60,7 +60,7 @@ Cost(X,y) =-[y \times log(h_\theta(X))+(1-y) \times log(1-h_\theta(X))]
 $$  
 
 
-#3. Cost function
+# 3. Cost function
 
 >Draw cost function for iterating whole training set.
 
@@ -72,11 +72,11 @@ J(\theta) &=(\frac{1}{m})\sum_{i=1}^m Cost(X^{(i)},y^{(i)})    \\
 $$
 
 
-#4. Get optimized parameter
+# 4. Get optimized parameter
 
 >Learn from training set to get optimized parameter for proposed algorithm.
 
-###Gradient Descend###
+### Gradient Descend###
 
 $$
 \begin{aligned}
@@ -94,7 +94,7 @@ $$
 
 
 
-### Others ###
+###  Others ###
 
 1. Conjugate gradient
 2. BFGS

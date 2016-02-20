@@ -9,11 +9,11 @@ tags: [c]
 Well, since the first time I got in touch with pointer in C, this guy has confused me a little bit. About three years ago I made a experiment to clarify its properties, but in another blog.  
 I am gonna rewrite a better version in here.  
 
-##int
+## int
 {%highlight c%}
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
+# include<stdio.h>
+# include<stdbool.h>
+# include<stdlib.h>
 int main()
 {
     //This test is quite straight forward
@@ -34,11 +34,11 @@ Derefer of pointer:  123
 Address of pointer:  0x7fffa0916f64
 
 
-##array[]
+## array[]
 {%highlight c%}
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
+# include<stdio.h>
+# include<stdbool.h>
+# include<stdlib.h>
 int main()
 {
     //You can see from this test
@@ -71,11 +71,11 @@ Content of pointer:  0x7fffba6fa500
 Content of pointer:  0x7fffba6fa504  
 Address of pointer:  0x7fffba6fa4f8
 
-##char*
+## char*
 {%highlight c%}
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
+# include<stdio.h>
+# include<stdbool.h>
+# include<stdlib.h>
 int main()
 {
     //You can imagine there is a type called string
@@ -105,12 +105,12 @@ Content of pointer: 0x400905
 Address of pointer: 0x7ffff11f1eb8
 
 
-##function*
+## function*
 
 {%highlight c%}
-#include<stdio.h>
-#include<stdbool.h>
-#include<stdlib.h>
+# include<stdio.h>
+# include<stdbool.h>
+# include<stdlib.h>
 void t1(int data)
 {
     printf("T1 %d\n",data);

@@ -8,35 +8,35 @@ tags: [clojure, vim]
 {% include JB/setup %}
 
 
-##[vim-salve](https://github.com/tpope/vim-salve)
+## [vim-salve](https://github.com/tpope/vim-salve)
 
 >:Console   
 command to start a REPL or focus an existing instance if already running using dispatch.vim  
 >:Console!  
 command to start a REPL or focus an existing instance if already running using dispatch.vim  
 
-##[vim-dispatch](https://github.com/tpope/vim-dispatch)
+## [vim-dispatch](https://github.com/tpope/vim-dispatch)
 
-###Foreground build
+### Foreground build
 
 >:Make  
 Using under `tmux` will horizontally split current vim window to initial a lein session; Make use of the `make` in vim  
 >:Dispatch  
 Using under `tmux` will horizontally split current vim window to initial a lein session  
 
-###Background build
+### Background build
 
 >:Make!  
 >Using under `tmux` will create a new tmux window and exit if building finished; make use of the `make` in vim  
 >:Dispatch!  
 >Using under `tmux` will create a new tmux window and exit if building finished  
 
-###Spawning interactive processes
+### Spawning interactive processes
 >:Start lein repl  
 
-##[vim-fireplace](https://github.com/tpope/vim-fireplace)
+## [vim-fireplace](https://github.com/tpope/vim-fireplace)
 
-###Navigating and Comprehending
+### Navigating and Comprehending
 
 `:Source`, `:Doc`, and `:FindDoc`, which map to the underlying clojure.repl macro (with tab complete, of course).  
 `K` is mapped to look up the symbol under the cursor with doc.  
@@ -44,7 +44,7 @@ Using under `tmux` will horizontally split current vim window to initial a lein 
 `[<C-D>` jumps to the definition of a symbol (even if it's inside a jar file).  
 `gf`, everybody's favorite "go to file" command, works on namespaces.  
 
-###Evaluating from the buffer
+### Evaluating from the buffer
 
 `cqq` prepopulates the command-line window with the expression under the cursor.   
 `cqc` gives you a blank line in insert mode.   

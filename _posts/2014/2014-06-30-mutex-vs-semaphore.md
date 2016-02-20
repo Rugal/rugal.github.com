@@ -11,12 +11,12 @@ You might have seen these two terminologies for a very long time, since universi
  As depict below, they are totally different, although seems identical in mechanism.  
 
 
-##mutex
+## mutex
 Strictly speaking, a mutex is `locking mechanism` used to synchronize access to a resource.   
 Only one task (can be a thread or process based on OS abstraction) can acquire the mutex. It means there will be ownership associated with mutex, and only the owner can release the lock (mutex).  
 
 
-##semaphore
+## semaphore
 Semaphore is `signaling mechanism` (“I am done, you can carry on” kind of signal).    
 For example, if you are listening songs (assume it as one task) on your mobile and at the same time your friend called you, an interrupt will be triggered upon which an interrupt service routine (ISR) will signal the call processing task to wakeup.  
 

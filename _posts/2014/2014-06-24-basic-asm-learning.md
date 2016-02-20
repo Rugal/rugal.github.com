@@ -20,7 +20,7 @@ int	80h         ; Interrupt 80h, the thing that pokes the kernel and says, "Yo, 
 	
 ------
 
-####Hello world sample
+#### Hello world sample
 	
 {%highlight asm%}
 section .data

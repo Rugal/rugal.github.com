@@ -14,7 +14,7 @@ For the part of `interfaces`, I would like to introduce the format of returned d
 For `JSON` part, I will list all entities that are involved in the data transmission.  Frontier developers need to know the format and their corresponding meaning.  
 For the part of `protocols`, I actually just used and enhanced the  [ttorrent](https://github.com/mpetazzoni/ttorrent) tracker server. I will introduce the [BitTorrent](https://wiki.theory.org/BitTorrentSpecification) implemented in this project, answer some confusing questions about Bit Torrent.  
 
-##Interfaces
+## Interfaces
 One important thing is the `Authentication fields` in request header.  
 `Authentication fields` are `id` and `credential` fields in header. Corresponding to the information of user who currently log in client.  
 A sample request is shown as below:  
@@ -43,7 +43,7 @@ Request that should have authetication fields but does not will get:
 4. Signin
 
 
-##JSON
+## JSON
 JSON data format are generally used througout this application.  
 Listed classes are for demonstration usage.   
 If developers want to set up client or front-end, please also follow the same rule of class structure.  
@@ -60,5 +60,5 @@ If developers want to set up client or front-end, please also follow the same ru
 10. Client
 11. Admin
 
-##Protocols
+## Protocols
 1. BitTorrent

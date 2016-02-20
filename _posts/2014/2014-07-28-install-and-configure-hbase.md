@@ -7,7 +7,7 @@ tags: [hadoop]
 ---
 {% include JB/setup %}
 
-#premise
+# premise
 I already installed hadoop 2.4.0 with yarn, with hadoop configuration in `core-site.xml`  
 {%highlight xml%}
 <configuration>
@@ -19,11 +19,11 @@ I already installed hadoop 2.4.0 with yarn, with hadoop configuration in `core-s
 {%endhighlight%}
 
 
-#download
+# download
 
 [hbase](http://www.apache.org/dyn/closer.cgi/hbase/)  
 
-#install
+# install
 
 Move to installation path
 {%highlight bash%}
@@ -49,7 +49,7 @@ export HBASE_HOME=/usr/local/hbase
 export PATH=$HBASE_HOME/bin:$PATH
 {%endhighlight%}
 
-#configure
+# configure
 My goal is to setup a pseudo distributed type with only one node but connected with HDFS.  
 So I need to fill with HDFS port and path to connect with HDFS.  
 In `conf/hbase-site.xml`
@@ -83,7 +83,7 @@ hadoop fs -chmod 775  /user/zookeeper
 
 Now our simplest single node distributed hbase completed.
 
-#start
+# start
 Of course you need HDFS started, which I skip here.  
 
 
@@ -96,7 +96,7 @@ If everything runs smoothly, this will command with only output few lines, but y
 Log above means the success of startup of HBase, cong!
 
 
-#basic usage
+# basic usage
 
 Now just use few command to get in touch with hbase.  
 Since hbase is column oriented nosql database, you have to adjust to its column family style of organization of data.  

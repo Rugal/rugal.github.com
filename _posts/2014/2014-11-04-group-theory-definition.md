@@ -20,7 +20,7 @@ MathJax.Hub.Config({
   }});
 </script>
 
-##properties
+## properties
 Before introduce group definition, let me list those properties mentioned.  
 
 1. `Closure`:  
@@ -40,7 +40,7 @@ For all $a, b, c \in G$, the equation $(a+b) \bullet c=a \bullet c+b \bullet c$ 
 
 ----------
 
-##group(G,•)
+## group(G,•)
 consists of a set of elements together with an operation $\bullet$ such that:  
 
 property||$\bullet$
@@ -57,7 +57,7 @@ distributive||$\times$
 
 ----------
 
-##abelian group (A, •)
+## abelian group (A, •)
 Abelian group is a `group`, but also have one additional property:
 
 
@@ -75,7 +75,7 @@ distributive||$\times$
 
 
 
-##rings
+## rings
 A commutative ring with unity $(R,+,*)$ is an algebraic structure consisting of a set of elements R together with two binary operations denoted `+` and `*` which satisfy the follow properties for all elements in `R`:  
 
 property|$+$|$*$
@@ -90,7 +90,7 @@ distributive|$\times$|$\checkmark$
 
 -----------
 
-##ideal ring
+## ideal ring
 Let $(R,+,*)$ be a ring; A non-empty subset $I$ of $R$ called a `ideal` of the ring if:
 
 1. $(I,+)$ is a group.
@@ -107,7 +107,7 @@ distributive||$\times$
 
 ---------
 
-##field 
+## field 
 field is a set of elements which is closed under two binary operations, which we denote by $+$ and $\times$.
 
 

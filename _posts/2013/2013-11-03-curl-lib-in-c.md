@@ -13,11 +13,11 @@ Firstly you need to install libcurl in your system:
 Next is create a C program file with content below:  
 
 {%highlight c linenos=table%}
-#include<curl/curl.h>
-#include<curl/types.h>
-#include<curl/easy.h>
-#include<unistd.h>
-#include<stdio.h>
+# include<curl/curl.h>
+# include<curl/types.h>
+# include<curl/easy.h>
+# include<unistd.h>
+# include<stdio.h>
 int main(int argc,char* argv[])
 {
     printf("%s\n",curl_version());

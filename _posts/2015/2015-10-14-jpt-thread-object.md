@@ -7,11 +7,11 @@ tags: [jpt]
 ---
 {% include JB/setup %}
 
-#Introduction
+# Introduction
 `Thread` object is the reply or comments of other user to post.  
 The real `rate` data is accumulated from this table.  
 
-#Table Structure
+# Table Structure
 
 Column  || Type   
 --|--|--
@@ -23,7 +23,7 @@ Column  || Type
  rate   || integer
 
 
-#Class
+# Class
 {%highlight java%}
 public class Thread
 {
@@ -62,7 +62,7 @@ public class Thread
 //...
 {%endhighlight%}
 
-#JSON
+# JSON
 {%highlight json%}
 {
   "tid":284,"content":"TEST CONTENT","postTime":-9223372036854775808,

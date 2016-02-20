@@ -25,15 +25,15 @@ I try the best of me to keep this artifact fresh and well documented.
 Contribution is welcomed!  
 
 
-#version log
+# version log
 
-###0.3
+### 0.3
 Extract ExceptionAction and Message to this artifact.  
 Remove otherException from ExceptionAction class.  
 
 
-###0.2
+### 0.2
 Remove Jackson related class files.  
 
-###0.1
+### 0.1
 Initial commit.  

@@ -6,12 +6,12 @@ category: development
 tags: [jpt]
 ---
 {% include JB/setup %}
-#Introduction
+# Introduction
 `User` is a table that record all user profile information, like user ID, password referee etc.,  More importantly, upload and download bytes also recorded in this table.  
 I use bigint in database to store `date` for all `time` related fields.  
 For upload and download bytes, I use bigint in postgresql.  
 
-#Table structure
+# Table structure
 
 Column     |    |      Type
 --------------|-|------------------------
@@ -27,7 +27,7 @@ Column     |    |      Type
  status        || integer
 
 
-#Class
+# Class
 Note that the `UserLevel level` field is annotated as `@Transient`, since server will calculate the score of user when requested, hence user level is dynamic.  Thisconsistantified database representation and relation.  
 Class below is just a simplified version of this class, for details, please refer to [github](https://github.com/Rugal/JavaPT/blob/master/src/main/java/ga/rugal/jpt/core/entity/User.java).  
 {%highlight java%}
@@ -92,7 +92,7 @@ public class User
 {%endhighlight%}
 Because `password` is a sensitive field, currently this field could be serialized by GSON when creating response. But it is really easy to stop from doing that by removing `@Expose` annotation from this field.  
 
-#JSON
+# JSON
 {%highlight json%}
 {
   "uid":1349, "password":"test123", "username":"tenjin",

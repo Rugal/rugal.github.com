@@ -9,7 +9,7 @@ tags: [math]
 
 [Turing Machine](http://www.douban.com/note/493554475/)  
 
-## Deterministic Turing machine
+##  Deterministic Turing machine
 The set of rules prescribes one action to be performed for any given situation.  
 
 A deterministic Turing machine (DTM) has a transition function that, for a given state and symbol under the tape head, specifies three things:
@@ -22,7 +22,7 @@ A deterministic Turing machine (DTM) has a transition function that, for a given
 >An X on the tape in state 3 might make the DTM write a Y on the tape, move the head one position to the right, and switch to state 5.
 
 
-## Non-deterministic Turing machine
+##  Non-deterministic Turing machine
 May have a set of rules that prescribes more than one action for a given situation.  
 
 A non-deterministic Turing machine (NTM) differs in that the state and tape symbol no longer uniquely specify these things; rather, many different actions may apply for the same combination of state and symbol. 

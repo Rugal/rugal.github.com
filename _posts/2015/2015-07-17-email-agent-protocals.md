@@ -7,14 +7,14 @@ tags: [mail]
 ---
 {% include JB/setup %}
 
-##Mail user agent
+## Mail user agent
 user program that used for sending and receiving email. Like foxmail... webmail also count on.
 
-##Mail transfer agent
+## Mail transfer agent
 transfer email from one server to another
 
-##Mail delivery agent
+## Mail delivery agent
 receive mail from server to client program
 
-##Mail submission agent
+## Mail submission agent
 send mail from client program to server, usually combined with MTA.

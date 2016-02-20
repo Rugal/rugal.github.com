@@ -7,7 +7,7 @@ tags: [postgresql]
 ---
 {% include JB/setup %}
 
-##edit postgresql.conf
+## edit postgresql.conf
 {%highlight bash%}
 echo "wal_level= hot_standby" > postgresql.conf
 echo "archive_mode=on" > postgresql.conf
@@ -17,7 +17,7 @@ echo "log_destination='stderr'" > postgresql.conf
 {%endhighlight%}
 
 
-##some data
+## some data
 {%highlight sql%}
 create table test1(id int4 primary key, name varchar(20));
 --CREATE TABLE
@@ -25,14 +25,14 @@ create table test1(id int4 primary key, name varchar(20));
 {%endhighlight%}
 
 
-##backup
+## backup
 {%highlight bash%}
 pg_basebackup -U postgres -h 127.0.0.1 --format=tar -xzP  -D backup
 {%endhighlight%}
 Use this command to create a base backup tar file. Recovery work will start from the last check point of this base backup file.  
 For other backup method, please refer tho my [post]({%post_url 2015-07-15-postgresql-backup %}).  
 
-##more data
+## more data
 
 {%highlight sql%}
 create table test2(id int4 primary key, name varchar(20));
@@ -45,7 +45,7 @@ create table test3(id int4 primary key, name varchar(20));
 --CREATE TABLE
 --test3 table is in current xlog, so this table will not be recovered if current xlog is not backuped
 {%endhighlight%}
-##crash
+## crash
 You can use any method to make this happens. Like shutdown your server by power off.  
 
 >kill postgresql
@@ -64,7 +64,7 @@ rm -r $PGDATA
 --------
 Now it is time to restore database.  
 
-##restore base file
+## restore base file
 What we need to do is just unzip and move all files into `$PGDATA` folder.  
 {%highlight bash%}
 tar -zxf base.tar.gz
@@ -73,7 +73,7 @@ mv * $PGDATA
 
 Now if you start postgresql, you will find the data before backup all restored. But now we need to recovery data after backup.
 
-##recover by WAL
+## recover by WAL
 {%highlight bash%}
 echo "restore_command = 'cp /opt/archive/%f %p'" > recovery.conf
 mv recovery.conf $PGDATA

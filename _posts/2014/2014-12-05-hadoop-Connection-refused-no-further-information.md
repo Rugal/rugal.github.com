@@ -18,5 +18,5 @@ But when add a new location: `Cannot connect to the Map/Reduce location: `
 -----
 
 
-###Solution
+### Solution
 Modify the `core-site.xml`, `mapred-site.xml` files for their localhost into the server IP ! Everything is good bless.

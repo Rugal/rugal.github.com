@@ -7,11 +7,11 @@ tags: [jpt]
 ---
 {% include JB/setup %}
 
-#Introdution
+# Introdution
 `Post` is a table that store records about posts and published torrent, information like `info_hash` and `bencode` are stored in corresponding row.  
 The idea behind this is that, any post must be accompanied by a related torrent file, of couse its `info_hash` and `bencode` will be stored together with the post for storage convenience.  
 
-#Table structure
+# Table structure
 
 Postgresql provides byte array type `bytea`, thus I could store the bencoded torrent file into a line.  
 The `info_hash` column is for searching by.  
@@ -29,7 +29,7 @@ pid      | | integer
  info_hash || character varying(50) 
  bencode   || bytea       
  
-#Class
+# Class
 {%highlight java%}
 public class Post extends BaseObject<Post>
 {
@@ -103,7 +103,7 @@ public class Post extends BaseObject<Post>
 {%endhighlight%}
 The `rate` field will be dynamically computed when evaluatinng.
 
-#JSON
+# JSON
 An example post object in json format is shown as below:  
 {%highlight json%}
 {

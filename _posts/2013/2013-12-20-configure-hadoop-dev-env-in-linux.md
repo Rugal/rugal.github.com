@@ -23,7 +23,7 @@ here is my experimental environment:
 After googling two days later,hoaxed by too many bad text&information, I have finally got the right key to successfully configure a environment for hadoop program developing.  
 
 
-###NOW let's begin!
+### NOW let's begin!
 
 ------------------------------------------------------------------  
 
@@ -118,7 +118,7 @@ now it seems your HADOOP development environment is complete now lets test it to
 
 
 
-#test our hadoop env
+# test our hadoop env
 1. sample data
 
         java c++ python c  

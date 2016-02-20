@@ -7,15 +7,15 @@ tags: [oracle]
 ---
 {% include JB/setup %}
 
-##internal RDBMS table
+## internal RDBMS table
 >X$ : encrypted, sysdba only, fundation of internal mechanism.  
 example: `X$KVIT`  
 
-##Data dictionary(table)
+## Data dictionary(table)
 >%$ : for storing database structure and definition, created by `sql.bsp` and `$ORACLE_HOME/rdbms/admin`  
 example: `OBJ$`
 
-##static data dictionary(view)
+## static data dictionary(view)
 >more stable than DD, based on `X$%` and `%$`.  
 >A user have different levels of SDD.  
 
@@ -25,7 +25,7 @@ user_%|| objects that belong to user own ||user_tables
 all_% || objects that not belong to user but could access to || all_tables
 dba_% || all table, only for sysdba role || dba_users 
 
-##dynamic performance view(view)
+## dynamic performance view(view)
 Including and reflect performance of system, dynamic, based on `X$%`  
 
 type||desc||example

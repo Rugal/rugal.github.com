@@ -10,7 +10,7 @@ tags: [postgresql]
 postgresql use `serial` as sequence type.  
 It conveniently generate a sequence named `$tablename_$columnname_seq` by default, which I think is so easy to use.  
 
-###set current value for sequence
+### set current value for sequence
 
     SELECT setval('sequence_name', 21, true);
 

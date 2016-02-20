@@ -9,7 +9,7 @@ tags: [postgresql]
 
 For official documentation, please refer to [Postgresql](http://www.postgresql.org/docs/9.4/static/explicit-locking.html).  
 
-##Table level
+## Table level
 Once acquired, a lock is normally held till end of transaction.   
 But if a lock is acquired after establishing a savepoint, the lock is released immediately if the savepoint is rolled back to.   
 This is consistent with the principle that ROLLBACK cancels all effects of the commands since the savepoint.   
@@ -60,7 +60,7 @@ This is also the default lock mode for `LOCK TABLE` statements that do not speci
 
 -----------
 
-##Row level
+## Row level
 PostgreSQL doesn't remember any information about modified rows in memory, so there is no limit on the number of rows locked at one time. However, locking a row might cause a disk write, e.g., SELECT FOR UPDATE modifies selected rows to mark them locked, and so will result in disk writes.  
 
 1. FOR UPDATE  
@@ -82,6 +82,6 @@ A key-shared lock blocks other transactions from performing `DELETE` or any `UPD
 
 ----------------
 
-##Page level
+## Page level
 In addition to table and row locks, page-level share/exclusive locks are used to control read/write access to table pages in the shared buffer pool.   
 These locks are released immediately after a row is fetched or updated. Application developers normally need not be concerned with page-level locks, but they are mentioned here for completeness.

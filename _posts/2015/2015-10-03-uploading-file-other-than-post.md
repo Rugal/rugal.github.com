@@ -9,16 +9,16 @@ tags: [java]
 
 Restful style of API designing broaden my horizon by standardizing the rule for API.  
 
-###POST
+### POST
 must be something `new` into server, which means creating a new resource. 
 
-###PUT
+### PUT
 Must be `updating` existing resources in server.
 
-###DELETE
+### DELETE
 Must `delete` a exist resource in server, if not so, ignore its operation.
 
-###GET
+### GET
 Obviously, it is read only operation.
 
 But most of the uploading APIs are designed to use POST, even in springmvc's `org.springframework.test.web.servlet.request.MockMvcRequestBuilders.fileUpload`, it use `POST` method only. I think this is not a good practise, especially for a person who want to insist on using Restful style.  
@@ -27,7 +27,7 @@ Other than using `POST`, what we could do to achieve this is like below, idea is
 
 -------------------
 
-##MultipartResovler
+## MultipartResovler
 Extends `CommonsMultipartResolver` to enable multipart resolvation other than `POST`.  
 {%highlight java%}
 public class ExtendedMultipartResolver extends CommonsMultipartResolver
@@ -49,7 +49,7 @@ public class ExtendedMultipartResolver extends CommonsMultipartResolver
 }
 {%endhighlight%}
 
-##Springmvc configuration
+## Springmvc configuration
 In springmvc application context file, add the last class we created:
 {%highlight java%}
 @Bean
@@ -63,7 +63,7 @@ public MultipartResolver multipartResolver()
 }
 {%endhighlight%}
 
-##JAR
+## JAR
 Because we introduced `CommonsMultipartResolver`, which uses 2 apache jars, we also need to import them in pom file:  
 {%highlight xml%}
 <dependency>
@@ -78,7 +78,7 @@ Because we introduced `CommonsMultipartResolver`, which uses 2 apache jars, we a
 </dependency>
 {%endhighlight%}
 
-##Unit test
+## Unit test
 Now seems all configuration are done, time to start coding for unit test:  
 
 {%highlight java%}

@@ -11,7 +11,7 @@ I notice that many developers whom will encounter some bad exceptions while tryi
 Actually I somehow had them because they are very normal situation in progress of integration.   
 Here I want to clarify this `transaction` related problem.  
 
-##exception
+## exception
 `org.hibernate.HibernateException: No Session found for current thread`  
 
 This is pretty ambiguous because we think `Spring` will manage session, but there is something hidden in hibernate.   
@@ -33,7 +33,7 @@ Session session = sessionFactory.getCurrentSession();
 
 After explaining the exception above, you now may know root cause of this problem so as to better understand its scheme.  
 
-##Now
+## Now
 let's learn to configure transaction manager.  
 
 There are two way of configuring transaction manager in spring integrated with hibernate.  
@@ -44,7 +44,7 @@ There are two way of configuring transaction manager in spring integrated with h
 You can easily understand that the programmatic way of configuring transaction manager is to `beginTransaction` and `commit` manually in Java code, which is cumbersome but is actually ease your worries as everything are under your control.  This article will not introduce it at all.    
 I will not recommend it to you, because `Declarative` could still have very good control but much higher productivity and better code style by good modularization.   
 
-###1. Add Spring transaction manager for Hibernate
+### 1. Add Spring transaction manager for Hibernate
 Add this bean in spring's `applicationContext.xml` configuration file to enable spring delegate transaction manager functionality.  
 {%highlight xml%}
 <!-- transaction manager -->
@@ -54,7 +54,7 @@ Add this bean in spring's `applicationContext.xml` configuration file to enable 
 {%endhighlight%}
 
 
-###2. Declare transaction points and transaction configure
+### 2. Declare transaction points and transaction configure
 The declaration for this could have three ways of configuring this step.  
 It is recommended to annotate `@Transactional` on `service layer` since service will handle most of business logic and could guarantee the overall business transactional consistency.  
 There is another thing to refer, the `propagation` of transaction mean to spread from invoker to invokee, rather passing from bilateral method, see examples:  
@@ -95,7 +95,7 @@ public void doSave(Address bean)
 
 For more  please visit spring framework [reference](http://docs.spring.io/spring/docs/4.0.5.RELEASE/spring-framework-reference/htmlsingle/#transaction).  
 
-####1. AOP based
+#### 1. AOP based
 AOP based transaction is very clear and simple:  
 {%highlight xml%}
 <!-- transaction manager advisor -->
@@ -119,7 +119,7 @@ The `txAdvice` tells transaction manage how to make transaction propagation or s
 
 Beware you must configre AOP at the `implementation` class rather than `interface`.
 
-####2. annotation driven
+#### 2. annotation driven
 Add snipplet in `applicationContext.xml` to enable annotation driven transaction management.  
 {%highlight xml%}
 <!-- Enable annotation driven transaction manager -->
@@ -151,10 +151,10 @@ public class AddressServiceImpl implements AddressService
 }
 {%endhighlight%}
 
-####3. mixed style
+#### 3. mixed style
 You can also mix these two styles together to make it flexible.
 
 
-##Test
+## Test
 My depiction completed, now have a test, just to throw an `RuntimeException` to test data consistency, you will find hibernate `DEBUG` tells you that it rollback sucessfully.  
 Congratulation!

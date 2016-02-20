@@ -10,7 +10,7 @@ I spent a long time searching for a good framework or API to do my oral programm
 First you need to use [google speech api](https://www.google.com/intl/en/chrome/demos/speech.html), and even before using this, you need to activate speech API privilege and generate a APIkey for youself.  
 I disclaim here first that google speech API is `not` an public and official API so it is `not` recommended to use it in product environment. Also, I encourage everyone to obtain your own APIkey in case of harassing other developers' usage quota(who knows when will google starts to restrain it?).
 
-##create api key
+## create api key
 For those who want to apply a api-key, please follow [this page](http://www.chromium.org/developers/how-tos/api-keys):  
 Following is my personal experience on 2014/05/16. Notice this instruction and google console might change by time, so always keep updated.  
 
@@ -22,7 +22,7 @@ Following is my personal experience on 2014/05/16. Notice this instruction and g
 6. Create a `browser key`. The referrers option is up to you.
 
 
-##quick test API
+## quick test API
 7. You can download sample audio file from [here](https://github.com/gillesdemey/google-speech-v2) for your convenience.
 8. use `API key` to call google speech API use [curl]({% post_url 2013-11-22-linux-curl-command-usage %}) if you are using linux, this will save you a lot of time to see a quick result:  
 {%highlight bash%}
@@ -36,4 +36,4 @@ After a second two json data will return:
 {%endhighlight%}
 A little bit of weird because there are 2 json with the first one is empty.  
 
-###Now just do anything you want!
+### Now just do anything you want!

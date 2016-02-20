@@ -8,7 +8,7 @@ tags: [clojure]
 {% include JB/setup %}
 A great useful [tutorial](http://blog.8thlight.com/colin-jones/2010/12/05/clojure-libs-and-namespaces-require-use-import-and-ns.html) and I am there to make this summary.
 
-##refer
+## refer
 refer takes a symbol argument and maps all the public symbols from that namespace into the current namespace.   
 The symbols are still mapped to the values in their original namespace. By calling refer in the example, you created a namespace mapping from the symbol `greetings/println` to the Var `#'clojure.core/println`.  
 {%highlight clojure%}
@@ -19,7 +19,7 @@ The symbols are still mapped to the values in their original namespace. By calli
 
 
 
-##require
+## require
 To link another class/function with our namespace, but its own namespace kept.  Needs canonical namespace to invoke. 
 Loads libs, skipping any that are already loaded. Each argument is either a libspec that identifies a lib, a prefix list that identifies multiple libs whose names share a common prefix, or a flag that modifies how all the identified libs are loaded. Use :require in the ns macro in preference to calling this directly.   
 {%highlight clojure%}
@@ -35,7 +35,7 @@ user=> (string/join [1 2 3])  ;use alias to shorten if alias exists
 As you need to use `namespace/function` to refer to target function.
 
 
-##use
+## use
 To import another class/function into our namespace, hence target namespace just like `merged` into your namespace.  
 This function combined `require` and `refer`.  But for recent version, they tend to deprecated `use` by using `(require '[clojure.data.json :refer :all])`.  
 {%highlight clojure%}
@@ -48,7 +48,7 @@ user=> (split "a,b,c" #",") ;split is a function defined in [string] ns
 {%endhighlight%}        
 You just need to use `function` to refer to target function directly without referring namespace.
     
-##import
+## import
 To import `Java` class into namespace and shorten the invock name.
 {%highlight clojure%}
 (java.util.Date.) ;you could invoke this class by its canonical  name
@@ -59,7 +59,7 @@ You could shorten the canonical name and just need to use simple name of a `clas
 
 
 
-##namespace declare
+## namespace declare
 To simply those kinds of link function, use `(ns)` function to bring them all together.  
 {%highlight clojure%}
 (ns my-great-project.core
@@ -76,7 +76,7 @@ To simply those kinds of link function, use `(ns)` function to bring them all to
 You could use random quantity of any `:use` `:require` and `:import` in this function.
 
 
-##example
+## example
 An original innovated prime number function:  
 {%highlight clojure%}
 (ns rugal.core

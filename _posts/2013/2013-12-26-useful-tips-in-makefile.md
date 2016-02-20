@@ -11,7 +11,7 @@ This a useful Makefile, although it is not big.
 one can go with it when you want to do some stuff  
 
 {%highlight Makefile%}
-#
+# 
 CC="gcc -g3 -w -o $@" #make some optimization here
 COMPILE="-c $<"       #compile most left .c file into intermediate
 EXECUTABLE=Rugal.bin  #the binary file that can be executed
@@ -39,7 +39,7 @@ tips:
         -c   intermediate file
         -o   output file
 
-##reference problem in multi-folders
+## reference problem in multi-folders
 all the `.h` need relative path from reference directory.  
 
 `$CC  -I includedir   $COMPILE`  the `includedir` is madatory，it defined search path that used in gcc compilation.

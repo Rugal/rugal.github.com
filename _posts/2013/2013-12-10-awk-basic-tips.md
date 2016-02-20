@@ -25,6 +25,6 @@ awk '$2>5 && $2<=15' #match line according to its logic
 awk '/100/{print $1}' #print column 1 if that line has string of 100
 
 awk -v "DATA=$DATA" -v "PATTERN=$PATTERN" '{print index(DATA,PATTERN)}'
-#get index from $DATA to match $PATTERN, start from 1
-#$DATA and $PATTERN can pass from bash
+# get index from $DATA to match $PATTERN, start from 1
+# $DATA and $PATTERN can pass from bash
 {%endhighlight%}

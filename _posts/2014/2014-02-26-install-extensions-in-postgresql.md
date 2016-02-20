@@ -6,7 +6,7 @@ category: operation
 tags: [postgresql]
 ---
 {% include JB/setup %}
-##way to get extensions in ubuntu
+## way to get extensions in ubuntu
 `sudo apt-get install postgresql-contrib`  
 
 1. libossp-uuid16:amd64 (1.6.2-1.3, automatic)
@@ -38,7 +38,7 @@ available extensions list:
     tsearch2                uuid-ossp
 
 
-##1. Version before 9.1  
+## 1. Version before 9.1  
 You need to manually install them by `psql` command:  
 `psql -U user_name -d database_name -f module_name.sql`  
 
@@ -49,7 +49,7 @@ or use `\i` command in psql:
 `\i /usr/share/postgresql/9.1/extension/tablefunc--1.0.sql`  
 
 
-##2. Version after 9.1 included  
+## 2. Version after 9.1 included  
 After 9.1(included) version, postgresql provide new command to install extensions.  
 `CREATE EXTENSION "tablefunc";`  
 That is much easier!  

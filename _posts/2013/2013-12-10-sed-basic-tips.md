@@ -18,12 +18,12 @@ The command above will only print modified string to `STDOUT`.
 You could edit string in-place by specifying `-i` option.  
 {%highlight bash%}
 sed -i 's/rugal/bernstein/g' file  
-#replace matched string with bernstein and edit them in file
+# replace matched string with bernstein and edit them in file
 {%endhighlight%}
 
 To pass bash variables into `sed`, you need to use double quote to replace single quote:
 
 {%highlight bash%}
-#replace match what $1 represent and append with ;$2
+# replace match what $1 represent and append with ;$2
 sed "s/$1/$1;$2/g" data
 {%endhighlight%}

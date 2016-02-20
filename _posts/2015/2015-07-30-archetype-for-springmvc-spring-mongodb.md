@@ -7,7 +7,7 @@ tags: [java, maven]
 ---
 {% include JB/setup %}
 
-#Components
+# Components
 
 Now you got an excellent skeleton code for JavaEE application based on:  
 
@@ -16,13 +16,13 @@ Now you got an excellent skeleton code for JavaEE application based on:
 3. Spring-data-mongo
 4. MongoDB
 
-##Important components used
+## Important components used
 1. JSON mapper: `GSON`  
 2. Test framework: Spring-test
 
 ------------------
 
-##Maven command
+## Maven command
 
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
@@ -50,9 +50,9 @@ Please modify configuration files under `config` package.
 
 ------------------
 
-#version log
+# version log
 
-###0.1
+### 0.1
 Java base configuration only.  
 Remove `web.xml`.  
 Use `ssh-common: 0.3`.  

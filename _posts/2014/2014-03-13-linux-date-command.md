@@ -10,17 +10,17 @@ I found `date` is rather a useful command to encode or decode timestamp from epo
 {%highlight bash%}
 date [options]   [+format]
 --date="TIME"  #use this to input a human readable date
-#example: date --date="2014-03-12 15:13:10"
-#Notice --date  option could also read seconds-from-epoch
-#example: date --date="@1396572606"
+# example: date --date="2014-03-12 15:13:10"
+# Notice --date  option could also read seconds-from-epoch
+# example: date --date="@1396572606"
 
 --set="TIME"  #set linux date as specified TIME
 
 +%s   #format as secnds from epoch
 
-#example:
+# example:
 date --date="2013-06-01 12:00:05" +%s
-#1370059205
+# 1370059205
 {%endhighlight%}
 
 But actually, the `-s` option will not change linux time from `CMOS` level, linux time will follow what `CMOS` tick tock.  

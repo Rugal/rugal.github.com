@@ -8,7 +8,7 @@ tags: [c,linux]
 {% include JB/setup %}
 
 {%highlight c linenos=table%}
-#incluide<stdio.h>
+# incluide<stdio.h>
 int main()
 {
     FILE* in=popen("your command","r"); //mode=r/w just like open a file

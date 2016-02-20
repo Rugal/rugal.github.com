@@ -15,7 +15,7 @@ Three main asset classes:
 3. cash equivalents
 
 
-###security
+### security
 A security is a tradable asset of any kind. Securities are broadly categorized into:
 >1. debt securities (such as `banknotes`, `bonds`);
 >2. equity securities, e.g., `common stocks`;
@@ -23,7 +23,7 @@ A security is a tradable asset of any kind. Securities are broadly categorized i
 
 
 
-###bonds
+### bonds
 Bonds `---generally-->` fixed-income securities
 
 
@@ -37,7 +37,7 @@ main categories of Bonds:
     6. bonds -- long term
     
 
-##securities type
+## securities type
 1. **Equities**: also known as `shares` or `stock`
     1. **common**: called `ordinary shares` in UK
     2. **preferred**: no voting right & less appreciation

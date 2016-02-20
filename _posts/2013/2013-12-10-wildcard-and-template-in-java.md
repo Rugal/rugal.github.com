@@ -10,7 +10,7 @@ I have been confused by Java wildcard and template for a very long time, because
 But actually, they are thoroughly distinctive thing:  
 
 
-##template
+## template
 {%highlight java%}
 public class Container<T>
 {
@@ -30,7 +30,7 @@ public class Container<T>
 Template make it possible to use a uniform type name to represent various kinds of type, rather than do repeating work in coding for different kind of type.  
 Template can be dynamically create, once template type is declared, developer can not dynamically change it.  
 
-##wildcard
+## wildcard
 
 {%highlight java%}
 //pre-condition

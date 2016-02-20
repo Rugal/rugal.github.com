@@ -7,12 +7,12 @@ tags: [jpt]
 ---
 {% include JB/setup %}
 
-#Introduction
+# Introduction
 `Message` class is widely used in jpt.  
 `Message` object is being used in `all` brower based communication, that means all communications except `tracker annoucement` will all use this class to transmit information between server and client.  
 For any client that want to communicate with server, please read this document carefully before implementing your own data receiver.  
 
-#Format
+# Format
 There are only two kinds of messages, either `SUCCESS` or `FAIL`, no more.  
 The Java class is like 
 {%highlight java%}
@@ -28,7 +28,7 @@ I use `GSON` to serialize the object, so the corresponding JSON will be:
 {"status":"STATUS","message":"Message Content","data":{...real data content as JSON...}}
 {%endhighlight%}
 
-###On Succeed
+### On Succeed
 For any requests that not only go through the whole procedure without any error, but also achieved what it requested, server will return a message with `status=SUCCESS`.  
 {%highlight json%}
 {"status":"SUCCESS","message":"Message Content","data":{...real data content as JSON...}}
@@ -53,7 +53,7 @@ For instance, a SUCCESSed request for adding a thread will return the persisted 
 }
 {%endhighlight%}
 
-###On Failed
+### On Failed
 For all other cases, server will return a message with `status=FAIL`.  
 {%highlight json%}
 {"status":"FAIL","message":"Error message content"}
@@ -64,7 +64,7 @@ For instance a FAILed request for adding a thread will return the reason of fail
 {"status":"FAIL","message":"Tracker not running"}
 {%endhighlight%}
 
-#Caveat
+# Caveat
 
 1. If contain data field, there might have nested information embeded in the out-most bean. This is for accelerate the request in case of doing redundant request for directly related bean.  For detailed bean structure, please refer to [entity](placeholder).
 2. All request except `Announcement` will get `Message` object. If you get something else, there must be cracker in between client and server.  

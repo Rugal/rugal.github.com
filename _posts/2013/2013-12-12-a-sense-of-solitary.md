@@ -12,13 +12,13 @@ Nevertheless, colleagues wear a warming face toward me,
 What do you think they are meditating?  
 
 
-###please cherish me
+### please cherish me
  
-###please treasure my little girl
+### please treasure my little girl
  
-###it is all on you
+### it is all on you
  
-#`Rugal Bernstein`
+# `Rugal Bernstein`
  
 ![rugal-avatar](http://githubpage.u.qiniudn.com/2002rugal-standing.gif )  
 From now on, no others except for your `parents`, `wife`.  

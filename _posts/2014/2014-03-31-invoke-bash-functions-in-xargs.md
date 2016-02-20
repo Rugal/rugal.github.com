@@ -12,18 +12,18 @@ This may happen if you need functional programming, but xargs could hardly achie
 You can not invoke functions that defined in same file with `xargs` command because after retrieving the `$PATH`, `xargs` could not got this function.  
 What you need to do is to register this function, or just `export -f` it.   
 {%highlight bash%}
-#!/bin/bash
+# !/bin/bash
 
-#define a function
+# define a function
 function tackle()
 {
     echo $1
 }
 
-#export function: tackle
+# export function: tackle
 export -f tackle
 
-#use bash -c to execute function: tackle
+# use bash -c to execute function: tackle
 xargs -a b -I{}  bash -c "tackle {}"
 {%endhighlight%}
 

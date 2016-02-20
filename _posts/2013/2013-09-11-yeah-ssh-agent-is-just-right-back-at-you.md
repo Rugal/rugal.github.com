@@ -25,7 +25,7 @@ security.Hence every time logon to your Linux will be required to retype once
 only.  
 
 Remember its high efficiency! Only after using it will you got to know that!
-##In some situation 
+## In some situation 
 It will occur `Could not open a connection to your authentication agent`, this is because the ssh-add tool can not recognize the right PID that declared by ssh-agent  
 By execute `` eval `ssh-agent` ``  
 After register the pid of ssh-agent, make it available to connect with ssh-daemon.  

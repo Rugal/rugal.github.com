@@ -7,17 +7,17 @@ tags: [python]
 ---
 {% include JB/setup %}
 
-##import
+## import
 {%highlight python%}
 >>>import moduleName
 {%endhighlight%}
 
-##from
+## from
 {%highlight python%}
 >>>from moduleName import function/*
 {%endhighlight%}
 
-##build in command
+## build in command
 {%highlight python%}
 >>>exec(open('filename.py').read())
 >>>execfile('filename.py')

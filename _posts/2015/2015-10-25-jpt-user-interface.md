@@ -7,7 +7,7 @@ tags: [jpt]
 ---
 {% include JB/setup %}
 
-#Introduction
+# Introduction
 `UserAction` mostly deal with normal user related jobs. Such like registration, deregistration, user profile updating and user searching.  
 Although the class is Action, I plan to change it to `*Controller`.  
 All interfaces of this controller are under `/user` path.  
@@ -16,9 +16,9 @@ Authentication fields are `id` and `credential` fields in header.  Corresponding
 
 -----------------
 
-#API
+# API
 
-##User Registration
+## User Registration
 Use this API to register an user with an invitation code and its corresponding referee.  
 The json string contains required fields for registration.  Fields that must be filled are `email` and `username`.  
 Service will send a email to specified address to initialize password.  
@@ -32,7 +32,7 @@ Content-Type: application/json
 {"password":"unencrypted-password", "username":"name","email":"email@email.com"}
 {%endhighlight%}
 
-##User Profile retrieve
+## User Profile retrieve
 Get user profile. Target user is represented as `{uid}`. Basically, any user could view any user in server.  
 But authentication fields are still required.
 
@@ -43,7 +43,7 @@ id: {uid}
 credential: {credential}
 {%endhighlight%}
 
-##Check email availibility
+## Check email availibility
 Check if the email is available for registration.  
 Return Message object, `SUCCESS` means available and `FAIL` corresponding to `unavailable`.  
 
@@ -52,7 +52,7 @@ GET /user?email={email} HTTP/1.1
 Accept: application/json
 {%endhighlight%}
 
-##Check username availibility
+## Check username availibility
 Check if the username is available for registration.  
 Return Message object, `SUCCESS` means available and `FAIL` corresponding to `unavailable`.  
 
@@ -61,7 +61,7 @@ GET /user?username={username} HTTP/1.1
 Accept: application/json
 {%endhighlight%}
 
-##Update User Profile
+## Update User Profile
 Update user profile. Basically including all field except `username`, `uid`, `email`.  
 `email` could only be modified by specific interface, whereas `username` and `uid` are readonly.  
 Current version has not many fields to fill, please wait for future release.  
@@ -83,7 +83,7 @@ credential: {credential}
 {%endhighlight%}
 
 
-##Deregister User
+## Deregister User
 Usually deregistration will not delete user in database, but set their status as unloggable.  
 Just like updating user, only `uid` in URL will be operated, authentication fields are just for user identity ensurance.  
 

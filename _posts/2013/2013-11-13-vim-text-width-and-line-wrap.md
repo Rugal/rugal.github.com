@@ -11,12 +11,12 @@ Here is the solution:
 `set textwidth=n` or `set tw=n` to set the width of text to trigger wrap.  
 Also, you could disable this funcionality with `set textwidth=0`  
 
-##apply line wrap in specific line
+## apply line wrap in specific line
 Bring the cursor at the beginning of the text you want to format and type `gq` and press `$` to format a large line.  
 vim will wrap it automatically at your assigned textwidth.  
 This option may be useful in some situations, but probably is not what you are looking for.  
 
-##hard and soft wrap
+## hard and soft wrap
 The above methods will do a "hard" wrap of your text, by inserting newline characters. An alternative method is a "soft" wrap which does not change the text but simply displays it on multiple lines.  
 This can be achieved with:  
 `set wrap linebreak nolist`  

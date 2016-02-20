@@ -7,7 +7,7 @@ tags: [java,maven]
 ---
 {% include JB/setup %}
 
-#Components
+# Components
 
 This archetype based on:  
 
@@ -15,7 +15,7 @@ This archetype based on:
 2. Spring 4
 3. Hibernate 4
 
-###Important artifacts
+### Important artifacts
 
 1. Connection pool: `HikarCP`
 2. JSON mapper:   `Gson`
@@ -23,7 +23,7 @@ This archetype based on:
 
 -------------------
 
-#Usage
+# Usage
 
 Create archetype from command line using maven:  
 {%highlight bash%}
@@ -46,35 +46,35 @@ Please modify configuration files under `conf` package.
 
 -----------------
 
-#version log
+# version log
 
-###0.6
+### 0.6
 Replace all XML file with Java based configuration.   
 Use ssh-common 0.3 version.  Removed local full coded `ExceptionAction` and `Message` class.  
 
-###0.5
+### 0.5
 I start to use [HikariCP](https://github.com/brettwooldridge/HikariCP) as connection pool. Replace Jackson with Gson.  
 
-###0.3
+### 0.3
 I extract basic Hibernate util classes into [ssh-common](https://github.com/Rugal/ssh-common).  
 
-###0.2 
+### 0.2 
 I start to use Java based configuration for application context and web context. But `web.xml` is not included.   
 
 
-#commit log
+# commit log
 
-###2015/07/30 19:02
+### 2015/07/30 19:02
 Use ssh-common 0.3 to replace local coded Message and ExceptionAction.  
 
-###2015-07-29 1:27
+### 2015-07-29 1:27
 Clean readme up. Move most of content to my [website](http://rugal.ga)
 
-###2015-07-24 15:14
+### 2015-07-24 15:14
 Remove all xml configuration file. Use annotation based configuration only.  
 Remove embeded tomcat plugin.  
 Use new embeded Jetty plugin to replace the old one.  
 Clean Pom file a little bit.  
 
-###2015-02-17
+### 2015-02-17
 Deprecate Jackson data binding, use Gson instead.  

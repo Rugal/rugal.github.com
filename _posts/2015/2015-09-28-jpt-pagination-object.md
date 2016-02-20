@@ -7,11 +7,11 @@ tags: [jpt]
 ---
 {% include JB/setup %}
 
-#Introduction
+# Introduction
 `Pagination` is a wrapper for encapsulate a list of same object in a page. This class will only do wraping work, such like indicating current page number and size of this page.   
 Common senario of using `Pagination` class is like list searching.  
 
-#Format
+# Format
 This class inherit from `ml.rugal.sshcommon.page.SimplePage`, hence its fields structure is like below:  
 {%highlight java%}
 public class Pagination extends SimplePage implements Serializable, Paginable
@@ -36,7 +36,7 @@ So when do searching, server will return a page of object, to indicate current p
 As you can see the pagination is nested inside a `Message` object as the data field.  Inside the pagination object, there is a `list` field telling the real object retrieved from server; a `totalCount` indicate number of object inside th list; `pageSize` and `pageNo` represent size of each page and numebr of current page respectively.  
 
 
-#Example
+# Example
 Below is an instance of result of getting a list af threads  
 {%highlight json%}
 {

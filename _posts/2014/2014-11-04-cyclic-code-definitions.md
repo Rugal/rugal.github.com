@@ -21,7 +21,7 @@ MathJax.Hub.Config({
 </script>
 
 
-##cyclic subspace
+## cyclic subspace
 A subspace $S$ of $V_n(F)$ is a cyclic subspace if whenever  
 
 $$
@@ -31,7 +31,7 @@ $$
 In other words, $S$ is a subspace and for each vector $a \in S$, every `cyclic shift` of a is also in $S$.
 
 
-##cyclic code
+## cyclic code
 A linear code $C$ is a cyclic code if $C$ is a cyclic subspace.  
 Examples:
 

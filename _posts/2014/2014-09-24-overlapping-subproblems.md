@@ -6,7 +6,7 @@ category: development
 tags: [algorithm]
 ---
 {% include JB/setup %}
-#Divide and Conquer
+# Divide and Conquer
 1. `Useful` when solutions of same subproblems are needed again and again, Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. like `Fibonacci Numbers`
 2. `Not useful` when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again. For example, `Binary Search` doesn’t have common subproblems
 
@@ -15,7 +15,7 @@ tags: [algorithm]
 There are two ways to store values so that these values can be reused and I will also show two instances of dynamic programming by `Fibonacci`:
 
 
-## Memoization (Top Down)
+##  Memoization (Top Down)
 try to touch from top to bottom, calculate and store value whenever this value is not found in our, otherwise just use it.  
 {%highlight c%}
 //Memoization
@@ -34,7 +34,7 @@ int fib(int n)
 
 In Memoized version, table is filled on demand, unlike the tabulated version, all entries of the lookup table are not necessarily filled in memoized version.  
 
-## Tabulation (Bottom Up)
+##  Tabulation (Bottom Up)
 try to touch from bottom to top, calculate, calculate and store value.  
 {%highlight c%}
 //Tabulation

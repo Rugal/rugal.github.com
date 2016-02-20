@@ -7,18 +7,18 @@ tags: [linux]
 ---
 {% include JB/setup %}
 
-##install fcitx:  
+## install fcitx:  
 `sudo apt-get install fcitx;sudo reboot`  
 
-##configure paging setting:  
+## configure paging setting:  
 edit `~/.config/fcitx/config` and change properties below:  
 {%highlight properties%}
-# Hotkey of Going Prev Page
+#  Hotkey of Going Prev Page
 PrevPageKey=PGUP
-# Hotkey of Going Next Page
+#  Hotkey of Going Next Page
 NextPageKey=PGDN
 {%endhighlight%}
-##setup Double-Spell typing schema
+## setup Double-Spell typing schema
 find `/usr/share/fcitx/pinyin/sp.dat` first, and copy this file into
 `~/.config/fcitx/pinyin`  
 edit this file, here is my schema:  
@@ -63,7 +63,7 @@ ve=T
 {%endhighlight%}
 After customized your own schema, what you do next is to configure `~/.config/fcitx/conf/fcitx-pinyin.config`, and change `DefaultShuangpinSchema=User Defined`
 
-##import sougou vocaburary library
+## import sougou vocaburary library
 download [fcitx-sougou-phrase-full.7z](http://hslinuxextra.googlecode.com/files/fcitx-sougou-phrase-full.7z), extract this file and execute `./run.sh`  
 after extraction, copy `pybase.mb` and `pyphrase.mb` into `/usr/share/fcitx/data`  
 PS: in ubuntu, you can use `p7zip -d` command to decompress the 7z file.  
@@ -71,12 +71,12 @@ PSS: if you got error message of `createPYMB not found` just install
 `fcitx-tools` to meet the requirement.  
 
 
-##setup cloud input
+## setup cloud input
 `sudo apt-get install fcitx-module-cloudpinyin`  
 select cloudpinyin input method in fcitx configuration diaglog and choose sougou cloud pinyin  
 
 
-##to setup double spell pinyin as default input method
+## to setup double spell pinyin as default input method
 install `sudo apt-get install fcitx-config-gtk3` or `fcitx-configtool` to better
 configure input method, in which, find the double spell pinyin and move that
 just below `English Language` to make that as default.

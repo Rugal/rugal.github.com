@@ -6,11 +6,11 @@ category: operation
 tags: [vim]
 ---
 {% include JB/setup %}
-##increase or decrease number:  
+## increase or decrease number:  
 input a number, then ESC to enter normal mode, and press `C-a` or `C-x` to increase
 or decrease respectively by 1.  
 
-##find character in current line:  
+## find character in current line:  
 {%highlight vim%}
 <number>f<character>
 {%endhighlight%}
@@ -24,7 +24,7 @@ or it will stay at the last position if not.
 ![position](http://githubpage.u.qiniudn.com/line_moves.jpg)
 
 
-##area action
+## area action
 {%highlight vim%}
 <action><range><object>
 {%endhighlight%}
@@ -36,7 +36,7 @@ significance when object is parentheses
 
 ![position](http://githubpage.u.qiniudn.com/textobjects.png)
 
-##block operation
+## block operation
 {%highlight vim%}
 <C-v><spread area><your action>ESC
 {%endhighlight%}
@@ -51,7 +51,7 @@ for the instance below the command is `C-v jjj I-- ESC`
 ![position](http://githubpage.u.qiniudn.com/rectangular-blocks.gif)
 
 
-##macro record
+## macro record
 {%highlight vim%}
 q<cache><any operation>q "to record this operation
 <times>@<cache>   "to play this operation

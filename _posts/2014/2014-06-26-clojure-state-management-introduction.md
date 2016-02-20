@@ -9,7 +9,7 @@ tags: [clojure]
 
 state management seems pretty significant in `clojure`:  
 
-##1. ref
+## 1. ref
 `Ref` are Clojure’s implementation of `synchronous` and `coordinated` identities. Each is a distinct identity, but operations on them must be run inside a transaction, guaranteeing that multiple identities whose values depend on each other are always in a consistent state.   
 
 {%highlight clojure%}
@@ -40,7 +40,7 @@ state management seems pretty significant in `clojure`:
 (print-contacts my-contacts)
 {%endhighlight%}
 
-##2. atom
+## 2. atom
 `Atom` are Clojure’s implementation of `synchronous`, `uncoordinated` identities. When updated then change is applied before proceeding with the current thread and the update occurs atomically. All future dereferences to the atom from all threads will resolve to the new value.
 
 {%highlight clojure%}
@@ -53,7 +53,7 @@ state management seems pretty significant in `clojure`:
 
 One example of a case where atoms are very useful is for caching values. Cached values need to be accessible quickly, but are not dependent on the rest of the system’s state.
 
-##3. Asynchronous Agent
+## 3. Asynchronous Agent
 Like refs and atoms, `agent` are identities and adhere to Clojure’s philosophy of identity and state. Unlike refs and atoms, however, updates to their values occur asynchronously in a separate system managed thread pool dedicated to managing agent state.
 
 {%highlight clojure%}
@@ -74,10 +74,10 @@ Like refs and atoms, `agent` are identities and adhere to Clojure’s philosophy
 
 
 
-##Keeping Track of Identities
+## Keeping Track of Identities
 Both validator and watcher can do job on `ref` `agant` `atom`  
  
-###Validators
+### Validators
 validate variable data and throw exception while violated:  
 
 {%highlight clojure%}
@@ -88,7 +88,7 @@ validate variable data and throw exception while violated:
 (set-validator! my-ref nil) ;remove validator
 {%endhighlight%}
 
-###Watches
+### Watches
 Supervise variable data in any point:
 {%highlight clojure%}
 (defn my-watch [key identity old-val new-val]

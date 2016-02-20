@@ -8,14 +8,14 @@ tags: [network]
 {% include JB/setup %}
 Under certain circumstance you need to specify a static IP address.  There are 2 different ways you can achieve this.  
 
-##Command
+## Command
 
 {%highlight bash%}
 ifconfig eth0 [the.ip.you.want]
 {%endhighlight%}
 This command effect is temporary so the change will be swiped after ubuntu reboot or restart of network.
 
-##Interface file
+## Interface file
 
 In Ubuntu OS, what you need to do is to modify `/etc/network/interfaces`:  
 

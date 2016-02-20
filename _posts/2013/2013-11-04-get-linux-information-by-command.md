@@ -8,7 +8,7 @@ tags: [linux]
 {% include JB/setup %}
 
 {%highlight bash%}
-#system information
+# system information
 uname -a        #kernel info/OS distribution/cpu info/
 cat /etc/issue  #OS release information
 hostname        #show computer name
@@ -20,7 +20,7 @@ hdparm -i /dev/hda   #show disk parameteres(only suitable for IDE device)
 dmesg | grep IDE     #show startuped kernel ring information
 
 
-#resource
+# resource
 free           #show memry and swap usage
 df -h          #show partition information
 du -sh <dir>   #show size of <dir>
@@ -33,7 +33,7 @@ swapon -s            #show swap partition
 uptime       #system running time, user login number and load
 
 
-#network
+# network
 ifconfig         #show network interfaces information
 iptables -L      #show firewall info
 route -n         #show router table
@@ -42,7 +42,7 @@ netstat -antp    #all connected connection
 netstat -s       #show network statistics information
 
 
-#process
+# process
 ps -ef           #display all processes
 top              #show processes in dynamic
 {%endhighlight%}

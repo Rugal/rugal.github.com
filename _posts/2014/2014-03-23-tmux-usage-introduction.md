@@ -9,7 +9,7 @@ tags: [linux]
 
 Replacement installation:
 {%highlight bash%}
-#To install 1.8 version of tmux
+# To install 1.8 version of tmux
 sudo add-apt-repository ppa:pi-rho/dev
 sudo apt-get update
 sudo apt-get install tmux

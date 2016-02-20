@@ -23,7 +23,7 @@ So now apache2 could proxy HTTP request.
 Enter `$APACHE_HOME/sites-available` folder, create a file with content below:  
 
 {%highlight conf%}
-#This is to capture all :80 port to here
+# This is to capture all :80 port to here
 <VirtualHost *:80>
     #This means to capture this domain name
     ServerName your.domain.name
