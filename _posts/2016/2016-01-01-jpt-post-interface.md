@@ -21,7 +21,7 @@ All interfaces require [authentication fields]({%post_url 2015-09-14-introductio
 
 #  API
 
-## Add Post  
+## Add Post
 
 To add a new post. Use this interface to create post metadata without uploading the torrent file.  
 {%highlight http%}
@@ -40,6 +40,7 @@ The `post` object is exactly as [specification]({%post_url 2015-10-13-jpt-post-o
 Note that the `minLevel` is to set the minimum required level of user to download. User could not `create` a level without proper permission. Ideally, user should choose a level from list.  
 
 ## Update Post meta and content
+
 Use this interface to update the meta data and content of a post.  
 Only author and administrators could update a post.  
 {%highlight http%}
@@ -59,6 +60,7 @@ This interface has the same restriction as `Add post`.
 The target post to be updated will be and only be the `{pid}` specified in URL.  
 
 ## Get Post metadata and content
+
 Anyone could see any post.  
 {%highlight http%}
 GET /post/{pid} HTTP/1.1
@@ -69,6 +71,7 @@ credential: {credential}
 {%endhighlight%}
 
 ## Delete Post
+
 Only author and administrators could delete a post.  
 {%highlight http%}
 DELETE /post/{pid} HTTP/1.1
@@ -79,6 +82,7 @@ credential: {credential}
 {%endhighlight%}
 
 ## Add Thread for a Post
+
 Any user could reply thread to post
 {%highlight http%}
 POST /post/{pid}/thread HTTP/1.1
@@ -93,6 +97,7 @@ credential: {credential}
 the target post is specified in URL, replyer is specified in request header `uid`.  
 
 ## Get Thread page for a Post
+
 Get a page of threads, page number starts from 1 and default as 1.   
 Default page size is 5.  
 {%highlight http%}
@@ -104,6 +109,7 @@ credential: {credential}
 {%endhighlight%}
 
 ## Upload torrent file of a Post
+
 Upload the corresponding torrent file of a post.  
 Only author could upload it.  
 A torrent file could and only could upload to a post once.  If user finds the torrent is incorrect, they have to re-post and upload again.  
@@ -121,6 +127,7 @@ Just like other file uploads, must upload the origin torrent file directly to se
 It actually uploads the torrent file as byte array.  
 
 ## Download torrent file of a Post
+
 Only users that reach `minLevel` requirement of a post could download the torrent file.  
 {%highlight http%}
 GET /post/{pid}/metainfo HTTP/1.1
@@ -133,5 +140,5 @@ credential: {credential}
 If everything run smoothly, client side will get a response with header  
 
     Content-Disposition: attachment; filename=hash.torrent;
-    
+
 which means user will get browser prompt to get download.  Depending on browser implementation in detail.  
