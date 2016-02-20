@@ -26,4 +26,7 @@ To pass bash variables into `sed`, you need to use double quote to replace singl
 {%highlight bash%}
 # replace match what $1 represent and append with ;$2
 sed "s/$1/$1;$2/g" data
+
+#Append a space right after header tag in markdown syntax
+sed 's/^\(#\+\)/\1 /'   text
 {%endhighlight%}
