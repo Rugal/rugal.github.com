@@ -38,7 +38,7 @@ Request that should have authetication fields but does not will get:
 
 
 1. [User]({%post_url 2015-10-25-jpt-user-interface %})
-2. Post
+2. [Post]({%post_url 2016-01-01-jpt-post-interface %})
 3. Thread
 4. Signin
 
