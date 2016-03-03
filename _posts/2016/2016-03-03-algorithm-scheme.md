@@ -15,9 +15,12 @@ Optimal state of each phase comes from combination of state of overall phase bef
 Optimal state of each phase comes from some states or phases before|DP
 
 
+------
+
 >每个阶段的最优状态可以从之前某个阶段的某个或某些状态直接得到 
 
-这个性质叫做最优子结构；
+这个性质叫做最优子结构  
+
 >而不管之前这个状态是如何得到的
 
 这个性质叫做无后效性。
