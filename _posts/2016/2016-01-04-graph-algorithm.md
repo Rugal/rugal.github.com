@@ -36,10 +36,9 @@ The procedure is:
 `Shortest Path`  
 The Dijkstra’s algorithm is very similar to Prim’s algorithm. The shortest path tree is built up, edge by edge.   
 This algorithm is to find the shortest path between two vertices
-We maintain two sets: 
+We maintain a set: 
 
 1. set of the vertices already included in the tree. 
-2. set of the vertices not yet included. 
 
 The Greedy Choice is to pick the edge that connects the two sets and is on the smallest weight path from source to the set that contains not yet included vertices.
 
