@@ -15,6 +15,9 @@ tags: [math, algorithm]
 In Kruskal’s algorithm, we create a MST by picking edges one by one.   
 The Greedy Choice is to pick the smallest weight edge that doesn’t cause a cycle in the MST constructed so far.
 
+1. Sort all edges
+2. Pick up smallest edge that does not cause cycle, till all vertices are connected
+
 
 ##  Prim
 `Minimum Spanning Tree`   
@@ -35,3 +38,7 @@ We maintain two sets:
 2. set of the vertices not yet included. 
 
 The Greedy Choice is to pick the edge that connects the two sets and is on the smallest weight path from source to the set that contains not yet included vertices.
+
+1. Start from any vertice
+2. Pick the smallest edge that from this vertice
+3. Repeat the same work for the vertice that is connected by previous one, till all vertices are connected.
