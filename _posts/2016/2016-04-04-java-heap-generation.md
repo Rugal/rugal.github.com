@@ -10,6 +10,7 @@ tags: [java]
 Credit to [this](https://plumbr.eu/blog/garbage-collection/minor-gc-vs-major-gc-vs-full-gc) article.  
 
 ## Young Generation
+
 ### Eden 
 All objects will be created in this area.  
 This area actually divided into some `Thread Local Allocation Buffer(TLAB)` for non-synchronizing buffer allocation.  
@@ -29,7 +30,7 @@ If objects exist more than a threshold, they will be promoted into Tenure area.
 
 
 
-##Permanent Generation
+## Permanent Generation
 
 This is where the metadata such as classes would go.   
 Also, some additional things like internalized strings were kept in Permgen.
