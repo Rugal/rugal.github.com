@@ -152,7 +152,7 @@ Used with GROUP BY and some aggregates on larger result sets
 2. Generally not a significant problem
 
 
-## Tid Scan
+## ctid Scan
 
 	select oid from pg_proc where ctid = '(0,1)';
 
