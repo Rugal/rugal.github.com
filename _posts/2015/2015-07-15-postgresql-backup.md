@@ -40,7 +40,7 @@ This command actually calling `pg_dump` and dump each database in this cluster o
 
 # physical backup
 Physical backup somehow copies files that related with database directly.   
-Only physical backup could use `PITR` technique. If you need to use `PITR`, please enable `WAL` and `archive log`. For this part, please refer to my [post]({%post_url 2015/2015-07-18-postgresql-recovery %});  
+Only physical backup could use `PITR` technique. If you need to use `PITR`, please enable `WAL` and `archive log`. For this part, please refer to my [post]({%post_url 2015-07-18-postgresql-recovery %});  
 
 ## pg_basebackup
 This command will copy files under `$PGDATA` as well as tablespace files that outside this folder.  

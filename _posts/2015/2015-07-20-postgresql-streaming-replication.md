@@ -7,10 +7,8 @@ tags: [postgresql]
 ---
 {% include JB/setup %}
 
-# Standby replication with minimum configuration
 
-## Base information for both primary and standby server
-Those information will be used across this tutorial
+## Base information for both primary and standby
 {%highlight bash%}
 $PGDATA=/var/lib/postgresql/9.3/main
 $PGCONF=/etc/postgresql/9.3/main    
@@ -50,7 +48,9 @@ sudo service postgresql restart
 Now your primary server is ready to accept streaming replication connection.
 
 ### Extra notice
-For beginner who does not know about connecting to remote server, please refer to [this article of mine]({%post_url 2014/2014-12-12/postgresql-allows-any-connection %}).
+For beginner who does not know about connecting to remote server, please refer to [this article of mine]({%post_url 2014-12-12-postgresql-allows-any-connection %}).
+
+---------------
 
 ## Standby Server
 
@@ -87,6 +87,7 @@ echo "hot_standby = on" >> $PGCONF/postgresql.conf
 {%endhighlight%}
 You can find this entry under `standby` section. This attribute means to allow connection and run read-only queries while the server is in archive recovery or standby mode. In our case, in standby mode but accepts read only connection.
 
+-------------------
 
 ## Test
 
@@ -95,5 +96,6 @@ Now try to create some tables or do some DML on Primary server and see if they w
 
 ## Conclusion
 
-Those configuration above are the minimum for launch a streaming replication between primary and standby. For more high availability information, please refer to [failover](http://www.postgresql.org/docs/current/static/warm-standby-failover.html), [WAL archive](http://www.postgresql.org/docs/current/static/continuous-archiving.html).   
-I will keep posting my documentation. 
+Those configuration above are the minimum for launch a streaming replication between primary and standby.   
+For more high availability information, please refer to [failover](http://www.postgresql.org/docs/current/static/warm-standby-failover.html), [WAL archive](http://www.postgresql.org/docs/current/static/continuous-archiving.html), [HA](2015-08-02-postgresql-high-availability-solutions-summary).   
+I will keep posting tutorial. 
