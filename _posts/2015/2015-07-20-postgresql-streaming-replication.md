@@ -48,7 +48,7 @@ sudo service postgresql restart
 Now your primary server is ready to accept streaming replication connection.
 
 ### Extra notice
-For beginner who does not know about connecting to remote server, please refer to [this article of mine]({%post_url 2014-12-12-postgresql-allows-any-connection %}).
+For beginner who does not know about connecting to remote server, please refer to this [article]({%post_url 2014-12-12-postgresql-allows-any-connection %}).
 
 ---------------
 
@@ -74,18 +74,20 @@ echo "standby_mode = 'on'">>$PGDATA/recovery.conf
 echo "primary_conninfo = 'host=$master_ip port=5432 user=r password=1'">>$PGDATA/recovery.conf
 {%endhighlight%}
 
-Up to now, the standby server could start replication if you restart it. But it is not connectable, which means no connection allowed to establish to standby server. If you try to connect to it, you will get:
+Up to now, the standby server could start replication if you restart it. But this standby server is not connectable, which means no connection allowed to this standby server, thus if you try to connect to it, you will get:  
 
 	psql: FATAL:  the database system is starting up
 	FATAL:  the database system is starting up
 
+But be easy, even it is not connectable from you, it could replicate content from primary and also dispatch them to slavers depending on your configuration.  
 
 ### Hot standby server
-So to allow connections to standby server, you need to modify or add one configuration in standby server, refer to [Official Document](http://www.postgresql.org/docs/current/static/hot-standby.html): 
+So to allow connections to standby server rather than leave it unconnectable, you need to modify or add one configuration in standby server, refer to [Official Document](http://www.postgresql.org/docs/current/static/hot-standby.html): 
 {%highlight bash%}
 echo "hot_standby = on" >> $PGCONF/postgresql.conf
 {%endhighlight%}
-You can find this entry under `standby` section. This attribute means to allow connection and run read-only queries while the server is in archive recovery or standby mode. In our case, in standby mode but accepts read only connection.
+You can find this entry under `standby` section. This attribute means to allow connection and run read-only queries while the server is in archive recovery or standby mode. In our case, in standby mode but accepts read only connection.  
+Such configuration could also be used as failover setting, which I will introduce later on.  
 
 -------------------
 
@@ -97,5 +99,5 @@ Now try to create some tables or do some DML on Primary server and see if they w
 ## Conclusion
 
 Those configuration above are the minimum for launch a streaming replication between primary and standby.   
-For more high availability information, please refer to [failover](http://www.postgresql.org/docs/current/static/warm-standby-failover.html), [WAL archive](http://www.postgresql.org/docs/current/static/continuous-archiving.html), [HA](2015-08-02-postgresql-high-availability-solutions-summary).   
+For more high availability information, please refer to [failover](http://www.postgresql.org/docs/current/static/warm-standby-failover.html), [WAL archive](http://www.postgresql.org/docs/current/static/continuous-archiving.html), [HA]({%post_url 2015-08-02-postgresql-high-availability-solutions-summary %}).   
 I will keep posting tutorial. 
