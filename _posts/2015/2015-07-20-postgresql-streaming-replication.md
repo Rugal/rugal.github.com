@@ -7,94 +7,93 @@ tags: [postgresql]
 ---
 {% include JB/setup %}
 
-# definition
+# Standby replication with minimum configuration
 
-    $PGDATA=/var/lib/postgresql/9.3/main
-    $PGCONF=/etc/postgresql/9.3/main    
-    $master=192.168.1.100:5432
-    $standby=192.168.1.101:5432
-    $slaver=192.168.1.102:5432    
+## Base information for both primary and standby server
+Those information will be used across this tutorial
+{%highlight bash%}
+$PGDATA=/var/lib/postgresql/9.3/main
+$PGCONF=/etc/postgresql/9.3/main    
+$master=192.168.1.100:5432
+$standby=192.168.1.101:5432
+{%endhighlight%}
 
-As you might guess, actually all DML operations must be executed on `master` server. In the setting of this article, `master` will send WAL log to `standby` by streaming copy, then `standby` will also send WAL log to `slaver`.  
-This is because when master is synchronizing with standby server, the former server need to wait until WAL log all operation executed completely on standby. So it is so time costing, if master connect directly with a lot of slavers. Postgresql use a intermediate `standby` server, which could not write on data, but could only receive WAL from master and send them to slavers.
+## Primary Server
 
-# configuration on master
-
-### create user for replication
-It is safer to create a sole user just for replication function as replication user unable to log into psql directly.
+### Create user dedicate for replication
 {%highlight sql%}
-create user r login replication password '123456';
+--you can specify any user name and password
+--the 'replication' privilege is important
+create user r replication password '1';
 {%endhighlight%}
 
-### permission for access
-This will allow replication connection from standby server.
+### Grant connection accessibility
+After creation of user, you need to modify the `$PGCONF/pg_hba.conf` file to explicitly grant connection accessibility for the user `r`
 {%highlight bash%}
-echo "host    replication    r    IP_OF_STANDBY/32    md5" >> $PGCONF/pg_hba.conf
+#You can choose any of the authentication method you like
+echo "host    replication    r    $standby_ip/32    md5" >> $PGCONF/pg_hba.conf
 {%endhighlight%}
 
-### master sender config
-Parameters below are the minimum requirement for stream standby function on master server.
+### WAL setting
+According to [Official Document](http://www.postgresql.org/docs/current/static/runtime-config-wal.html), we need to set `wal_level` to `hot_standby` so that PostgreSQL will generate WAL that contains enough information for standby to reconstruct the status of running transactions from the WAL.  
+We also need to set `max_wal_senders` to a positive number to accept connection from replicators. This is the number of sender process to send streaming data, so it is better to put a bigger number like 5 or 10.  
 {%highlight bash%}
-echo "listen_addresses = '*'">> $PGCONF/postgresql.conf  
 echo "wal_level = hot_standby" >> $PGCONF/postgresql.conf  
 echo "max_wal_senders = 3" >> $PGCONF/postgresql.conf  
 {%endhighlight%}
 
-### start pg on master
+### Restart primary server
+To enable streaming function, we need to restart Postgresql server, this will also reload the `pg_hba.conf` so that remote replicator could connect to this server.  
 {%highlight bash%}
-sudo service postgresql start
+sudo service postgresql restart
 {%endhighlight%}
+Now your primary server is ready to accept streaming replication connection.
 
-# configuration on standby
-First switch to the standby server. Here We of course need a replication user for slaver servers.  
-{%highlight sql%}
-create user r login replication password '123456';
-{%endhighlight%}
+### Extra notice
+For beginner who does not know about connecting to remote server, please refer to [this article of mine]({%post_url 2014/2014-12-12/postgresql-allows-any-connection %}).
 
-### permission for access
-This will allow replication connection from standby server.
+## Standby Server
+
+### Restore base data files
+To achieve this, it is better to use `pg_basebackup` as it is more convenient than scp them manually.
 {%highlight bash%}
-echo "host    replication    r    IP_OF_SLAVER/32    md5" >> $PGCONF/pg_hba.conf
+pg_basebackup -U r -h $master_ip --format=plain -vxP  -D  $PGDATA
 {%endhighlight%}
+After a while, you will find the primary server data folder is replicated to standby server.
 
-### standby sender config
-Parameters below are the minimum requirement for stream standby function on standby server.  
-On standby server, we not only need replication but also need send WAL to slavers. So here we set `wal_senders` to be 3 and also enable `hot_standby`.  
-{%highlight bash%}
-echo "listen_addresses = '*'">> $PGCONF/postgresql.conf  
-echo "wal_level = hot_standby" >> $PGCONF/postgresql.conf  
-echo "max_wal_senders = 3" >> $PGCONF/postgresql.conf  
-echo "hot_standby = on" >> $PGCONF/postgresql.conf  
-{%endhighlight%}
+### Recovery configuration
+The most important configuration comes, you need to create a `recovery.conf` file in you `$PGDATA` folder.
 
-### restore data from master
-First clean $PGDATA folder, then use `pg_basebackup` to copy a base backup from master server.  
-{%highlight bash%}
-pg_basebackup -U r -h 192.168.1.100 --format=plain -vxP  -D $PGDATA
-{%endhighlight%}
 
-### add recovery.conf file
-The same, parameters below are minimum requirement for standby and slaver.  
 {%highlight bash%}
+#Notice the single quote around (on)
+#This will instruct this server to do standby work
 echo "standby_mode = 'on'">>$PGDATA/recovery.conf
-# Notice the single quote around (on)
-echo "primary_conninfo = 'host=192.168.1.100 port=5432 user=r password=123456'">>$PGDATA/recovery.conf
-echo "trigger_file = '/var/lib/postgresql/9.3/main/failover'">>$PGDATA/recovery.conf
+#The libpg connection string specified here allows standby connecting to primary
+#Hence those information should be consistent with primary
+echo "primary_conninfo = 'host=$master_ip port=5432 user=r password=1'">>$PGDATA/recovery.conf
 {%endhighlight%}
-This trigger file parameter disables standby server to write on data file, makes it just used for replication.  
-Once master server shutdown abnormally, remove the trigger file to make standby server a new master server.  
 
-### start postgresql on standby
+Up to now, the standby server could start replication if you restart it. But it is not connectable, which means no connection allowed to establish to standby server. If you try to connect to it, you will get:
+
+	psql: FATAL:  the database system is starting up
+	FATAL:  the database system is starting up
+
+
+### Hot standby server
+So to allow connections to standby server, you need to modify or add one configuration in standby server, refer to [Official Document](http://www.postgresql.org/docs/current/static/hot-standby.html): 
 {%highlight bash%}
-sudo service postgresql start
+echo "hot_standby = on" >> $PGCONF/postgresql.conf
 {%endhighlight%}
-Now you could find from postgresql log that it started streaming from master server.  
+You can find this entry under `standby` section. This attribute means to allow connection and run read-only queries while the server is in archive recovery or standby mode. In our case, in standby mode but accepts read only connection.
 
-# configuration on slaver
-On slaver servers, almost all the same with standby server except that the `max_wal_senders` parameter need to be set as 0 to disable WAL send.  
-But of course, the connection information on slavers need to be set as connect to standby server instead of the master one.  
 
-# test
-Now try create a table, you will see this table is also created both on `standby` and `slaver`.  
-So as other DML operations.  
-But if you try to do so on standby or slaver, postgresql will stop you with `readonly`.  
+## Test
+
+Now try to create some tables or do some DML on Primary server and see if they will be synchronized to Standby server.
+
+
+## Conclusion
+
+Those configuration above are the minimum for launch a streaming replication between primary and standby. For more high availability information, please refer to [failover](http://www.postgresql.org/docs/current/static/warm-standby-failover.html), [WAL archive](http://www.postgresql.org/docs/current/static/continuous-archiving.html).   
+I will keep posting my documentation. 
