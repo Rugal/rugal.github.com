@@ -7,11 +7,20 @@ tags: [postgresql]
 ---
 {% include JB/setup %}
 
-Any operation is from the view of standby server.   
+Any operation is from the view of `standby` server.    
 
-1. Execute `restore_command` to move any archive log to `pg_xlog` folder.   
-2. Try to restore any available WAL in `pg_xlog` folder from current last valid record until last available data consistent point int WAL.   
-If this fails, goto `3`.   
-3. (If streaming enabled) Standby tries to connect to primary and start streaming WAL from last valid record found in archive or `pg_xlog` folder.   
-If fails or streaming replication disconnected or streaming replication disabled, goto `1`.   
-4. If the above procedure repeated for several times or `trigger` file is called, recovery cancelled.   
+
+## 1 
+Execute `restore_command` to restore xlog to `pg_xlog` folder from archive folder.     
+If either streaming replication disabled, disconnected or recovery failed, go to `4`.     
+
+## 2 
+If `xlog` found,try to restore any available WAL in `pg_xlog` folder since current last valid record until last available data consistent point int WAL.    
+Otherwise go to `3`.    
+
+## 3
+If streaming enabled, Standby will try to connect to primary and start streaming WAL and recovery since last valid record found in  `pg_xlog` folder.     
+Otherwise go to `1`  
+
+## 4 
+If the above procedure repeated for several times or `trigger` file is created, recovery cancelled.    
