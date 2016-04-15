@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "postgresql streamed replication"
+title: "postgresql streaming replication"
 description: ""
 category: operation
 tags: [postgresql]
