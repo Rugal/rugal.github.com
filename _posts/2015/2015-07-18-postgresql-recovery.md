@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "postgresql recover"
+title: "postgresql recovery"
 description: ""
 category: operation
 tags: [postgresql]
