@@ -30,7 +30,7 @@ create table test1(id int4 primary key, name varchar(20));
 pg_basebackup -U postgres -h 127.0.0.1 --format=tar -xzP  -D backup
 {%endhighlight%}
 Use this command to create a base backup tar file. Recovery work will start from the last check point of this base backup file.  
-For other backup method, please refer tho my [post]({%post_url 2015-07-15-postgresql-backup %}).  
+For other backup method, please refer tho my [post]({%post_url 2015/2015-07-15-postgresql-backup %}).  
 
 ## more data
 
