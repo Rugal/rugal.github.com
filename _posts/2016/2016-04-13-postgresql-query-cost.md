@@ -33,6 +33,7 @@ This value provides an estimate of the average number of bytes each row output f
 * enable_hasagg
 
 
+# Operation Cost
 
 ## Sort operator
 
