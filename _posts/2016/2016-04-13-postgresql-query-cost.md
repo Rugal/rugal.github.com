@@ -8,6 +8,19 @@ tags: [postgresql]
 {% include JB/setup %}
 
 
+# Attributes in Execution plan
+
+## cost=0.00..290.45
+The first cost is the start-up cost of this node. The value here determines how much work is estimated to be done before the node produces its first row of output. Here, the value is zero because a Seq Scan node instantly produces rows.   
+The second estimated cost is the cost of running the entire node until it completes.
+
+## rows=3616
+The number of rows to output if the node runs to completion.  
+
+## width=26
+This value provides an estimate of the average number of bytes each row output for the node will contain.
+
+
 # Forcing a plan
 
 * enable_seqscan
