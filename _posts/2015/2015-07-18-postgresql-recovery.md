@@ -7,32 +7,34 @@ tags: [postgresql]
 ---
 {% include JB/setup %}
 
-## edit postgresql.conf
+## Enable archive setting
 {%highlight bash%}
-echo "wal_level= hot_standby" > postgresql.conf
-echo "archive_mode=on" > postgresql.conf
+#Set WAL to either hot_standby or archive
+echo "wal_level= hot_standby" > postgresql.conf 
+#keep archiving old WAL
+echo "archive_mode=on" > postgresql.conf  
+#specify archive command to backup old WAL
 echo "archive_command='test ! -f /opt/archive/%f  && cp %p /opt/archive/%f' " > postgresql.conf
-echo "max_wal_senders=3" > postgresql.conf
-echo "log_destination='stderr'" > postgresql.conf
 {%endhighlight%}
 
 
-## some data
+## Origin data
 {%highlight sql%}
+--This table will be included in base backup.
 create table test1(id int4 primary key, name varchar(20));
 --CREATE TABLE
---This table will be included in base backup.
 {%endhighlight%}
 
 
-## backup
+## Base backup
 {%highlight bash%}
 pg_basebackup -U postgres -h 127.0.0.1 --format=tar -xzP  -D backup
 {%endhighlight%}
-Use this command to create a base backup tar file. Recovery work will start from the last check point of this base backup file.  
-For other backup method, please refer tho my [post]({%post_url 2015-07-15-postgresql-backup %}).  
+Use this command to create a base backup tar file.   
+Recovery work will start from the last check point of this base backup file.  
+For more backup methods, please refer to my [post]({%post_url 2015-07-15-postgresql-backup %}).  
 
-## more data
+## More data after backup
 
 {%highlight sql%}
 create table test2(id int4 primary key, name varchar(20));
@@ -45,48 +47,49 @@ create table test3(id int4 primary key, name varchar(20));
 --CREATE TABLE
 --test3 table is in current xlog, so this table will not be recovered if current xlog is not backuped
 {%endhighlight%}
-## crash
-You can use any method to make this happens. Like shutdown your server by power off.  
+
+## Emulate server crash
+You can use any method to make this happens. Like shutdown your server by power off or `kill`.  
 
 >kill postgresql
 
-If you can get recent `xlog`, do not hesitate to back them up.   
+Backup latest unarchived `xlog`, if you could.  
 {%highlight bash%}
 cp -r $PGDATA/pg_xlog $HOME
 {%endhighlight%}
 
-simulate data files loss.  
+## Emulate data files loss.  
 {%highlight bash%}
+#Delete all data file 
 rm -r $PGDATA  
 {%endhighlight%}
 
 
---------
+---------
+
 Now it is time to restore database.  
 
 ## restore base file
-What we need to do is just unzip and move all files into `$PGDATA` folder.  
+What we need to do is just unzip and move all files into `$PGDATA` folder.   
+
 {%highlight bash%}
 tar -zxf base.tar.gz
 mv * $PGDATA
 {%endhighlight%}
 
-Now if you start postgresql, you will find the data before backup all restored. But now we need to recovery data after backup.
+Now if you start postgresql, you will find data restore to the point of base backup.   
+But now we need to recover till to most recent valid archieve state.   
 
-## recover by WAL
+## Setup recovery file
+Create a file `recovery.conf` under you `$PGDATA`.  
 {%highlight bash%}
-echo "restore_command = 'cp /opt/archive/%f %p'" > recovery.conf
-mv recovery.conf $PGDATA
+echo "restore_command = 'cp /opt/archive/%f %p'" > $PGDATA/recovery.conf
 {%endhighlight%}
 
-Now that you specified archived WAL in path, if you start postgresql, data will recover to the `last` segment that was `archived` by postgresql.  
-
-But if you want to recover to the last moment, that maybe the latest segment has not yet been archived, you need to copy all `pg_xlog` files in original `$PGDATA` folder, that is why I said it is better to backup `$PGDATA/pg_xlog` even with you enabled `archive_mode`
+Since you have your archived WAL, if you start postgresql, database will recovering process till the `last` valid segment that was `archived`.    
+But if you want to recover to the last valid moment right before crash, maybe that latest segment has not yet been archived, so you need to copy all `pg_xlog` files in original `$PGDATA` folder, that is why I said it is better to backup `$PGDATA/pg_xlog` even with you enabled `archive_mode`
 {%highlight bash%}
 cp  -r $HOME/pg_xlog $PGDATA
 {%endhighlight%}
 
-If recovery is finished, the `recovery.conf` file will be renamed to `recovery.done` to avoid further recovery.  
-
-Go and see if your data comes back.  
-Cheers!
+If recovery is finished, the `recovery.conf` file will be renamed to `recovery.done` to avoid further recovery.   
