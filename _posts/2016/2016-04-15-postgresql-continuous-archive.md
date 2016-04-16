@@ -72,7 +72,7 @@ From `$ARCHIVE_PATH` side of view, we could see that specific xlog has been arch
 	00000001000000000000004A
 
 ## Notice
-Because WAL is significantly useful for recovery, it is better to back them up by archive. But sometimes it is still not enough, we could use `rsync` to send those WAL to some other place so that they will be preserved for longer term.  
+Because WAL is significantly useful for recovery, it is better to back them up by archive. But sometimes it is still not enough, we could use `rsync` to send those WAL to some other place so that they will be preserved for longer term.  I am not going to the details of it. 
 
 ## Conclusion
 
