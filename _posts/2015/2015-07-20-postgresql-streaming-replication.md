@@ -10,10 +10,10 @@ tags: [postgresql]
 
 ## Base information for both primary and standby
 {%highlight bash%}
-$PGDATA=/var/lib/postgresql/9.3/main
-$PGCONF=/etc/postgresql/9.3/main    
-$master=192.168.1.100:5432
-$standby=192.168.1.101:5432
+PGDATA=/var/lib/postgresql/9.3/main
+PGCONF=/etc/postgresql/9.3/main    
+master=192.168.1.100:5432
+standby=192.168.1.101:5432
 {%endhighlight%}
 
 ## Primary Server
