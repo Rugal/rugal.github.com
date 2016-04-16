@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "postgresql recovery"
+title: "postgresql Point In Time Recovery"
 description: ""
 category: operation
 tags: [postgresql]
