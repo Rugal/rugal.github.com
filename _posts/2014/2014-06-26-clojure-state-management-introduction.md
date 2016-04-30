@@ -8,6 +8,16 @@ tags: [clojure]
 {% include JB/setup %}
 
 state management seems pretty significant in `clojure`:  
+Before dive into those state management, let us first understand what are two key reference types are:  
+
+## Coordination
+1. `Coordinated` means different actors must work on the same workspace. Thus, they need to cooperate according to specific sequence in order to accomplish task.   
+2. `Uncoordinated` in other hand, means different actors could work on their own workspace, without worrying about interfere others.   
+
+## Synchronization
+1. `Synchronous` operations involves some levels of lock or latch. The actor that owns the lock will block subsequent requirement.  
+2. `Asynchronous` means different actors will no be blocked.  
+
 
 ## 1. ref
 `Ref` are Clojure’s implementation of `synchronous` and `coordinated` identities. Each is a distinct identity, but operations on them must be run inside a transaction, guaranteeing that multiple identities whose values depend on each other are always in a consistent state.   
