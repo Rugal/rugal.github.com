@@ -7,7 +7,6 @@ tags: [clojure]
 ---
 {% include JB/setup %}
 
-state management seems pretty significant in `clojure`:  
 Before dive into those state management, let us first understand what are two key reference types are:  
 
 ## Coordination
@@ -18,6 +17,7 @@ Before dive into those state management, let us first understand what are two ke
 1. `Synchronous` operations involves some levels of lock or latch. The actor that owns the lock will block subsequent requirement.  
 2. `Asynchronous` means different actors will no be blocked.  
 
+-----------------
 
 ## 1. ref
 `Ref` are Clojure’s implementation of `synchronous` and `coordinated` identities. Each is a distinct identity, but operations on them must be run inside a transaction, guaranteeing that multiple identities whose values depend on each other are always in a consistent state.   
@@ -83,6 +83,7 @@ Like refs and atoms, `agent` are identities and adhere to Clojure’s philosophy
 * If an update is dispatched to an agent within a STM transaction (for example, a dosync expression), the dispatch is not sent until the transaction is committed. This means that it is safe to dispatch updates to atoms from within STM transactions.
 
 
+---------------
 
 ## Keeping Track of Identities
 Both validator and watcher can do job on `ref` `agant` `atom`  
