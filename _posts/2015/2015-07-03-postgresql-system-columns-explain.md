@@ -37,12 +37,13 @@ Suppose we have 2 sessions, access the same table `test` with some rows.
     4. PG updates that new row version with new value from session 1.
     5. PG sets the `xmax` of old version to the `XID` of new transaction
 3. Session 2 accesses that row
-  1. PG searches row that has max value in `xmax`, indicating latest consistent row version
+    1. PG searches row that has max value in `xmax`, indicating latest consistent row version
 4. Session 1 commit
-  1.  PG sets the `xmax` of old version to 0
+    1.  PG sets the `xmax` of old version to 0
 5. Session 2 accesses that row again
-  1. Again PG searches row that has max value in `xmax`. But they are all 0.
-  2. PG finds there is no transaction operating on this row, fetch the version with max `xmin` value, indicating latest consistent version
+    1. Again PG searches row that has max value in `xmax`. But they are all 0.
+    2. PG finds there is no transaction operating on this row.
+    Fetches the version with max `xmin` value, indicating latest consistent version
 
 
 -------
