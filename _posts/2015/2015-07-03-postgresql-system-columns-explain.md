@@ -38,7 +38,7 @@ Suppose we have 2 sessions, access the same table `test` with some rows.
     5. PG sets the `xmax` of old version to the `XID` of new transaction
 3. Session 2 accesses that row
     1. PG searches row that has max value in `xmax`, indicating latest consistent row version
-4. Session 1 commit
+4. Session 1 commits
     1.  PG sets the `xmax` of old version to 0
 5. Session 2 accesses that row again
     1. Again PG searches row that has max value in `xmax`. But they are all 0.
