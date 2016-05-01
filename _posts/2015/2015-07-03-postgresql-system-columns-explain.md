@@ -54,9 +54,11 @@ SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test ORDER BY id;
 (3 rows)
 {%endhighlight%}
 Notice `xmin` for `id=3` increases, this is because it is involved in another transaction, while its `xmax` does not change.  
-Also the `ctid` of this row is set to 0, which means the first command of a transaction.   
+Also the `ctid` of this row is set to 0, which means the first command of transaction.   
+MVCC of PostgreSQL reserve all rows before vacuum, this row is actually newly inserted.   
+The old row version is still kept in table, but its `xmax` is updated to the `XID` of new transaction. By doing so, other sessions that accessing this row will know it is involved in a transaction, so as to ensure transactional consistency.   
 
-But the view from another session is different.  
+The view from another session is different.  
 {%highlight sql%}
 --session 2
 SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test ORDER BY id;
@@ -70,6 +72,7 @@ SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test ORDER BY id;
 As we could see from session 2, `xmax` has changed to the value of `xmin` of session 1.    
 This is because we have updated that row from session 1 without commit.  
 Here our `xmin` and `xmax` columns are used to differentiate transactions.  An nonzero `xmax` value means a transaction is working on this row without commit.  
+
 Because session 1 has not committed, we can not see newer version. In this way, MVCC in PostgreSQL ensures transactional consistency.  
 
 Let's do some more operation in session 1.  
