@@ -29,17 +29,13 @@ Suppose we have 2 sessions, access the same table `test` with some rows.
 
 
 1. Session 1 starts transaction
-
 2. Session 1 updates 1 row 
-
-  1. PG allocates an `XID` for this new transaction
-  
-  2. PG replicates the original row.  
-  Now the origin row named as old version and the new one is called new version
-
-  3. PG sets `xmin` of new row version to the fresh allocated `XID`, say 2 for example
-  4. PG updates that new row version with new value from session 1.
-  5. PG sets the `xmax` of old version to the `XID` of new transaction
+    1. PG allocates an `XID` for this new transaction
+    2. PG replicates the original row.  
+    Now the origin row named as old version and the new one is called new version
+    3. PG sets `xmin` of new row version to the fresh allocated `XID`, say 2 for example
+    4. PG updates that new row version with new value from session 1.
+    5. PG sets the `xmax` of old version to the `XID` of new transaction
 3. Session 2 accesses that row
   1. PG searches row that has max value in `xmax`, indicating latest consistent row version
 4. Session 1 commit
