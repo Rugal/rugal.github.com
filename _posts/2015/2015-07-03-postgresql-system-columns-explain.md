@@ -55,7 +55,7 @@ SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test ORDER BY id;
 {%endhighlight%}
 Notice `xmin` for `id=3` increases, this is because it is involved in another transaction, while its `xmax` does not change.  
 Also the `ctid` of this row is set to 0, which means the first command of transaction.   
-MVCC of PostgreSQL reserve all rows before vacuum, this row is actually newly inserted.   
+MVCC of PostgreSQL reserves all rows before vacuum, this row is actually newly inserted.   
 The old row version is still kept in table, but its `xmax` is updated to the `XID` of new transaction. By doing so, other sessions that accessing this row will know it is involved in a transaction, so as to ensure transactional consistency.   
 
 The view from another session is different.  
