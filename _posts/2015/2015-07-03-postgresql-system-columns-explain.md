@@ -69,11 +69,9 @@ SELECT xmin, xmax, cmin, cmax, ctid,  * FROM test ORDER BY id;
  20775 | 20776 |    0 |    0 | (0,3) |  3 | Rugal
 (3 rows)
 {%endhighlight%}
-As we could see from session 2, `xmax` has changed to the value of `xmin` of session 1.    
-This is because we have updated that row from session 1 without commit.  
-Here our `xmin` and `xmax` columns are used to differentiate transactions.  An nonzero `xmax` value means a transaction is working on this row without commit.  
-
-Because session 1 has not committed, we can not see newer version. In this way, MVCC in PostgreSQL ensures transactional consistency.  
+The `xmax` column indicates this row is involved in transaction 20776.   
+This is because PG notice we are query a row that is involved in a transaction, so PG will get the row with old version.   
+Because session 1 has not committed, we can not see newer version. In this way, MVCC in PostgreSQL ensures transactional consistency.   
 
 Let's do some more operation in session 1.  
 {%highlight sql%}
