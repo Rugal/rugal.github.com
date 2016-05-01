@@ -18,10 +18,28 @@ Identify different commands in one transaction.  Start from 0.
 4. `cmax`   
 Command identifier for deletion transaction. In source code, it is the same with `cmin`.
 5. `ctid`   
-Similar to Oracle `rowid`, but will this ID will change as transactions on current row take effect.
+Similar to Oracle `rowid`, but will this ID will change as transactions on current row take effect. So it is better not always use this column to access rows.  
+
+
+-------------
+
+## How PG MVCC works
+
+Suppose we have 2 sessions, access the same table `test` with some rows.   
+
+
+1. Session 1 starts transaction
+2. Session 1 updates 1 row 
+  1. PG Allocate `XID` for this transaction
+  2. PG replicate that row, which is call new row version, and set its `xmin` to the new `XID`
+  3. PG updates that row with new value from session 1.
+  4. PG updates the old row version
 
 
 -------
+
+## Example
+
 {%highlight sql%}
 --session 1
 CREATE TABLE test (id int, name character varying(10));
