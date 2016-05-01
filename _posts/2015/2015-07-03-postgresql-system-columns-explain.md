@@ -30,10 +30,19 @@ Suppose we have 2 sessions, access the same table `test` with some rows.
 
 1. Session 1 starts transaction
 2. Session 1 updates 1 row 
-  1. PG Allocate `XID` for this transaction
-  2. PG replicate that row, which is call new row version, and set its `xmin` to the new `XID`
-  3. PG updates that row with new value from session 1.
-  4. PG updates the old row version
+  1. PG allocates an `XID` for this new transaction
+  2. PG replicates the original row.  
+  Now the origin row named as old version and the new one is called new version
+  3. PG sets `xmin` of new row version to the fresh allocated `XID`, say 2 for example
+  4. PG updates that new row version with new value from session 1.
+  5. PG sets the `xmax` of old version to the `XID` of new transaction
+3. Session 2 accesses that row
+  1. PG searches row that has max value in `xmax`, indicating latest consistent row version
+4. Session 1 commit
+  1.  PG sets the `xmax` of old version to 0
+5. Session 2 accesses that row again
+  1. Again PG searches row that has max value in `xmax`. But they are all 0.
+  2. PG finds there is no transaction operating on this row, fetch the version with max `xmin` value, indicating latest consistent version
 
 
 -------
