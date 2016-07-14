@@ -15,7 +15,7 @@ sudo apt-get update
 sudo apt-get install tmux
 {%endhighlight%}
 
-Usage:
+[Usage](https://gist.github.com/MohamedAlaa/2961058):
 {%highlight bash%}
 
 CTRL+B % #vertically split
