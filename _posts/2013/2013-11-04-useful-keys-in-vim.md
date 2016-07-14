@@ -55,6 +55,5 @@ y     copy the character
 
 n CTRL-w <|>|+|-   move current window for n length
 
-
 :vertical resize 40       "resize the window
 {%endhighlight%}
