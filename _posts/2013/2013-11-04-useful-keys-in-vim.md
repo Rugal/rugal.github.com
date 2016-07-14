@@ -54,4 +54,7 @@ O    change into insert mode the cursor create a new line above current line
 y     copy the character
 
 n CTRL-w <|>|+|-   move current window for n length
+
+
+:vertical resize 40       "resize the window
 {%endhighlight%}
