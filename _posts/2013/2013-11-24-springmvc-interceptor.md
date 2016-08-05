@@ -6,59 +6,59 @@ category: development
 tags: [java]
 ---
 {% include JB/setup %}
-`Interceptors` is very useful in SpringMVC based Java Web application development. 
+`Interceptor` is very useful in SpringMVC based Java Web application development. 
 It is especially helpful when comes to authentication and authorization.  We can centralize permision management by using interceptor.  
 
-Many documents online introduced the detailes of execution order and conception of interceptor.  After reading [javadoc]( http://docs.spring.io/spring/docs/3.2.4.RELEASE/javadoc-api/ ), I found something new beyond them.  
+Many documents online introduce the detail of execution order and conception of interceptor.  After reading [javadoc]( http://docs.spring.io/spring/docs/3.2.4.RELEASE/javadoc-api/ ), I found something new beyond them.  
 
 
 
 # Handler
-Handler is the real method that deals with requests. Method that annotated with `@RequestMapping` is handler.   
-Handler will be invoked only if all `preHandler`s method return `true`.    
+Handlers are the actual method that deal with requests. Methods that are annotated with `@RequestMapping` are handlers.   
+Handlers will be invoked only if all `preHandler` methods return `true`.    
 
 
 # Execution chain
-A chain that contains all the interceptors that need to execute, the order of execution depends on MVC configuration, so you can always reorder them if you want.   
+
+Execution chain are a chain that contains all the interceptors that need to execute. The order of execution depends on MVC configuration, so you can always reorder them if you want.   
 
 
 # preHandler
 
 ### execution sequence  
-The execution order complys to execution chain.
+The execution order complies to the execution chain.
 
 ### execution position
-Execute after HandlerMapping determines an appropriate handler but just before invoking handler method
+Executed after `HandlerMapping` determines an appropriate handler, but just before invoking handler method.
 
 ### result
-If returns true in this method, next interceptor in execution chain or the handler if no more interceptor after it will be invoked.   
-If returns false or throw exception in this method, `DispatcherServlet` assumes this interceptor has already taken care of the response itself.    
+If this method returns true, the next interceptor in execution chain, or the handler if no more interceptors after, it will be invoked.    
+If this method returns false or throws an exception, `DispatcherServlet` assumes this interceptor has already taken care of the response itself.    
 
-When throwing exception, servlet container or controller advisor will handle the exception for you.   
-When returning false, Spring will reply with the `HttpResponse` in method parameter. You can either fill something necessary in response object or redirect to somewhere else.  
-
+When throwing an exception, the servlet container or a controller advisor will handle the exception for you.   
+When returning false, Spring will reply with the `HttpResponse` in the method parameter. You can either fill something necessary into the response object or redirect to somewhere else.  
 
 
 # postHandler
 
 ### execution sequence
-Execution order in a invert order to execution chain.  
+Execution order is inverse to that of the execution chain.  
 
 ### execution position
-This method will be executed after invocation of handler, but right before `DispatcherServlet` rendering the view.  
+This method will be executed after invocation of the handler, but right before `DispatcherServlet` renders the view.  
 
 ### significance  
-  this method is to do some modification or surviliance to response object.  
+This method is to do some modification or surviliance to the response object.  
 
 
 # afterCompletion
 
 ### execution sequence  
-Execution order is invert to execution chain, thus first registred interceptor will be the last one to execute.  
+Execution order is inverse to that of the execution chain; thus first registered interceptor will be the last one to execute.  
 
 ### execution position:  
-This method will only be invoked if preHandler method returns `true`, which means throwing exception or returning false will not enter this method.    
-Will be invoked after view was rendered by `DispatcherServlet`  
+This method will only be invoked if the preHandler method returns `true`. This means that throwing an exception or returning false will not enter this method.    
+This method will be invoked after the view was rendered by `DispatcherServlet`  
 
 ### significance:  
 This method is designed to do some cleanup work.  
