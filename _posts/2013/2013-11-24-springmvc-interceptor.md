@@ -6,7 +6,7 @@ category: development
 tags: [java]
 ---
 {% include JB/setup %}
-`interceptors` is very useful in SpringMVC based Java Web application development. 
+`Interceptors` is very useful in SpringMVC based Java Web application development. 
 It is especially helpful when comes to authentication and authorization.  We can centralize permision management by using interceptor.  
 
 Many documents online introduced the detailes of execution order and conception of interceptor.  After reading [javadoc]( http://docs.spring.io/spring/docs/3.2.4.RELEASE/javadoc-api/ ), I found something new beyond them.  
