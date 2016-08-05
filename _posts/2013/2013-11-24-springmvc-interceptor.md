@@ -22,7 +22,7 @@ Handler will be invoked only if all interceptors' `preHandler` method return `tr
 A chain that contains all the interceptors that need to execute, the order of execution depends on MVC configuration, so you can always reorder them if you want.   
 
 
-# PreHandler
+# preHandler
 
 ### execution sequence  
 The execution order complys to execution chain.
@@ -41,22 +41,23 @@ When returning false, Spring will reply with the `HttpResponse` in method parame
 
 # postHandler
 
-### execution sequence:  
-execution order in a invert order to execution chain.  
+### execution sequence
+Execution order in a invert order to execution chain.  
 
-### execution position:  
-  this method will be executed after handler actually invoked, and before `DispatcherServlet` render the view.  
-### significance:  
-  this method is to do some modification or surviliance the `ModelAndView` object.  
+### execution position
+This method will be executed after invocation of handler, but right before `DispatcherServlet` rendering the view.  
+
+### significance  
+  this method is to do some modification or surviliance to response object.  
 
 
 # afterCompletion
 
-### execution sequence:  
-execution order is invert with execution chain, thus first interceptor will be the last one to execute.  
+### execution sequence  
+Execution order is invert with execution chain, thus first registred interceptor will be the last one to execute.  
 
 ### execution position:  
-this method will only be called if this preHandler method is successfully executed and return true, which means throwing exception or returning false will not intended to enter this method.  
+This method will only be invoked if preHandler method returns `true`, which means throwing exception or returning false will not enter this method.    
 Will be invoked after view was rendered by `DispatcherServlet`  
 
 ### significance:  
