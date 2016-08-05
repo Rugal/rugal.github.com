@@ -54,7 +54,7 @@ This method will be executed after invocation of handler, but right before `Disp
 # afterCompletion
 
 ### execution sequence  
-Execution order is invert with execution chain, thus first registred interceptor will be the last one to execute.  
+Execution order is invert to execution chain, thus first registred interceptor will be the last one to execute.  
 
 ### execution position:  
 This method will only be invoked if preHandler method returns `true`, which means throwing exception or returning false will not enter this method.    
