@@ -15,7 +15,7 @@ Many documents online introduced the detailes of execution order and conception 
 
 # Handler
 Handler is the real method that deals with requests. Method that annotated with `@RequestMapping` is handler.   
-Handler will be invoked only if all interceptors' `preHandler` method return `true`.    
+Handler will be invoked only if all `preHandler`s method return `true`.    
 
 
 # Execution chain
