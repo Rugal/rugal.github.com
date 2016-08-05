@@ -34,7 +34,7 @@ Execute after HandlerMapping determines an appropriate handler but just before i
 If returns true in this method, next interceptor in execution chain or the handler if no more interceptor after it will be invoked.   
 If returns false or throw exception in this method, `DispatcherServlet` assumes this interceptor has already taken care of the response itself.    
 
-When throwing exception, servlet contain or controller advisor will handle the exception for you.   
+When throwing exception, servlet container or controller advisor will handle the exception for you.   
 When returning false, Spring will reply with the `HttpResponse` in method parameter. You can either fill something necessary in response object or redirect to somewhere else.  
 
 
