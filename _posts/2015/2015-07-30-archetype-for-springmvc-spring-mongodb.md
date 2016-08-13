@@ -38,7 +38,7 @@ mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
 
 This is my second archetype in maven.  
 A good archetype, please refer to [github](https://github.com/Rugal/springmvc-spring-mongodb) for real code.  
-After releasing my first [archetype]({%post_url 2014-07-06-my-archetype-in-maven %}), I decided to use Java based configuration only, even in my future release.  
+After releasing my first [archetype](https://github.com/Rugal/springmvc-spring-hibernate), I decided to use Java based configuration only, even in my future release.  
 
 Please modify configuration files under `config` package.  
 

@@ -78,4 +78,4 @@ Because WAL is significantly useful for recovery, it is better to back them up b
 
 This tutorial is to tell you how to setup archive functionality for PostgreSQL with minimum configuration.  
 Backuping or Archiving xlog is to enable High Availability for our system.   
-With continuous archiving, we enabled [Point-in-Time Recovery (PITR)](http://www.postgresql.org/docs/current/static/continuous-archiving.html), my tutorial abouth [PITR]({%post_url 2015-07-18-postgresql-recovery%}).   
+With continuous archiving, we enabled [Point-in-Time Recovery (PITR)](http://www.postgresql.org/docs/current/static/continuous-archiving.html), my tutorial is at [PITR]({% post_url 2015-07-18-postgresql-recovery %}).
