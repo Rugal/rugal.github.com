@@ -7,16 +7,16 @@ tags: [java,maven]
 ---
 {% include JB/setup %}
 
-Hello user,  
-If you see this post, you might interested in my [ssh archetype]({%post_url 2014-07-06-my-archetype-in-maven%}).  
-They will cooperate nicely.  
+Hello developers,  
+If you see this post, you might be interest in my [ssh archetype]({%post_url 2014-07-06-my-archetype-in-maven%}).  
+They cooperate nicely.  
 
 This artifact is a useful common package for integrating springmvc-spring-hibernate.   
 
 {%highlight xml%}
 <groupId>ml.rugal</groupId>
 <artifactId>ssh-common</artifactId>
-<version>0.2</version>
+<version>0.4</version>
 {%endhighlight%}
 
 I extract `common` package from original `springmvc-spring-hibernate` archetype for better organize. Wish this could better decoupling.  
@@ -26,6 +26,10 @@ Contribution is welcomed!
 
 
 # version log
+
+### 0.4
+Remove `Message` as response body.
+
 
 ### 0.3
 Extract ExceptionAction and Message to this artifact.  
