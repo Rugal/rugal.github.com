@@ -26,6 +26,7 @@ This archetype based on:
 # Usage
 
 Create archetype from command line using maven:  
+
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
