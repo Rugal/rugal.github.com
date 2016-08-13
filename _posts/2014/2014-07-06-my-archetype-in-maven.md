@@ -29,7 +29,7 @@ Create archetype from command line using maven:
 {%highlight bash%}
 mvn archetype:generate  -DarchetypeGroupId=ml.rugal.archetype       \
                         -DarchetypeArtifactId=springmvc-spring-hibernate  \
-                        -DarchetypeVersion=0.6          \
+                        -DarchetypeVersion=0.7          \
                         -DgroupId=your.group.id         \
                         -DartifactId=your.artifact.id   \
                         -Dversion=your.version
@@ -47,6 +47,11 @@ Please modify configuration files under `conf` package.
 -----------------
 
 # version log
+
+### 0.7
+Get rid of getter setter etc by using Lombok.  
+Start using [SSH-common 0.4](https://github.com/Rugal/ssh-common).  
+Response returns data object only, without `Message` object.  
 
 ### 0.6
 Replace all XML file with Java based configuration.   
