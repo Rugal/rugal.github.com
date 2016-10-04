@@ -3,6 +3,105 @@ layout: post
 title: "Git remote repository"
 description: ""
 category: 
-tags: []
+tags: [git]
 ---
 {% include JB/setup %}
+
+Let's make a practise.  
+
+## Init local repository
+Initialize a local repository.  
+
+{%highlight bash%}
+mkdir learn-git ; cd learn-git
+git init
+git remote add origin https://github.com/Rugal/learn-git.git
+{%endhighlight%}
+
+## First commit
+
+### Create file
+{%highlight bash%}
+echo "Rugal Bernstein first commit  " >> README.md
+git status
+{%endhighlight%}
+
+    On branch master
+
+    Initial commit
+
+    Untracked files: 
+    (use “git add …” to include in what will be committed)
+
+        README.md
+        nothing added to commit but untracked files present (use “git add” to track)
+
+
+### Staging file
+
+{%highlight bash%}
+git add README.md
+git status
+{%endhighlight%}
+
+
+    On branch master
+
+    Initial commit
+
+    Changes to be committed: 
+    (use “git rm –cached …” to unstage)
+
+        new file:   README.md
+
+### Commit file
+{%highlight bash%}
+git commit -m"first commit"
+{%endhighlight%}
+
+    [master (root-commit) 3e9292a] first commit
+    1 file changed, 1 insertion(+)
+    create mode 100644 README.md
+
+    git status
+
+    On branch master
+    nothing to commit, working directory clean
+
+
+## First push
+
+### Create Github repository
+We usually use `Github` as our code host.  
+[![create_github.png](https://s25.postimg.org/3lml8ml5r/create_github.png)](https://postimg.org/image/3ydzet3ff/)  
+
+### Push your code
+Synchronize you local repository to remote host.  
+
+{%highlight bash%}
+git remote add origin https://github.com/Rugal/learn-git.git
+git push origin master
+{%endhighlight%}
+
+    Counting objects: 3, done.
+    Writing objects: 100% (3/3), 252 bytes | 0 bytes/s, done.
+    Total 3 (delta 0), reused 0 (delta 0)
+    To https://github.com/Rugal/learn-git.git
+    * [new branch] master -> master
+
+
+
+### Track remote repository
+This is set to track the remote status, so that Git could compare the difference between local and remote repo.
+
+{%highlight bash%}
+git branch -u origin/master; git status
+{%endhighlight%}
+
+    Branch master set up to track remote branch master from origin.
+
+    On branch master
+    Your branch is up-to-date with ‘origin/master’.
+    nothing to commit, working directory clean
+
+[![first_push.png](https://s25.postimg.org/4cfbeenj3/first_push.png)](https://postimg.org/image/ukqg3s7mj/)  
