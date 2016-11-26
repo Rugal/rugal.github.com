@@ -2,7 +2,7 @@
 layout: post
 title: "Git remote repository"
 description: ""
-category: 
+category: development
 tags: [git]
 ---
 {% include JB/setup %}
@@ -105,3 +105,7 @@ git branch -u origin/master; git status
     nothing to commit, working directory clean
 
 [![first_push.png](https://s25.postimg.org/4cfbeenj3/first_push.png)](https://postimg.org/image/ukqg3s7mj/)  
+
+
+The tricky point is that, `origin/master` is not special. It is a local cache of the remote branch.  But you can't change this `origin/master` branch unless by `git fetch/push`.  
+So basically each time you do `git fetch/push`, the `origin/master` branch will be synced with real remote `master`.  Then you will know the differences between your local development branch and real remote branch by comparing the local `master` with the local `origin/master`.  
