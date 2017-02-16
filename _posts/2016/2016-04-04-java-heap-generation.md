@@ -3,7 +3,7 @@ layout: post
 title: "Java Heap Generation"
 description: ""
 category: development
-tags: [java]
+tags: [jvm]
 ---
 {% include JB/setup %}
 
