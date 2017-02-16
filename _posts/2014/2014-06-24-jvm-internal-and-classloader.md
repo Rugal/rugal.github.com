@@ -3,7 +3,7 @@ layout: post
 title: "JVM internal and classloader"
 description: ""
 category: development
-tags: [java]
+tags: [jvm]
 ---
 {% include JB/setup %}
 
