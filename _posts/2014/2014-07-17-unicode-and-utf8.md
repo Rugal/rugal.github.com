@@ -101,6 +101,16 @@ $ |	U+0024| 	0100100 	|00100100| 	24
 ¢ |	U+00A2| 	000 10100010| 	11000010| 10100010| 	C2 A2
 € | U+20AC| 	00100000 10101100| 	11100010 10000010 10101100| 	E2 82 AC
 
+#### Some languages
+
+Language | Range
+---|---
+Chinese | u4e00-u9fa5
+Korean | x3130-x318F
+Korean | xAC00-xD7A3
+Japaness | u0800-u4e00
+
+
 
 ## UTF-16
 UTF-16 is a fix-width encoding, any character set from Unicode is literally copied onto UTF-16 mapping table.   
