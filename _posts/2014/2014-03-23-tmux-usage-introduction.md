@@ -33,6 +33,10 @@ CTRL+B d  #detach window
 
 CTRL+B [  #browser mode
 
+CTRL+B w  #choose window
+
+CTRL+B s  #choose session
+
 tmux ls #list tmux windows
 
 tmux attach -t 0 #reattach window
