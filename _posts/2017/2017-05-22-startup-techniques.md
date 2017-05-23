@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "JVM GC"
+title: "Startup techniques"
 description: ""
 category: development
-tags: [jvm]
+tags: []
 ---
 {% include JB/setup %}
 
