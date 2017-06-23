@@ -7,7 +7,7 @@ tags: [git]
 ---
 {% include JB/setup %}
 
-## Git init
+# Git init
 
 ### Init repository
 
@@ -66,7 +66,7 @@ ls: .git/refs/heads/master: No such file or directory
 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
 ```
 
-## Git add
+# Git add
 
 ### Updated objects folder
 ```bash
@@ -86,8 +86,6 @@ Changes to be committed:
 │   └── b811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
 ├── info
 └── pack
-
-9 directories, 16 files
 ```
 
 ### Object content
@@ -102,6 +100,66 @@ xKOR0*MOV
 [ryao@macpro-gn07 deep-inside-git]> git cat-file -t 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
 blob
 #content
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
+Rugal
+```
+
+
+# Git commit
+
+### Commit
+
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git commit -m"Initial commit"
+[master (root-commit) f73a6ae] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+[ryao@macpro-gn07 deep-inside-git]> cat .git/refs/heads/master
+f73a6ae93b095b899fbdb3b2485f5829b9f460cf
+```
+
+### Updated objects folder
+```bash
+[ryao@macpro-gn07 deep-inside-git]> tree .git/objects
+.git/objects
+├── objects
+├── 2f
+│   └── b811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
+├── 36
+│   └── 2032c56bddec6ad5b639e16eeb594f92886516
+├── f7
+│   └── 3a6ae93b095b899fbdb3b2485f5829b9f460cf
+├── info
+└── pack
+```
+
+
+## Git commit Objects
+
+### Commit information
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -t f73a6ae93b095b899fbdb3b2485f5829b9f460cf
+commit
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p f73a6ae93b095b899fbdb3b2485f5829b9f460cf
+tree 362032c56bddec6ad5b639e16eeb594f92886516
+author Rugal Bernstein <ryao@peakcontact.com> 1498230956 -0400
+committer Rugal Bernstein <ryao@peakcontact.com> 1498230956 -0400
+```
+### Commit tree
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -t 362032c56bddec6ad5b639e16eeb594f92886516
+tree
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p 362032c56bddec6ad5b639e16eeb594f92886516
+100644 blob 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a    README.md
+```
+
+
+### Commit object content
+
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -t 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
+blob
 [ryao@macpro-gn07 deep-inside-git]> git cat-file -p 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
 Rugal
 ```
