@@ -135,7 +135,7 @@ f73a6ae93b095b899fbdb3b2485f5829b9f460cf
 ```
 
 
-## Git commit Objects
+## Git commit objects
 
 ### Commit information
 ```bash
@@ -219,7 +219,7 @@ Rugal
 800d7b9974fd1d4ad26791dfcf4bb0478c51c4da
 ```
 
-## Git commit Objects
+## Git commit objects
 
 ### Commit information
 ```bash
