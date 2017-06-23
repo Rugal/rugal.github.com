@@ -163,3 +163,86 @@ blob
 [ryao@macpro-gn07 deep-inside-git]> git cat-file -p 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
 Rugal
 ```
+
+
+# Second Commit
+```bash
+[ryao@macpro-gn07 deep-inside-git]> echo 'Bernstein' > INSTALL.md && git add -A
+[ryao@macpro-gn07 deep-inside-git]> cat INSTALL.md  | git hash-object --stdin
+56757e169d62beeb6371e7f5d3bd6bd507edd2f6
+[ryao@macpro-gn07 deep-inside-git]> tree .git/objects/
+.git/objects/
+├── 2f
+│   └── b811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
+├── 36
+│   └── 2032c56bddec6ad5b639e16eeb594f92886516
+├── 56
+│   └── 757e169d62beeb6371e7f5d3bd6bd507edd2f6
+├── f7
+│   └── 3a6ae93b095b899fbdb3b2485f5829b9f460cf
+├── info
+└── pack
+
+6 directories, 4 files
+
+[ryao@macpro-gn07 deep-inside-git]> git commit -m"Add INSTALL.md file"
+[master 800d7b9] Add INSTALL.md file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 INSTALL.md
+[ryao@macpro-gn07 deep-inside-git]> git lg
+* 800d7b9 - (HEAD -> master) Add INSTALL.md file (68 seconds ago) <Rugal Bernstein>
+* f73a6ae - Initial commit (13 minutes ago) <Rugal Bernstein>
+
+[ryao@macpro-gn07 deep-inside-git]> tree .git/objects/
+.git/objects/
+├── 2f
+│   └── b811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
+├── 36
+│   └── 2032c56bddec6ad5b639e16eeb594f92886516
+├── 56
+│   └── 757e169d62beeb6371e7f5d3bd6bd507edd2f6
+├── 80
+│   └── 0d7b9974fd1d4ad26791dfcf4bb0478c51c4da
+├── c6
+│   └── 919ff8ab7ff578ebb6995121d501aa645d0797
+├── f7
+│   └── 3a6ae93b095b899fbdb3b2485f5829b9f460cf
+├── info
+└── pack
+
+8 directories, 6 files
+```
+
+
+```bash
+[ryao@macpro-gn07 deep-inside-git]> cat .git/refs/heads/master
+800d7b9974fd1d4ad26791dfcf4bb0478c51c4da
+```
+
+## Git commit Objects
+
+### Commit information
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p 800d7b9974fd1d4ad26791dfcf4bb0478c51c4da
+tree c6919ff8ab7ff578ebb6995121d501aa645d0797
+parent f73a6ae93b095b899fbdb3b2485f5829b9f460cf
+author Rugal Bernstein <ryao@peakcontact.com> 1498231664 -0400
+committer Rugal Bernstein <ryao@peakcontact.com> 1498231664 -0400
+
+Add INSTALL.md file
+```
+### Commit tree
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p c6919ff8ab7ff578ebb6995121d501aa645d0797
+100644 blob 56757e169d62beeb6371e7f5d3bd6bd507edd2f6    INSTALL.md
+100644 blob 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a    README.md
+```
+
+### Commit object content
+
+```bash
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p 56757e169d62beeb6371e7f5d3bd6bd507edd2f6
+Bernstein
+[ryao@macpro-gn07 deep-inside-git]> git cat-file -p 2fb811a4ca96b3d0ac9b4fb8aa3d96e6a809509a
+Rugal
+```
