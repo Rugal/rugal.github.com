@@ -9,8 +9,8 @@ tags: [java]
 
 
 ## Raw type
-Raw type means the `type` is unbounded/unspecified.  
-The existence of it is for backward compatibility.
+Raw type means the `type` is unbounded/unspecified.   
+The existence of it is for backward compatibility.   
 But still, it is not recommend to use this raw type.   
 
 
@@ -31,9 +31,9 @@ public class Main {
 }
 ```
 
-You will get warning talking about unchecked type.
-Raw type doesn't provide type check, so you can put different type into a single container without getting compilation error.  
-But this will cause trouble if you try to cast class that is not compatible.
+You will get warning talking about unchecked type.   
+Raw type doesn't provide type check, so you can put different type into a single container without getting compilation error.   
+But this will cause trouble if you try to cast class that is not compatible.  
 
 Again, Raw type is not recommended.
 
@@ -43,12 +43,12 @@ Again, Raw type is not recommended.
 
 ### Unbounded wildcard
 
-You can't assign `<A>` to `<B>` even if the A is inherit from B. This is because of type check in compile time.
-In order to assign relevant types to their base type, `wildcard` comes into being.
+You can't assign `<A>` to `<B>` even if the A is inherit from B. This is because of type check in compile time.   
+In order to assign relevant types to their base type, `wildcard` comes into being.  
 
 ### Assignable by any type
 
-Any container can assign to `<?>`
+Any container can assign to `<?>` . 
 ```java
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +67,7 @@ public class Main {
 }
 ```
 
-You can even assign raw type container to it.
+You can even assign raw type container to it.  
 ```java
 import java.util.ArrayList;
 import java.util.List;
