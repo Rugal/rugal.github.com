@@ -6,9 +6,19 @@ category: operation
 tags: [git]
 ---
 {% include JB/setup %}
+
 I have found a very useful command that can restore unintended deleted or modified files that have already commited:  
+
+## Checkout all files
 {%highlight bash%}
 git ls-files -d |xargs -i git checkout {}
+#Or
+git checkout .
 {%endhighlight%}
 this command will restore that last commited version of file that have been deleted in cache.  
 For referring basic usage of `xargs`, [here]({%post_url 2014-01-12-use-xargs-to-replace-bash-loop %}) 
+
+## Checkout single file
+```bash
+git checkout version -- path/to/file
+```
