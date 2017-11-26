@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://rugal.ga/</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/pages/categories.html</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/pages/tags.html</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/pages/archive.html</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2017/05/22/ubuntu-wireless-setup</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2017/05/22/ubuntu-close-lid-without-suspension</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2016/04/15/postgresql-continuous-archive</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2016/04/13/postgresql-query-cost</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/11/01/oracle-glossary</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/09/09/tomcat-hang-at-start</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/08/17/ubuntu-restart-network-interfaces</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/08/17/Setup-static-IP-in-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/08/02/recovery-procedure-of-postgresql</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/08/02/postgresql-high-availability-solutions-summary</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/28/docker-unable-to-access-website</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/20/postgresql-streaming-replication</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/18/postgresql-recovery</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/17/email-agent-protocals</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/17/concurrent-read-level</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/15/postgresql-backup</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/08/psql-session-level-parameters-for-logging</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/03/postgresql-system-columns-explain</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/07/02/postgresql-lock-introduction</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/04/14/spark-over-yarn</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/04/14/hdfs-permission-denied</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/04/14/hadoop-hdfs-connection-refused</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/ubuntu-setup-default-language</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/printing-under-command-line</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/oracle-login-script</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/oracle-lock-mode</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/oracle-internal-table</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/change-keyboard-layout-in-linux</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/bash-completion</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2015/01/16/X11-forward-Xorg-is-CS-based</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/12/12/postgresql-allows-any-connection</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/12/05/hadoop-Connection-refused-no-further-information</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/11/04/introduction-to-font-family</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/09/04/vim-long-line-slowness</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/09/01/ubuntu-install-wired-network-driver</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/08/24/tomcat-domain-name-to-folder-mapping</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/08/24/apache-port-forward</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/06/24/some-oracle-tools-and-introduction</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/06/10/keep-configuration-file-untracked-in-git</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/05/11/easy-using-update-alternatives</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/05/07/hex-dump-tool-xxd</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/05/03/postgresql-sequence-operation</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/04/10/post-json-data-from-curl</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/04/08/time-related-operations-in-postgresql</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/31/invoke-bash-functions-in-xargs</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/23/tmux-usage-introduction</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/18/using-winmanager-and-nerdtree</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/13/linux-date-command</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/13/bash-read-line-from-file</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/05/set-ubuntu-screen-saver-idle-time</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/03/04/init-postgres-password</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/02/26/sql-connect-by-in-postgresql</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/02/26/install-extensions-in-postgresql</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/02/13/install-kvm-on-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/02/12/kvm-virtual-machine-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/02/08/postgres-command</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/01/12/use-xargs-to-replace-bash-loop</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2014/01/10/compilation-error-with-postgres-93-on-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/27/linux-sort-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/26/useful-tips-in-makefile</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/26/sql-access-path</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/12/useful-command-in-mvn</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/12/convenient-usage-while-using-ssh-config</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/11/different-proxy-in-network</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/11/awk-in-practise</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/10/sed-basic-tips</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/12/10/awk-basic-tips</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/22/linux-curl-command-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/17/git-restore-file-from-commit</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/16/ubuntu-server-wireless-start-and-shut</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/16/some-study-about-dns</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/13/vim-text-width-and-line-wrap</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/13/purge-out-gnome-extensions-manually</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/13/manually-install-gnome-extensions-step-by-step</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/13/goagent-certificate-import</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/13/git-rollback-to-commit</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/12/mysql-length-in-integer-type</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/12/mysql-date-convertion-and-column-renaming</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/09/vboxdrv-kernel-not-installed-problem</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/09/ls-command-more</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/07/install-monaco-font-in-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/04/vim-advance-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/04/useful-keys-in-vim</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/04/get-linux-information-by-command</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/04/configure-double-spell-under-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/03/w3m-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/03/shrink-image-with-linux-command</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/03/cope-with-apt-key-no_publickey</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/03/bash-arguments-introduction</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/03/apt-advanced-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/02/convert-gbk-to-utf8-for-sql-in-linux</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/02/cmdline-maven-integreted-with-eclim</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/11/01/compile-vim-with-python-interceptor</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/10/18/recover-root-password-for-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/10/12/ubuntu-startup-to-terminal</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/09/28/setup-mysql-char-set-in-utf8</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/09/26/add-apt-repository-not-found</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/09/11/yeah-ssh-agent-is-just-right-back-at-you</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/08/05/reset-mysql-root-password</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/08/03/number-calculation-in-bash</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/08/01/encrypy-and-hide-windows-folder</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/07/29/linux-shell-redirect</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/07/29/disable-mysql-automatic-startup-on-ubuntu-1304</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/operation/2013/07/03/loop-syntax-in-bash</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2017/08/30/monster-hunter-xx-effects</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2017/08/17/sunny-day-lyrics</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2016/06/28/my-dormitory</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2016/04/15/coast-to-coast</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2015/11/24/some-misdirection-of-my-values</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/09/14/italiano</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/09/04/good-glossary</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/08/25/my-steps-towards-italiano</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/07/31/farewell-state-street-global-advisor</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/06/30/todo-list</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/06/30/my-projects</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/06/30/comparison-for-acreage-of-some-university</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/06/24/financial-market-conceptions-tree-view</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/03/19/standardized-examination</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/03/19/let-us-study-abroad</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/03/19/get-your-study-permit</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/03/19/find-applicable-destination</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/03/19/apply-for-ideal-university</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2014/02/27/the-black-girl-i-met-in-zjut</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2013/12/12/a-sense-of-solitary</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2013/08/03/ktv-songs-list</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/myself/2013/07/29/i-love-you</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2017/09/26/java-multithread-key-point</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2017/07/05/raw-type-and-wildcard</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2017/06/22/deep-inside-git</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2017/05/22/startup-techniques</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2017/02/16/JVM-GC</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/10/02/git-remote-repository</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/10/02/git-merge-and-rebase</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/10/02/git-introduction</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/10/02/git-branching</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/10/02/git-at-first-glance</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/04/29/concurrency-parallelism</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/04/04/java-reference-types</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/04/04/java-heap-generation</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2016/01/01/jpt-post-interface</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/12/23/regular-expression-note</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/12/21/vim-plugins-for-clojure</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/12/07/java-proxy-class</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/25/jpt-user-level-object</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/25/jpt-user-interface</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/14/jpt-thread-object</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/13/jpt-post-object</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/08/uml-sequence-diagram</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/03/uploading-file-other-than-post</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/10/03/springmvc-parameter-IllegalArgumentException</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/09/28/jpt-pagination-object</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/09/18/jpt-user-object</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/09/17/algorithm-complexity-representation</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/09/14/jpt-message-object</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/09/14/introduction-to-javapt</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/09/05/css-position</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/05/16/tutorial-to-use-google-speech-api</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/05/06/verification-for-c-variable-pointer</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/05/06/reason-that-handler-execute-in-invert-order-in-ring-wrapper</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/04/26/apply-and-map-in-clojure</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/04/23/nerdtree-basic-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2015/01/16/execute-and-import-python-in-python-shell</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/12/15/load-jar-in-repl</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/12/12/map-incomplete-fields-to-class-in-hibernate</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/12/05/java-scanner-chinese-character</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/09/24/overlapping-subproblems</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/09/24/optimal-substructure</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/09/04/clojure-lazy-sequence</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/08/24/install-local-jar-to-local-repository</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/30/java-remote-invoke</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/28/install-and-configure-hive</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/28/install-and-configure-hbase</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/27/regularized-learning-algorthm</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/17/unicode-and-utf8</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/17/logistic-regression</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/15/linear-regression</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/06/how-to-configure-transaction-manager-in-spring</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/07/03/clojure-quote-symbols</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/30/mutex-vs-semaphore</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/30/device-type-in-kernel</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/26/clojure-state-management-introduction</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/25/clojure-core-data-structure</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/24/jvm-internal-and-classloader</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/24/basic-asm-learning</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/06/13/clarify-different-link-functions-in-clojure</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/05/21/dynamic-programming-algorithm</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/04/09/binding-form-variables-with-model-in-springmvc</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/02/25/javascript-first-nip</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/02/25/ajax-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/01/18/send-email-using-java</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/01/11/miracle-tool-javap</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/01/11/java-access-modifiers-clarification</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2014/01/10/android-develop-on-64-bit-linux</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/12/26/java-is-pass-by-reference-and-pointer-eliminated</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/12/20/configure-hadoop-dev-env-in-linux</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/12/10/wildcard-and-template-in-java</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/24/springmvc-interceptor</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/21/difference-between-autowired-and-resource</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/16/useful-tool-cmake</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/04/perl-hash-usage</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/03/curl-lib-in-c</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/03/connect-postgres-in-java</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/11/02/fetch-html-file-in-java</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/10/21/execute-shell-command-in-c</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/10/03/mysql-java-connector</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/10/03/dealing-with-file-in-c</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/10/02/convert-integer-into-character-in-c</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/09/15/download-archived-file-in-java</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/development/2013/09/09/printf-format-of-c</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2016/03/03/algorithm-scheme</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2016/01/04/turing-machine</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2016/01/04/graph-algorithm</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2015/09/29/latex-block-positioning</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2015/07/17/complexity-level-problem</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2015/01/19/latex-on-ubuntu</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2014/11/04/group-theory-definition</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>http://rugal.ga/study/2014/11/04/cyclic-code-definitions</loc>
+  <lastmod>2017-11-26T06:09:32+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+</urlset>
