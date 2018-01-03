@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Summary of THE in Italiano"
+title: "Iterms2 Shell Code"
 description: ""
-category: myself
-tags: [language]
+category: development
+tags: [bash, linux]
 ---
 {% include JB/setup %}
 
