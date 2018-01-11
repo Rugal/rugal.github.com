@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Iterms2 Shell Code"
+title: "Iterm2 Shell Code"
 description: ""
 category: development
 tags: [bash, linux]
@@ -15,4 +15,4 @@ ALT => | Send Escape Sequence: `f`| move right one word
 WIN <= | SEND HEX CODE: `0x01`| move left to head
 WIN => | SEND HEX CODE: `0x05`| move right one tail
 ALT DEL| SEND HEX CODE: `0x17` | Delete one word
-WIN DEL| SEND HEX CODE: `0x15` | Delete one line
+WIN DEL| SEND HEX CODE: `0x15` | Delete one line 
