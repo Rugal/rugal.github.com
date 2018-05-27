@@ -9,6 +9,6 @@ tags: [ssh]
 
 If you only have putty key and you want to get openssh format from it, try this one:  
 
-```
+```bash
 puttygen your_input_putty_key_file -O private-openssh -o your_output_key_file
 ```
