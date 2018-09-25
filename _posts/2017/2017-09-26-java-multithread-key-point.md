@@ -14,12 +14,12 @@ Whenever multi-threads read or write one variable or reference, each thread runs
 As each CPU has its own cache, there might have some chances that one thread writes the value to its CPU cache and another thread reads it. But writing to the cache of one CPU doesn't the value in main memory also get updated. Therefore the time gap between writing to CPU cache and flushing to main memory creates discrepancy in multi-thread.  
 
 
-[![image.png](https://s25.postimg.org/mvy84h6sf/image.png)](https://postimg.org/image/3quyups4b/)  
+[![image.png](https://i.postimg.cc/J7gysDcJ/image.png)](https://i.postimg.cc/J7gysDcJ/image.png)  
 
 
 `volatile` makes sure that JVM won't reorder the bytecode operations and enforces the value in CPU cache to be flushed out to memory, so that other threads can always get the latest value.  
 
-[![image.png](https://s25.postimg.org/7zzowvnnz/image.png)](https://postimg.org/image/x60n3poy3/)  
+[![image.png](https://i.postimg.cc/5yZjTTNp/image.png)](https://i.postimg.cc/5yZjTTNp/image.png)  
 
 But this is not good enough for multi-thread programming if we need to update value based on previous value.  
 This is when `synchronized` comes in.  
