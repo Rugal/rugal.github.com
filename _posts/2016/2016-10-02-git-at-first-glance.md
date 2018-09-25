@@ -11,8 +11,7 @@ As a distributed source version control system, Git is a quite complicated.
 There are several components you will usually get touch with while using Git.  
 
 Following is the very basic architecture of components you will use:  
-[![git_architecture.png](https://s25.postimg.org/omcmtjonz/git_architecture.png)](https://postimg.org/image/7ltqkvbmj/)  
-
+[![git_architecture.png](https://i.postimg.cc/xCndKgYq/git_architecture.png)](https://postimg.cc/XZ13Wfr0)
 
 ----------------------
 
