@@ -73,7 +73,7 @@ git commit -m"first commit"
 
 ### Create Github repository
 We usually use `Github` as our code host.  
-[![create_github.png](https://s25.postimg.org/3lml8ml5r/create_github.png)](https://postimg.org/image/3ydzet3ff/)  
+[![create_github.png](https://i.postimg.cc/mDRz2B5c/create_github.png)](https://i.postimg.cc/mDRz2B5c/create_github.png)  
 
 ### Push your code
 Synchronize you local repository to remote host.  
@@ -104,7 +104,7 @@ git branch -u origin/master; git status
     Your branch is up-to-date with ‘origin/master’.
     nothing to commit, working directory clean
 
-[![first_push.png](https://s25.postimg.org/4cfbeenj3/first_push.png)](https://postimg.org/image/ukqg3s7mj/)  
+[![first_push.png](https://i.postimg.cc/9MVb53Pb/first_push.png)](https://i.postimg.cc/9MVb53Pb/first_push.png)  
 
 
 The tricky point is that, `origin/master` is not special. It is a local cache of the remote branch.  But you can't change this `origin/master` branch unless by `git fetch/push`.  
