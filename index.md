@@ -8,7 +8,7 @@ tagline:  La vie est drôle
 
 {%highlight json%}
 {
-    "Author" : 
+    "Author" :
     {
         "First name": "Rugal",
         "Family name": "Bernstein",
@@ -41,3 +41,4 @@ tagline:  La vie est drôle
     "Motto":"Never yield to destiny!"
 }
 {%endhighlight%}
+
