@@ -87,7 +87,7 @@ li {
 }
 
 .cover {
-    background: url(https://i.postimg.cc/wv9cH72q/ea0bc65c1038534388baa3ac9313b07ecb8088e3.jpg) 50% 50% no-repeat;
+    background: url(/assets/images/eva.jpg) 50% 50% no-repeat;
     background-size: cover;
     position: fixed;
     height: 100%;
