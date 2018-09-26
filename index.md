@@ -28,7 +28,7 @@ tagline:  La vie est drôle
         "Markup language":["Latex","Markdown","HTML"],
     },
     "Recent plan":"Java Private Tracker",
-    "Blog": "http://rugal.ga",
+    "Blog": "https://rug.al",
     "Editor": "Vim",
     "IDE": "Netbeans",
     "Font": "HeyMono(Monaco)",
