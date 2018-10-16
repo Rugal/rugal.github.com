@@ -9,12 +9,12 @@ tags: []
 
 ## Car
 
-From | License | Name | Type | Phone
----|---|---|---|---
-Weger| 
-Weger|
-Mom|
-Mom|
-Dad|
-Dad|
+From | License | Name | Type | Phone  
+---|---|---|---|---  
+Weger|   
+Weger|  
+Mom|  
+Mom|  
+Dad|    
+Dad|  
 
