@@ -87,7 +87,7 @@ name | quantity | note
 赵忠波|1| 女  
 
 ## 姜久瑞
-name | quantity | note  
----|--- | ---  
-姜久瑞|1|  不太可能来   
+|name | quantity | note |
+|------|----- | -----|
+|姜久瑞|1|  不太可能来|
 
