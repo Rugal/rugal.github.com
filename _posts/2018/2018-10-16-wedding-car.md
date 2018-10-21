@@ -17,7 +17,7 @@ id|From | License | Name | Type | Phone
 5|Dad| 浙E9V301| 刘碧忠|Audi A6| 
 6|Dad| 浙A9PA91| 陶总|BMW 730L| 137 7749 2149 
 7|Rugal| |施春华| 凯美瑞|
-8|Rugal||卢旭峰|帕萨特|
+8|Rugal|浙EKC361|卢旭峰|帕萨特| 18657272250
 
 # 接亲前
 ## 摄像车 `1`
