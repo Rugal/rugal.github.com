@@ -61,6 +61,9 @@ id|From | License | Owner | Type | Phone
 接亲后,女方亲戚加上一个婴儿总共`9`人会上车,加上`4`位伴娘,总共上车`13`人. 
 而新娘会上主婚车,这样总共新上车的人数是14人,使得车上人数保持偶数.  
 
+## 接亲路线
+
+[![circle.png](https://i.postimg.cc/CMW9sYr7/circle.png)](https://postimg.cc/14rW9xQV)  
 
 ## 摄像车 `1`
 1. 潘泽辉
