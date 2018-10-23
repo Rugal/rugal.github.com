@@ -24,6 +24,7 @@ id|From | License | Owner | Type | Phone
 1. 潘泽辉
 2. 摄像师
 3. 摄影师
+4. 化妆师
 ## 主婚车 `3`
 1. 赖总
 2. 新郎
@@ -65,6 +66,7 @@ id|From | License | Owner | Type | Phone
 1. 潘泽辉
 2. 摄像师
 3. 摄影师
+4. 化妆师
 ## 主婚车 `3`
 1. 赖总
 2. 新郎
