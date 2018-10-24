@@ -10,7 +10,7 @@ tags: [c]
 This a useful Makefile, although it is not big.  
 one can go with it when you want to do some stuff  
 
-{%highlight Makefile%}
+```makefile
 # 
 CC="gcc -g3 -w -o $@" #make some optimization here
 COMPILE="-c $<"       #compile most left .c file into intermediate
@@ -30,7 +30,7 @@ clean:
         rm -rf *.so
         rm -rf *.o
         rm -rf ${EXECUTABLE}
-{%endhighlight%}
+```
 
 tips:  
 
