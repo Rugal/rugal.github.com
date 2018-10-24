@@ -22,6 +22,9 @@ ${EXECUTABLE}:${INTERMEDIATE}
         ${CC} $^
 ${INTERMEDIATE}:main.c util.h
         ${CC} -I ${VPATH} ${COMPILE}
+%.o: %.c
+	${CC} -I ${VPATH} ${COMPILE}
+
 
 clean:
         rm -rf *.so
