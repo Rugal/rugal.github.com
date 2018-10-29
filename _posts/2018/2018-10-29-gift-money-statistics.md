@@ -5,7 +5,7 @@ description: ""
 category: marriage
 tags: []
 ---
-{% include JB/setup %
+{% include JB/setup %}
 
 # 改口费
 
