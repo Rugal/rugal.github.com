@@ -17,6 +17,7 @@ name | amount
 
 # 礼金
 ## 唐敏
+
 name | amount
 ----|---
 total| 100320
@@ -59,6 +60,7 @@ total| 100320
 
 
 ## 通通
+
 name | amount
 ----|---
 total|18888
@@ -73,6 +75,7 @@ total|18888
 
 
 ## 璐璐
+
 name | amount
 ----|---
 total|19666
