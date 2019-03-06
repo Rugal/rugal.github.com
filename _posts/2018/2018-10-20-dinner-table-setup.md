@@ -3,6 +3,7 @@ layout: post
 title: "Dinner Table Setup"
 description: ""
 category:  marriage
+published: false
 tags: []
 ---
 {% include JB/setup %}
