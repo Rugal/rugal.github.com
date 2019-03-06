@@ -3,6 +3,7 @@ layout: post
 title: "Marriage Hotel Setup"
 description: ""
 category:  marriage
+published: false
 tags: []
 ---
 {% include JB/setup %}
