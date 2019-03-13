@@ -75,7 +75,7 @@ private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] 
 } 
 ```
 
-## Permutation without duplication
+## Permutation with duplication
 
 ```java
 // https://leetcode.com/problems/permutations-ii/
