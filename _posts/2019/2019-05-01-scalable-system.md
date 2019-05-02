@@ -45,3 +45,15 @@ When one piece of data changes (for example a table cell) you need to delete all
 Let your class assemble a dataset from your database and then store the complete instance of the class or the assembled dataset in the cache.
 
 It makes asynchronous processing possible.
+
+
+
+## [Asynchronism](https://www.lecloud.net/post/9699762917/scalability-for-dummies-part-4-asynchronism)
+
+### Proactive
+Prepare the content and cache them ahead of time so that the service is more performant. Handle them over to cloud would make them even super responsive.
+
+### Process & Notify
+Request be processed at backend when not keeping customer waiting. Service will notify customer once the process is done.
+Incorporating queuing and messaging technology benefit this process more smoothly. Basically all jobs/tasks are put in the queue waiting for the processor to pick them up. Once the process is done, the result will be placed into messaging queue and notify customer about it.
+
