@@ -53,3 +53,8 @@ To allow traffic to shadow socks server, we should open the firewall for the ser
 Here,  you should have the port comes from shadow socks configuration to TCP protocol.  
 
 ![allowall](https://i.postimg.cc/s21nYFwm/allowall.png)  
+
+
+# Test
+
+Then import the server configuration by copying the ssr URL, you should be able to use that now!  
