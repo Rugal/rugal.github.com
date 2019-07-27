@@ -23,6 +23,7 @@ MathJax.Hub.Config({
 ## Given
 
 We have training data set 
+
 $$
 \begin{aligned}
 &(x^{(1)}, y^{(1)}) \\
@@ -119,7 +120,9 @@ $$
     -\log(1-\hat{y}^{(i)})   &\quad \text{if $y = 0$ } \\
   \end{array} \right.
 $$
+
 The equation above can be simplified as below:
+
 $$
 \mathcal{L}(\hat{y}^{(i)}, y^{(i)}) = - (y^{(i)} \log  \hat{y}^{(i)} + (1 - y^{(i)}) \log (1 - \hat{y}^{(i)}))
 $$
@@ -196,7 +199,9 @@ d\hat{y} &= \frac{\partial \mathcal{L}(\hat{y}, y)}{\partial \hat{y}} \\
 &= \frac{1-y}{1 - \hat{y}} -\frac{y}{\hat{y}}
 \end{aligned}
 $$
+
 Here we use chain rule to calculate the $dz$
+
 $$
 \begin{aligned}
 dz &= \frac{\partial \mathcal{L}(\hat{y}, y)}{\partial z} \\
@@ -207,6 +212,7 @@ dz &= \frac{\partial \mathcal{L}(\hat{y}, y)}{\partial z} \\
 $$
 
 We do the same to calculate $dw$
+
 $$
 \begin{aligned}
 dw_i &= \frac{\partial \mathcal{L}(\hat{y}, y)}{\partial w_i} \\
@@ -216,6 +222,7 @@ dw_i &= \frac{\partial \mathcal{L}(\hat{y}, y)}{\partial w_i} \\
 $$
 
 Same technique applies to $db$ as well
+
 $$
 \begin{aligned}
 db &= \frac{\partial \mathcal{L}(\hat{y}, y)}{\partial b} \\
