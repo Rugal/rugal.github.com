@@ -26,5 +26,5 @@ Notation | Note
 --- | ---
 $X^{(i)}$ | No. i training set
 $X^{[i]}$ | No. i layer of neuron
-$X^{ \{ i \{   }$ | No. i mini batch
+$X^{ \{ i \}   }$ | No. i mini batch
 $X_{i}$ | No. i feature
