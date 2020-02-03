@@ -12,12 +12,12 @@ Firstly you need to install libcurl in your system:
 
 Next is create a C program file with content below:  
 
-{%highlight c linenos=table%}
-# include<curl/curl.h>
-# include<curl/types.h>
-# include<curl/easy.h>
-# include<unistd.h>
-# include<stdio.h>
+```c
+#include <curl/curl.h>
+#include <curl/types.h>
+#include <curl/easy.h>
+#include <unistd.h>
+#include <stdio.h>
 int main(int argc,char* argv[])
 {
     printf("%s\n",curl_version());
@@ -38,11 +38,13 @@ int main(int argc,char* argv[])
     printf("Now I can send HTTP request in C\n");
     return 0;
 }
-{% endhighlight%}
+```
 
 To make this program, I use cmake as my makefile generator and this have to link libcurl.so into object file, hence there needs some changes in `CMakeLists.txt`  
-{% highlight cmake%}
+
+```cmake
 SET(LIBRARIES libcurl.so)
 TARGET_LINK_LIBRARIES(BINARY_NAME ${LIBRARIES})
-{% endhighlight%}
+```
+
 Then just make it and execute `$  ./binary www.google.com` to make request.
