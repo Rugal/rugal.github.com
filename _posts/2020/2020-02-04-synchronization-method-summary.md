@@ -3,7 +3,7 @@ layout: post
 title: "Synchronization Method Summary"
 description: ""
 category:  development
-tags: [linux, C]
+tags: [linux, c]
 ---
 {% include JB/setup %}
 
