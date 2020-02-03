@@ -8,7 +8,10 @@ tags: [c, curl]
 {% include JB/setup %}
 
 Firstly you need to install libcurl in your system:  
-`sudo apt-get install curl libcurl3`  
+
+```bash
+sudo apt-get install curl libcurl3
+```  
 
 Next is create a C program file with content below:  
 
