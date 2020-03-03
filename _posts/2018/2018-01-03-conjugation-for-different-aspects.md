@@ -10,7 +10,7 @@ tags: [language]
 ## essere
 
 essere | Singular | Plural
---- | --- | ---
+--- | ---: | ---:
 I | sono | siamo
 You | sei | siete
 He/She/It | é | sono
@@ -18,24 +18,24 @@ He/She/It | é | sono
 ## -are
 
 nuotare | Singular | Plural
---- | --- | ---
-I |  nuoto | nuotiamo
-You | nuoti | nuotate
-He/She/It |  nuota | nuotano
+--- | ---: | ---:
+I |  nuot`o` | nuot`iamo`
+You | nuot`i` | nuot`ate`
+He/She/It |  nuot`a` | nuot`ano`
 
 
 ## -ere
 
 scrivere | Singular | Plural
---- | --- | ---
-I |  scrivo | scriviamo
-You | scrivi | scrivete
-He/She/It |  scrive | scrivono
+--- | ---: | ---:
+I |  scriv`o` | scriv`iamo`
+You | scriv`i` | scriv`ete`
+He/She/It |  scriv`e` | scriv`ono`
 
 ## -ire
 
-scrivere | Singular | Plural
---- | --- | ---
-I |  parto | partiamo
-You | parti | partite
-He/She/It |  parte | partono
+partire  | Singular | Plural
+--- | ---: | ---:
+I |  part`o` | part`iamo`
+You | part`i` | part`ite`
+He/She/It |  part`e` | part`ono`
