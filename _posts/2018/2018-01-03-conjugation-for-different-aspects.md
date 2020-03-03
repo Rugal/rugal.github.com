@@ -7,10 +7,18 @@ tags: [language]
 ---
 {% include JB/setup %}
 
+## essere
 
-
-Mangi | Singular | Plural
+essere | Singular | Plural
 --- | --- | ---
-I | mangi`o` | mangi`amo`
-You | mang`i` | mangi`ate`
-He/She/It | mangi`a` | mangi`ano`
+I | sono | siamo
+You | sei | siete
+He/She/It | é | sono
+
+## -are
+
+nuotare | Singular | Plural
+--- | --- | ---
+I |  nuoto | nuotiamo
+You | nuoti | nuotate
+He/She/It |  nuota | nuotano
