@@ -12,5 +12,5 @@ tags: [language]
 Mangi | Singular | Plural
 --- | --- | ---
 I | mangi`o` | mangi`amo`
-You | mangi`o` | mangi`ate`
+You | mang`i` | mangi`ate`
 He/She/It | mangi`a` | mangi`ano`
