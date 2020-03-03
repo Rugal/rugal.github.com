@@ -22,3 +22,20 @@ nuotare | Singular | Plural
 I |  nuoto | nuotiamo
 You | nuoti | nuotate
 He/She/It |  nuota | nuotano
+
+
+## -ere
+
+scrivere | Singular | Plural
+--- | --- | ---
+I |  scrivo | scriviamo
+You | scrivi | scrivete
+He/She/It |  scrive | scrivono
+
+## -ire
+
+scrivere | Singular | Plural
+--- | --- | ---
+I |  parto | partiamo
+You | parti | partite
+He/She/It |  parte | partono
