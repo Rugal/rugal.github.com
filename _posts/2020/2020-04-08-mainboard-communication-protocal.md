@@ -1,0 +1,50 @@
+
+---
+layout: post  
+title: "Mainboard Communication Protocal"  
+description: ""  
+category:  study  
+tags: [hardware]  
+---
+{% include JB/setup %}
+
+# Interface/Slot
+
+### PATA
+![pata slot](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/IDE_Connectors_in_PCChips_M925LR_Pentium_4.jpg/800px-IDE_Connectors_in_PCChips_M925LR_Pentium_4.jpg)
+
+### SATA, mSATA
+
+![sata](https://i.stack.imgur.com/nXAha.jpg)
+
+![SATA](https://4.bp.blogspot.com/-cmuw0ohRNZI/VuFlzzzrM8I/AAAAAAAAb6Q/x-hxGd9ujE8/s1600/sata-slot-motherboard.jpg)  
+![mSATA](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/MSATA_SSD_vs._2.5%22_SATA_drive.JPG/1024px-MSATA_SSD_vs._2.5%22_SATA_drive.JPG)
+
+### M.2
+
+![M.2](https://lh3.googleusercontent.com/proxy/doaYavfv6cfaqt3_Z2B9Dtuk-ie0qKaV2aNy6IS-u2OqPxDoWUWpe1-GkoXoW0lvkkZM5clhq4L1znSizlPQapO0a_QZ4Wbvq2tkmV-UID81BLay3TuYB1TyTaFsyAABkOyRVB171fb4c0FjVkvTud2vIThh4jS0)
+
+# Bus/Line
+
+### PATA
+![pata](https://upload.wikimedia.org/wikipedia/commons/2/26/ATA_cables.jpg)
+
+###  SATA3
+![sata3](https://c1.neweggimages.com/ProductImage/12-119-229-S01.jpg)
+
+### PCI-E
+![pcie](https://www.parallelminer.com/wp-content/uploads/2018/05/IMG_0514-1.jpg)
+
+
+# Driver software
+### IDE
+The very old one, supports mostly PATA
+
+### AHCI
+Technology after `IDE` supports mostly `HD` and `SSD`, but it is designed to fit `HD` better, with only 1 queue available, each queue with 32 commands
+
+### NVMe
+Technology after `AHCI`, not many devices are supported. Mostly `SSD`. With 64K queue available, each queue with 64K commands
+
+### RAID
+Technology designed for Redundency and Fault Tolerance requirement.
