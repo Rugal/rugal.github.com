@@ -29,7 +29,7 @@ tags: [hardware]
 # Bus/Line
 
 ### PATA
-![pata](https://upload.wikimedia.org/wikipedia/commons/2/26/ATA_cables.jpg)
+![pata](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Ata_20070127_002.jpg/1200px-Ata_20070127_002.jpg)
 
 ###  SATA3
 ![sata3](https://c1.neweggimages.com/ProductImage/12-119-229-S01.jpg)
