@@ -32,7 +32,7 @@ tags: [hardware]
 ![sata3](https://c1.neweggimages.com/ProductImage/12-119-229-S01.jpg)
 
 ### PCI-E
-![pcie](https://www.parallelminer.com/wp-content/uploads/2018/05/IMG_0514-1.jpg)
+![pcie](https://c1.neweggimages.com/ProductImage/12-423-259-Z01.jpg)
 
 
 # Driver software
