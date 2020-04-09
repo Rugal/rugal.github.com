@@ -21,7 +21,7 @@ tags: [hardware]
 
 ### M.2
 
-![M.2](https://lh3.googleusercontent.com/proxy/doaYavfv6cfaqt3_Z2B9Dtuk-ie0qKaV2aNy6IS-u2OqPxDoWUWpe1-GkoXoW0lvkkZM5clhq4L1znSizlPQapO0a_QZ4Wbvq2tkmV-UID81BLay3TuYB1TyTaFsyAABkOyRVB171fb4c0FjVkvTud2vIThh4jS0)
+![M.2](https://www.silverstonetek.com/images/products/sdp12/sdp12-6.jpg)
 
 ### PCI-E
 ![pcie](https://adexel.verio.com/pexp-sx-la.jpg)
