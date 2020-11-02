@@ -12,24 +12,22 @@ one can go with it when you want to do some stuff
 
 ```makefile
 # 
-CC="gcc -g3 -w -o $@" #make some optimization here
-COMPILE="-c $<"       #compile most left .c file into intermediate
-EXECUTABLE=Rugal.bin  #the binary file that can be executed
-INTERMEDIATE=main.o
-VPATH = header        #includes folder that container header file
+CC=gcc -g3 -w -o $@		#make some optimization here
+HEADER=.
+COMPILE=-I ${HEADER} -c $<      #compile most left .c file into intermediate
+INTERMEDIATE=main.o my_string.o
+EXECUTABLE=a.out      		#the binary file that can be executed
 
-${EXECUTABLE}:${INTERMEDIATE}
-        ${CC} $^
-${INTERMEDIATE}:main.c util.h
-        ${CC} -I ${VPATH} ${COMPILE}
+${EXECUTABLE}: ${INTERMEDIATE}
+	${CC} $^
 %.o: %.c
-	${CC} -I ${VPATH} ${COMPILE}
-
+	${CC} ${COMPILE}
 
 clean:
-        rm -rf *.so
-        rm -rf *.o
-        rm -rf ${EXECUTABLE}
+	rm -rf *.so
+	rm -rf *.o
+	rm -rf ${EXECUTABLE}
+
 ```
 
 tips:  
