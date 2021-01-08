@@ -2,7 +2,7 @@
 layout: post
 title: "my steps towards italiano"
 description: ""
-category: myself
+category: study
 tags: [language]
 ---
 {% include JB/setup %}
