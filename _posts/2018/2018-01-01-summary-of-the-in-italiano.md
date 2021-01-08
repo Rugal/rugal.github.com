@@ -2,7 +2,7 @@
 layout: post
 title: "Summary of THE in Italiano"
 description: ""
-category: myself
+category: study
 tags: [language]
 ---
 {% include JB/setup %}
