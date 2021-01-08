@@ -21,6 +21,6 @@ la | `F`| `^[^aeiou]\w*$`
 
 Format | Gender | Pattern  
 :--- | :--- | :--  
-gli | `M`| `^([xyz]\w*)\|([aeiou]\w*)$`  
+gli | `M`| `^([xyzs]\w*)\|([aeiou]\w*)$`  
 i | `M`| `^[^aeiou]\w*$`  
 le | `F` | `^\w*$`  
