@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Italiano"
+title: "Italiano Glossary"
 description: ""
-category: myself
+category: study
 tags: [language]
 ---
 {% include JB/setup %}
