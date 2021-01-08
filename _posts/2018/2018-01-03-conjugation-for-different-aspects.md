@@ -2,7 +2,7 @@
 layout: post
 title: "Conjugation for different aspects"
 description: ""
-category: myself
+category: study
 tags: [language]
 ---
 {% include JB/setup %}
