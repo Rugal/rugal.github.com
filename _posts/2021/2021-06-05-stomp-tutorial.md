@@ -33,41 +33,27 @@ To define the path prefix to upgrade websocket. This can be done in following sp
   
 
 ```java
-
 @Override
-
 public  void  registerStompEndpoints(final  StompEndpointRegistry registry) {
-
-registry.addEndpoint("/chat");
-
-registry.addEndpoint("/chat").withSockJS();
-
+  registry.addEndpoint("/chat");
+  registry.addEndpoint("/chat").withSockJS();
 }
-
 ```
-
   
 
 ### serverid
 
-  
 
 A required but useless id in spring-websocket
 
-  
-  
 
 ### sessionid
 
-  
-
 Probably the most important `id` in this protocol, used to communicate back to current user.
 
-  
 
 ## subscribe
 
-  
 
 ```
 
@@ -91,28 +77,19 @@ Extremely important for usage of listening backward communication.
 
 In spring-websocket, it is by default prefix as `/user`. In order to allow this prefix to pass the path validation, we should configure the simple broker path in spring configuration as following.
 
-  
 
 ```java
-
 @Override
-
 public  void  configureMessageBroker(final  MessageBrokerRegistry config) {
-
-config.enableSimpleBroker("/user");
-
+  config.enableSimpleBroker("/user");
 }
-
 ```
 
-  
 
 So by using the following code, the entire path will be `/user/to-userid/queue`.
 
 ```java
-
 this.template.convertAndSendToUser("to-userid", "/queue", "message content");
-
 ```
 
   
@@ -127,9 +104,7 @@ This is why it is so important, that by listening to this path, this single user
   
 
 ```
-
 "SEND\nfrom:{from-userid}\ndestination:/{prefix}/{destination}/{to-userid}\ncontent-length:29\n\n{\"message\":\"message content\"}\u0000"
-
 ```
 
   
@@ -145,15 +120,10 @@ to indicate send message from whom. We may have better to do it in future, but f
 ### prefix
 
 ```java
-
 @Override
-
 public  void  configureMessageBroker(final  MessageBrokerRegistry config) {
-
-config.setApplicationDestinationPrefixes("/websocket");
-
+  config.setApplicationDestinationPrefixes("/websocket");
 }
-
 ```
 
   
@@ -165,9 +135,7 @@ This destination can be configured using the following annotation, this annotati
 The following example defines the destination as `user`
 
 ```java
-
 @MessageMapping("/user/{to-userid}")
-
 ```
 
   
@@ -188,7 +156,6 @@ By using the same annotation.
 
 ```
 
-  
 
 # command
 
