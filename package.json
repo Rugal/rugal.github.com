@@ -7,6 +7,7 @@
     "deploy": "hexo deploy",
     "server": "hexo server"
   },
+  "repository": "git@github.com:Rugal/rugal.github.com.git",
   "hexo": {
     "version": "6.3.0"
   },
@@ -21,5 +22,8 @@
     "hexo-renderer-stylus": "^3.0.0",
     "hexo-server": "^3.0.0",
     "hexo-tag-katex": "^1.1.1"
+  },
+  "devDependencies": {
+    "hexagon-cli": "^1.2.2"
   }
 }
