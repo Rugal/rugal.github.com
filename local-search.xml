@@ -1194,9 +1194,9 @@
     
     <tags>
       
-      <tag>bash</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
       <tag>kubernetes</tag>
       
@@ -1329,9 +1329,9 @@
     
     <tags>
       
-      <tag>bash</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
     </tags>
     
@@ -1406,9 +1406,9 @@
     
     <tags>
       
-      <tag>bash</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
     </tags>
     
@@ -1433,9 +1433,9 @@
     
     <tags>
       
-      <tag>bash</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
     </tags>
     
@@ -1677,9 +1677,9 @@
     
     <tags>
       
-      <tag>bash</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
     </tags>
     
@@ -1926,6 +1926,31 @@
   
   
   <entry>
+    <title>Git remote repository</title>
+    <link href="/2016/2016-10-02-git-remote-repository/"/>
+    <url>/2016/2016-10-02-git-remote-repository/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Let’s make a practise.  </p><h2 id="Init-local-repository"><a href="#Init-local-repository" class="headerlink" title="Init local repository"></a>Init local repository</h2><p>Initialize a local repository.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir learn-git ; cd learn-git<br>git init<br>git remote add origin https://github.com/Rugal/learn-git.git<br></code></pre></td></tr></table></figure><h2 id="First-commit"><a href="#First-commit" class="headerlink" title="First commit"></a>First commit</h2><h3 id="Create-file"><a href="#Create-file" class="headerlink" title="Create file"></a>Create file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Rugal Bernstein first commit  &quot; &gt;&gt; README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitUntracked files: (use “git add …” to include in what will be committed)    README.md    nothing added to commit but untracked files present (use “git add” to track)</code></pre><h3 id="Staging-file"><a href="#Staging-file" class="headerlink" title="Staging file"></a>Staging file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitChanges to be committed: (use “git rm –cached …” to unstage)    new file:   README.md</code></pre><h3 id="Commit-file"><a href="#Commit-file" class="headerlink" title="Commit file"></a>Commit file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git commit -m&quot;first commit&quot;<br></code></pre></td></tr></table></figure><pre><code class="hljs">[master (root-commit) 3e9292a] first commit1 file changed, 1 insertion(+)create mode 100644 README.mdgit statusOn branch masternothing to commit, working directory clean</code></pre><h2 id="First-push"><a href="#First-push" class="headerlink" title="First push"></a>First push</h2><h3 id="Create-Github-repository"><a href="#Create-Github-repository" class="headerlink" title="Create Github repository"></a>Create Github repository</h3><p>We usually use <code>Github</code> as our code host.<br><a href="https://i.postimg.cc/mDRz2B5c/create_github.png"><img src="https://i.postimg.cc/mDRz2B5c/create_github.png" alt="create_github.png"></a>  </p><h3 id="Push-your-code"><a href="#Push-your-code" class="headerlink" title="Push your code"></a>Push your code</h3><p>Synchronize you local repository to remote host.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git remote add origin https://github.com/Rugal/learn-git.git<br>git push origin master<br></code></pre></td></tr></table></figure><pre><code class="hljs">Counting objects: 3, done.Writing objects: 100% (3/3), 252 bytes | 0 bytes/s, done.Total 3 (delta 0), reused 0 (delta 0)To https://github.com/Rugal/learn-git.git* [new branch] master -&gt; master</code></pre><h3 id="Track-remote-repository"><a href="#Track-remote-repository" class="headerlink" title="Track remote repository"></a>Track remote repository</h3><p>This is set to track the remote status, so that Git could compare the difference between local and remote repo.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch -u origin/master; git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">Branch master set up to track remote branch master from origin.On branch masterYour branch is up-to-date with ‘origin/master’.nothing to commit, working directory clean</code></pre><p><a href="https://i.postimg.cc/9MVb53Pb/first_push.png"><img src="https://i.postimg.cc/9MVb53Pb/first_push.png" alt="first_push.png"></a>  </p><p>The tricky point is that, <code>origin/master</code> is not special. It is a local cache of the remote branch.  But you can’t change this <code>origin/master</code> branch unless by <code>git fetch/push</code>.<br>So basically each time you do <code>git fetch/push</code>, the <code>origin/master</code> branch will be synced with real remote <code>master</code>.  Then you will know the differences between your local development branch and real remote branch by comparing the local <code>master</code> with the local <code>origin/master</code>.  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>development</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Git at first glance</title>
     <link href="/2016/2016-10-02-git-at-first-glance/"/>
     <url>/2016/2016-10-02-git-at-first-glance/</url>
@@ -2006,31 +2031,6 @@
     <url>/2016/2016-10-02-git-merge-and-rebase/</url>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>There are two ways you can join branches.<br>For showing with example, here is the base commit tree.<br><a href="https://i.postimg.cc/ydBBSdBH/branch_tree.png"><img src="https://i.postimg.cc/ydBBSdBH/branch_tree.png" alt="branch_tree.png"></a><br>Here you can see, there are two branches, <code>master</code> and <code>development</code>.  </p><h1 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h1><p><code>Merge</code> is a very straight forward method to join branches.<br>When <code>merge</code> command is issued, git will compare current branch with the target branch and aggregate commits that are different from the diverge point, here is <code>[3 4 5]</code>.<br>Then git will place the the aggregated commit <code>[7]</code> on top of the <code>master</code>.  Also, conflicts is also placed in this commit.<br><a href="https://i.postimg.cc/76qGPKTq/branch_merge.png"><img src="https://i.postimg.cc/76qGPKTq/branch_merge.png" alt="branch_merge.png"></a><br>As you can see, this method retains branch structure so reverting to old branch structure is possible.  </p><h1 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h1><p>Different from <code>Merge</code>, <code>Rebase</code> does not retain branch structure.<br>The different commits will be replayed on top of the <code>master</code> branch, as if you commit them on <code>master</code> at the first place.<br>Commits will be replayed one by one. Conflict needs to be resolved on each commit.<br><a href="https://i.postimg.cc/Y9tRcfrW/branch_rebase.png"><img src="https://i.postimg.cc/Y9tRcfrW/branch_rebase.png" alt="branch_rebase.png"></a><br>As you can see, the branch structure is aligned as a straight line.  So revertng directly to old branch structure is not easy.  </p>]]></content>
-    
-    
-    <categories>
-      
-      <category>development</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>git</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Git remote repository</title>
-    <link href="/2016/2016-10-02-git-remote-repository/"/>
-    <url>/2016/2016-10-02-git-remote-repository/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Let’s make a practise.  </p><h2 id="Init-local-repository"><a href="#Init-local-repository" class="headerlink" title="Init local repository"></a>Init local repository</h2><p>Initialize a local repository.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir learn-git ; cd learn-git<br>git init<br>git remote add origin https://github.com/Rugal/learn-git.git<br></code></pre></td></tr></table></figure><h2 id="First-commit"><a href="#First-commit" class="headerlink" title="First commit"></a>First commit</h2><h3 id="Create-file"><a href="#Create-file" class="headerlink" title="Create file"></a>Create file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Rugal Bernstein first commit  &quot; &gt;&gt; README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitUntracked files: (use “git add …” to include in what will be committed)    README.md    nothing added to commit but untracked files present (use “git add” to track)</code></pre><h3 id="Staging-file"><a href="#Staging-file" class="headerlink" title="Staging file"></a>Staging file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitChanges to be committed: (use “git rm –cached …” to unstage)    new file:   README.md</code></pre><h3 id="Commit-file"><a href="#Commit-file" class="headerlink" title="Commit file"></a>Commit file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git commit -m&quot;first commit&quot;<br></code></pre></td></tr></table></figure><pre><code class="hljs">[master (root-commit) 3e9292a] first commit1 file changed, 1 insertion(+)create mode 100644 README.mdgit statusOn branch masternothing to commit, working directory clean</code></pre><h2 id="First-push"><a href="#First-push" class="headerlink" title="First push"></a>First push</h2><h3 id="Create-Github-repository"><a href="#Create-Github-repository" class="headerlink" title="Create Github repository"></a>Create Github repository</h3><p>We usually use <code>Github</code> as our code host.<br><a href="https://i.postimg.cc/mDRz2B5c/create_github.png"><img src="https://i.postimg.cc/mDRz2B5c/create_github.png" alt="create_github.png"></a>  </p><h3 id="Push-your-code"><a href="#Push-your-code" class="headerlink" title="Push your code"></a>Push your code</h3><p>Synchronize you local repository to remote host.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git remote add origin https://github.com/Rugal/learn-git.git<br>git push origin master<br></code></pre></td></tr></table></figure><pre><code class="hljs">Counting objects: 3, done.Writing objects: 100% (3/3), 252 bytes | 0 bytes/s, done.Total 3 (delta 0), reused 0 (delta 0)To https://github.com/Rugal/learn-git.git* [new branch] master -&gt; master</code></pre><h3 id="Track-remote-repository"><a href="#Track-remote-repository" class="headerlink" title="Track remote repository"></a>Track remote repository</h3><p>This is set to track the remote status, so that Git could compare the difference between local and remote repo.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch -u origin/master; git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">Branch master set up to track remote branch master from origin.On branch masterYour branch is up-to-date with ‘origin/master’.nothing to commit, working directory clean</code></pre><p><a href="https://i.postimg.cc/9MVb53Pb/first_push.png"><img src="https://i.postimg.cc/9MVb53Pb/first_push.png" alt="first_push.png"></a>  </p><p>The tricky point is that, <code>origin/master</code> is not special. It is a local cache of the remote branch.  But you can’t change this <code>origin/master</code> branch unless by <code>git fetch/push</code>.<br>So basically each time you do <code>git fetch/push</code>, the <code>origin/master</code> branch will be synced with real remote <code>master</code>.  Then you will know the differences between your local development branch and real remote branch by comparing the local <code>master</code> with the local <code>origin/master</code>.  </p>]]></content>
     
     
     <categories>
@@ -2274,9 +2274,9 @@
     
     <tags>
       
-      <tag>math</tag>
-      
       <tag>algorithm</tag>
+      
+      <tag>math</tag>
       
     </tags>
     
@@ -2351,9 +2351,9 @@
     
     <tags>
       
-      <tag>clojure</tag>
-      
       <tag>vim</tag>
+      
+      <tag>clojure</tag>
       
     </tags>
     
@@ -2697,9 +2697,9 @@
     
     <tags>
       
-      <tag>math</tag>
-      
       <tag>algorithm</tag>
+      
+      <tag>math</tag>
       
     </tags>
     
@@ -2726,9 +2726,9 @@
       
       <tag>java</tag>
       
-      <tag>maven</tag>
-      
       <tag>jpt</tag>
+      
+      <tag>maven</tag>
       
     </tags>
     
@@ -3034,9 +3034,9 @@
     
     <tags>
       
-      <tag>math</tag>
-      
       <tag>algorithm</tag>
+      
+      <tag>math</tag>
       
     </tags>
     
@@ -3322,31 +3322,6 @@
   
   
   <entry>
-    <title>spark over YARN</title>
-    <link href="/2015/2015-04-14-spark-over-yarn/"/>
-    <url>/2015/2015-04-14-spark-over-yarn/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>I don’t know why a lot of people start using <code>Spark</code>, but it is very easy to integrate it with <code>YARN</code>.  </p><ol><li><p>Deploy you <code>Yarn</code> and <code>HDFS</code> as usual, let’s say configuration folder is at <code>$HADOOP_HOME/conf</code> where <code>core_site.xml</code> and other files could be found.  </p></li><li><p>Unzip you <code>Spark</code> binary file and set the <code>$HADOOP_CONF_DIR</code> variables correctly in <code>conf/spark-env.sh</code>.  </p><pre><code class="hljs"> export HADOOP_HOME=/path/to/hadoop   export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</code></pre></li><li><p>Yeah, configuration completed, easy isn’t it?</p></li><li><p>Test, use command and example jar file in spark</p><pre><code class="hljs"> ./bin/spark-submit --class org.apache.spark.examples.SparkPi \     --master yarn-cluster \     --num-executors 3 \     --driver-memory 4g \     --executor-memory 2g \     --executor-cores 1 \     lib/spark-examples*.jar \     10</code></pre></li></ol><p>It is really nice and easy!</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>operation</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>hadoop</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Hadoop HDFS Connection Refused</title>
     <link href="/2015/2015-04-14-hadoop-hdfs-connection-refused/"/>
     <url>/2015/2015-04-14-hadoop-hdfs-connection-refused/</url>
@@ -3379,6 +3354,31 @@
     <url>/2015/2015-04-14-hdfs-permission-denied/</url>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>While developing hadoop or using HDFS, I want to access HDFS without permission problem for convenience.<br>So we could add one property in <code>conf/hdfs-site.xml</code> file.  </p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.permissions<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure><p>So that any access will not be block, but you need to disable this feature in product enviornment!</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>operation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hadoop</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>spark over YARN</title>
+    <link href="/2015/2015-04-14-spark-over-yarn/"/>
+    <url>/2015/2015-04-14-spark-over-yarn/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>I don’t know why a lot of people start using <code>Spark</code>, but it is very easy to integrate it with <code>YARN</code>.  </p><ol><li><p>Deploy you <code>Yarn</code> and <code>HDFS</code> as usual, let’s say configuration folder is at <code>$HADOOP_HOME/conf</code> where <code>core_site.xml</code> and other files could be found.  </p></li><li><p>Unzip you <code>Spark</code> binary file and set the <code>$HADOOP_CONF_DIR</code> variables correctly in <code>conf/spark-env.sh</code>.  </p><pre><code class="hljs"> export HADOOP_HOME=/path/to/hadoop   export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</code></pre></li><li><p>Yeah, configuration completed, easy isn’t it?</p></li><li><p>Test, use command and example jar file in spark</p><pre><code class="hljs"> ./bin/spark-submit --class org.apache.spark.examples.SparkPi \     --master yarn-cluster \     --num-executors 3 \     --driver-memory 4g \     --executor-memory 2g \     --executor-cores 1 \     lib/spark-examples*.jar \     10</code></pre></li></ol><p>It is really nice and easy!</p>]]></content>
     
     
     <categories>
@@ -3467,9 +3467,9 @@
     
     <tags>
       
-      <tag>bash</tag>
-      
       <tag>linux</tag>
+      
+      <tag>bash</tag>
       
     </tags>
     
@@ -3928,6 +3928,31 @@
   
   
   <entry>
+    <title>vim long line slowness</title>
+    <link href="/2014/2014-09-04-vim-long-line-slowness/"/>
+    <url>/2014/2014-09-04-vim-long-line-slowness/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Yes, it is very slow to have a long line copy or move within vim, which mostly due to the <code>syntax highlight</code> procedure as <a href="http://superuser.com/questions/302186/vim-scrolls-very-slow-when-a-line-is-to-long">explained</a><br>Just as mentioned, three enhancement methods are:  </p><ol><li>Turn off syntax highlighting with <code>:syntax off</code>.</li><li>Limit syntax highlighting with <code>:set synmaxcol=150</code> or some other value.</li><li>Break down your long line in smaller chunks with <code>:s/\s&lt;a/&lt;C-v&gt;&lt;Enter&gt;&lt;a</code>.</li></ol><p>Method above could address the long line slowness problem, I tested it already.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>operation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>clojure lazy sequence</title>
     <link href="/2014/2014-09-04-clojure-lazy-sequence/"/>
     <url>/2014/2014-09-04-clojure-lazy-sequence/</url>
@@ -3970,31 +3995,6 @@
     <tags>
       
       <tag>language</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>vim long line slowness</title>
-    <link href="/2014/2014-09-04-vim-long-line-slowness/"/>
-    <url>/2014/2014-09-04-vim-long-line-slowness/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Yes, it is very slow to have a long line copy or move within vim, which mostly due to the <code>syntax highlight</code> procedure as <a href="http://superuser.com/questions/302186/vim-scrolls-very-slow-when-a-line-is-to-long">explained</a><br>Just as mentioned, three enhancement methods are:  </p><ol><li>Turn off syntax highlighting with <code>:syntax off</code>.</li><li>Limit syntax highlighting with <code>:set synmaxcol=150</code> or some other value.</li><li>Break down your long line in smaller chunks with <code>:s/\s&lt;a/&lt;C-v&gt;&lt;Enter&gt;&lt;a</code>.</li></ol><p>Method above could address the long line slowness problem, I tested it already.</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>operation</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vim</tag>
       
     </tags>
     
@@ -4747,9 +4747,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>vim</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -5472,9 +5472,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>java</tag>
+      
+      <tag>linux</tag>
       
       <tag>android</tag>
       
