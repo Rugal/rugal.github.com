@@ -1,0 +1,664 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Rugal Bernstein">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="A great useful tutorial and I am there to make this summary. referrefer takes a symbol argument and maps all the public symbols from that namespace into the current namespace.The symbols are still map">
+<meta property="og:type" content="article">
+<meta property="og:title" content="clarify different link functions in clojure">
+<meta property="og:url" content="https://rugal.github.com/2014/2014-06-13-clarify-different-link-functions-in-clojure/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="A great useful tutorial and I am there to make this summary. referrefer takes a symbol argument and maps all the public symbols from that namespace into the current namespace.The symbols are still map">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2014-06-13T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-21T11:34:57.200Z">
+<meta property="article:author" content="Rugal Bernstein">
+<meta property="article:tag" content="clojure">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>clarify different link functions in clojure - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rugal.github.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="clarify different link functions in clojure"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2014-06-13 00:00" pubdate>
+          June 13, 2014 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">clarify different link functions in clojure</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>A great useful <a target="_blank" rel="noopener" href="http://blog.8thlight.com/colin-jones/2010/12/05/clojure-libs-and-namespaces-require-use-import-and-ns.html">tutorial</a> and I am there to make this summary.</p>
+<h2 id="refer"><a href="#refer" class="headerlink" title="refer"></a>refer</h2><p>refer takes a symbol argument and maps all the public symbols from that namespace into the current namespace.<br>The symbols are still mapped to the values in their original namespace. By calling refer in the example, you created a namespace mapping from the symbol <code>greetings/println</code> to the Var <code>#&#39;clojure.core/println</code>.  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name">clojure.core/refer</span> &#x27;clojure.core)<br>(<span class="hljs-name"><span class="hljs-built_in">refer</span></span> &#x27;clojure.core <span class="hljs-symbol">:exclude</span> &#x27;(<span class="hljs-name"><span class="hljs-built_in">map</span></span> set))<br>(<span class="hljs-name"><span class="hljs-built_in">refer</span></span> &#x27;clojure.core <span class="hljs-symbol">:only</span> &#x27;(<span class="hljs-name">println</span> prn))<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="require"><a href="#require" class="headerlink" title="require"></a>require</h2><p>To link another class&#x2F;function with our namespace, but its own namespace kept.  Needs canonical namespace to invoke.<br>Loads libs, skipping any that are already loaded. Each argument is either a libspec that identifies a lib, a prefix list that identifies multiple libs whose names share a common prefix, or a flag that modifies how all the identified libs are loaded. Use :require in the ns macro in preference to calling this directly.   </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs clojure">user=&gt; (<span class="hljs-name">require</span> &#x27;clojure.string &#x27;clojure.test <span class="hljs-symbol">:verbose</span> <span class="hljs-symbol">:reload</span>) <span class="hljs-comment">;separately</span><br>user=&gt; (<span class="hljs-name">require</span> &#x27;[clojure.string <span class="hljs-symbol">:as</span> string]) <span class="hljs-comment">;use alias</span><br>user=&gt; (<span class="hljs-name">require</span> &#x27;(<span class="hljs-name">clojure</span> string test)) <span class="hljs-comment">;import NS of same root</span><br>user=&gt; (<span class="hljs-name">require</span> &#x27;(<span class="hljs-name">clojure</span> [string <span class="hljs-symbol">:as</span> string] test)) <span class="hljs-comment">; combination</span><br>user=&gt; (<span class="hljs-name">require</span> &#x27;[clojure.data.json <span class="hljs-symbol">:refer</span> <span class="hljs-symbol">:all</span>]) <span class="hljs-comment">; this :refer is the most encouraged method</span><br><br>user=&gt; (<span class="hljs-name">clojure.string/join</span> [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>])  <span class="hljs-comment">;use ns/fn to invoke</span><br>user=&gt; (<span class="hljs-name">string/join</span> [<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>])  <span class="hljs-comment">;use alias to shorten if alias exists</span><br></code></pre></td></tr></table></figure>
+<p>As you need to use <code>namespace/function</code> to refer to target function.</p>
+<h2 id="use"><a href="#use" class="headerlink" title="use"></a>use</h2><p>To import another class&#x2F;function into our namespace, hence target namespace just like <code>merged</code> into your namespace.<br>This function combined <code>require</code> and <code>refer</code>.  But for recent version, they tend to deprecated <code>use</code> by using <code>(require &#39;[clojure.data.json :refer :all])</code>.  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clojure">user=&gt; (<span class="hljs-name"><span class="hljs-built_in">use</span></span> &#x27;clojure.string)<br>user=&gt; (<span class="hljs-name"><span class="hljs-built_in">use</span></span> &#x27;[clojure.string <span class="hljs-symbol">:only</span> [split]])<br>user=&gt; (<span class="hljs-name"><span class="hljs-built_in">use</span></span> &#x27;[clojure.string <span class="hljs-symbol">:exclude</span> [replace reverse]]) <span class="hljs-comment">; To import all except those</span><br><span class="hljs-comment">;since USE will merge target ns into current ns</span><br><span class="hljs-comment">; [:only] option makes it possible to merge partially.</span><br>user=&gt; (<span class="hljs-name">split</span> <span class="hljs-string">&quot;a,b,c&quot;</span> <span class="hljs-regex">#&quot;,&quot;</span>) <span class="hljs-comment">;split is a function defined in [string] ns</span><br></code></pre></td></tr></table></figure>
+<p>You just need to use <code>function</code> to refer to target function directly without referring namespace.</p>
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><p>To import <code>Java</code> class into namespace and shorten the invock name.</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name">java.util.Date.</span>) <span class="hljs-comment">;you could invoke this class by its canonical  name</span><br>(<span class="hljs-name"><span class="hljs-built_in">import</span></span> &#x27;java.util.Date)<br>(<span class="hljs-name">Date.</span>) <span class="hljs-comment">;now just calling class name</span><br></code></pre></td></tr></table></figure>
+<p>You could shorten the canonical name and just need to use simple name of a <code>class</code> to refer to target class</p>
+<h2 id="namespace-declare"><a href="#namespace-declare" class="headerlink" title="namespace declare"></a>namespace declare</h2><p>To simply those kinds of link function, use <code>(ns)</code> function to bring them all together.  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-built_in">ns</span></span> my-great-project.core<br>    <span class="hljs-string">&quot;This namespace is CRAZY!&quot;</span><br>    (<span class="hljs-symbol">:use</span> [clojure.string <span class="hljs-symbol">:only</span> [split join]] <span class="hljs-symbol">:reload</span>)<br>    (<span class="hljs-symbol">:require</span> clojure.stacktrace<br>        [clojure.test <span class="hljs-symbol">:as</span> test]<br>        (<span class="hljs-name">clojure</span> template walk) <br>        <span class="hljs-symbol">:verbose</span><br>    )<br>    (<span class="hljs-symbol">:import</span> (<span class="hljs-name">java.util</span> Date GregorianCalendar))<br>)<br></code></pre></td></tr></table></figure>
+<p>You could use random quantity of any <code>:use</code> <code>:require</code> and <code>:import</code> in this function.</p>
+<h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><p>An original innovated prime number function:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-built_in">ns</span></span> rugal.core<br>    <span class="hljs-string">&quot;This namespace is belong to Rugal Bernstein!&quot;</span>)<br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">aliquot?</span> <span class="hljs-string">&quot;To  determine if a could be aliquoted by b&quot;</span><br>    [a b]<br>    (<span class="hljs-name"><span class="hljs-built_in">=</span></span> <span class="hljs-number">0</span> (<span class="hljs-name"><span class="hljs-built_in">mod</span></span> a b)))<br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">smallest-divisor</span><br>    <span class="hljs-string">&quot;Get smallest divisor of a given number&quot;</span><br>    [n]<br>    (<span class="hljs-name"><span class="hljs-built_in">if</span></span> (<span class="hljs-name"><span class="hljs-built_in">even?</span></span> n)<br>        <span class="hljs-number">2</span><br>        (<span class="hljs-name"><span class="hljs-built_in">loop</span></span> [i <span class="hljs-number">3</span>]<br>        (<span class="hljs-name"><span class="hljs-built_in">if</span></span> (<span class="hljs-name">aliquot?</span> n i)<br>        i<br>        (<span class="hljs-name"><span class="hljs-built_in">recur</span></span> (<span class="hljs-name"><span class="hljs-built_in">+</span></span> i <span class="hljs-number">2</span>))<br>        ))))<br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">prime?</span> <span class="hljs-string">&quot;To determine if given number is prime&quot;</span><br>    [n]<br>    (<span class="hljs-name"><span class="hljs-built_in">if</span></span> (<span class="hljs-name"><span class="hljs-built_in">=</span></span> n (<span class="hljs-name">smallest-divisor</span> n))<br>        <span class="hljs-literal">true</span><br>        <span class="hljs-literal">false</span><br>    ))<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/clojure/" class="print-no-link">#clojure</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>clarify different link functions in clojure</div>
+      <div>https://rugal.github.com/2014/2014-06-13-clarify-different-link-functions-in-clojure/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Rugal Bernstein</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 13, 2014</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2014/2014-06-24-some-oracle-tools-and-introduction/" title="some oracle tools and introduction">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">some oracle tools and introduction</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2014/2014-06-10-keep-configuration-file-untracked-in-git/" title="keep configuration file untracked in git">
+                        <span class="hidden-mobile">keep configuration file untracked in git</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

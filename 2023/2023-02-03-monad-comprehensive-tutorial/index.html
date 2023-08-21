@@ -1,0 +1,740 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Rugal Bernstein">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="MathJax.Hub.Config({   tex2jax: {     inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],     displayMath: [[&#39;$$&#39;,&#39;$$&#39;], [&#39;\[&#39;,&#39;\]&#39;]],     processEscapes: true,     processEnvironments: true,     skipTags: [&#39;sc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monad comprehensive tutorial">
+<meta property="og:url" content="https://rugal.github.com/2023/2023-02-03-monad-comprehensive-tutorial/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="MathJax.Hub.Config({   tex2jax: {     inlineMath: [[&#39;$&#39;,&#39;$&#39;], [&#39;\\(&#39;,&#39;\\)&#39;]],     displayMath: [[&#39;$$&#39;,&#39;$$&#39;], [&#39;\[&#39;,&#39;\]&#39;]],     processEscapes: true,     processEnvironments: true,     skipTags: [&#39;sc">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-02-03T05:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-21T11:34:57.212Z">
+<meta property="article:author" content="Rugal Bernstein">
+<meta property="article:tag" content="math">
+<meta property="article:tag" content="clojure">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Monad comprehensive tutorial - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rugal.github.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Monad comprehensive tutorial"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-03 00:00" pubdate>
+          February 3, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          47 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Monad comprehensive tutorial</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[','\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }});
+</script>
+
+<h1 id="what-is-monad"><a href="#what-is-monad" class="headerlink" title="what is monad"></a>what is monad</h1><h2 id="functor"><a href="#functor" class="headerlink" title="functor"></a>functor</h2><p><code>functor</code> can be interpreted as <code>A container that is mappable between categories</code>.<br><code>endofunctor</code> is a functor that mappable inside single category.<br>First of all, by saying container, it would definitely hold something inside, whether it is a single value or a set of value or nothing at all.<br>Another important property is mappable, which means the data inside the container can be transformed into another by a <code>map</code> function.  </p>
+<p>This is how we do the work:  </p>
+<ol>
+<li>grab the data from inside the container</li>
+<li>use a mapping logic to transform all the data</li>
+<li>put the transformed them into a new container</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// we define a simplest class here</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Wrapper</span> &#123;<br>  <span class="hljs-comment">// it does nothing but just hold the value and no else</span><br>  <span class="hljs-title function_">constructor</span> (value) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span> = value<br>  &#125;<br>  <span class="hljs-comment">// it provisions a function named &quot;map&quot;, where the parameter f is a function</span><br>  map (f) &#123;<br>    <span class="hljs-comment">// f could transform the value to another one, before putting into another wrapper</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Wrapper</span>(<span class="hljs-title function_">f</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">value</span>))<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>The usage can be as follow:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = <span class="hljs-title class_">Wrapper</span>(<span class="hljs-number">1</span>);<br><span class="hljs-keyword">const</span> f = (x) -&gt; x + <span class="hljs-number">3</span>;<br><span class="hljs-keyword">const</span> b = a.<span class="hljs-title function_">map</span>(f)<br></code></pre></td></tr></table></figure>
+
+<p>So we call <code>Wrapper</code> is a functor, we can place data into it and use <code>map</code> function to do data transformation.</p>
+<h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><p>function is basically a map between 2 objects</p>
+<p>Mathematically speaking<br>$$<br>f(x) &#x3D; y<br>$$</p>
+<p>where $f, x, y$ is called <code>symbol</code><br>$f$ is the <code>mapping logic</code> between input and output.<br>$x$ is the input and $y$ is the output, we do not care about the type of these 2 symbols, they can be <code>concrete</code> value and can also be <code>mapping logic(function)</code></p>
+<p>This formation can be written into another one  </p>
+<p>$$<br>f: x \rightarrow y<br>$$</p>
+<p>Because $x, y$ can be <code>function</code> themselves, then it is called <code>high-order function</code></p>
+<h3 id="curry"><a href="#curry" class="headerlink" title="curry"></a>curry</h3><p>For function with multiple input, can use a technique named <code>partial apply</code> to reduct it into single input function, this is called <code>curry</code>, for instance:<br>Say we have an expression <code>(+ a b)</code> where both a and b are input, we can transform it into 2 partial function, and can be executed one by one in order to align with the original expression.</p>
+<p>In clojure we can use <code>partial</code> function to currify the multi-input function</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-comment">; use partial function separately</span><br>(<span class="hljs-keyword">def</span> <span class="hljs-title">p</span> (<span class="hljs-name"><span class="hljs-built_in">partial</span></span> + a)) <span class="hljs-comment">;only use 1 input here to form a new function</span><br>(<span class="hljs-name">p</span> b)                 <span class="hljs-comment">;provide the rest input to complete the invocation</span><br><br><span class="hljs-comment">; or combine into single expression</span><br>((<span class="hljs-name"><span class="hljs-built_in">partial</span></span> + a) b)<br></code></pre></td></tr></table></figure>
+
+<p><code>curry</code> is essentially the transformation of below:  </p>
+<p>$$<br>(a, b) \rightarrow c \equiv a \rightarrow (b \rightarrow c)<br>$$<br>This transform multi-input function into a single input function, which returns another function that is single input as well.</p>
+<p>By mathematical convention in <code>lambda calculus</code>,  the right arrow would associate first, so the formation above would become:</p>
+<p>$$<br> a \rightarrow (b \rightarrow c) \equiv  a \rightarrow b \rightarrow c<br>$$</p>
+<p>If we rewrite the formation above in <code>clojure</code>, in order to guarantee <code>associativity</code>:</p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">compose</span><br>  [a<span class="hljs-punctuation">,</span> b]<br>  (<span class="hljs-name"><span class="hljs-built_in">fn</span></span> [p] (<span class="hljs-name">a</span> (<span class="hljs-name">b</span> p))))<br><br><span class="hljs-comment">; the expression below has associativity</span><br>(<span class="hljs-name"><span class="hljs-built_in">=</span></span><br>  (<span class="hljs-name">compose</span> (<span class="hljs-name">compose</span> a b) c)<br>  (<span class="hljs-name">compose</span> a (<span class="hljs-name">compose</span> b c)))<br></code></pre></td></tr></table></figure>
+
+<p>Let’s see a concrete example:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-comment">; define basic function</span><br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">add</span> [x] (<span class="hljs-name"><span class="hljs-built_in">+</span></span> x <span class="hljs-number">1</span>))<br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">minus</span> [x] (<span class="hljs-name"><span class="hljs-built_in">-</span></span> x <span class="hljs-number">2</span>))<br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">multiply</span> [x] (<span class="hljs-name"><span class="hljs-built_in">*</span></span> x <span class="hljs-number">3</span>))<br><br><span class="hljs-comment">; define different association</span><br>(<span class="hljs-keyword">def</span> <span class="hljs-title">p</span> (<span class="hljs-name">compose</span> (<span class="hljs-name">compose</span> add minus) multiply))<br>(<span class="hljs-keyword">def</span> <span class="hljs-title">q</span> (<span class="hljs-name">compose</span> add (<span class="hljs-name">compose</span> minus multiply)))<br><br><span class="hljs-comment">; these 2 expressions should be exactly same</span><br>(<span class="hljs-name"><span class="hljs-built_in">=</span></span><br>  (<span class="hljs-name">p</span> <span class="hljs-number">1</span>)<br>  (<span class="hljs-name">q</span> <span class="hljs-number">1</span>))<br></code></pre></td></tr></table></figure>
+
+<p>In Clojure or Javascript, <code>p</code> and <code>q</code> are different functions, but they mathematically are exactly the same.</p>
+<h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><p>We will provide 2 examples to illustrate how and where <code>monad</code> comes from:  </p>
+<h3 id="future"><a href="#future" class="headerlink" title="future"></a>future</h3><p>Given 2 functions as below that could do single work:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">get-user-by-id</span> [id] (<span class="hljs-name"><span class="hljs-built_in">future</span></span> ...id...))             <span class="hljs-comment">; str -&gt; future&lt;User&gt;</span><br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">get-department-by-user</span> [user] (<span class="hljs-name"><span class="hljs-built_in">future</span></span> ...user...)) <span class="hljs-comment">; User -&gt; future&lt;Department&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>These 2 functions are in this form:  </p>
+<p>$$<br>a \rightarrow \text{Future}\space b\quad \text{or} \quad a \rightarrow \text{C}\space b<br>$$</p>
+<p>It is the container <code>Future</code> that hold the data.  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">compose</span> [f g]<br>  (<span class="hljs-name"><span class="hljs-built_in">fn</span></span> [x] (<span class="hljs-name"><span class="hljs-built_in">future</span></span> (<span class="hljs-name">f</span> @(<span class="hljs-name">g</span> x)))))<br><br>(<span class="hljs-keyword">def</span> <span class="hljs-title">get-department-by-user-id</span><br>  (<span class="hljs-name">compose</span> get-department-by-user get-user-by-id))<br><br>(<span class="hljs-name">get-department-by-user-id</span> <span class="hljs-number">123</span>)<br></code></pre></td></tr></table></figure>
+
+<p>Now the <code>compose</code> function is of type:  </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">(User-&gt;Department)-&gt;(str-&gt;User)-&gt;(str-&gt;Department)<br></code></pre></td></tr></table></figure>
+
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>Given 2 functions like below:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">duplicate</span> [x] [x x])<br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">positive</span> [x] (<span class="hljs-name"><span class="hljs-built_in">if</span></span> (<span class="hljs-name"><span class="hljs-built_in">pos?</span></span> x) [x] []))<br></code></pre></td></tr></table></figure>
+
+<p>These 2 functions are in this form, $a \rightarrow [b]$.<br>If we rewrite the list symbol as another type, we have:  </p>
+<p>$$<br>a \rightarrow \text{List}\space b\quad \text{or}\quad a \rightarrow \text{C}\space b<br>$$</p>
+<p>where List is the <code>container</code> and <code>b</code> is the value inside.  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">compose</span> [f g]<br>  <span class="hljs-comment">; notice we use mapcat function to flat &amp; map</span><br>  (<span class="hljs-name"><span class="hljs-built_in">fn</span></span> [x] (<span class="hljs-name"><span class="hljs-built_in">-&gt;&gt;</span></span> x (<span class="hljs-name">g</span>) (<span class="hljs-name"><span class="hljs-built_in">mapcat</span></span> f)))) <span class="hljs-comment">; execute from right to left</span><br><br>(<span class="hljs-keyword">def</span> <span class="hljs-title">p</span> (<span class="hljs-name">compose</span> duplicate positive))<br><br>(<span class="hljs-name"><span class="hljs-built_in">-&gt;&gt;</span></span> [<span class="hljs-number">-1</span> <span class="hljs-number">1</span> <span class="hljs-number">3</span>] (<span class="hljs-name"><span class="hljs-built_in">mapcat</span></span> p))<br></code></pre></td></tr></table></figure>
+
+<h2 id="monad"><a href="#monad" class="headerlink" title="monad"></a>monad</h2><p>We observe that not only <code>asynchronous future</code> but also <code>list</code> follow the same pattern:  </p>
+<p>$$<br>a \rightarrow \text{C}\space b<br>$$</p>
+<p>Where <code>C</code> is the mappable container, this is the <code>functor</code> that we mentioned above.<br>We can also try to use function composition, such as:  </p>
+<p>$$<br>(a \rightarrow C\ b) \rightarrow (x \rightarrow C\ a) \rightarrow (x \rightarrow C\ b)<br>$$</p>
+<p>When we replace <code>C</code> with <code>future</code> we get asynchronous invocation function; when replace with <code>list</code>, we get list transformation function. If we use <code>identity</code> as <code>C</code>, then it is the regular function.  </p>
+<p>$$<br>\begin{aligned}<br>\because&amp;\ \text{Identity}\ a \equiv a\<br>\therefore&amp;\ (a \rightarrow \text{Identity}\ b) \equiv (a \rightarrow b)<br>\end{aligned}<br>$$</p>
+<p>Then we want to define <code>identity unit</code>, because of associativity, the <code>identity</code> is as below:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-name"><span class="hljs-built_in">=</span></span><br>  (<span class="hljs-name">compose</span> f identity)<br>  (<span class="hljs-name">compose</span> identity f)<br>  (<span class="hljs-name">f</span>))<br><span class="hljs-comment">; compose(f, unit) == f</span><br></code></pre></td></tr></table></figure>
+
+<p>We can see <code>compose</code> function is of type:  </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">(a -&gt; C b) -&gt; (a -&gt; C a) -&gt; (a -&gt; C b)<br></code></pre></td></tr></table></figure>
+
+<p>We can determine the type of <code>identity</code>: <code>(a -&gt; C a)</code>  </p>
+<p>For <code>future</code> the identity is:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">identity</span> [x] (<span class="hljs-name"><span class="hljs-built_in">future</span></span> x))<br></code></pre></td></tr></table></figure>
+
+<p>For <code>list</code> the identity is:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clojure">(<span class="hljs-keyword">defn</span> <span class="hljs-title">identity</span> [x] [x])<br></code></pre></td></tr></table></figure>
+
+<p>We observe that both <code>future</code> and <code>list</code> has <code>identity unit</code>. Is this always the case?<br>The answer is true if we go with <code>monad</code>, as the definition of it is:  </p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">monad is a monoid in the category of endofunctors<br></code></pre></td></tr></table></figure>
+
+<p>monoid would of course has <code>identity</code> according to its definition, and it maps objects in one category.<br>Now let’s define function <code>bind</code>:  </p>
+<figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs clojure"><span class="hljs-comment">; bind :: m a -&gt; (a -&gt; m b) -&gt; m b</span><br>(<span class="hljs-keyword">defn</span> <span class="hljs-title">bind</span> [ma f]<br>  (<span class="hljs-name">compose</span> f (<span class="hljs-name"><span class="hljs-built_in">fn</span></span> [_] ma)))<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/math/" class="print-no-link">#math</a>
+      
+        <a href="/tags/clojure/" class="print-no-link">#clojure</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Monad comprehensive tutorial</div>
+      <div>https://rugal.github.com/2023/2023-02-03-monad-comprehensive-tutorial/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Rugal Bernstein</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>February 3, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/2023-02-24-kotlin-high-order-function/" title="Kotlin high order function">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Kotlin high order function</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/2023-01-31-group-definition/" title="Group Definition">
+                        <span class="hidden-mobile">Group Definition</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

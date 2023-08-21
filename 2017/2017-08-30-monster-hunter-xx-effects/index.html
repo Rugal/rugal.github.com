@@ -1,0 +1,2740 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Rugal Bernstein">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基础能力值相关体力   发动值 效果    +15 体力最大値+50   +10 体力最大値+20   -10 体力最大値减少10   -15 体力最大値减少30   攻击   发动值 效果    +20 攻击力+20   +15 攻击力+15   +10 攻击力+10   -10 攻击力-5   -15 攻击力-10   -20 攻击力-15   防御   发动值 效果    +20 防御力×1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Monster Hunter XX Effects">
+<meta property="og:url" content="https://rugal.github.com/2017/2017-08-30-monster-hunter-xx-effects/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基础能力值相关体力   发动值 效果    +15 体力最大値+50   +10 体力最大値+20   -10 体力最大値减少10   -15 体力最大値减少30   攻击   发动值 效果    +20 攻击力+20   +15 攻击力+15   +10 攻击力+10   -10 攻击力-5   -15 攻击力-10   -20 攻击力-15   防御   发动值 效果    +20 防御力×1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-30T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-21T11:34:57.208Z">
+<meta property="article:author" content="Rugal Bernstein">
+<meta property="article:tag" content="mh">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Monster Hunter XX Effects - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rugal.github.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Monster Hunter XX Effects"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2017-08-30 00:00" pubdate>
+          August 30, 2017 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          70 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Monster Hunter XX Effects</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h2 id="基础能力值相关"><a href="#基础能力值相关" class="headerlink" title="基础能力值相关"></a>基础能力值相关</h2><h3 id="体力"><a href="#体力" class="headerlink" title="体力"></a>体力</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>体力最大値+50</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>体力最大値+20</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>体力最大値减少10</td>
+</tr>
+<tr>
+<td align="left">-15</td>
+<td>体力最大値减少30</td>
+</tr>
+</tbody></table>
+<h3 id="攻击"><a href="#攻击" class="headerlink" title="攻击"></a>攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+20</td>
+<td>攻击力+20</td>
+</tr>
+<tr>
+<td align="left">+15</td>
+<td>攻击力+15</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>攻击力+10</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>攻击力-5</td>
+</tr>
+<tr>
+<td align="left">-15</td>
+<td>攻击力-10</td>
+</tr>
+<tr>
+<td align="left">-20</td>
+<td>攻击力-15</td>
+</tr>
+</tbody></table>
+<h3 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+20</td>
+<td>防御力×1.06倍+25</td>
+</tr>
+<tr>
+<td align="left">+15</td>
+<td>防御力×1.03倍+20</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>防御力+15</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>防御力-10</td>
+</tr>
+<tr>
+<td align="left">-15</td>
+<td>防御力×0.95倍-10</td>
+</tr>
+<tr>
+<td align="left">-20</td>
+<td>防御力×0.9倍-10</td>
+</tr>
+</tbody></table>
+<h2 id="属性相关"><a href="#属性相关" class="headerlink" title="属性相关"></a>属性相关</h2><h3 id="属性攻击"><a href="#属性攻击" class="headerlink" title="属性攻击"></a>属性攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+10</td>
+<td>一般属性伤害（火、水、水、雷、龙）1.1倍</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>一般属性伤害（火、水、水、雷、龙）0.9倍</td>
+</tr>
+</tbody></table>
+<ol>
+<li>同时配单属性攻击强化+2时，属性值为： <code>(该属性x1.2)+6</code>  </li>
+<li>同时配单属性攻击强化+1时，属性值为：<code>(该属性x1.15)+4</code></li>
+</ol>
+<h3 id="属性耐性"><a href="#属性耐性" class="headerlink" title="属性耐性"></a>属性耐性</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+10</td>
+<td>无效化属性（火、水、水、雷、龙）造成的异常(像是被火烧伤&#x2F;被水喷到影响耐力值回复那种)</td>
+</tr>
+</tbody></table>
+<h3 id="属性会心"><a href="#属性会心" class="headerlink" title="属性会心"></a>属性会心</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+10：暴击(攻击有红光)时属性伤害提升</td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li>片手剑、双剑、弓1.35倍  </li>
+<li>轻&#x2F;重弩1.3倍  </li>
+<li>大剑1.2倍、其余1.25倍</li>
+</ul>
+<h3 id="火属性攻击"><a href="#火属性攻击" class="headerlink" title="火属性攻击"></a>火属性攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>武器的火属性伤害×1.1倍+6</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>武器的火属性伤害×1.05倍+4</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>武器の火属性値×0.75倍</td>
+</tr>
+</tbody></table>
+<h3 id="火耐性"><a href="#火耐性" class="headerlink" title="火耐性"></a>火耐性</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>火耐性+20，耐性値于25以上火势不论大小都无效</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>火耐性+15，耐性値于15以上无効化火势小的烧伤</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>火耐性-20</td>
+</tr>
+</tbody></table>
+<h3 id="水属性攻击"><a href="#水属性攻击" class="headerlink" title="水属性攻击"></a>水属性攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>武器の水属性伤害×1.1倍+6</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>武器の水属性伤害×1.05倍+4</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>武器的水属性値×0.75倍</td>
+</tr>
+</tbody></table>
+<h3 id="水耐性"><a href="#水耐性" class="headerlink" title="水耐性"></a>水耐性</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>水耐性+20、耐性値于25以上…</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>水耐性+15、耐性値15以上</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>水耐性弱化水耐性-20</td>
+</tr>
+</tbody></table>
+<h3 id="雷属性攻击"><a href="#雷属性攻击" class="headerlink" title="雷属性攻击"></a>雷属性攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>武器的雷属性伤害×1.1倍+6</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>武器的雷属性伤害×1.05倍+4</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>武器的雷属性値×0.75倍</td>
+</tr>
+</tbody></table>
+<h3 id="雷耐性"><a href="#雷耐性" class="headerlink" title="雷耐性"></a>雷耐性</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>雷耐性+20</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>雷耐性+15</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>雷耐性弱化雷耐性が-20</td>
+</tr>
+</tbody></table>
+<h3 id="龙属性攻击"><a href="#龙属性攻击" class="headerlink" title="龙属性攻击"></a>龙属性攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>武器的龙属性伤害×1.1倍+6</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>武器的龙属性伤害×1.05倍+4</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>武器的龙属性値×0.75倍</td>
+</tr>
+</tbody></table>
+<h3 id="龙耐性"><a href="#龙耐性" class="headerlink" title="龙耐性"></a>龙耐性</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>龙耐性+20</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>龙耐性+15</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>龙耐性-20</td>
+</tr>
+</tbody></table>
+<h2 id="异常状态相关"><a href="#异常状态相关" class="headerlink" title="异常状态相关"></a>异常状态相关</h2><h3 id="特殊攻击"><a href="#特殊攻击" class="headerlink" title="特殊攻击"></a>特殊攻击</h3><table>
+<thead>
+<tr>
+<th align="left">发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">+15</td>
+<td>状态异常攻击+2，毒、麻痹、睡眠、捕获的积蓄値×1.2倍+10</td>
+</tr>
+<tr>
+<td align="left">+10</td>
+<td>状态异常攻击+1，毒、麻痹、睡眠、捕获的积蓄値×1.1倍+10</td>
+</tr>
+<tr>
+<td align="left">-10</td>
+<td>状态异常攻击弱化，毒、麻痹、睡眠、捕获的积蓄値×0.9倍</td>
+</tr>
+</tbody></table>
+<h3 id="特殊会心"><a href="#特殊会心" class="headerlink" title="特殊会心"></a>特殊会心</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>会心撃【特殊】暴击时状态异常的积蓄値×1.2倍</td>
+</tr>
+</tbody></table>
+<h3 id="毒"><a href="#毒" class="headerlink" title="毒"></a>毒</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>毒耐性不会进入毒、猛毒状态状态。激毒状态减轻成猛毒</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>毒倍加，毒伤害×2</td>
+</tr>
+</tbody></table>
+<h3 id="麻痹"><a href="#麻痹" class="headerlink" title="麻痹"></a>麻痹</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>麻痹无効，防麻痹状态</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>麻痹倍加，麻痹状态持续时间延长</td>
+</tr>
+</tbody></table>
+<h3 id="睡眠"><a href="#睡眠" class="headerlink" title="睡眠"></a>睡眠</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>睡眠无効，防睡眠状态</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>睡眠倍加，睡眠状态时间延长</td>
+</tr>
+</tbody></table>
+<h3 id="气絶"><a href="#气絶" class="headerlink" title="气絶"></a>气絶</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>气絶无効，防气绝状态</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>气絶确率半减，本来要气绝的情况有二分之一机率不会气绝</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>气絶倍加，在要回复气绝时必要的转香菇头或按键次数增加</td>
+</tr>
+</tbody></table>
+<h3 id="裂伤"><a href="#裂伤" class="headerlink" title="裂伤"></a>裂伤</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>裂伤无効，防裂伤状态</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>裂伤倍加，裂伤伤害2倍</td>
+</tr>
+</tbody></table>
+<h3 id="聴覚保护"><a href="#聴覚保护" class="headerlink" title="聴覚保护"></a>聴覚保护</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>高级耳栓，版上俗称的高耳，无效化各种魔物的吼叫</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>耳栓，小吼叫无效化</td>
+</tr>
+</tbody></table>
+<h3 id="风压"><a href="#风压" class="headerlink" title="风压"></a>风压</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>风压【大】无効，大小风压无效化</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>风压【小】无効，小风压无效化</td>
+</tr>
+</tbody></table>
+<h3 id="耐震"><a href="#耐震" class="headerlink" title="耐震"></a>耐震</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>耐震，不会因魔物引发的震动畏惧</td>
+</tr>
+</tbody></table>
+<h3 id="对防御DOWN"><a href="#对防御DOWN" class="headerlink" title="对防御DOWN"></a>对防御DOWN</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>铁面皮，对防御力DOWN状态有抗性</td>
+</tr>
+</tbody></table>
+<h3 id="细菌学"><a href="#细菌学" class="headerlink" title="细菌学"></a>细菌学</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>バイオドクター，こやし玉的调合成功率跟効果上昇、全道具使用不可状态(被臭屁喷到那种)跟爆破状态无効化、狂竜症发病减缓</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>细菌研究家，こやし玉的调合成功率跟効果上昇、一部份道具无法使用无效化，不会引发爆炸状态</td>
+</tr>
+</tbody></table>
+<h3 id="狂撃耐性"><a href="#狂撃耐性" class="headerlink" title="狂撃耐性"></a>狂撃耐性</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>无我の境地，狂竜症发病变慢、克服后的能力增幅增高</td>
+</tr>
+</tbody></table>
+<h2 id="道具相关"><a href="#道具相关" class="headerlink" title="道具相关"></a>道具相关</h2><h3 id="运搬"><a href="#运搬" class="headerlink" title="运搬"></a>运搬</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>运搬の达人，道具运搬中的移动速度提升、自一定程度的段差跳下去道具也不会摔坏</td>
+</tr>
+</tbody></table>
+<h3 id="回复量"><a href="#回复量" class="headerlink" title="回复量"></a>回复量</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>体力回复量UP，体力回复道具使用时的回复量×1.25倍</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>体力回复量DOWN，体力回复道具使用时的回复量×0.75倍</td>
+</tr>
+</tbody></table>
+<h3 id="气まぐれ"><a href="#气まぐれ" class="headerlink" title="气まぐれ"></a>气まぐれ</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>神の气まぐれ，捕虫网・十字镐・廻力标・笛（角笛、回复笛、解毒笛、鬼人笛、硬化笛）很难坏掉</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>精霊の气まぐれ，同上的消耗道具比较不会坏掉</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>恶霊の气まぐれ，同上道具容易坏掉</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>恶魔の气まぐれ，道具破坏狂</td>
+</tr>
+</tbody></table>
+<h3 id="食いしん坊"><a href="#食いしん坊" class="headerlink" title="食いしん坊"></a>食いしん坊</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>拾い食い，まんぷく効果+吃下气力回复道具以外的东西时、三分之一的机率恢复气力最大値25</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>まんぷく，在吃肉类道具时，气力最大值增加量+25</td>
+</tr>
+</tbody></table>
+<h3 id="广域"><a href="#广域" class="headerlink" title="广域"></a>广域</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>广域化+2，薬草、回复薬、解毒薬、怪力の种、忍耐の种、ウチケシの実使用时，把效果100%完整传给同区域的伙伴</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>广域化+1，同上道具使用时，在同区域的伙伴也能获得一半的效果</td>
+</tr>
+</tbody></table>
+<h3 id="効果持続"><a href="#効果持続" class="headerlink" title="効果持続"></a>効果持続</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>アイテム使用强化，有强化作用的道具(怪力果实之类的，片手的刃药也算)使用后效果维持时间1.5倍</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>アイテム使用弱化，强化道具效果持续时间变成原本的三分之二</td>
+</tr>
+</tbody></table>
+<h3 id="高速设置"><a href="#高速设置" class="headerlink" title="高速设置"></a>高速设置</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>罠师，シビレ罠、落之し穴、大タ儿爆弾(G)的设置速度加快+陷阱及各种陷阱用肉（毒生肉、シビレ生肉、眠り生肉）的调合成功率提升为100％</td>
+</tr>
+</tbody></table>
+<h3 id="采取"><a href="#采取" class="headerlink" title="采取"></a>采取</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>采取+2，于采取点采取的次数增</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>采取+1，于采取点采取次数稍微增加</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>采取-1，于采取点的采取次数减少</td>
+</tr>
+</tbody></table>
+<h3 id="肉食"><a href="#肉食" class="headerlink" title="肉食"></a>肉食</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>お肉大好き，吃生肉也可以有气力最大值+50的效果，吃肉类之后会有60秒强走效果</td>
+</tr>
+</tbody></table>
+<h3 id="食事"><a href="#食事" class="headerlink" title="食事"></a>食事</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>早食い+2，各种肉、鱼等食物还有咳药的食用速度变超快</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>早食い+1，各种肉、鱼等食物吃的速度加快</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>スローライフ，当个慢活懒人，吃东西也要慢  慢  来</td>
+</tr>
+</tbody></table>
+<h3 id="茸食"><a href="#茸食" class="headerlink" title="茸食"></a>茸食</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>キノコ大好き，可以生吃各种香菇，获得特殊效果，效果如下：</td>
+</tr>
+</tbody></table>
+<p>1.　アオキノコ＝回复薬<br>2.　毒テングダケ＝栄养剤<br>3.　ニトロダケ＝鬼人薬<br>4.　マヒダケ＝硬化薬<br>5.　クタビレダケ＝强走薬<br>6.　マンドラゴラ＝秘薬<br>7.　ドキドキノコ＝原本的负面效果以外的所有效果随机抽选</p>
+<h3 id="节食"><a href="#节食" class="headerlink" title="节食"></a>节食</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>満足感，25%的机率吃东西不消耗道具(实际没喝也可以靠想象的获得道具效果的概念，脑补的极致，加速世界心念技能的体现)</td>
+</tr>
+</tbody></table>
+<h3 id="调合成功率"><a href="#调合成功率" class="headerlink" title="调合成功率"></a>调合成功率</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>调合成功率+45%</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>调合成功率+20%</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>调合成功率-10%</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>调合成功率-20%</td>
+</tr>
+</tbody></table>
+<h3 id="盗み无効"><a href="#盗み无効" class="headerlink" title="盗み无効"></a>盗み无効</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>盗み无効，道具不会被魔物偷走</td>
+</tr>
+</tbody></table>
+<h3 id="野草知识"><a href="#野草知识" class="headerlink" title="野草知识"></a>野草知识</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>薬草超强化，食用药草效果更加提升(回复量略低高级回复药一点)</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>薬草强化，食用药草就有跟回复药一样的补血量</td>
+</tr>
+</tbody></table>
+<h2 id="地图探索相关"><a href="#地图探索相关" class="headerlink" title="地图探索相关"></a>地图探索相关</h2><h3 id="狩人"><a href="#狩人" class="headerlink" title="狩人"></a>狩人</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>ハンター生活，烤肉变简单、钓鱼鱼咬饵必上钩、不用持有地图也能看到完整大地图</td>
+</tr>
+</tbody></table>
+<h3 id="气力回复"><a href="#气力回复" class="headerlink" title="气力回复"></a>气力回复</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>スタミナ急速回复，スタミナ回复速度两倍</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>スタミナ回复遅延，スタミナ回复速度×0.75倍</td>
+</tr>
+</tbody></table>
+<h3 id="气配"><a href="#气配" class="headerlink" title="气配"></a>气配</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>隠密，不易被魔物盯上</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>挑発，变成容易遭魔物盯上的嘲讽体质</td>
+</tr>
+</tbody></table>
+<h3 id="スタミナ"><a href="#スタミナ" class="headerlink" title="スタミナ"></a>スタミナ</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>ランナー，冲刺、双剑的鬼人化、槌子跟弓的蓄力攻击、等徐徐消耗气力的状态气力消耗减半</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>钝足，上述情况的气力消耗速度加倍</td>
+</tr>
+</tbody></table>
+<h3 id="千里眼"><a href="#千里眼" class="headerlink" title="千里眼"></a>千里眼</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15自动</td>
+<td>マーキング，可以常常知道地图上魔物的位置及状态(翅膀开阖&#x2F;头的方向之类的)</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>探知，暂时知道魔物的位置跟状态，一定时间过后就会变成跟千里眼药一样只能看到红点</td>
+</tr>
+</tbody></table>
+<h3 id="耐寒"><a href="#耐寒" class="headerlink" title="耐寒"></a>耐寒</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>寒さ无効，寒冷状态下的气力最大值减少无效</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>寒さ倍加，天气一冷肚子饿得特别快的速度再加倍</td>
+</tr>
+</tbody></table>
+<h3 id="耐暑"><a href="#耐暑" class="headerlink" title="耐暑"></a>耐暑</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>暑さ无効，不会因为热而减少体力，踩在岩浆上也不会受伤</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>暑さ倍加，因为热减少体力速度加快</td>
+</tr>
+</tbody></table>
+<h3 id="腹减り"><a href="#腹减り" class="headerlink" title="腹减り"></a>腹减り</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>腹减り无効，不会空腹也不会因为饿肚子降低气力最大值</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>腹减り半减，因为饿肚子降低气力最大值的需求时间延长(6-&gt;12)</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>腹减り倍加【小】饿肚子减少气力的时间缩短</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>腹减り倍加【大】饿肚子减少气力的时间超绝缩短</td>
+</tr>
+</tbody></table>
+<h3 id="护石王"><a href="#护石王" class="headerlink" title="护石王"></a>护石王</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>お守りハンター，挖护石有30%机率一次挖到2个</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>お守り収集，挖护石有20%机率一次挖到2个</td>
+</tr>
+</tbody></table>
+<h3 id="ハチミツ"><a href="#ハチミツ" class="headerlink" title="ハチミツ"></a>ハチミツ</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>ハニーハンター，采蜜可以一次采到2个</td>
+</tr>
+</tbody></table>
+<h3 id="剥ぎ取り"><a href="#剥ぎ取り" class="headerlink" title="剥ぎ取り"></a>剥ぎ取り</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>剥ぎ取り名人，割肉的次数+1，割肉中不会被攻击打断</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>剥ぎ取り铁人，割肉动作不会因攻击被打断</td>
+</tr>
+</tbody></table>
+<h3 id="走行継続"><a href="#走行継続" class="headerlink" title="走行継続"></a>走行継続</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>キープラン，冲刺跑状态在气力降到红色区界线会停住，不会降低跑步速度</td>
+</tr>
+</tbody></table>
+<h2 id="战斗系技能-远近通用"><a href="#战斗系技能-远近通用" class="headerlink" title="战斗系技能(远近通用)"></a>战斗系技能(远近通用)</h2><h3 id="KO"><a href="#KO" class="headerlink" title="KO"></a>KO</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>KO术，容易击倒魔物，简单来说就是把目标K.O.</td>
+</tr>
+</tbody></table>
+<p>※这个击倒是锁头打到魔物头冒金星，给一般的失衡击倒给骑乘击倒不同</p>
+<h3 id="回避性能-※原本是0-2秒"><a href="#回避性能-※原本是0-2秒" class="headerlink" title="回避性能(※原本是0.2秒)"></a>回避性能(※原本是0.2秒)</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>回避性能+2，回避行动时的无敌时间大幅延长(0.4秒)</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>回避性能+1，回避行动时的无敌时间が少し长くなる(0.33秒)</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>回避性能DOWN，回避行动时的无敌时间缩短</td>
+</tr>
+</tbody></table>
+<h3 id="回避距离"><a href="#回避距离" class="headerlink" title="回避距离"></a>回避距离</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>回避距离UP，回避行动的移动距离延长（但不影响无敌时间）</td>
+</tr>
+</tbody></table>
+<h3 id="回复速度"><a href="#回复速度" class="headerlink" title="回复速度"></a>回复速度</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>回复速度+2，受伤后可以回复的红血条恢复速度大幅上升</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>回复速度+1，受伤后可以回复的红血条恢复速度上升</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>回复速度-1，受伤后可以回复的红血条恢复速度下降</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>回复速度-2，受伤后可以回复的红血条恢复速度大幅下降</td>
+</tr>
+</tbody></table>
+<h3 id="加护"><a href="#加护" class="headerlink" title="加护"></a>加护</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>精霊の加护，受伤时有四分之一的机率伤害量×0.7</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>恶霊の加护，受伤时有四分之一的机率伤害量×1.3</td>
+</tr>
+</tbody></table>
+<h3 id="観察眼"><a href="#観察眼" class="headerlink" title="観察眼"></a>観察眼</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>捕获の见极め，可以在魔物能抓起来的时候在地图看到魔物图标闪烁信号</td>
+</tr>
+</tbody></table>
+<h3 id="减气攻击"><a href="#减气攻击" class="headerlink" title="减气攻击"></a>减气攻击</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>スタミナ夺取，攻击时造成魔物更多气力的减损</td>
+</tr>
+</tbody></table>
+<h3 id="体术"><a href="#体术" class="headerlink" title="体术"></a>体术</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>体术+2，回避行动，格挡成功时，降低消耗的气力(×0.5)</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>体术+1，回避行动，格挡成功时，小幅降低消耗的气力(×0.75)</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>体术-1，回避行动，格挡成功时，小幅增加消耗的气力</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>体术-2，回避行动，格挡成功时，增加消耗的气力</td>
+</tr>
+</tbody></table>
+<p>※隐藏效果：面对大型魔物也能做飞扑的紧急回避，原只有收刀背对魔物奔跑按B才能发动</p>
+<h3 id="达人"><a href="#达人" class="headerlink" title="达人"></a>达人</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+20</td>
+<td>见切り+3，会心率+30％</td>
+</tr>
+<tr>
+<td>+15</td>
+<td>见切り+2，会心率+20％</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>见切り+1，会心率+10％</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>见切り-1，会心率-5％</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>见切り-2，会心率-10％</td>
+</tr>
+<tr>
+<td>-20</td>
+<td>见切り-3，会心率-20％</td>
+</tr>
+</tbody></table>
+<h3 id="溜め短缩"><a href="#溜め短缩" class="headerlink" title="溜め短缩"></a>溜め短缩</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>集中，大剑、槌子、弓的蓄力时间-20％, 双剑、太刀、剑斧(斩击斧)的特殊量槽上升量+20％</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>雑念，大剑、锤子、弓的蓄力时间増加, 双剑、太刀、剑斧(斩击斧)的特殊量槽上升量减少</td>
+</tr>
+</tbody></table>
+<h3 id="纳刀"><a href="#纳刀" class="headerlink" title="纳刀"></a>纳刀</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>纳刀术，收武器速度加快</td>
+</tr>
+</tbody></table>
+<h3 id="炮术"><a href="#炮术" class="headerlink" title="炮术"></a>炮术</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15炮术王</td>
+<td>地图设置的弩炮台、大炮、铳枪的炮撃、竜撃炮、盾斧的榴弾瓶、彻甲榴弾（的爆炸伤害）威力增加 铳枪的竜撃炮冷却时间缩短</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>炮术师，地图设置的弩炮台、大炮、枪盾的炮撃、竜撃炮、盾斧的榴弾瓶、彻甲榴弾（的爆炸伤害）威力增加</td>
+</tr>
+</tbody></table>
+<h3 id="本气"><a href="#本气" class="headerlink" title="本气"></a>本气</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>力の解放+2，一定条件达成后触发９０秒之间的会心率50％上升・气力消费量减至四分之一</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>力の解放+1，一定条件达成后触发９０秒之间的会心率30％上升・气力消费量减至二分之一</td>
+</tr>
+</tbody></table>
+<p>※条件</p>
+<ol>
+<li>跟大型魔物对峙达5分钟  </li>
+<li>合计受到有180点的伤害值(吃满猫饭的体力为150)</li>
+</ol>
+<h3 id="底力"><a href="#底力" class="headerlink" title="底力"></a>底力</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>火事场力+2，体力在40%以下时、防御力+45・攻击力×1.3倍</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>火事场力+1，体力在40%以下时、防御力+45</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>心配性，体力在40%以下时、防御力+21，攻击力×0.7倍</td>
+</tr>
+</tbody></table>
+<h3 id="爆弾强化"><a href="#爆弾强化" class="headerlink" title="爆弾强化"></a>爆弾强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>ボマー，爆弾的伤害×1.3倍、爆破属性的蓄积値×1.2倍</td>
+</tr>
+<tr>
+<td>小タ儿爆弾、小タ儿爆弾G、大タ儿爆弾、大タ儿爆弾G、打上げタ儿爆弾、打ち上げタ儿爆弾G、爆薬、音爆弾的调合成功率100%</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="笛"><a href="#笛" class="headerlink" title="笛"></a>笛</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>笛吹き名人，笛系道具不易坏掉、狩猟笛的旋律効果时间延长</td>
+</tr>
+</tbody></table>
+<h3 id="痛撃"><a href="#痛撃" class="headerlink" title="痛撃"></a>痛撃</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>弱点特効，对肉质柔软的部位（肉质45以上）攻击时、会心率+50%</td>
+</tr>
+</tbody></table>
+<h3 id="重撃"><a href="#重撃" class="headerlink" title="重撃"></a>重撃</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>破壊王，对可以破坏的部位攻击时，破坏积蓄值×1.3</td>
+</tr>
+</tbody></table>
+<h3 id="装填数"><a href="#装填数" class="headerlink" title="装填数"></a>装填数</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>装填数UP，弩系武器使用的弾装填数、弓的蓄力攻击段阶、铳枪的炮撃、充能斧(盾斧)的瓶子装填数増加</td>
+</tr>
+</tbody></table>
+<h3 id="无伤"><a href="#无伤" class="headerlink" title="无伤"></a>无伤</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>フ儿チャージ，满血时攻击力+20</td>
+</tr>
+</tbody></table>
+<h3 id="根性"><a href="#根性" class="headerlink" title="根性"></a>根性</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>根性，HP值在64点以上时受到致命攻击可以撑住一次不死</td>
+</tr>
+</tbody></table>
+<p>　　※要先被打死送猫车才能发动下一次根性</p>
+<h3 id="逆境"><a href="#逆境" class="headerlink" title="逆境"></a>逆境</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>不屈，猫车后攻防上升</td>
+</tr>
+</tbody></table>
+<p>补充：只对有技能且猫车的人才有效，  </p>
+<ol>
+<li>第一次猫车：攻击力1.1倍，防御力提升15%，  </li>
+<li>第二次猫车：攻击力1.2倍，防御力提升30%  </li>
+<li>第三次猫车无效果。</li>
+</ol>
+<h3 id="闘魂"><a href="#闘魂" class="headerlink" title="闘魂"></a>闘魂</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>挑戦者+2，区域内大型魔物发怒的时候攻击会心更加上升(发怒后三秒发动，攻击+20，会心+15%)</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>挑戦者+1，区域内大型魔物发怒的时候攻击会心上升(发怒后三秒发动，攻击+10，会心+10%)</td>
+</tr>
+</tbody></table>
+<p>　　(※发动时猎人的左手部会发光)</p>
+<h3 id="剩り"><a href="#剩り" class="headerlink" title="剩り"></a>剩り</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>剩り名人，骑乘积蓄值1.25倍，骑上去之后用小刀狂砍的骑倒积蓄值1.25倍</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>剩り下手，变得很难骑乘</td>
+</tr>
+</tbody></table>
+<h3 id="研磨术"><a href="#研磨术" class="headerlink" title="研磨术"></a>研磨术</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>刚刃研磨，剑士使用磨刀石之后一分钟内不会掉斩味，远程手的场合则是1分钟内各弹种在会心距离内命中伤害1.75倍，非会心距离命中无效果</td>
+</tr>
+</tbody></table>
+<h3 id="跳跃"><a href="#跳跃" class="headerlink" title="跳跃"></a>跳跃</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>飞燕，跳跃攻击的伤害与积蓄値×1.1倍</td>
+</tr>
+</tbody></table>
+<h3 id="会心强化"><a href="#会心强化" class="headerlink" title="会心强化"></a>会心强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>超会心，暴击时伤害提升</td>
+</tr>
+<tr>
+<td>(※通常会心1.25倍→超会心1.40倍)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="逆上"><a href="#逆上" class="headerlink" title="逆上"></a>逆上</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>逆恨み，体力槽有红条的时候攻击力+20</td>
+</tr>
+</tbody></table>
+<h3 id="穷地"><a href="#穷地" class="headerlink" title="穷地"></a>穷地</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>死中に活，中异常状态的时候攻击力+20(不可加迭，不会因为身上异常越多提升越多)</td>
+</tr>
+</tbody></table>
+<h3 id="だるま"><a href="#だるま" class="headerlink" title="だるま"></a>だるま</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>だるま，雪・泡・骨等把人包住的异常无效化</td>
+</tr>
+</tbody></table>
+<h3 id="チャンス"><a href="#チャンス" class="headerlink" title="チャンス"></a>チャンス</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>切り札，跟大型魔物战斗中，机会来临时狩技威力上升(这边的机会大概是像骑倒之类的)</td>
+</tr>
+</tbody></table>
+<p>※效果持续1分钟，使用狩技的伤害或持续时间1.2倍，此外，部分的狩技效果上升</p>
+<h3 id="无心"><a href="#无心" class="headerlink" title="无心"></a>无心</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>明镜止水，狩技&#x2F;勇气&#x2F;炼金槽累积速度上升</td>
+</tr>
+</tbody></table>
+<h3 id="英雄の盾"><a href="#英雄の盾" class="headerlink" title="英雄の盾"></a>英雄の盾</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>英雄の护り，把小伤害无效化</td>
+</tr>
+</tbody></table>
+<p>(※5以下伤害无效化，还有屁股不会着地的功能)</p>
+<h3 id="泡沫"><a href="#泡沫" class="headerlink" title="泡沫"></a>泡沫</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>泡沫の舞，回避行动会缠上泡沫，不会进入泡沫大(整个人被泡泡包住)，缠泡沫的时候带有相当于回避性能+1跟体术+1的能力，视为异常可以发动穷地</td>
+</tr>
+</tbody></table>
+<h3 id="连撃"><a href="#连撃" class="headerlink" title="连撃"></a>连撃</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>连撃の心得，连续攻击命中时会心率上升(5秒内，2hit+25%会心，3hit+30%)</td>
+</tr>
+</tbody></table>
+<p>※只要5秒内有攻击命中，会一直重置5秒持续时间，效果消失前命中3次攻击会心效果变成提升30%(一样为持续5秒机制)。<br>※操虫棍用虫攻击可以纳入连击计算的第一下，所以先用虫撞过之后用棍子砍的第一刀(实则为第二刀)就能触发效果  </p>
+<h3 id="里会心"><a href="#里会心" class="headerlink" title="里会心"></a>里会心</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>痛恨会心，负会心一定机率翻转成正值</td>
+</tr>
+</tbody></table>
+<p>※这技能只对负会心武器有效，负会心发动时，有25%的机率将负会心转成超绝会心，将原本0.75倍的伤害转换成2倍伤害，以-50%会心的武器而言，发动里会心的机率：50%(负会心机率)x25%→12.5%。</p>
+<h3 id="我慢"><a href="#我慢" class="headerlink" title="我慢"></a>我慢</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>虎视眈々，被打之后狩技槽、勇气槽、錬金槽上升</td>
+</tr>
+</tbody></table>
+<h3 id="护石强化"><a href="#护石强化" class="headerlink" title="护石强化"></a>护石强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>护石系统倍化，护石的技能点加倍(包含插在护石上的技能珠)</td>
+</tr>
+</tbody></table>
+<h3 id="刃鳞"><a href="#刃鳞" class="headerlink" title="刃鳞"></a>刃鳞</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>刃鳞磨き，拔刀中回避翻滚会有一下效果</td>
+</tr>
+</tbody></table>
+<ul>
+<li>剑士：斩れ味少量回复  </li>
+<li>弓：接撃瓶强化</li>
+</ul>
+<p>补充：轻弩、重弩拔刀中作回避动作时，有机率装填一颗弹药，剑士必须作回避动作数次才能回复一次斩味</p>
+<h3 id="秘术"><a href="#秘术" class="headerlink" title="秘术"></a>秘术</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>スキ儿加点＋2，全身装备的技能点+2</td>
+</tr>
+</tbody></table>
+<h3 id="SP延长"><a href="#SP延长" class="headerlink" title="SP延长"></a>SP延长</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>SP时间延长，SP狩技发动后的SP状态时间延长</td>
+</tr>
+</tbody></table>
+<h3 id="龙气"><a href="#龙气" class="headerlink" title="龙气"></a>龙气</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>龙气活性，体力三分之二以下时身上出现龙属性异常(无效龙属以外武器的属性)，附带龙属异常的时候全耐性升至50，攻击力提升1.1倍</td>
+</tr>
+</tbody></table>
+<h2 id="战斗系技能-剑士专用"><a href="#战斗系技能-剑士专用" class="headerlink" title="战斗系技能(剑士专用)"></a>战斗系技能(剑士专用)</h2><h3 id="斩れ味"><a href="#斩れ味" class="headerlink" title="斩れ味"></a>斩れ味</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>业物，攻击时、格挡成功时（只有大剑跟盾斧特定情况格挡会掉斩味）斩れ味的消耗减半</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>なまくら，攻击时、格挡成功成功时（一样大剑跟盾斧限定）斩れ味的消耗倍增</td>
+</tr>
+</tbody></table>
+<h3 id="剑术"><a href="#剑术" class="headerlink" title="剑术"></a>剑术</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>心眼，不会弹刀</td>
+</tr>
+</tbody></table>
+<h3 id="匠"><a href="#匠" class="headerlink" title="匠"></a>匠</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>斩れ味レベ儿+2，斩れ味大幅延长</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>斩れ味レベ儿+1，斩れ味延长</td>
+</tr>
+</tbody></table>
+<h3 id="研ぎ师"><a href="#研ぎ师" class="headerlink" title="研ぎ师"></a>研ぎ师</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>砥石使用高速化，磨刀动作只要做一下就磨好武器</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>砥石使用低速化，磨刀动作要做5下才能磨好武器</td>
+</tr>
+</tbody></table>
+<p>###抜刀会心</p>
+<table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>抜刀术【技】拔出武器攻击的那一下会心率+100％</td>
+</tr>
+</tbody></table>
+<h3 id="抜刀减气"><a href="#抜刀减气" class="headerlink" title="抜刀减气"></a>抜刀减气</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10 抜刀术【力】切断属性的武器拔刀攻击的那一下附带打击武器的减气功能</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>(※命中头部也会有气绝效果)</p>
+<h3 id="ガード强化"><a href="#ガード强化" class="headerlink" title="ガード强化"></a>ガード强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>ガード强化，可以挡住平常档不住的攻击</td>
+</tr>
+</tbody></table>
+<h3 id="ガード性能"><a href="#ガード性能" class="headerlink" title="ガード性能"></a>ガード性能</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>ガード性能+2，格挡时被打退的伤害大幅降低</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>ガード性能+1，格挡时被打退的伤害小幅降低</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>ガード性能-1，格挡时被打退的伤害增加</td>
+</tr>
+</tbody></table>
+<h3 id="钝器"><a href="#钝器" class="headerlink" title="钝器"></a>钝器</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>钝器使い，武器斩味变烂的时候攻击力上升</td>
+</tr>
+</tbody></table>
+<ol>
+<li>紫、白、蓝斩味无效果  </li>
+<li>绿斩:攻击力1.1倍  </li>
+<li>黄斩：攻击力1.15倍  </li>
+<li>橘、红斩：攻击1.2倍</li>
+</ol>
+<p>※基本上钝器有算斩味的攻击补正为绿斩时效益最好</p>
+<h3 id="纳刀研磨"><a href="#纳刀研磨" class="headerlink" title="纳刀研磨"></a>纳刀研磨</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>挑戦者の纳刀，魔物于愤怒状态时纳刀一定机率回复斩れ味</td>
+</tr>
+</tbody></table>
+<h2 id="战斗系技能-远程手专用"><a href="#战斗系技能-远程手专用" class="headerlink" title="战斗系技能(远程手专用)"></a>战斗系技能(远程手专用)</h2><h3 id="通常弾追加"><a href="#通常弾追加" class="headerlink" title="通常弾追加"></a>通常弾追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>通常弾全LV追加，可以装填各种通常弹</td>
+</tr>
+</tbody></table>
+<h3 id="贯通弾追加"><a href="#贯通弾追加" class="headerlink" title="贯通弾追加"></a>贯通弾追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>贯通弾全LV追加，可以装填各种贯通弹</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>贯通弾LV1追加，可以装填LV1贯通弾</td>
+</tr>
+</tbody></table>
+<h3 id="散弾追加"><a href="#散弾追加" class="headerlink" title="散弾追加"></a>散弾追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>散弾全LV追加，可以装填所有散弹</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>散弾LV1追加，可以装填LV1散弹</td>
+</tr>
+</tbody></table>
+<h3 id="榴弾追加"><a href="#榴弾追加" class="headerlink" title="榴弾追加"></a>榴弾追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>彻甲榴弾全LV追加，可装填各种彻甲榴弹</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>彻甲榴弾LV1追加，可装填LV1彻甲榴弹</td>
+</tr>
+</tbody></table>
+<h3 id="扩散弾追加"><a href="#扩散弾追加" class="headerlink" title="扩散弾追加"></a>扩散弾追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>扩散弾全LV追加，可装填所有扩散弹</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>扩散弾LV1追加，可装填LV1扩散弹</td>
+</tr>
+</tbody></table>
+<h3 id="速射"><a href="#速射" class="headerlink" title="速射"></a>速射</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>连発数+1，轻弩速射连发数+1</td>
+</tr>
+</tbody></table>
+<h3 id="反动-轻弩重弩都适用"><a href="#反动-轻弩重弩都适用" class="headerlink" title="反动(轻弩重弩都适用)"></a>反动(轻弩重弩都适用)</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+20</td>
+<td>反动軽减+3，弩的反动大幅减轻</td>
+</tr>
+<tr>
+<td>+15</td>
+<td>反动軽减+2，弩的反动减轻</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>反动軽减+1，弩的反动稍微减轻</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>反动軽减-1，弩的反动稍微增大</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>反动軽减-2，弩的反动增大</td>
+</tr>
+<tr>
+<td>-20</td>
+<td>反动軽减-3，弩的反动大幅增大</td>
+</tr>
+</tbody></table>
+<h3 id="精密射撃"><a href="#精密射撃" class="headerlink" title="精密射撃"></a>精密射撃</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>ブレ抑制+2，全部的弹道不会偏离</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>ブレ抑制+1，弹道大偏离变小偏离，小偏离无效化</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>ブレ抑制-1，弹道偏离小变大</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>ブレ抑制-2，怎么打怎么偏</td>
+</tr>
+</tbody></table>
+<h3 id="强撃瓶追加"><a href="#强撃瓶追加" class="headerlink" title="强撃瓶追加"></a>强撃瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>强撃ビン全LV追加，可以装填所有强击瓶</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>强撃ビンLV1追加，可以装填强击瓶LV1</td>
+</tr>
+</tbody></table>
+<h3 id="属强瓶追加"><a href="#属强瓶追加" class="headerlink" title="属强瓶追加"></a>属强瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+15</td>
+<td>属强ビン全LV追加，可以装填所有属强瓶</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>属强ビンLV1追加，可以装填属强瓶LV1</td>
+</tr>
+</tbody></table>
+<h3 id="接撃瓶追加"><a href="#接撃瓶追加" class="headerlink" title="接撃瓶追加"></a>接撃瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>接撃ビン追加，可以装填接撃瓶</td>
+</tr>
+</tbody></table>
+<h3 id="毒瓶追加"><a href="#毒瓶追加" class="headerlink" title="毒瓶追加"></a>毒瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>毒ビン追加，可以装填毒瓶</td>
+</tr>
+</tbody></table>
+<h3 id="麻痹瓶追加"><a href="#麻痹瓶追加" class="headerlink" title="麻痹瓶追加"></a>麻痹瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>麻痹ビン追加，可以装填麻痹瓶</td>
+</tr>
+</tbody></table>
+<h3 id="睡眠瓶追加"><a href="#睡眠瓶追加" class="headerlink" title="睡眠瓶追加"></a>睡眠瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>睡眠ビン追加，可以装填睡眠瓶</td>
+</tr>
+</tbody></table>
+<h3 id="减气瓶追加"><a href="#减气瓶追加" class="headerlink" title="减气瓶追加"></a>减气瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>减气ビン追加可以装填减气瓶</td>
+</tr>
+</tbody></table>
+<h3 id="爆破瓶追加"><a href="#爆破瓶追加" class="headerlink" title="爆破瓶追加"></a>爆破瓶追加</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>爆破ビン追加，可以追加爆破瓶</td>
+</tr>
+</tbody></table>
+<h3 id="装填速度"><a href="#装填速度" class="headerlink" title="装填速度"></a>装填速度</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+20</td>
+<td>装填速度+3，弩系武器的Reload大幅加快、弓的瓶子切换不用装填</td>
+</tr>
+<tr>
+<td>+15</td>
+<td>装填速度+2，弩系武器的Reload加速、弓的瓶子切换不用装填</td>
+</tr>
+<tr>
+<td>+10</td>
+<td>装填速度+1，弩炮的的Reload速度稍微加快、弓的瓶子装备速度加快</td>
+</tr>
+<tr>
+<td>-10</td>
+<td>装填速度-1，弩系武器的Reload跟弓的装瓶速度稍微减缓</td>
+</tr>
+<tr>
+<td>-15</td>
+<td>装填速度-2，弩系武器的Reload跟弓装瓶速度减缓</td>
+</tr>
+<tr>
+<td>-20</td>
+<td>装填速度-3，弩系武器的Reload跟弓装瓶速度大幅减缓</td>
+</tr>
+</tbody></table>
+<h3 id="通常弾强化"><a href="#通常弾强化" class="headerlink" title="通常弾强化"></a>通常弾强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>通常弾・连射矢UP，通常弹跟连射矢的威力×1.1倍</td>
+</tr>
+</tbody></table>
+<h3 id="贯通弾强化"><a href="#贯通弾强化" class="headerlink" title="贯通弾强化"></a>贯通弾强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>贯通弾・贯通矢UP，贯通弹之贯通矢的威力×1.1倍</td>
+</tr>
+</tbody></table>
+<h3 id="散弾强化"><a href="#散弾强化" class="headerlink" title="散弾强化"></a>散弾强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>散弾・扩散矢UP，散弹的威力×1.2倍、扩散矢的威力×1.3倍</td>
+</tr>
+</tbody></table>
+<h3 id="射法"><a href="#射法" class="headerlink" title="射法"></a>射法</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>弾导强化，一部分的子弹&#x2F;箭矢伤害最高的时间带延长</td>
+</tr>
+</tbody></table>
+<h3 id="调合数"><a href="#调合数" class="headerlink" title="调合数"></a>调合数</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>最大数生产，调和生产数有浮动的道具时(讲白了就是子弹&#x2F;瓶子类)，必为最大生产数</td>
+</tr>
+</tbody></table>
+<h3 id="弾薬节约"><a href="#弾薬节约" class="headerlink" title="弾薬节约"></a>弾薬节约</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>弾薬节约，射撃时、背包里的弾或瓶有机会不消耗(※不管你躺着射，坐着射，趴着射都有效)</td>
+</tr>
+</tbody></table>
+<h3 id="重撃弾强化"><a href="#重撃弾强化" class="headerlink" title="重撃弾强化"></a>重撃弾强化</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>重撃弾・重射矢UP，重撃弹・重射矢威力提升</td>
+</tr>
+</tbody></table>
+<h3 id="変则射撃"><a href="#変则射撃" class="headerlink" title="変则射撃"></a>変则射撃</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>特定射撃强化，特定的射撃(武器内藏弹、曲射、刚射)威力×1.2倍</td>
+</tr>
+</tbody></table>
+<h2 id="猫强化技能"><a href="#猫强化技能" class="headerlink" title="猫强化技能"></a>猫强化技能</h2><h3 id="采配"><a href="#采配" class="headerlink" title="采配"></a>采配</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>オトモへの采配，同行伙伴猫能力强化</td>
+</tr>
+</tbody></table>
+<h3 id="号令"><a href="#号令" class="headerlink" title="号令"></a>号令</h3><table>
+<thead>
+<tr>
+<th>发动值</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+10</td>
+<td>オトモへの号令，伙伴猫会听命令行动，做特殊动作时会跟猫一起回复</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/myself/" class="category-chain-item">myself</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/mh/" class="print-no-link">#mh</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Monster Hunter XX Effects</div>
+      <div>https://rugal.github.com/2017/2017-08-30-monster-hunter-xx-effects/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Rugal Bernstein</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 30, 2017</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2017/2017-09-26-java-multithread-key-point/" title="Java Multithread key points">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java Multithread key points</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2017/2017-08-17-sunny-day-lyrics/" title="Sunny Day Lyrics">
+                        <span class="hidden-mobile">Sunny Day Lyrics</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>

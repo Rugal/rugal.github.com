@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Rugal Bernstein">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="connection explanationupgrade HTTP to Websocket123ws:&#x2F;&#x2F;localhost:port&#x2F;&amp;#123;stomp endpoint&amp;#125;&#x2F;&amp;#123;serverid&amp;#125;&#x2F;&amp;#123;sessionid&amp;#125;&#x2F;websocket  stomp endpointTo define the path prefix to upgrad">
+<meta property="og:type" content="article">
+<meta property="og:title" content="STOMP tutorial">
+<meta property="og:url" content="https://rugal.github.com/2021/2021-06-05-stomp-tutorial/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="connection explanationupgrade HTTP to Websocket123ws:&#x2F;&#x2F;localhost:port&#x2F;&amp;#123;stomp endpoint&amp;#125;&#x2F;&amp;#123;serverid&amp;#125;&#x2F;&amp;#123;sessionid&amp;#125;&#x2F;websocket  stomp endpointTo define the path prefix to upgrad">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-05T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-08-21T11:34:57.208Z">
+<meta property="article:author" content="Rugal Bernstein">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="network">
+<meta property="article:tag" content="spring">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>STOMP tutorial - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"rugal.github.com","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="STOMP tutorial"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-05 00:00" pubdate>
+          June 5, 2021 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          57 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">STOMP tutorial</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="connection-explanation"><a href="#connection-explanation" class="headerlink" title="connection explanation"></a>connection explanation</h1><h2 id="upgrade-HTTP-to-Websocket"><a href="#upgrade-HTTP-to-Websocket" class="headerlink" title="upgrade HTTP to Websocket"></a>upgrade HTTP to Websocket</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>ws:<span class="hljs-regexp">//</span>localhost:port<span class="hljs-regexp">/&#123;stomp endpoint&#125;/</span>&#123;serverid&#125;<span class="hljs-regexp">/&#123;sessionid&#125;/</span>websocket<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="stomp-endpoint"><a href="#stomp-endpoint" class="headerlink" title="stomp endpoint"></a>stomp endpoint</h3><p>To define the path prefix to upgrade websocket. This can be done in following spring configuration.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span>  <span class="hljs-title function_">registerStompEndpoints</span><span class="hljs-params">(<span class="hljs-keyword">final</span>  StompEndpointRegistry registry)</span> &#123;<br>  registry.addEndpoint(<span class="hljs-string">&quot;/chat&quot;</span>);<br>  registry.addEndpoint(<span class="hljs-string">&quot;/chat&quot;</span>).withSockJS();<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="serverid"><a href="#serverid" class="headerlink" title="serverid"></a>serverid</h3><p>A required but useless id in spring-websocket</p>
+<h3 id="sessionid"><a href="#sessionid" class="headerlink" title="sessionid"></a>sessionid</h3><p>Probably the most important <code>id</code> in this protocol, used to communicate back to current user.</p>
+<h2 id="subscribe"><a href="#subscribe" class="headerlink" title="subscribe"></a>subscribe</h2><figure class="highlight wren"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs wren"><br><span class="hljs-string">&quot;SUBSCRIBE<span class="hljs-char escape_">\n</span>id:&#123;subscriptionid&#125;<span class="hljs-char escape_">\n</span>destination:&#123;path&#125;<span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\u0000</span>&quot;</span><br><br></code></pre></td></tr></table></figure>
+
+<h3 id="subscriptionid"><a href="#subscriptionid" class="headerlink" title="subscriptionid"></a>subscriptionid</h3><p>A unique id to indicate single subscription. Mostly useless.</p>
+<h3 id="path"><a href="#path" class="headerlink" title="path"></a>path</h3><p>Extremely important for usage of listening backward communication.</p>
+<p>In spring-websocket, it is by default prefix as <code>/user</code>. In order to allow this prefix to pass the path validation, we should configure the simple broker path in spring configuration as following.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span>  <span class="hljs-title function_">configureMessageBroker</span><span class="hljs-params">(<span class="hljs-keyword">final</span>  MessageBrokerRegistry config)</span> &#123;<br>  config.enableSimpleBroker(<span class="hljs-string">&quot;/user&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p>So by using the following code, the entire path will be <code>/user/to-userid/queue</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-built_in">this</span>.template.convertAndSendToUser(<span class="hljs-string">&quot;to-userid&quot;</span>, <span class="hljs-string">&quot;/queue&quot;</span>, <span class="hljs-string">&quot;message content&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>This is why it is so important, that by listening to this path, this single user would get message that is specific to it</p>
+<h2 id="send"><a href="#send" class="headerlink" title="send"></a>send</h2><figure class="highlight wren"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs wren"><span class="hljs-string">&quot;SEND<span class="hljs-char escape_">\n</span>from:&#123;from-userid&#125;<span class="hljs-char escape_">\n</span>destination:/&#123;prefix&#125;/&#123;destination&#125;/&#123;to-userid&#125;<span class="hljs-char escape_">\n</span>content-length:29<span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\n</span>&#123;<span class="hljs-char escape_">\&quot;</span>message<span class="hljs-char escape_">\&quot;</span>:<span class="hljs-char escape_">\&quot;</span>message content<span class="hljs-char escape_">\&quot;</span>&#125;<span class="hljs-char escape_">\u0000</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="from-userid"><a href="#from-userid" class="headerlink" title="from-userid"></a>from-userid</h3><p>to indicate send message from whom. We may have better to do it in future, but for now, just put it here.</p>
+<h3 id="prefix"><a href="#prefix" class="headerlink" title="prefix"></a>prefix</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span>  <span class="hljs-keyword">void</span>  <span class="hljs-title function_">configureMessageBroker</span><span class="hljs-params">(<span class="hljs-keyword">final</span>  MessageBrokerRegistry config)</span> &#123;<br>  config.setApplicationDestinationPrefixes(<span class="hljs-string">&quot;/websocket&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="destination"><a href="#destination" class="headerlink" title="destination"></a>destination</h3><p>This destination can be configured using the following annotation, this annotation is important to indicate the method below is a handler to deal with message that matches the path format in <code>ant</code> syntax.</p>
+<p>The following example defines the destination as <code>user</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@MessageMapping(&quot;/user/&#123;to-userid&#125;&quot;)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="to-userid"><a href="#to-userid" class="headerlink" title="to-userid"></a>to-userid</h3><p>Extremely important to indicate whom to receive this message.</p>
+<p>By using the same annotation.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@MessageMapping(&quot;/user/&#123;to-userid&#125;&quot;)</span><br><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="command"><a href="#command" class="headerlink" title="command"></a>command</h1><p>Some useful log to indicate different command.</p>
+<h2 id="disconnect"><a href="#disconnect" class="headerlink" title="disconnect"></a>disconnect</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>2021-06-04 15:45:49.465 <span class="hljs-built_in">DEBUG</span> 15378 --- [boundChannel-26] org.springframework.web.SimpLogging : Processing DISCONNECT <span class="hljs-attribute">session</span>=58oec3gc<br><br>2021-06-04 15:45:49.465 <span class="hljs-built_in">DEBUG</span> 15378 --- [nio-8080-exec-5] s.w.s.h.LoggingWebSocketHandlerDecorator : WebSocketServerSockJsSession[<span class="hljs-attribute">id</span>=58oec3gc] closed with CloseStatus[<span class="hljs-attribute">code</span>=1000, <span class="hljs-attribute">reason</span>=<span class="hljs-literal">null</span>]<br><br>2021-06-04 15:45:49.465 <span class="hljs-built_in">DEBUG</span> 15378 --- [nio-8080-exec-5] o.s.w.s.m.SubProtocolWebSocketHandler : Clearing session 58oec3gc<br><br>2021-06-04 15:45:49.465 <span class="hljs-built_in">DEBUG</span> 15378 --- [tboundChannel-8] o.s.w.s.m.SubProtocolWebSocketHandler : <span class="hljs-literal">No</span> session <span class="hljs-keyword">for</span> GenericMessage [<span class="hljs-attribute">payload</span>=byte[0], headers=&#123;<span class="hljs-attribute">simpMessageType</span>=DISCONNECT_ACK, <span class="hljs-attribute">simpDisconnectMessage</span>=GenericMessage [<span class="hljs-attribute">payload</span>=byte[0], headers=&#123;<span class="hljs-attribute">simpMessageType</span>=DISCONNECT, <span class="hljs-attribute">stompCommand</span>=DISCONNECT, simpSessionAttributes=&#123;&#125;, simpHeartbeat=[J@1e9284c7, <span class="hljs-attribute">simpSessionId</span>=58oec3gc&#125;], <span class="hljs-attribute">simpSessionId</span>=58oec3gc&#125;]<br><br>2021-06-04 15:45:49.466 <span class="hljs-built_in">DEBUG</span> 15378 --- [boundChannel-29] org.springframework.web.SimpLogging : Processing DISCONNECT <span class="hljs-attribute">session</span>=58oec3gc<br><br>2021-06-04 15:45:49.467 <span class="hljs-built_in">DEBUG</span> 15378 --- [tboundChannel-9] o.s.w.s.m.SubProtocolWebSocketHandler : <span class="hljs-literal">No</span> session <span class="hljs-keyword">for</span> GenericMessage [<span class="hljs-attribute">payload</span>=byte[0], headers=&#123;<span class="hljs-attribute">simpMessageType</span>=DISCONNECT_ACK, <span class="hljs-attribute">simpDisconnectMessage</span>=GenericMessage [<span class="hljs-attribute">payload</span>=byte[0], headers=&#123;<span class="hljs-attribute">simpMessageType</span>=DISCONNECT, <span class="hljs-attribute">stompCommand</span>=DISCONNECT, simpSessionAttributes=&#123;org.springframework.messaging.simp.SimpAttributes.<span class="hljs-attribute">COMPLETED</span>=<span class="hljs-literal">true</span>&#125;, <span class="hljs-attribute">simpSessionId</span>=58oec3gc&#125;], <span class="hljs-attribute">simpSessionId</span>=58oec3gc&#125;]<br><br>2021-06-04 15:45:56.194 <span class="hljs-built_in">DEBUG</span> 15378 --- [MessageBroker-8] o.s.w.s.s.t.h.DefaultSockJsService : Closed 1 sessions: [58oec3gc]<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="subscribe-1"><a href="#subscribe-1" class="headerlink" title="subscribe"></a>subscribe</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.714</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-6]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.servlet</span><span class="hljs-selector-class">.DispatcherServlet</span> : GET <span class="hljs-string">&quot;/chat/info&quot;</span>, parameters=&#123;&#125;<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.714</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-6]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.w</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.WebSocketHandlerMapping</span> : Mapped to org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.socket</span><span class="hljs-selector-class">.sockjs</span><span class="hljs-selector-class">.support</span>.SockJsHttpRequestHandler@<span class="hljs-number">625</span>d9132<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.714</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-6]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.w</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.t</span><span class="hljs-selector-class">.h</span><span class="hljs-selector-class">.DefaultSockJsService</span> : Processing transport request: GET http:<span class="hljs-comment">//localhost:8080/chat/info</span><br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.714</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-6]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.servlet</span><span class="hljs-selector-class">.DispatcherServlet</span> : Completed <span class="hljs-number">200</span> OK<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.791</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-7]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.servlet</span><span class="hljs-selector-class">.DispatcherServlet</span> : GET <span class="hljs-string">&quot;/chat/080/bw6hxi0f/websocket&quot;</span>, parameters=&#123;&#125;<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.791</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-7]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.w</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.WebSocketHandlerMapping</span> : Mapped to org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.socket</span><span class="hljs-selector-class">.sockjs</span><span class="hljs-selector-class">.support</span>.SockJsHttpRequestHandler@<span class="hljs-number">625</span>d9132<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.791</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-7]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.w</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.t</span><span class="hljs-selector-class">.h</span><span class="hljs-selector-class">.DefaultSockJsService</span> : Processing transport request: GET http:<span class="hljs-comment">//localhost:8080/chat/080/bw6hxi0f/websocket</span><br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.793</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-7]</span> o<span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.servlet</span><span class="hljs-selector-class">.DispatcherServlet</span> : Completed <span class="hljs-number">101</span> SWITCHING_PROTOCOLS<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.794</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[nio-8080-exec-7]</span> s<span class="hljs-selector-class">.w</span><span class="hljs-selector-class">.s</span><span class="hljs-selector-class">.h</span><span class="hljs-selector-class">.LoggingWebSocketHandlerDecorator</span> : New WebSocketServerSockJsSession<span class="hljs-selector-attr">[id=bw6hxi0f]</span><br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.797</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[boundChannel-32]</span> org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.SimpLogging</span> : Processing CONNECT session=bw6hxi0f<br><br><span class="hljs-number">2021</span>-<span class="hljs-number">06</span>-<span class="hljs-number">04</span> <span class="hljs-number">15</span>:<span class="hljs-number">46</span>:<span class="hljs-number">48.800</span> DEBUG <span class="hljs-number">15378</span> --- <span class="hljs-selector-attr">[boundChannel-35]</span> org<span class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.web</span><span class="hljs-selector-class">.SimpLogging</span> : Processing SUBSCRIBE /topic/messages id=sub-<span class="hljs-number">0</span> session=bw6hxi0f<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="send-1"><a href="#send-1" class="headerlink" title="send"></a>send</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>2021-06-04 15:47:57.442 <span class="hljs-built_in">DEBUG</span> 15378 --- [boundChannel-37] .WebSocketAnnotationMethodMessageHandler : Searching methods <span class="hljs-keyword">to</span> handle SEND /app/chat <span class="hljs-attribute">session</span>=bw6hxi0f, <span class="hljs-attribute">lookupDestination</span>=<span class="hljs-string">&#x27;/chat&#x27;</span><br><br>2021-06-04 15:47:57.444 <span class="hljs-built_in">DEBUG</span> 15378 --- [boundChannel-37] .WebSocketAnnotationMethodMessageHandler : Invoking ChatController#send[2 args]<br><br>simpMessageType : MESSAGE<br><br>stompCommand : SEND<br><br>nativeHeaders : &#123;destination=[/app/chat], content-length=[26]&#125;<br><br>simpSessionAttributes : &#123;&#125;<br><br>simpHeartbeat : [J@5b8852c9<br><br>lookupDestination : /chat<br><br>simpSessionId : bw6hxi0f<br><br>simpDestination : /app/chat<br><br><span class="hljs-keyword">From</span>: [a] Content: [aaaa]<br><br>  <br><br>2021-06-04 16:14:07.627 <span class="hljs-built_in">DEBUG</span> 16527 --- [boundChannel-13] org.springframework.web.SimpLogging : Processing MESSAGE <span class="hljs-attribute">destination</span>=/queue/messages-usertest <span class="hljs-attribute">session</span>=test payload=&#123;<span class="hljs-string">&quot;from&quot;</span>:<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;text&quot;</span>:<span class="hljs-string">&quot;aaaaa&quot;</span>,<span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;16:14&quot;</span>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="message"><a href="#message" class="headerlink" title="message"></a>message</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><br>2021-06-04 15:47:57.491 <span class="hljs-built_in">DEBUG</span> 15378 --- [boundChannel-37] org.springframework.web.SimpLogging : Processing MESSAGE <span class="hljs-attribute">destination</span>=/topic/messages <span class="hljs-attribute">session</span>=bw6hxi0f payload=&#123;<span class="hljs-string">&quot;from&quot;</span>:<span class="hljs-string">&quot;a&quot;</span>,<span class="hljs-string">&quot;text&quot;</span>:<span class="hljs-string">&quot;aaaa&quot;</span>,<span class="hljs-string">&quot;time&quot;</span>:<span class="hljs-string">&quot;15:47&quot;</span>&#125;<br><br>2021-06-04 15:47:57.492 <span class="hljs-built_in">DEBUG</span> 15378 --- [boundChannel-37] org.springframework.web.SimpLogging : Broadcasting <span class="hljs-keyword">to</span> 1 sessions.<br><br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/java/" class="print-no-link">#java</a>
+      
+        <a href="/tags/network/" class="print-no-link">#network</a>
+      
+        <a href="/tags/spring/" class="print-no-link">#spring</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>STOMP tutorial</div>
+      <div>https://rugal.github.com/2021/2021-06-05-stomp-tutorial/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Rugal Bernstein</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 5, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/2021-09-11-jvm-runtime-data-area/" title="JVM runtime data area">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JVM runtime data area</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/2021-03-06-pki-clarification/" title="PKI clarification">
+                        <span class="hidden-mobile">PKI clarification</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
