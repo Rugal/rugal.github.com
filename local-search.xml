@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>thought for kill-that-shi-jia-zhuang-ian</title>
+    <link href="/2023/2023-11-01-thought-for-kill-that-shi-jia-zhuang-ian/"/>
+    <url>/2023/2023-11-01-thought-for-kill-that-shi-jia-zhuang-ian/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>今天在知乎上看了一篇关于《杀死那个石家庄人》歌词的解析。从这篇文章的解析中沃可以看到，主人公是一个非常麻木的人，可能很少有主动去追求自己喜欢的东西，或者也有可能是社会的压力束缚导致他没有能力去追梦。<br>主人公在药厂工作，每天浑浑噩噩的上班下班。和一个自己不太喜欢的女人结婚，也生了孩子。不知道为什么主人公为什么不去抗拒，仍然要跟这个不爱的女人结婚，可能是生物的本能需求？<br>一切的悲剧起源于主人公工作的药厂，倒闭了，主角没有自己的专业技能，离开原来的烧锅炉工作以后不知道自己能够干什么，比迷茫更迷茫，生活更加浑浑噩噩。努力过也尝试过很多其他工作，但大多没有什么收货，导致自己的生活一地鸡毛。  </p><p>主人公的遭遇是不是悲剧，他的日子过的好吗？当然过的很辛苦，很多人的父母就是这样子的。那个年代，读书是一件比较奢侈的事情，能够上中专、大专甚至大学都是极其罕见的机遇。因此大部分人都没有很高的学历，更没有改变自己人生的机会。  </p><p>那么他们应该怎么办呢，只能做一些销售、推销方面的工作，我的父母就是这个样子的，特别是我的父亲。高中毕业没有考上本科，然后一意孤行就要去参军，兵役服完就立刻选择复员。没有任何专业技能和学历，就是一个普普通通的人来到这个市场化的就业环境中。<br>竞争是极其残酷的，大部分情况下只能做销售这样的工作，说得好听一点就做市场营销，但谁都知道那就是个卖货的，无论卖的是什么。因此，业绩压力就会很大，卖出去多少 你才能提取一些分成。不像公务员之流的，什么都不用干、或者只需要做一点点简单的事情就可以拿一个稳定的钱。<br>然而我的父母和上面这首歌的主人公不是太一样，首先是运气可能比主角要好一点，销售绩效要好一些，坚持的时间要长一些，因此有一些回报。因此不至于家里苦到没饭吃的穷困地步。由于在浙江，整体机会，经济发展形势也是要比北方要好，因此总体来说最终并没有混成和主角一样的地步。  </p><p>但我想说的是，一个最关键的问题，就是很多人一直都是抗拒变化，抗拒学习的。一旦在一个稳定的位置上就只会凭借现有的状态基本不做或者只做一点点学习，就像前一段说的公务员一样。没有多少是真正愿意持续学习，持续改良自己的人。<br>没错，人都是懒惰的，都愿意把自己的失败归咎于时代、社会。这很常见，但我觉得我们应该摈弃这种想法，社会不会因为你的这个想法而为了你做改变。如果碰到了这样的事情，一定要想清楚，需要找谁清算的事后可以清算，但一定要立足于当下，立马行动起来。改变自己，努力学习新的知识，适应新的场景。<br>其实学习这个事情应该是贯彻于人的一生的：持续学习、持续改良。而不是仅仅是当遭遇到困难的时候、药厂倒闭的时候才行动就已经太晚了。  </p><p>我的岳父就是一个很正面的例子。他从小就比较认学，后来他当年被中专录取了炼油专业，这在当年已经算是还可以了，但和本科录取毕竟还是有差别的。<br>毕业后也被分配到了一家国企炼油厂。注意这个时候的炼油厂也仅仅是比普通企业好一点点罢了，并没有中石油、中石化的油田公司那么躺的平。很多人在这个时候也一样会就此躺平，但我的岳父不一样，他在工作期间还是持续的学习，不停的寻找机会。后来遇到了一个更好的基于，就来到了南方，才给自己和家人的未来带来了更多的可能性。</p><p>像我岳父这样天生就持续学习人可能有不少，但如果能够后天养成持续学习这样的好习惯也是能够不断为你的人生带来好的可能性的。</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs">任何时候都不要躺平，一定要持续学习、不断适应，不断改良。<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>myself</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Concurrency Ability</title>
     <link href="/2023/2023-08-14-concurrency-ability/"/>
     <url>/2023/2023-08-14-concurrency-ability/</url>
@@ -332,9 +351,9 @@
     
     <tags>
       
-      <tag>java</tag>
-      
       <tag>jvm</tag>
+      
+      <tag>java</tag>
       
       <tag>gc</tag>
       
@@ -521,9 +540,9 @@
     
     <tags>
       
-      <tag>java</tag>
-      
       <tag>jvm</tag>
+      
+      <tag>java</tag>
       
       <tag>gc</tag>
       
@@ -550,9 +569,9 @@
     
     <tags>
       
-      <tag>java</tag>
-      
       <tag>jvm</tag>
+      
+      <tag>java</tag>
       
       <tag>gc</tag>
       
@@ -714,9 +733,9 @@
     
     <tags>
       
-      <tag>java</tag>
-      
       <tag>jvm</tag>
+      
+      <tag>java</tag>
       
       <tag>gc</tag>
       
@@ -770,9 +789,9 @@
     
     <tags>
       
-      <tag>java</tag>
-      
       <tag>jvm</tag>
+      
+      <tag>java</tag>
       
     </tags>
     
@@ -928,9 +947,9 @@
     
     <tags>
       
-      <tag>git</tag>
-      
       <tag>gpg</tag>
+      
+      <tag>git</tag>
       
     </tags>
     
@@ -1194,9 +1213,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>bash</tag>
+      
+      <tag>linux</tag>
       
       <tag>kubernetes</tag>
       
@@ -1273,13 +1292,13 @@
     
     <tags>
       
+      <tag>network</tag>
+      
       <tag>docker</tag>
       
       <tag>gcp</tag>
       
       <tag>vpn</tag>
-      
-      <tag>network</tag>
       
     </tags>
     
@@ -1329,9 +1348,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>bash</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -1406,9 +1425,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>bash</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -1433,9 +1452,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>bash</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -1677,9 +1696,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>bash</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -1855,7 +1874,7 @@
     <link href="/2017/2017-05-22-ubuntu-close-lid-without-suspension/"/>
     <url>/2017/2017-05-22-ubuntu-close-lid-without-suspension/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="Edit-systemd-file"><a href="#Edit-systemd-file" class="headerlink" title="Edit systemd file"></a>Edit systemd file</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo vi <span class="hljs-regexp">/etc/</span>systemd/logind.conf<br></code></pre></td></tr></table></figure><h1 id="Find-and-set"><a href="#Find-and-set" class="headerlink" title="Find and set"></a>Find and set</h1><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">HandleLidSwitch</span><span class="hljs-operator">=</span>ignore<br></code></pre></td></tr></table></figure><h1 id="Restart"><a href="#Restart" class="headerlink" title="Restart"></a>Restart</h1><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl restart <span class="hljs-params">system</span>d-logind.service<br></code></pre></td></tr></table></figure><p> Or simply restart your entire system</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="Edit-systemd-file"><a href="#Edit-systemd-file" class="headerlink" title="Edit systemd file"></a>Edit systemd file</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo <span class="hljs-keyword">vi</span> /etc/systemd/logind.<span class="hljs-keyword">conf</span><br></code></pre></td></tr></table></figure><h1 id="Find-and-set"><a href="#Find-and-set" class="headerlink" title="Find and set"></a>Find and set</h1><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">HandleLidSwitch</span><span class="hljs-operator">=</span>ignore<br></code></pre></td></tr></table></figure><h1 id="Restart"><a href="#Restart" class="headerlink" title="Restart"></a>Restart</h1><figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl restart <span class="hljs-params">system</span>d-logind.service<br></code></pre></td></tr></table></figure><p> Or simply restart your entire system</p>]]></content>
     
     
     <categories>
@@ -1880,7 +1899,7 @@
     <link href="/2017/2017-05-22-ubuntu-wireless-setup/"/>
     <url>/2017/2017-05-22-ubuntu-wireless-setup/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="Find-your-interface-name"><a href="#Find-your-interface-name" class="headerlink" title="Find your interface name"></a>Find your interface name</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">chili</span>@T440p:~$ iwconfig<br><span class="hljs-attribute">enp0s25</span>   no wireless extensions.<br><br><span class="hljs-attribute">lo</span>        no wireless extensions.<br><br><span class="hljs-attribute">wlp3s0</span>    IEEE <span class="hljs-number">802</span>.<span class="hljs-number">11</span>bgn  ESSID:<span class="hljs-string">&quot;GBR1&quot;</span>  <br>          <span class="hljs-attribute">Mode</span>:Managed  Frequency:<span class="hljs-number">2</span>.<span class="hljs-number">462</span> GHz  Access Point: XX:<span class="hljs-number">2</span>B:B0:DC:<span class="hljs-number">45</span>:XX <br>          <span class="hljs-attribute">Bit</span> Rate=<span class="hljs-number">72</span>.<span class="hljs-number">2</span> Mb/s   Tx-Power=<span class="hljs-number">22</span> dBm   <br>          <span class="hljs-attribute">Retry</span> short limit:<span class="hljs-number">7</span>   RTS thr:<span class="hljs-literal">off</span>   Fragment thr:<span class="hljs-literal">off</span><br>          <span class="hljs-attribute">Power</span> Management:<span class="hljs-literal">on</span><br>          <span class="hljs-attribute">Link</span> Quality=<span class="hljs-number">55</span>/<span class="hljs-number">70</span>  Signal level=-<span class="hljs-number">55</span> dBm  <br>          <span class="hljs-attribute">Rx</span> invalid nwid:<span class="hljs-number">0</span>  Rx invalid crypt:<span class="hljs-number">0</span>  Rx invalid frag:<span class="hljs-number">0</span><br>          <span class="hljs-attribute">Tx</span> excessive retries:<span class="hljs-number">0</span>  Invalid misc:<span class="hljs-number">109</span>   Missed beacon:<span class="hljs-number">0</span><br><br></code></pre></td></tr></table></figure><p>It will be <code>wlxxx</code> something rather than wlan0 any more as it is 16.04 anyway.</p><h1 id="Edit-interface-file"><a href="#Edit-interface-file" class="headerlink" title="Edit interface file"></a>Edit interface file</h1><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo vim <span class="hljs-regexp">/etc/</span>network/interfaces<br></code></pre></td></tr></table></figure><blockquote><p>auto wlan0<br>iface wlan0 inet dhcp<br>wpa-ssid <code>your_access_point</code><br>wpa-psk <code>your_wpa_key</code></p></blockquote><h1 id="restart-interface"><a href="#restart-interface" class="headerlink" title="restart interface"></a>restart interface</h1><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo ifup -v wlxxx</span><br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="Find-your-interface-name"><a href="#Find-your-interface-name" class="headerlink" title="Find your interface name"></a>Find your interface name</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">chili</span>@T440p:~$ iwconfig<br><span class="hljs-attribute">enp0s25</span>   no wireless extensions.<br><br><span class="hljs-attribute">lo</span>        no wireless extensions.<br><br><span class="hljs-attribute">wlp3s0</span>    IEEE <span class="hljs-number">802</span>.<span class="hljs-number">11</span>bgn  ESSID:<span class="hljs-string">&quot;GBR1&quot;</span>  <br>          <span class="hljs-attribute">Mode</span>:Managed  Frequency:<span class="hljs-number">2</span>.<span class="hljs-number">462</span> GHz  Access Point: XX:<span class="hljs-number">2</span>B:B0:DC:<span class="hljs-number">45</span>:XX <br>          <span class="hljs-attribute">Bit</span> Rate=<span class="hljs-number">72</span>.<span class="hljs-number">2</span> Mb/s   Tx-Power=<span class="hljs-number">22</span> dBm   <br>          <span class="hljs-attribute">Retry</span> short limit:<span class="hljs-number">7</span>   RTS thr:<span class="hljs-literal">off</span>   Fragment thr:<span class="hljs-literal">off</span><br>          <span class="hljs-attribute">Power</span> Management:<span class="hljs-literal">on</span><br>          <span class="hljs-attribute">Link</span> Quality=<span class="hljs-number">55</span>/<span class="hljs-number">70</span>  Signal level=-<span class="hljs-number">55</span> dBm  <br>          <span class="hljs-attribute">Rx</span> invalid nwid:<span class="hljs-number">0</span>  Rx invalid crypt:<span class="hljs-number">0</span>  Rx invalid frag:<span class="hljs-number">0</span><br>          <span class="hljs-attribute">Tx</span> excessive retries:<span class="hljs-number">0</span>  Invalid misc:<span class="hljs-number">109</span>   Missed beacon:<span class="hljs-number">0</span><br><br></code></pre></td></tr></table></figure><p>It will be <code>wlxxx</code> something rather than wlan0 any more as it is 16.04 anyway.</p><h1 id="Edit-interface-file"><a href="#Edit-interface-file" class="headerlink" title="Edit interface file"></a>Edit interface file</h1><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">sudo vim /etc/network/<span class="hljs-built_in">int</span>erfaces<br></code></pre></td></tr></table></figure><blockquote><p>auto wlan0<br>iface wlan0 inet dhcp<br>wpa-ssid <code>your_access_point</code><br>wpa-psk <code>your_wpa_key</code></p></blockquote><h1 id="restart-interface"><a href="#restart-interface" class="headerlink" title="restart interface"></a>restart interface</h1><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo ifup -v wlxxx</span><br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -1918,31 +1937,6 @@
     <tags>
       
       <tag>jvm</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Git remote repository</title>
-    <link href="/2016/2016-10-02-git-remote-repository/"/>
-    <url>/2016/2016-10-02-git-remote-repository/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Let’s make a practise.  </p><h2 id="Init-local-repository"><a href="#Init-local-repository" class="headerlink" title="Init local repository"></a>Init local repository</h2><p>Initialize a local repository.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir learn-git ; cd learn-git<br>git init<br>git remote add origin https://github.com/Rugal/learn-git.git<br></code></pre></td></tr></table></figure><h2 id="First-commit"><a href="#First-commit" class="headerlink" title="First commit"></a>First commit</h2><h3 id="Create-file"><a href="#Create-file" class="headerlink" title="Create file"></a>Create file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Rugal Bernstein first commit  &quot; &gt;&gt; README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitUntracked files: (use “git add …” to include in what will be committed)    README.md    nothing added to commit but untracked files present (use “git add” to track)</code></pre><h3 id="Staging-file"><a href="#Staging-file" class="headerlink" title="Staging file"></a>Staging file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitChanges to be committed: (use “git rm –cached …” to unstage)    new file:   README.md</code></pre><h3 id="Commit-file"><a href="#Commit-file" class="headerlink" title="Commit file"></a>Commit file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git commit -m&quot;first commit&quot;<br></code></pre></td></tr></table></figure><pre><code class="hljs">[master (root-commit) 3e9292a] first commit1 file changed, 1 insertion(+)create mode 100644 README.mdgit statusOn branch masternothing to commit, working directory clean</code></pre><h2 id="First-push"><a href="#First-push" class="headerlink" title="First push"></a>First push</h2><h3 id="Create-Github-repository"><a href="#Create-Github-repository" class="headerlink" title="Create Github repository"></a>Create Github repository</h3><p>We usually use <code>Github</code> as our code host.<br><a href="https://i.postimg.cc/mDRz2B5c/create_github.png"><img src="https://i.postimg.cc/mDRz2B5c/create_github.png" alt="create_github.png"></a>  </p><h3 id="Push-your-code"><a href="#Push-your-code" class="headerlink" title="Push your code"></a>Push your code</h3><p>Synchronize you local repository to remote host.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git remote add origin https://github.com/Rugal/learn-git.git<br>git push origin master<br></code></pre></td></tr></table></figure><pre><code class="hljs">Counting objects: 3, done.Writing objects: 100% (3/3), 252 bytes | 0 bytes/s, done.Total 3 (delta 0), reused 0 (delta 0)To https://github.com/Rugal/learn-git.git* [new branch] master -&gt; master</code></pre><h3 id="Track-remote-repository"><a href="#Track-remote-repository" class="headerlink" title="Track remote repository"></a>Track remote repository</h3><p>This is set to track the remote status, so that Git could compare the difference between local and remote repo.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch -u origin/master; git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">Branch master set up to track remote branch master from origin.On branch masterYour branch is up-to-date with ‘origin/master’.nothing to commit, working directory clean</code></pre><p><a href="https://i.postimg.cc/9MVb53Pb/first_push.png"><img src="https://i.postimg.cc/9MVb53Pb/first_push.png" alt="first_push.png"></a>  </p><p>The tricky point is that, <code>origin/master</code> is not special. It is a local cache of the remote branch.  But you can’t change this <code>origin/master</code> branch unless by <code>git fetch/push</code>.<br>So basically each time you do <code>git fetch/push</code>, the <code>origin/master</code> branch will be synced with real remote <code>master</code>.  Then you will know the differences between your local development branch and real remote branch by comparing the local <code>master</code> with the local <code>origin/master</code>.  </p>]]></content>
-    
-    
-    <categories>
-      
-      <category>development</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>git</tag>
       
     </tags>
     
@@ -2031,6 +2025,31 @@
     <url>/2016/2016-10-02-git-merge-and-rebase/</url>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>There are two ways you can join branches.<br>For showing with example, here is the base commit tree.<br><a href="https://i.postimg.cc/ydBBSdBH/branch_tree.png"><img src="https://i.postimg.cc/ydBBSdBH/branch_tree.png" alt="branch_tree.png"></a><br>Here you can see, there are two branches, <code>master</code> and <code>development</code>.  </p><h1 id="Merge"><a href="#Merge" class="headerlink" title="Merge"></a>Merge</h1><p><code>Merge</code> is a very straight forward method to join branches.<br>When <code>merge</code> command is issued, git will compare current branch with the target branch and aggregate commits that are different from the diverge point, here is <code>[3 4 5]</code>.<br>Then git will place the the aggregated commit <code>[7]</code> on top of the <code>master</code>.  Also, conflicts is also placed in this commit.<br><a href="https://i.postimg.cc/76qGPKTq/branch_merge.png"><img src="https://i.postimg.cc/76qGPKTq/branch_merge.png" alt="branch_merge.png"></a><br>As you can see, this method retains branch structure so reverting to old branch structure is possible.  </p><h1 id="Rebase"><a href="#Rebase" class="headerlink" title="Rebase"></a>Rebase</h1><p>Different from <code>Merge</code>, <code>Rebase</code> does not retain branch structure.<br>The different commits will be replayed on top of the <code>master</code> branch, as if you commit them on <code>master</code> at the first place.<br>Commits will be replayed one by one. Conflict needs to be resolved on each commit.<br><a href="https://i.postimg.cc/Y9tRcfrW/branch_rebase.png"><img src="https://i.postimg.cc/Y9tRcfrW/branch_rebase.png" alt="branch_rebase.png"></a><br>As you can see, the branch structure is aligned as a straight line.  So revertng directly to old branch structure is not easy.  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>development</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git remote repository</title>
+    <link href="/2016/2016-10-02-git-remote-repository/"/>
+    <url>/2016/2016-10-02-git-remote-repository/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Let’s make a practise.  </p><h2 id="Init-local-repository"><a href="#Init-local-repository" class="headerlink" title="Init local repository"></a>Init local repository</h2><p>Initialize a local repository.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">mkdir learn-git ; cd learn-git<br>git init<br>git remote add origin https://github.com/Rugal/learn-git.git<br></code></pre></td></tr></table></figure><h2 id="First-commit"><a href="#First-commit" class="headerlink" title="First commit"></a>First commit</h2><h3 id="Create-file"><a href="#Create-file" class="headerlink" title="Create file"></a>Create file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;Rugal Bernstein first commit  &quot; &gt;&gt; README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitUntracked files: (use “git add …” to include in what will be committed)    README.md    nothing added to commit but untracked files present (use “git add” to track)</code></pre><h3 id="Staging-file"><a href="#Staging-file" class="headerlink" title="Staging file"></a>Staging file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git add README.md<br>git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">On branch masterInitial commitChanges to be committed: (use “git rm –cached …” to unstage)    new file:   README.md</code></pre><h3 id="Commit-file"><a href="#Commit-file" class="headerlink" title="Commit file"></a>Commit file</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git commit -m&quot;first commit&quot;<br></code></pre></td></tr></table></figure><pre><code class="hljs">[master (root-commit) 3e9292a] first commit1 file changed, 1 insertion(+)create mode 100644 README.mdgit statusOn branch masternothing to commit, working directory clean</code></pre><h2 id="First-push"><a href="#First-push" class="headerlink" title="First push"></a>First push</h2><h3 id="Create-Github-repository"><a href="#Create-Github-repository" class="headerlink" title="Create Github repository"></a>Create Github repository</h3><p>We usually use <code>Github</code> as our code host.<br><a href="https://i.postimg.cc/mDRz2B5c/create_github.png"><img src="https://i.postimg.cc/mDRz2B5c/create_github.png" alt="create_github.png"></a>  </p><h3 id="Push-your-code"><a href="#Push-your-code" class="headerlink" title="Push your code"></a>Push your code</h3><p>Synchronize you local repository to remote host.  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git remote add origin https://github.com/Rugal/learn-git.git<br>git push origin master<br></code></pre></td></tr></table></figure><pre><code class="hljs">Counting objects: 3, done.Writing objects: 100% (3/3), 252 bytes | 0 bytes/s, done.Total 3 (delta 0), reused 0 (delta 0)To https://github.com/Rugal/learn-git.git* [new branch] master -&gt; master</code></pre><h3 id="Track-remote-repository"><a href="#Track-remote-repository" class="headerlink" title="Track remote repository"></a>Track remote repository</h3><p>This is set to track the remote status, so that Git could compare the difference between local and remote repo.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git branch -u origin/master; git status<br></code></pre></td></tr></table></figure><pre><code class="hljs">Branch master set up to track remote branch master from origin.On branch masterYour branch is up-to-date with ‘origin/master’.nothing to commit, working directory clean</code></pre><p><a href="https://i.postimg.cc/9MVb53Pb/first_push.png"><img src="https://i.postimg.cc/9MVb53Pb/first_push.png" alt="first_push.png"></a>  </p><p>The tricky point is that, <code>origin/master</code> is not special. It is a local cache of the remote branch.  But you can’t change this <code>origin/master</code> branch unless by <code>git fetch/push</code>.<br>So basically each time you do <code>git fetch/push</code>, the <code>origin/master</code> branch will be synced with real remote <code>master</code>.  Then you will know the differences between your local development branch and real remote branch by comparing the local <code>master</code> with the local <code>origin/master</code>.  </p>]]></content>
     
     
     <categories>
@@ -2351,9 +2370,9 @@
     
     <tags>
       
-      <tag>vim</tag>
-      
       <tag>clojure</tag>
+      
+      <tag>vim</tag>
       
     </tags>
     
@@ -2726,9 +2745,9 @@
       
       <tag>java</tag>
       
-      <tag>jpt</tag>
-      
       <tag>maven</tag>
+      
+      <tag>jpt</tag>
       
     </tags>
     
@@ -2957,9 +2976,9 @@
       
       <tag>linux</tag>
       
-      <tag>docker</tag>
-      
       <tag>network</tag>
+      
+      <tag>docker</tag>
       
     </tags>
     
@@ -3338,9 +3357,9 @@
     
     <tags>
       
-      <tag>hadoop</tag>
-      
       <tag>linux</tag>
+      
+      <tag>hadoop</tag>
       
     </tags>
     
@@ -3467,9 +3486,9 @@
     
     <tags>
       
-      <tag>linux</tag>
-      
       <tag>bash</tag>
+      
+      <tag>linux</tag>
       
     </tags>
     
@@ -3928,31 +3947,6 @@
   
   
   <entry>
-    <title>vim long line slowness</title>
-    <link href="/2014/2014-09-04-vim-long-line-slowness/"/>
-    <url>/2014/2014-09-04-vim-long-line-slowness/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Yes, it is very slow to have a long line copy or move within vim, which mostly due to the <code>syntax highlight</code> procedure as <a href="http://superuser.com/questions/302186/vim-scrolls-very-slow-when-a-line-is-to-long">explained</a><br>Just as mentioned, three enhancement methods are:  </p><ol><li>Turn off syntax highlighting with <code>:syntax off</code>.</li><li>Limit syntax highlighting with <code>:set synmaxcol=150</code> or some other value.</li><li>Break down your long line in smaller chunks with <code>:s/\s&lt;a/&lt;C-v&gt;&lt;Enter&gt;&lt;a</code>.</li></ol><p>Method above could address the long line slowness problem, I tested it already.</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>operation</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>vim</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>clojure lazy sequence</title>
     <link href="/2014/2014-09-04-clojure-lazy-sequence/"/>
     <url>/2014/2014-09-04-clojure-lazy-sequence/</url>
@@ -3995,6 +3989,31 @@
     <tags>
       
       <tag>language</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>vim long line slowness</title>
+    <link href="/2014/2014-09-04-vim-long-line-slowness/"/>
+    <url>/2014/2014-09-04-vim-long-line-slowness/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Yes, it is very slow to have a long line copy or move within vim, which mostly due to the <code>syntax highlight</code> procedure as <a href="http://superuser.com/questions/302186/vim-scrolls-very-slow-when-a-line-is-to-long">explained</a><br>Just as mentioned, three enhancement methods are:  </p><ol><li>Turn off syntax highlighting with <code>:syntax off</code>.</li><li>Limit syntax highlighting with <code>:set synmaxcol=150</code> or some other value.</li><li>Break down your long line in smaller chunks with <code>:s/\s&lt;a/&lt;C-v&gt;&lt;Enter&gt;&lt;a</code>.</li></ol><p>Method above could address the long line slowness problem, I tested it already.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>operation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>vim</tag>
       
     </tags>
     
@@ -4747,9 +4766,9 @@
     
     <tags>
       
-      <tag>vim</tag>
-      
       <tag>linux</tag>
+      
+      <tag>vim</tag>
       
     </tags>
     
