@@ -224,15 +224,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2021/2021-09-26-object-generational-assumption/" target="_self">
-          Object Generational Assumption
+        <a href="/2021/2021-09-26-object-liveness/" target="_self">
+          Object Liveness
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-object-generational-assumption/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-object-liveness/" target="_self">
         <div>
-          根据统计显示,绝大部分创建出来的对象都符合如下图般的规律. 大部分对象的存活时间都非常短,刚创建出来一会儿就不再有引用了.例如在做计算的过程中所创建出来的对象,在一个计算公式结束后计算过程中所有的中间临时变量都不再有用了. 而另外,有一小半对象的存活时间会非常长,甚至是一直存在于进程之中的.例如系统配置变量等需要全局引用的对象等. 剩下的那些存活时间不长也不短的对象,则仅仅占据了非常小的比例.
+          为了确定一个对象是否可以进行内存回收,我们有以下几种判定方法 引用计数法引用计数法是非常经典也非常简单容易实现的判定方法.基本原理就是每当有一个引用挂在对象上,这个对象上的引用计数器就+1.若对象上的引用计数器归0了则判定这个对象可以被回收.这个算法非常好理解,也非常好实现,很多语言例如Python都是用这种方式. 但这个方法有一个严重的问题,就是如果两个对象互相引用对方,而没有其他引用指向这两个
         </div>
       </a>
 
@@ -289,15 +289,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2021/2021-09-26-object-liveness/" target="_self">
-          Object Liveness
+        <a href="/2021/2021-09-26-mark-copy/" target="_self">
+          Mark Copy algorithm
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-object-liveness/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-copy/" target="_self">
         <div>
-          为了确定一个对象是否可以进行内存回收,我们有以下几种判定方法 引用计数法引用计数法是非常经典也非常简单容易实现的判定方法.基本原理就是每当有一个引用挂在对象上,这个对象上的引用计数器就+1.若对象上的引用计数器归0了则判定这个对象可以被回收.这个算法非常好理解,也非常好实现,很多语言例如Python都是用这种方式. 但这个方法有一个严重的问题,就是如果两个对象互相引用对方,而没有其他引用指向这两个
+          某些文档里会称copy为 #scavenge 和 #mark-sweep #mark-compact 两个算法不太一样的是,在 #mark-copy 算法中,我们将内存我们需要操作的内存分成两个区域,分别称为from和to区域,但其实他们的意义和名字 并没有直接关系,因为他们两个是等价的,只使用名字做一个区分而已.  因此有的文档上也将这两个区域称为survivor 1和survivor 2,统称
         </div>
       </a>
 
@@ -335,8 +335,6 @@
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/java/">#java</a>
             
               <a href="/tags/jvm/">#jvm</a>
             

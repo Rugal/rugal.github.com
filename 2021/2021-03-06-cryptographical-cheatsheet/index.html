@@ -16,17 +16,18 @@
   <meta name="author" content="Rugal Bernstein">
   <meta name="keywords" content="">
   
-    <meta name="description" content="referenceSOF file encodingBER&#x2F;DERIt is the binary format.  A way to encode ASN.1 syntax in binary.The first byte in the file should be a 0 character (U+0030) PEMDefined in RFCs  1421  through  14">
+    <meta name="description" content="referenceSOF ASN.1An abstract notion language that can be used to describe protocols. For instance, the code below is simplest sample to define a protocol called FooWe use ASN.1 language to do protoco">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PKI clarification">
-<meta property="og:url" content="https://rugal.github.com/2021/2021-03-06-pki-clarification/index.html">
+<meta property="og:url" content="https://rugal.github.com/2021/2021-03-06-cryptographical-cheatsheet/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="referenceSOF file encodingBER&#x2F;DERIt is the binary format.  A way to encode ASN.1 syntax in binary.The first byte in the file should be a 0 character (U+0030) PEMDefined in RFCs  1421  through  14">
+<meta property="og:description" content="referenceSOF ASN.1An abstract notion language that can be used to describe protocols. For instance, the code below is simplest sample to define a protocol called FooWe use ASN.1 language to do protoco">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-06T05:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-07T15:16:52.420Z">
+<meta property="article:modified_time" content="2023-11-07T15:30:48.995Z">
 <meta property="article:author" content="Rugal Bernstein">
 <meta property="article:tag" content="security">
+<meta property="article:tag" content="openssl">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -220,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k words
+          2.1k words
         
       </span>
     
@@ -231,7 +232,7 @@
         
         
         
-          22 mins
+          18 mins
         
       </span>
     
@@ -274,14 +275,23 @@
               <div class="markdown-body">
                 
                 <link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><a target="_blank" rel="noopener" href="https://www.cryptosys.net/pki/rsakeyformats.html">reference</a><br><a target="_blank" rel="noopener" href="https://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file">SOF</a></p>
-<h2 id="file-encoding"><a href="#file-encoding" class="headerlink" title="file encoding"></a>file encoding</h2><h3 id="BER-DER"><a href="#BER-DER" class="headerlink" title="BER&#x2F;DER"></a>BER&#x2F;DER</h3><p>It is the binary format.  A way to encode ASN.1 syntax in binary.<br>The first byte in the file should be a <code>0</code> character (U+0030)</p>
-<h3 id="PEM"><a href="#PEM" class="headerlink" title="PEM"></a>PEM</h3><p>Defined in RFCs  <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1421">1421</a>  through  <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1424">1424</a>, this is a container format that may include just the public certificate (such as with Apache installs, and CA certificate files  <code>/etc/ssl/certs</code>), or may include an entire certificate chain including public key, private key, and root certificates. Confusingly, it may also encode a CSR (e.g. as used  <a target="_blank" rel="noopener" href="https://jamielinux.com/docs/openssl-certificate-authority/create-the-intermediate-pair.html">here</a>) as the PKCS10 format can be translated into PEM.<br>The name is from  <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Privacy-enhanced_Electronic_Mail">Privacy Enhanced Mail (PEM)</a>, a failed method for secure email but the container format it used lives on, and is a base64 translation of the x509 ASN.1 keys.</p>
-<p>It is like the following container format, where <code>???</code> is the actual name of key, for instance <code>RSA</code>, <code>PUBLIC</code>, <code>PRIVATE</code> etc.,</p>
-<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-literal">-----</span><span class="hljs-comment">BEGIN ???</span> <span class="hljs-literal">-----</span><br><span class="hljs-literal">-----</span><span class="hljs-comment">END ???</span> <span class="hljs-literal">-----</span><br></code></pre></td></tr></table></figure>
+<h2 id="ASN-1"><a href="#ASN-1" class="headerlink" title="ASN.1"></a>ASN.1</h2><p>An abstract notion language that can be used to describe protocols. For instance, the code below is simplest sample to define a protocol called Foo<br>We use ASN.1 language to do protocol definition as it provide enough abstraction over different protocols. </p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">FooProtocol DEFINITIONS ::= <span class="hljs-keyword">BEGIN</span><br><br>    FooQuestion ::= <span class="hljs-keyword">SEQUENCE</span> &#123;<br>        trackingNumber <span class="hljs-type">INTEGER</span>,<br>        question       IA5String<br>    &#125;<br><br>    FooAnswer ::= <span class="hljs-keyword">SEQUENCE</span> &#123;<br>        questionNumber <span class="hljs-type">INTEGER</span>,<br>        answer         <span class="hljs-type">BOOLEAN</span><br>    &#125;<br><br><span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="key"><a href="#key" class="headerlink" title="key"></a>key</h3><p>This is a PEM formatted file containing just the private-key of a specific certificate and is merely a conventional name and not a standardized one. In Apache installs, this frequently resides in <code>/etc/ssl/private</code>.<br>The rights on these files are very important, and some programs will refuse to load these certificates if they are set wrong.</p>
-<h3 id="cert-cer-crt"><a href="#cert-cer-crt" class="headerlink" title="cert, cer, crt"></a>cert, cer, crt</h3><p>A .pem (or rarely .der) formatted file with a different extension, one that is recognized by Windows Explorer as a certificate, which .pem is not.</p>
-<h2 id="some-file-recognition"><a href="#some-file-recognition" class="headerlink" title="some file recognition"></a>some file recognition</h2><h3 id="Public-key-formats-supported"><a href="#Public-key-formats-supported" class="headerlink" title="Public key formats supported"></a>Public key formats supported</h3><ul>
+
+<h2 id="encoding-rule"><a href="#encoding-rule" class="headerlink" title="encoding rule"></a>encoding rule</h2><p>Nothing but just to define how the actual data is encoded. It is super easy to understand when refer to JSON or XML format in the context of HTTP.<br>Similar to that, BER is the binary way of encoding, but it extract the field name into octlet, very similar to <code>gRPC</code> .</p>
+<ol>
+<li>Binary  </li>
+<li>BER  </li>
+<li>DER  </li>
+<li>CER  </li>
+<li>Text  </li>
+<li>XER  </li>
+<li>ASCII  </li>
+<li>JSON</li>
+<li>PEM</li>
+</ol>
+<h3 id="Public-key-formats-supported"><a href="#Public-key-formats-supported" class="headerlink" title="Public key formats supported"></a>Public key formats supported</h3><ul>
 <li>PKCS#1 RSAPublicKey* (PEM header:  <code>BEGIN RSA PUBLIC KEY</code>)</li>
 <li>X.509 SubjectPublicKeyInfo** (PEM header:  <code>BEGIN PUBLIC KEY</code>)</li>
 <li>XML  <code>&lt;RSAKeyValue&gt;</code></li>
@@ -296,9 +306,91 @@
 <li>XML  <code>&lt;RSAKeyPair&gt;</code>  and  <code>&lt;RSAKeyValue&gt;</code></li>
 <li>JSON Web Key (JWK) Plaintext RSA Private Key  <code>&quot;kty&quot;:&quot;RSA&quot;</code></li>
 </ul>
-<h2 id="Create-RSA-key-pair"><a href="#Create-RSA-key-pair" class="headerlink" title="Create RSA key pair"></a>Create RSA key pair</h2><p>You may refer to some <a target="_blank" rel="noopener" href="https://rietta.com/blog/openssl-generating-rsa-key-from-command/">Command</a>  </p>
-<h3 id="generate-private-key"><a href="#generate-private-key" class="headerlink" title="generate private key"></a>generate private key</h3><p>This operation requires a password, this will generate a <code>traditional</code> format, which is <code>PKCS#1</code>.    </p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">openssl genrsa -aes256 -<span class="hljs-keyword">out</span> private.pem <span class="hljs-number">2048</span>  <br>```  <br>  <br>You will need <span class="hljs-keyword">to</span> provide a <span class="hljs-keyword">password</span>, this <span class="hljs-keyword">is</span> required <span class="hljs-keyword">as</span> it <span class="hljs-keyword">is</span>. It will be removed <span class="hljs-keyword">by</span> the <span class="hljs-keyword">following</span> command.       <br>  <br>### remove <span class="hljs-keyword">password</span>  <br>```  <br>openssl rsa -<span class="hljs-keyword">in</span> private.pem -outform PEM -<span class="hljs-keyword">out</span> private_unencrypted.pem  <br>```  <br>  <br>### <span class="hljs-keyword">get</span> <span class="hljs-built_in">public</span> key <span class="hljs-keyword">from</span> private key  <br>You can use <span class="hljs-keyword">both</span> <span class="hljs-keyword">encrypted</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">unencrypted</span> private key <span class="hljs-keyword">to</span> generate <span class="hljs-built_in">public</span> key.    <br>  <br>```  <br>openssl rsa -<span class="hljs-keyword">in</span> private.pem -outform PEM -pubout -<span class="hljs-keyword">out</span> <span class="hljs-built_in">public</span>.pem  <br>```  <br>  <br>### convert pkcs#<span class="hljs-number">1</span> <span class="hljs-keyword">to</span> pkcs#<span class="hljs-number">8</span>  <br>  <br>The original <span class="hljs-keyword">format</span> <span class="hljs-keyword">is</span> the <span class="hljs-keyword">called</span> `traditional` <span class="hljs-keyword">format</span>, essentially <span class="hljs-keyword">is</span> `PKCS#<span class="hljs-number">1</span>`.    <br>`PKCS#<span class="hljs-number">8</span>` <span class="hljs-keyword">is</span> a more <span class="hljs-keyword">stable</span> <span class="hljs-keyword">and</span> standard <span class="hljs-keyword">format</span>, a recommended <span class="hljs-keyword">format</span>.  <br>  <br>The command below will convert private key <span class="hljs-keyword">in</span> <span class="hljs-keyword">format</span> `PKCS#<span class="hljs-number">1</span>` <span class="hljs-keyword">to</span> `PKCS#<span class="hljs-number">8</span>`.    <br>Please specify `-nocrypt` so <span class="hljs-keyword">no</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">is</span> required.    <br>  <br>```  <br>openssl pkcs8 -topk8 -nocrypt -<span class="hljs-keyword">in</span> private.pem -<span class="hljs-keyword">out</span> pkcs8.pem  <br></code></pre></td></tr></table></figure>
+<h2 id="PKCS"><a href="#PKCS" class="headerlink" title="PKCS"></a>PKCS</h2><p>Is a group of public key cryptography standard by RSA Security LLC. Its full name is <code>public key cryptography standards</code>  </p>
+<table>
+<thead>
+<tr>
+<th>document</th>
+<th>explain</th>
+<th>note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1	Define mathematical property and format of RSA key pair in ASN.1text. Basic algorithm and encoding methods for RSA encryption&#x2F;decryption.</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>RSA encryption for message digest</td>
+<td>merge to #1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Protocol for 2 sides to establish shared secret key over insecured channel without knowing each other ahead of time</td>
+<td>Diffie–Hellman Key Agreement Standard</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RSA key syntax</td>
+<td>merge to #1</td>
+</tr>
+<tr>
+<td>5</td>
+<td>password based encryption standard</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>obsolete</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>sign &amp; encrypt message through PKI. Also to spread certificate</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>private certificate key pair, both encrypt or unencrypt</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>define selected attribute types in 6, 7, 8, 10</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>request certificate for a public key from CA</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>cryptographic token interface</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>private key with pubic key certificate, protected by password encrypted by symmetric key</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Elliptic-curve cryptography Standard</td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Pseudo-random Number Generation</td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>allow bearer of cryptographic token to identify themselves</td>
+<td></td>
+</tr>
+</tbody></table>
 
                 
               </div>
@@ -334,6 +426,8 @@
       
         <a href="/tags/security/" class="print-no-link">#security</a>
       
+        <a href="/tags/openssl/" class="print-no-link">#openssl</a>
+      
     </div>
   
 </div>
@@ -345,7 +439,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>PKI clarification</div>
-      <div>https://rugal.github.com/2021/2021-03-06-pki-clarification/</div>
+      <div>https://rugal.github.com/2021/2021-03-06-cryptographical-cheatsheet/</div>
     </div>
     <div class="license-meta">
       

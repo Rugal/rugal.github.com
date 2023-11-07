@@ -728,15 +728,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2021/2021-09-26-mark-copy/" target="_self">
-          Mark Copy algorithm
+        <a href="/2021/2021-09-26-mark-sweep/" target="_self">
+          Mark Sweep algorithm
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-copy/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-sweep/" target="_self">
         <div>
-          某些文档里会称copy为 #scavenge 和 #mark-sweep #mark-compact 两个算法不太一样的是,在 #mark-copy 算法中,我们将内存我们需要操作的内存分成两个区域,分别称为from和to区域,但其实他们的意义和名字 并没有直接关系,因为他们两个是等价的,只使用名字做一个区分而已.  因此有的文档上也将这两个区域称为survivor 1和survivor 2,统称
+          首先需要 #STW 从 #gcroot 出发遍历所有对象,将不可达的对象标记上 然后将标记过的对象全都进行回收   #mark-sweep 法作为最最基础的算法是非常符合直觉的,也非常容易实现.但非常明显的一个问题就是,容易造成内存碎片化,到最后明明内存有的是,但由于每个内存之间不连续,无法一次性分配出足量的连续内存,导致系统崩溃
         </div>
       </a>
 
@@ -791,15 +791,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2021/2021-09-26-mark-sweep/" target="_self">
-          Mark Sweep algorithm
+        <a href="/2021/2021-09-26-object-generational-assumption/" target="_self">
+          Object Generational Assumption
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-sweep/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-object-generational-assumption/" target="_self">
         <div>
-          首先需要 #STW 从 #gcroot 出发遍历所有对象,将不可达的对象标记上 然后将标记过的对象全都进行回收   #mark-sweep 法作为最最基础的算法是非常符合直觉的,也非常容易实现.但非常明显的一个问题就是,容易造成内存碎片化,到最后明明内存有的是,但由于每个内存之间不连续,无法一次性分配出足量的连续内存,导致系统崩溃
+          根据统计显示,绝大部分创建出来的对象都符合如下图般的规律. 大部分对象的存活时间都非常短,刚创建出来一会儿就不再有引用了.例如在做计算的过程中所创建出来的对象,在一个计算公式结束后计算过程中所有的中间临时变量都不再有用了. 而另外,有一小半对象的存活时间会非常长,甚至是一直存在于进程之中的.例如系统配置变量等需要全局引用的对象等. 剩下的那些存活时间不长也不短的对象,则仅仅占据了非常小的比例.
         </div>
       </a>
 
@@ -837,6 +837,8 @@
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/java/">#java</a>
             
               <a href="/tags/jvm/">#jvm</a>
             
