@@ -14,6 +14,8 @@ date: 2022-09-06
 This will create RSA key in `PKCS#1` format.  
 ```shell
 openssl genrsa -out private.pem 1024
+# or use genpkey
+openssl genpkey -algorithm RSA -quiet -aes-256-cbc -pass pass:1
 ```
 
 2. get public key from private key
