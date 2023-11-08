@@ -40,14 +40,14 @@ Nothing but just to define how the actual data is encoded. It is super easy to u
 Similar to that, BER is the binary way of encoding, but it extract the field name into octlet, very similar to `gRPC` .
 
 1. Binary  
-  1. BER  
-  2. DER  
-  3. CER  
+    1. BER  
+    2. DER  
+    3. CER  
 2. Text  
-  1. XER  
-  2. ASCII  
-  3. JSON
-  4. PEM 
+    1. XER  
+    2. ASCII  
+    3. JSON
+    4. PEM 
 
 ### Public key formats supported
 
