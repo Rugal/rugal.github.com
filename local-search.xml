@@ -337,6 +337,33 @@
   
   
   <entry>
+    <title>Garbage First algorithm</title>
+    <link href="/2021/2021-09-26-g1/"/>
+    <url>/2021/2021-09-26-g1/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>G1即垃圾优先收集器,理念是以不完全的GC来降低的 #STW<br>尽管G1收集器有分代的概念,但本质上是一个 #分区收集器 </p><p><img src="https://github.com/gaoxingliang/goodutils/raw/master/res/gcbook/g1-pool.png"></p><p>在整个堆中,以一个大小的单位分割成很多小的规则的块.<br>和其他例如[[Serial]], [[Parallel Scavenge]]等收集器不同,G1中的 #新生代 和 #老生代 并不是连续的,而是散落开的,一块一块散落在整个堆里</p><p><img src="https://github.com/gaoxingliang/goodutils/raw/master/res/gcbook/g1-collection-set.png"><br>因此每次回收不需要扫描整个堆,而只需要查看几个需要清理的块即可.除此之外,每个<code>块</code>里又分成很多个<code>区</code>,GC只需要对这些块里面需要清理的区进行处理即可.<br>G1是一个可以指定 #STW 时间上限的收集器,其原理就是,如果上限越低,为了降低收集时间G1会回收更少的块.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -XX:+UseG1GC Main.java<br></code></pre></td></tr></table></figure><h2 id="处理流程"><a href="#处理流程" class="headerlink" title="处理流程"></a>处理流程</h2><p><a href="https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html">oracle</a></p><ol><li>初始标记<br> #STW, 和young GC一起进行<br> 对所有与 #gcroot  <code>直接关联</code>的对象进行标记,该过程很快<br> 标记指向老生代对象的整个幸存区块</li><li>幸存区扫描<br> 必须在young GC发生之前完成<br> 在前一个阶段标记的幸存区块中找到引用老生代的对象<br> 此过程进行可达性分析,速度很慢,但由于不存在 #STW 因此不影响用户线程</li><li>并发标记<br> #并发 可被young GC打断<br> 在整个堆中标记存活对象</li><li>重标记<br> #并发 #STW 使用snapshot-at-the-beginning #SATB 算法<br> 重新做一次标记,因为前一阶段的标记过程用户线程也在运行,因此可能存在漏标记的对象</li><li>清理<ol><li>汇总存活对象,释放内存 #STW </li><li>更新 Remember Set #STW </li><li>将整理完成后的空闲内存区加入到空闲列表里</li></ol></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>development</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>jvm</tag>
+      
+      <tag>gc</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Core Issue of GC</title>
     <link href="/2021/2021-09-26-core-issue-of-gc/"/>
     <url>/2021/2021-09-26-core-issue-of-gc/</url>
@@ -354,33 +381,6 @@
     <tags>
       
       <tag>java</tag>
-      
-      <tag>jvm</tag>
-      
-      <tag>gc</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Garbage First algorithm</title>
-    <link href="/2021/2021-09-26-g1/"/>
-    <url>/2021/2021-09-26-g1/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>G1即垃圾优先收集器,理念是以不完全的GC来降低的 #STW<br>尽管G1收集器有分代的概念,但本质上是一个 #分区收集器 </p><p><img src="https://github.com/gaoxingliang/goodutils/raw/master/res/gcbook/g1-pool.png"></p><p>在整个堆中,以一个大小的单位分割成很多小的规则的块.<br>和其他例如[[Serial]], [[Parallel Scavenge]]等收集器不同,G1中的 #新生代 和 #老生代 并不是连续的,而是散落开的,一块一块散落在整个堆里</p><p><img src="https://github.com/gaoxingliang/goodutils/raw/master/res/gcbook/g1-collection-set.png"><br>因此每次回收不需要扫描整个堆,而只需要查看几个需要清理的块即可.除此之外,每个<code>块</code>里又分成很多个<code>区</code>,GC只需要对这些块里面需要清理的区进行处理即可.<br>G1是一个可以指定 #STW 时间上限的收集器,其原理就是,如果上限越低,为了降低收集时间G1会回收更少的块.</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -XX:+UseG1GC Main.java<br></code></pre></td></tr></table></figure><h2 id="处理流程"><a href="#处理流程" class="headerlink" title="处理流程"></a>处理流程</h2><p><a href="https://www.oracle.com/technetwork/tutorials/tutorials-1876574.html">oracle</a></p><ol><li>初始标记<br> #STW, 和young GC一起进行<br> 对所有与 #gcroot  <code>直接关联</code>的对象进行标记,该过程很快<br> 标记指向老生代对象的整个幸存区块</li><li>幸存区扫描<br> 必须在young GC发生之前完成<br> 在前一个阶段标记的幸存区块中找到引用老生代的对象<br> 此过程进行可达性分析,速度很慢,但由于不存在 #STW 因此不影响用户线程</li><li>并发标记<br> #并发 可被young GC打断<br> 在整个堆中标记存活对象</li><li>重标记<br> #并发 #STW 使用snapshot-at-the-beginning #SATB 算法<br> 重新做一次标记,因为前一阶段的标记过程用户线程也在运行,因此可能存在漏标记的对象</li><li>清理<ol><li>汇总存活对象,释放内存 #STW </li><li>更新 Remember Set #STW </li><li>将整理完成后的空闲内存区加入到空闲列表里</li></ol></li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>development</category>
-      
-    </categories>
-    
-    
-    <tags>
       
       <tag>jvm</tag>
       
@@ -835,7 +835,7 @@
     <link href="/2021/2021-03-06-cryptographical-cheatsheet/"/>
     <url>/2021/2021-03-06-cryptographical-cheatsheet/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><a href="https://www.cryptosys.net/pki/rsakeyformats.html">reference</a><br><a href="https://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file">SOF</a></p><h2 id="ASN-1"><a href="#ASN-1" class="headerlink" title="ASN.1"></a>ASN.1</h2><p>An abstract notion language that can be used to describe protocols. For instance, the code below is simplest sample to define a protocol called Foo<br>We use ASN.1 language to do protocol definition as it provide enough abstraction over different protocols. </p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">FooProtocol DEFINITIONS ::= <span class="hljs-keyword">BEGIN</span><br><br>    FooQuestion ::= <span class="hljs-keyword">SEQUENCE</span> &#123;<br>        trackingNumber <span class="hljs-type">INTEGER</span>,<br>        question       IA5String<br>    &#125;<br><br>    FooAnswer ::= <span class="hljs-keyword">SEQUENCE</span> &#123;<br>        questionNumber <span class="hljs-type">INTEGER</span>,<br>        answer         <span class="hljs-type">BOOLEAN</span><br>    &#125;<br><br><span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure><h2 id="encoding-rule"><a href="#encoding-rule" class="headerlink" title="encoding rule"></a>encoding rule</h2><p>Nothing but just to define how the actual data is encoded. It is super easy to understand when refer to JSON or XML format in the context of HTTP.<br>Similar to that, BER is the binary way of encoding, but it extract the field name into octlet, very similar to <code>gRPC</code> .</p><ol><li>Binary  </li><li>BER  </li><li>DER  </li><li>CER  </li><li>Text  </li><li>XER  </li><li>ASCII  </li><li>JSON</li><li>PEM</li></ol><h3 id="Public-key-formats-supported"><a href="#Public-key-formats-supported" class="headerlink" title="Public key formats supported"></a>Public key formats supported</h3><ul><li>PKCS#1 RSAPublicKey* (PEM header:  <code>BEGIN RSA PUBLIC KEY</code>)</li><li>X.509 SubjectPublicKeyInfo** (PEM header:  <code>BEGIN PUBLIC KEY</code>)</li><li>XML  <code>&lt;RSAKeyValue&gt;</code></li></ul><h3 id="Encrypted-private-key-formats-supported"><a href="#Encrypted-private-key-formats-supported" class="headerlink" title="Encrypted private key formats supported"></a>Encrypted private key formats supported</h3><ul><li>PKCS#8 EncryptedPrivateKeyInfo** (PEM header:  <code>BEGIN ENCRYPTED PRIVATE KEY</code>)</li><li>PKCS#12 (PFX) with PKCS-8ShroudedKeyBag</li></ul><h3 id="Private-key-formats-supported-unencrypted"><a href="#Private-key-formats-supported-unencrypted" class="headerlink" title="Private key formats supported (unencrypted)"></a>Private key formats supported (unencrypted)</h3><ul><li>PKCS#1 RSAPrivateKey** (PEM header:  <code>BEGIN RSA PRIVATE KEY</code>)</li><li>PKCS#8 PrivateKeyInfo* (PEM header:  <code>BEGIN PRIVATE KEY</code>)</li><li>XML  <code>&lt;RSAKeyPair&gt;</code>  and  <code>&lt;RSAKeyValue&gt;</code></li><li>JSON Web Key (JWK) Plaintext RSA Private Key  <code>&quot;kty&quot;:&quot;RSA&quot;</code></li></ul><h2 id="PKCS"><a href="#PKCS" class="headerlink" title="PKCS"></a>PKCS</h2><p>Is a group of public key cryptography standard by RSA Security LLC. Its full name is <code>public key cryptography standards</code>  </p><table><thead><tr><th>document</th><th>explain</th><th>note</th></tr></thead><tbody><tr><td>1</td><td>1Define mathematical property and format of RSA key pair in ASN.1text. Basic algorithm and encoding methods for RSA encryption&#x2F;decryption.</td><td></td></tr><tr><td>2</td><td>RSA encryption for message digest</td><td>merge to #1</td></tr><tr><td>3</td><td>Protocol for 2 sides to establish shared secret key over insecured channel without knowing each other ahead of time</td><td>Diffie–Hellman Key Agreement Standard</td></tr><tr><td>4</td><td>RSA key syntax</td><td>merge to #1</td></tr><tr><td>5</td><td>password based encryption standard</td><td></td></tr><tr><td>6</td><td>obsolete</td><td></td></tr><tr><td>7</td><td>sign &amp; encrypt message through PKI. Also to spread certificate</td><td></td></tr><tr><td>8</td><td>private certificate key pair, both encrypt or unencrypt</td><td></td></tr><tr><td>9</td><td>define selected attribute types in 6, 7, 8, 10</td><td></td></tr><tr><td>10</td><td>request certificate for a public key from CA</td><td></td></tr><tr><td>11</td><td>cryptographic token interface</td><td></td></tr><tr><td>12</td><td>private key with pubic key certificate, protected by password encrypted by symmetric key</td><td></td></tr><tr><td>13</td><td>Elliptic-curve cryptography Standard</td><td></td></tr><tr><td>14</td><td>Pseudo-random Number Generation</td><td></td></tr><tr><td>15</td><td>allow bearer of cryptographic token to identify themselves</td><td></td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><a href="https://www.cryptosys.net/pki/rsakeyformats.html">reference</a><br><a href="https://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file">SOF</a></p><h2 id="ASN-1"><a href="#ASN-1" class="headerlink" title="ASN.1"></a>ASN.1</h2><p>An abstract notion language that can be used to describe protocols. For instance, the code below is simplest sample to define a protocol called Foo<br>We use ASN.1 language to do protocol definition as it provide enough abstraction over different protocols. </p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">FooProtocol DEFINITIONS ::= <span class="hljs-keyword">BEGIN</span><br><br>    FooQuestion ::= <span class="hljs-keyword">SEQUENCE</span> &#123;<br>        trackingNumber <span class="hljs-type">INTEGER</span>,<br>        question       IA5String<br>    &#125;<br><br>    FooAnswer ::= <span class="hljs-keyword">SEQUENCE</span> &#123;<br>        questionNumber <span class="hljs-type">INTEGER</span>,<br>        answer         <span class="hljs-type">BOOLEAN</span><br>    &#125;<br><br><span class="hljs-keyword">END</span><br></code></pre></td></tr></table></figure><h2 id="encoding-rule"><a href="#encoding-rule" class="headerlink" title="encoding rule"></a>encoding rule</h2><p>Nothing but just to define how the actual data is encoded. It is super easy to understand when refer to JSON or XML format in the context of HTTP.<br>Similar to that, BER is the binary way of encoding, but it extract the field name into octlet, very similar to <code>gRPC</code> .</p><ol><li>Binary  <ol><li>BER  </li><li>DER  </li><li>CER</li></ol></li><li>Text  <ol><li>XER  </li><li>ASCII  </li><li>JSON</li><li>PEM</li></ol></li></ol><h3 id="Public-key-formats-supported"><a href="#Public-key-formats-supported" class="headerlink" title="Public key formats supported"></a>Public key formats supported</h3><ul><li>PKCS#1 RSAPublicKey* (PEM header:  <code>BEGIN RSA PUBLIC KEY</code>)</li><li>X.509 SubjectPublicKeyInfo** (PEM header:  <code>BEGIN PUBLIC KEY</code>)</li><li>XML  <code>&lt;RSAKeyValue&gt;</code></li></ul><h3 id="Encrypted-private-key-formats-supported"><a href="#Encrypted-private-key-formats-supported" class="headerlink" title="Encrypted private key formats supported"></a>Encrypted private key formats supported</h3><ul><li>PKCS#8 EncryptedPrivateKeyInfo** (PEM header:  <code>BEGIN ENCRYPTED PRIVATE KEY</code>)</li><li>PKCS#12 (PFX) with PKCS-8ShroudedKeyBag</li></ul><h3 id="Private-key-formats-supported-unencrypted"><a href="#Private-key-formats-supported-unencrypted" class="headerlink" title="Private key formats supported (unencrypted)"></a>Private key formats supported (unencrypted)</h3><ul><li>PKCS#1 RSAPrivateKey** (PEM header:  <code>BEGIN RSA PRIVATE KEY</code>)</li><li>PKCS#8 PrivateKeyInfo* (PEM header:  <code>BEGIN PRIVATE KEY</code>)</li><li>XML  <code>&lt;RSAKeyPair&gt;</code>  and  <code>&lt;RSAKeyValue&gt;</code></li><li>JSON Web Key (JWK) Plaintext RSA Private Key  <code>&quot;kty&quot;:&quot;RSA&quot;</code></li></ul><h2 id="PKCS"><a href="#PKCS" class="headerlink" title="PKCS"></a>PKCS</h2><p>Is a group of public key cryptography standard by RSA Security LLC. Its full name is <code>public key cryptography standards</code>  </p><table><thead><tr><th>document</th><th>explain</th><th>note</th></tr></thead><tbody><tr><td>1</td><td>1Define mathematical property and format of RSA key pair in ASN.1text. Basic algorithm and encoding methods for RSA encryption&#x2F;decryption.</td><td></td></tr><tr><td>2</td><td>RSA encryption for message digest</td><td>merge to #1</td></tr><tr><td>3</td><td>Protocol for 2 sides to establish shared secret key over insecured channel without knowing each other ahead of time</td><td>Diffie–Hellman Key Agreement Standard</td></tr><tr><td>4</td><td>RSA key syntax</td><td>merge to #1</td></tr><tr><td>5</td><td>password based encryption standard</td><td></td></tr><tr><td>6</td><td>obsolete</td><td></td></tr><tr><td>7</td><td>sign &amp; encrypt message through PKI. Also to spread certificate</td><td></td></tr><tr><td>8</td><td>private certificate key pair, both encrypt or unencrypt</td><td></td></tr><tr><td>9</td><td>define selected attribute types in 6, 7, 8, 10</td><td></td></tr><tr><td>10</td><td>request certificate for a public key from CA</td><td></td></tr><tr><td>11</td><td>cryptographic token interface</td><td></td></tr><tr><td>12</td><td>private key with pubic key certificate, protected by password encrypted by symmetric key</td><td></td></tr><tr><td>13</td><td>Elliptic-curve cryptography Standard</td><td></td></tr><tr><td>14</td><td>Pseudo-random Number Generation</td><td></td></tr><tr><td>15</td><td>allow bearer of cryptographic token to identify themselves</td><td></td></tr></tbody></table>]]></content>
     
     
     <categories>
@@ -850,31 +850,6 @@
       <tag>security</tag>
       
       <tag>openssl</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Italiano Possessives</title>
-    <link href="/2021/2021-01-08-italiano-possessives/"/>
-    <url>/2021/2021-01-08-italiano-possessives/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><table><thead><tr><th>possession</th><th>MS</th><th>FS</th><th>MP</th><th>FP</th></tr></thead><tbody><tr><td>My&#x2F;Mine</td><td>il mio</td><td>la mia</td><td>i miei</td><td>le mie</td></tr><tr><td>Your&#x2F;Yours</td><td>il tuo</td><td>la tua</td><td>i tuoi</td><td>le tue</td></tr><tr><td>His&#x2F;Hers&#x2F;Its</td><td>il suo</td><td>la sua</td><td>i suoi</td><td>le sue</td></tr><tr><td>Our&#x2F;Ours</td><td>il nostro</td><td>la nostra</td><td>i nostri</td><td>le nostre</td></tr><tr><td>Your&#x2F;Yours all</td><td>il vostro</td><td>la vostra</td><td>i vostri</td><td>le vostre</td></tr><tr><td>Their&#x2F;Theirs</td><td>il loro</td><td>la loro</td><td>i loro</td><td>le loro</td></tr></tbody></table>]]></content>
-    
-    
-    <categories>
-      
-      <category>study</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>language</tag>
       
     </tags>
     
@@ -902,6 +877,31 @@
       <tag>language</tag>
       
       <tag>italian</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Italiano Possessives</title>
+    <link href="/2021/2021-01-08-italiano-possessives/"/>
+    <url>/2021/2021-01-08-italiano-possessives/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><table><thead><tr><th>possession</th><th>MS</th><th>FS</th><th>MP</th><th>FP</th></tr></thead><tbody><tr><td>My&#x2F;Mine</td><td>il mio</td><td>la mia</td><td>i miei</td><td>le mie</td></tr><tr><td>Your&#x2F;Yours</td><td>il tuo</td><td>la tua</td><td>i tuoi</td><td>le tue</td></tr><tr><td>His&#x2F;Hers&#x2F;Its</td><td>il suo</td><td>la sua</td><td>i suoi</td><td>le sue</td></tr><tr><td>Our&#x2F;Ours</td><td>il nostro</td><td>la nostra</td><td>i nostri</td><td>le nostre</td></tr><tr><td>Your&#x2F;Yours all</td><td>il vostro</td><td>la vostra</td><td>i vostri</td><td>le vostre</td></tr><tr><td>Their&#x2F;Theirs</td><td>il loro</td><td>la loro</td><td>i loro</td><td>le loro</td></tr></tbody></table>]]></content>
+    
+    
+    <categories>
+      
+      <category>study</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>language</tag>
       
     </tags>
     
@@ -3876,11 +3876,11 @@
   
   
   <entry>
-    <title>Optimal Substructure</title>
-    <link href="/2014/2014-09-24-optimal-substructure/"/>
-    <url>/2014/2014-09-24-optimal-substructure/</url>
+    <title>Overlapping Subproblems</title>
+    <link href="/2014/2014-09-24-overlapping-subproblems/"/>
+    <url>/2014/2014-09-24-overlapping-subproblems/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h2 id="Optimal-Substructure"><a href="#Optimal-Substructure" class="headerlink" title="Optimal Substructure"></a>Optimal Substructure</h2><p>if optimal solution of the given problem can be obtained by using optimal solutions of its subproblems.<br>For example the shortest path problem has following optimal substructure property: If a node <code>x</code> lies in the shortest path from a source node <code>u</code> to destination node <code>v</code> then the shortest path from <code>u</code> to <code>v</code> is combination of shortest path from <code>u</code> to <code>x</code> and shortest path from <code>x</code> to <code>v</code>.  </p><p>The standard All Pair Shortest Path algorithms like <code>Floyd–Warshall</code> and <code>Bellman–Ford</code> are typical examples of Dynamic Programming.  </p><p>On the other hand the Longest path problem doesn’t have the Optimal Substructure property. Here by Longest Path we mean longest simple path (path without cycle) between two nodes.<br>Consider the following unweighted graph given in the <code>CLRS</code> book.<br>There are two longest paths from <code>q</code> to <code>t</code>: <code>q-&gt;r-&gt;t</code> and <code>q -&gt;s-&gt;t</code>. Unlike shortest paths, these longest paths do not have the optimal substructure property.<br><img src="http://geeksforgeeks.org/wp-content/uploads/LongestPath.gif" alt="pattern"><br>For example, the longest path <code>q-&gt;r-&gt;t</code> is not a combination of longest path from <code>q</code> to <code>r</code> and longest path from <code>r</code> to <code>t</code>, because the longest path from <code>q</code> to <code>r</code> is <code>q-&gt;s-&gt;t-&gt;r</code>.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="Divide-and-Conquer"><a href="#Divide-and-Conquer" class="headerlink" title="Divide and Conquer"></a>Divide and Conquer</h1><ol><li><code>Useful</code> when solutions of same subproblems are needed again and again, Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. like <code>Fibonacci Numbers</code></li><li><code>Not useful</code> when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again. For example, <code>Binary Search</code> doesn’t have common subproblems</li></ol><hr><p>There are two ways to store values so that these values can be reused and I will also show two instances of dynamic programming by <code>Fibonacci</code>:</p><h2 id="Memoization-Top-Down"><a href="#Memoization-Top-Down" class="headerlink" title="Memoization (Top Down)"></a>Memoization (Top Down)</h2><p>try to touch from top to bottom, calculate and store value whenever this value is not found in our, otherwise just use it.  </p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//Memoization</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>   <span class="hljs-keyword">if</span>(lookup[n] == NIL)<br>   &#123;<br>    <span class="hljs-keyword">if</span> ( n &lt;= <span class="hljs-number">1</span> )<br>      lookup[n] = n;<br>    <span class="hljs-keyword">else</span><br>      lookup[n] = fib(n<span class="hljs-number">-1</span>) + fib(n<span class="hljs-number">-2</span>);<br>   &#125;<br>   <span class="hljs-keyword">return</span> lookup[n];<br>&#125;<br></code></pre></td></tr></table></figure><p>In Memoized version, table is filled on demand, unlike the tabulated version, all entries of the lookup table are not necessarily filled in memoized version.  </p><h2 id="Tabulation-Bottom-Up"><a href="#Tabulation-Bottom-Up" class="headerlink" title="Tabulation (Bottom Up)"></a>Tabulation (Bottom Up)</h2><p>try to touch from bottom to top, calculate, calculate and store value.  </p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//Tabulation</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>  <span class="hljs-type">int</span> f[n+<span class="hljs-number">1</span>];<br>  <span class="hljs-type">int</span> i;<br>  f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;   f[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>; <br>  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt;= n; i++)<br>      f[i] = f[i<span class="hljs-number">-1</span>] + f[i<span class="hljs-number">-2</span>];<br>  <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure><p>While in tabulated version, starting from the first entry, all entries are filled one by one.   </p><hr><p>Both <code>tabulated</code> and <code>Memoized</code> store the solutions of subproblems.<br>For example, memoized solution of <code>LCS</code> problem doesn’t necessarily fill all entries.</p>]]></content>
     
     
     <categories>
@@ -3901,11 +3901,11 @@
   
   
   <entry>
-    <title>Overlapping Subproblems</title>
-    <link href="/2014/2014-09-24-overlapping-subproblems/"/>
-    <url>/2014/2014-09-24-overlapping-subproblems/</url>
+    <title>Optimal Substructure</title>
+    <link href="/2014/2014-09-24-optimal-substructure/"/>
+    <url>/2014/2014-09-24-optimal-substructure/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="Divide-and-Conquer"><a href="#Divide-and-Conquer" class="headerlink" title="Divide and Conquer"></a>Divide and Conquer</h1><ol><li><code>Useful</code> when solutions of same subproblems are needed again and again, Like Divide and Conquer, Dynamic Programming combines solutions to sub-problems. like <code>Fibonacci Numbers</code></li><li><code>Not useful</code> when there are no common (overlapping) subproblems because there is no point storing the solutions if they are not needed again. For example, <code>Binary Search</code> doesn’t have common subproblems</li></ol><hr><p>There are two ways to store values so that these values can be reused and I will also show two instances of dynamic programming by <code>Fibonacci</code>:</p><h2 id="Memoization-Top-Down"><a href="#Memoization-Top-Down" class="headerlink" title="Memoization (Top Down)"></a>Memoization (Top Down)</h2><p>try to touch from top to bottom, calculate and store value whenever this value is not found in our, otherwise just use it.  </p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//Memoization</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>   <span class="hljs-keyword">if</span>(lookup[n] == NIL)<br>   &#123;<br>    <span class="hljs-keyword">if</span> ( n &lt;= <span class="hljs-number">1</span> )<br>      lookup[n] = n;<br>    <span class="hljs-keyword">else</span><br>      lookup[n] = fib(n<span class="hljs-number">-1</span>) + fib(n<span class="hljs-number">-2</span>);<br>   &#125;<br>   <span class="hljs-keyword">return</span> lookup[n];<br>&#125;<br></code></pre></td></tr></table></figure><p>In Memoized version, table is filled on demand, unlike the tabulated version, all entries of the lookup table are not necessarily filled in memoized version.  </p><h2 id="Tabulation-Bottom-Up"><a href="#Tabulation-Bottom-Up" class="headerlink" title="Tabulation (Bottom Up)"></a>Tabulation (Bottom Up)</h2><p>try to touch from bottom to top, calculate, calculate and store value.  </p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">//Tabulation</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">fib</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span><br>&#123;<br>  <span class="hljs-type">int</span> f[n+<span class="hljs-number">1</span>];<br>  <span class="hljs-type">int</span> i;<br>  f[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;   f[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>; <br>  <span class="hljs-keyword">for</span> (i = <span class="hljs-number">2</span>; i &lt;= n; i++)<br>      f[i] = f[i<span class="hljs-number">-1</span>] + f[i<span class="hljs-number">-2</span>];<br>  <span class="hljs-keyword">return</span> f[n];<br>&#125;<br></code></pre></td></tr></table></figure><p>While in tabulated version, starting from the first entry, all entries are filled one by one.   </p><hr><p>Both <code>tabulated</code> and <code>Memoized</code> store the solutions of subproblems.<br>For example, memoized solution of <code>LCS</code> problem doesn’t necessarily fill all entries.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h2 id="Optimal-Substructure"><a href="#Optimal-Substructure" class="headerlink" title="Optimal Substructure"></a>Optimal Substructure</h2><p>if optimal solution of the given problem can be obtained by using optimal solutions of its subproblems.<br>For example the shortest path problem has following optimal substructure property: If a node <code>x</code> lies in the shortest path from a source node <code>u</code> to destination node <code>v</code> then the shortest path from <code>u</code> to <code>v</code> is combination of shortest path from <code>u</code> to <code>x</code> and shortest path from <code>x</code> to <code>v</code>.  </p><p>The standard All Pair Shortest Path algorithms like <code>Floyd–Warshall</code> and <code>Bellman–Ford</code> are typical examples of Dynamic Programming.  </p><p>On the other hand the Longest path problem doesn’t have the Optimal Substructure property. Here by Longest Path we mean longest simple path (path without cycle) between two nodes.<br>Consider the following unweighted graph given in the <code>CLRS</code> book.<br>There are two longest paths from <code>q</code> to <code>t</code>: <code>q-&gt;r-&gt;t</code> and <code>q -&gt;s-&gt;t</code>. Unlike shortest paths, these longest paths do not have the optimal substructure property.<br><img src="http://geeksforgeeks.org/wp-content/uploads/LongestPath.gif" alt="pattern"><br>For example, the longest path <code>q-&gt;r-&gt;t</code> is not a combination of longest path from <code>q</code> to <code>r</code> and longest path from <code>r</code> to <code>t</code>, because the longest path from <code>q</code> to <code>r</code> is <code>q-&gt;s-&gt;t-&gt;r</code>.</p>]]></content>
     
     
     <categories>
