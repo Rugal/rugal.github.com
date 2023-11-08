@@ -413,6 +413,69 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/2021/2021-09-26-g1/" target="_self">
+          Garbage First algorithm
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-g1/" target="_self">
+        <div>
+          G1即垃圾优先收集器,理念是以不完全的GC来降低的 #STW尽管G1收集器有分代的概念,但本质上是一个 #分区收集器   在整个堆中,以一个大小的单位分割成很多小的规则的块.和其他例如[[Serial]], [[Parallel Scavenge]]等收集器不同,G1中的 #新生代 和 #老生代 并不是连续的,而是散落开的,一块一块散落在整个堆里 因此每次回收不需要扫描整个堆,而只需要查看几个需要
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/jvm/">#jvm</a>
+            
+              <a href="/tags/gc/">#gc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/2021/2021-09-26-core-issue-of-gc/" target="_self">
           Core Issue of GC
         </a>
@@ -461,69 +524,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/java/">#java</a>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/2021-09-26-g1/" target="_self">
-          Garbage First algorithm
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-g1/" target="_self">
-        <div>
-          G1即垃圾优先收集器,理念是以不完全的GC来降低的 #STW尽管G1收集器有分代的概念,但本质上是一个 #分区收集器   在整个堆中,以一个大小的单位分割成很多小的规则的块.和其他例如[[Serial]], [[Parallel Scavenge]]等收集器不同,G1中的 #新生代 和 #老生代 并不是连续的,而是散落开的,一块一块散落在整个堆里 因此每次回收不需要扫描整个堆,而只需要查看几个需要
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
             
               <a href="/tags/jvm/">#jvm</a>
             
