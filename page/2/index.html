@@ -350,386 +350,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2021/2021-09-26-parallel-old/" target="_self">
-          Parallel Old algorithm
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-parallel-old/" target="_self">
-        <div>
-          本收集器是针对 #老生代 的 #并行 #分代收集器.在收集的过程中,会启动多个线程进行并行收集,每个线程都会使用 #mark-compact  由于本收集器只针对老生代,新生代会使用[[Parallel Scavenge]] 1java -XX:+UseParallelGC -jar Main.java  一旦启用了UseParallelGC参数,两种收集器就会同时使用起来.
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/2021-09-26-parallel-scavenge/" target="_self">
-          Parallel Scavenge algorithm
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-parallel-scavenge/" target="_self">
-        <div>
-          #scavenge  本收集器主要是针对 #新生代 的 #分代收集器,运行的算法主要是 #mark-copy ,只不过是由多个线程 #并行 (parallel)的进行垃圾收集,而每个线程所执行的算法也只是简简单单的 [[Serial]],因此该过程需要 #STW .由于本身使用了多线程进行并行处理,整个垃圾清除过程会比[[Serial]]快一些.当然也由于并行的存在,使得线程调度和实现过程变得略微
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/2021-09-26-serial/" target="_self">
-          Serial algorithm
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-serial/" target="_self">
-        <div>
-          #分代收集器 使用单线程 #串行 地进行垃圾清理.尽管新生代和老生代的垃圾处理逻辑有一些不同(由于新生代有 #eden 和 #survivor 的分隔),但总体逻辑没有什么差别.  对于 #新生代 来说,本收集器的做法是 #STW 并使用 #mark-copy 对于 #老生代 来说,会使用 #STW 并进行 #mark-compact ,一般这个收集器称为 #serial-old  本收集器的性能
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/2021-09-26-shenandoah/" target="_self">
-          Shenandoah algorithm
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-shenandoah/" target="_self">
-        <div>
-          #分区收集器#并行  source code  处理流程 初始标记 做下一阶段的准备活动 扫描 #gcroot 并 #STW  #并发 标记 检查整个堆以分析对象可达性 最终标记 完结并发标记阶段,等待所有更新队列中未完成的标记任务结束,然后重新扫描一遍 #gcroot 根据扫描所得的结果集启动copy流程,对某些 #gcroot 进行初步复制,并准备进入下一阶段 触发 #STW  #并发 清理
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/2021-09-26-why-gc/" target="_self">
-          Why GC
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-why-gc/" target="_self">
-        <div>
-          GC还未出现的时代在自动垃圾回收概念出来之前的那个时代,大部分程序都是用诸如C语言这样的程序语言来编写的,而在C或者CPP语言中,所有的内存分配和回收都必须要开发人员手动处理,以C为例: 申请空间123456789101112131415#include &lt;stdlib.h&gt;#include &lt;string.h&gt;typedef struct &#123;  int id;
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/java/">#java</a>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2021/2021-09-26-zgc/" target="_self">
-          ZGC algorithm
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-zgc/" target="_self">
-        <div>
-          ZGC是一个由Azul System公司研发的商用 #分区收集器, 可以使用在  #NUMA 架构上#STW 时间基本稳定,和堆大小无关适合TB级别堆 source code 处理流程 标记启动 超短 #STW 标记 #gcroot 指向的对象 #并发 标记 与G1相同,遍历对象做可达性分析 ZGC的标记实在指针上而不再对象上,将指针更新Marked 0, Marked 1标志位 标记结束 超短
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-09-26 00:00" pubdate>
-              2021-09-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/development/" class="category-chain-item">development</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/jvm/">#jvm</a>
-            
-              <a href="/tags/gc/">#gc</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
         <a href="/2021/2021-09-26-concurrent-mark-sweep/" target="_self">
           Concurrent Mark Sweep algorithm
         </a>
@@ -841,6 +461,382 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/java/">#java</a>
+            
+              <a href="/tags/jvm/">#jvm</a>
+            
+              <a href="/tags/gc/">#gc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/2021-09-26-g1/" target="_self">
+          Garbage First algorithm
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-g1/" target="_self">
+        <div>
+          G1即垃圾优先收集器,理念是以不完全的GC来降低的 #STW尽管G1收集器有分代的概念,但本质上是一个 #分区收集器   在整个堆中,以一个大小的单位分割成很多小的规则的块.和其他例如[[Serial]], [[Parallel Scavenge]]等收集器不同,G1中的 #新生代 和 #老生代 并不是连续的,而是散落开的,一块一块散落在整个堆里 因此每次回收不需要扫描整个堆,而只需要查看几个需要
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/jvm/">#jvm</a>
+            
+              <a href="/tags/gc/">#gc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/2021-09-26-garbage-collector-overview/" target="_self">
+          Garbage Collector Overview
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-garbage-collector-overview/" target="_self">
+        <div>
+          上图展示了不同垃圾收集器之间的可组合关系.  G1 ZGC Shenandoah Parallel Scavenge Parallel Old Parallel New Serial CMS
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/jvm/">#jvm</a>
+            
+              <a href="/tags/gc/">#gc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/2021-09-26-java-reference-type/" target="_self">
+          Java Reference Type
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-java-reference-type/" target="_self">
+        <div>
+          从Java 1.2版本开始引入了java.lang.ref这个包,里面定义了总共三种引用类型  虚引用 弱引用 软引用  接下来我们把Java中所有的引用可能性都来讲解一遍.顺序是从最弱到最强. 无引用如字面意思,就是说这个对象,完全没有任何引用能访问到它,因此该对象可以被GC. 12345// 分配内存var o = new Object();// 从此开始该对象就不再有引用可以访问到它o =
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/java/">#java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/2021-09-26-mark-compact/" target="_self">
+          Mark Compact algorithm
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-compact/" target="_self">
+        <div>
+          和 #mark-sweep 一样 首先需要 #STW 从 #gcroot 出发遍历所有对象,将不可达的对象标记上 然后将标记过的对象全都进行回收 #STW 将剩下的存活对象整理好并排布在内存的前端   #mark-compact 的特点就是可以消除内存碎片问题,大幅提高内存完整度,但也正因为这个整理的操作,该算法需要更多 #STW 来整理内存,并将原来的引用指向新的对象地址
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/jvm/">#jvm</a>
+            
+              <a href="/tags/gc/">#gc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/2021-09-26-mark-copy/" target="_self">
+          Mark Copy algorithm
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-copy/" target="_self">
+        <div>
+          某些文档里会称copy为 #scavenge 和 #mark-sweep #mark-compact 两个算法不太一样的是,在 #mark-copy 算法中,我们将内存我们需要操作的内存分成两个区域,分别称为from和to区域,但其实他们的意义和名字 并没有直接关系,因为他们两个是等价的,只使用名字做一个区分而已.  因此有的文档上也将这两个区域称为survivor 1和survivor 2,统称
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/jvm/">#jvm</a>
+            
+              <a href="/tags/gc/">#gc</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2021/2021-09-26-mark-sweep/" target="_self">
+          Mark Sweep algorithm
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/2021-09-26-mark-sweep/" target="_self">
+        <div>
+          首先需要 #STW 从 #gcroot 出发遍历所有对象,将不可达的对象标记上 然后将标记过的对象全都进行回收   #mark-sweep 法作为最最基础的算法是非常符合直觉的,也非常容易实现.但非常明显的一个问题就是,容易造成内存碎片化,到最后明明内存有的是,但由于每个内存之间不连续,无法一次性分配出足量的连续内存,导致系统崩溃
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-26 00:00" pubdate>
+              2021-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/development/" class="category-chain-item">development</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
             
               <a href="/tags/jvm/">#jvm</a>
             

@@ -16,15 +16,15 @@
   <meta name="author" content="Rugal Bernstein">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RSA key pair create private key  This will create RSA key in PKCS#1 format.   1openssl genrsa -out private.pem 1024   get public key from private key  1openssl rsa -in keypair.pem -pubout -out public.">
+    <meta name="description" content="RSA key pair create private key  This will create RSA key in PKCS#1 format.   123openssl genrsa -out private.pem 1024# or use genpkeyopenssl genpkey -algorithm RSA -quiet -aes-256-cbc -pass pass:1   g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenSSL Usage">
 <meta property="og:url" content="https://rugal.github.com/2022/2022-09-06-openssl-usage/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RSA key pair create private key  This will create RSA key in PKCS#1 format.   1openssl genrsa -out private.pem 1024   get public key from private key  1openssl rsa -in keypair.pem -pubout -out public.">
+<meta property="og:description" content="RSA key pair create private key  This will create RSA key in PKCS#1 format.   123openssl genrsa -out private.pem 1024# or use genpkeyopenssl genpkey -algorithm RSA -quiet -aes-256-cbc -pass pass:1   g">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-06T04:00:00.000Z">
-<meta property="article:modified_time" content="2023-11-08T03:35:27.937Z">
+<meta property="article:modified_time" content="2023-11-08T04:56:36.862Z">
 <meta property="article:author" content="Rugal Bernstein">
 <meta property="article:tag" content="security">
 <meta property="article:tag" content="openssl">
@@ -221,7 +221,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k words
+          2.9k words
         
       </span>
     
@@ -232,7 +232,7 @@
         
         
         
-          24 mins
+          25 mins
         
       </span>
     
@@ -278,7 +278,7 @@
 <li>create private key</li>
 </ol>
 <p>This will create RSA key in <code>PKCS#1</code> format.  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">openssl genrsa -out private.pem 1024<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">openssl genrsa -out private.pem 1024<br><span class="hljs-meta prompt_"># </span><span class="language-bash">or use genpkey</span><br>openssl genpkey -algorithm RSA -quiet -aes-256-cbc -pass pass:1<br></code></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>get public key from private key</li>
