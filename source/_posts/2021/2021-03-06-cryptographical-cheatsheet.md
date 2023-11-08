@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "PKI clarification"
+title: "Cryptographical Cheatsheet"
 description: ""
 category:  operation
 tags: [security, openssl]
