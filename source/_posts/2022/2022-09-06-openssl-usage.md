@@ -11,6 +11,7 @@ date: 2022-09-06
 
 1. create private key
 
+This will create RSA key in `PKCS#1` format.  
 ```shell
 openssl genrsa -out private.pem 1024
 ```
