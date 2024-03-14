@@ -4,7 +4,7 @@ title: "Kotlin generics"
 description: ""
 category: development
 tags: [kotlin]
-date: 2023-03-13
+date: 2024-03-13
 ---
 
 
