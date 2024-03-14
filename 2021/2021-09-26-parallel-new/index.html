@@ -19,13 +19,13 @@
     <meta name="description" content="本收集器是一种新型的 #并行 的针对 #新生代 的 #分代收集器 . 和[[Parallel Scavenge]]类似,但性能更好一点, 并且可以和[[CMS]]协同使用.收集过程中需要 #STW  1java -XX:+UseParNewGC -jar Main.java 使用的是多线程 #并行   #mark-copy 算法.对老生代来说,可以使用[[CMS]]收集器.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Parallel New algorithm">
-<meta property="og:url" content="https://rugal.github.com/2021/2021-09-26-parallel-new/index.html">
+<meta property="og:url" content="https://rug.al/2021/2021-09-26-parallel-new/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="本收集器是一种新型的 #并行 的针对 #新生代 的 #分代收集器 . 和[[Parallel Scavenge]]类似,但性能更好一点, 并且可以和[[CMS]]协同使用.收集过程中需要 #STW  1java -XX:+UseParNewGC -jar Main.java 使用的是多线程 #并行   #mark-copy 算法.对老生代来说,可以使用[[CMS]]收集器.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/doocs/jvm@main/images/parnew.png">
 <meta property="article:published_time" content="2021-09-26T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-14T12:26:24.753Z">
+<meta property="article:modified_time" content="2024-03-14T15:30:18.601Z">
 <meta property="article:author" content="Rugal Bernstein">
 <meta property="article:tag" content="jvm">
 <meta property="article:tag" content="gc">
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rugal.github.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"rug.al","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -328,7 +328,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Parallel New algorithm</div>
-      <div>https://rugal.github.com/2021/2021-09-26-parallel-new/</div>
+      <div>https://rug.al/2021/2021-09-26-parallel-new/</div>
     </div>
     <div class="license-meta">
       

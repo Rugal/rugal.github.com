@@ -19,13 +19,13 @@
     <meta name="description" content="首先需要 #STW 从 #gcroot 出发遍历所有对象,将不可达的对象标记上 然后将标记过的对象全都进行回收   #mark-sweep 法作为最最基础的算法是非常符合直觉的,也非常容易实现.但非常明显的一个问题就是,容易造成内存碎片化,到最后明明内存有的是,但由于每个内存之间不连续,无法一次性分配出足量的连续内存,导致系统崩溃">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mark Sweep algorithm">
-<meta property="og:url" content="https://rugal.github.com/2021/2021-09-26-mark-sweep/index.html">
+<meta property="og:url" content="https://rug.al/2021/2021-09-26-mark-sweep/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="首先需要 #STW 从 #gcroot 出发遍历所有对象,将不可达的对象标记上 然后将标记过的对象全都进行回收   #mark-sweep 法作为最最基础的算法是非常符合直觉的,也非常容易实现.但非常明显的一个问题就是,容易造成内存碎片化,到最后明明内存有的是,但由于每个内存之间不连续,无法一次性分配出足量的连续内存,导致系统崩溃">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/gaoxingliang/goodutils/blob/master/res/gcbook/free-list-sweep.png?raw=true">
 <meta property="article:published_time" content="2021-09-26T04:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-14T12:26:24.753Z">
+<meta property="article:modified_time" content="2024-03-14T15:30:18.601Z">
 <meta property="article:author" content="Rugal Bernstein">
 <meta property="article:tag" content="jvm">
 <meta property="article:tag" content="gc">
@@ -72,7 +72,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"rugal.github.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"rug.al","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -330,7 +330,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Mark Sweep algorithm</div>
-      <div>https://rugal.github.com/2021/2021-09-26-mark-sweep/</div>
+      <div>https://rug.al/2021/2021-09-26-mark-sweep/</div>
     </div>
     <div class="license-meta">
       
