@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Kotlin generics</title>
+    <link href="/2024/2024-03-13-kotlin-generics/"/>
+    <url>/2024/2024-03-13-kotlin-generics/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="kotlin-generics-variance"><a href="#kotlin-generics-variance" class="headerlink" title="kotlin generics variance"></a>kotlin generics variance</h1><p>Similar to what Java provisions, kotlin support generics and also variance, but is easier to understand and use.  </p><p>For instance we have a class <code>Container</code> that accepts <code>T</code> is type parameter.  </p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span>&lt;<span class="hljs-type">T</span>&gt;<br></code></pre></td></tr></table></figure><p>The class <code>Container</code> itself can have inheritance and everything, but when creating instance, it is not the case.  </p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> a: Container&lt;String&gt; = Container&lt;String&gt;()<br><span class="hljs-keyword">val</span> b: Container&lt;Any&gt; = a <span class="hljs-comment">// compilation error here</span><br></code></pre></td></tr></table></figure><p>Would result into error below:  </p><blockquote><p>Type mismatch.<br>Required:  Container<Any><br>Found:  Container<String></p></blockquote><p>This is because <code>Container&lt;Any&gt;</code> is <code>not</code> the parent class of <code>Container&lt;String&gt;</code>.  </p><p>But in reality, there are many situations that we would want our class to behave as a generic container to deal with certain types and its inheritance, there comes the <code>variance</code> conception.  </p><h2 id="in"><a href="#in" class="headerlink" title="in"></a>in</h2><p>This is to denote the generic type can only be used as input parameter, but can never return.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span>&lt;<span class="hljs-type">in T</span>&gt; &#123;<br>  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">data</span>: <span class="hljs-type">T</span>)</span></span> &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">val</span> a = Container&lt;Any&gt;()<br>a.add(<span class="hljs-string">&quot;string&quot;</span>)<br>a.add(<span class="hljs-number">1</span> to <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure><p>Here the class <code>Container</code> is used as <code>consumer</code> of type <code>T</code>, thus any type that extends T can be  passed as function parameter, but never as return value.</p><h2 id="out"><a href="#out" class="headerlink" title="out"></a>out</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span>&lt;<span class="hljs-type">out T</span>&gt; &#123;<br>  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">get</span><span class="hljs-params">()</span></span>: T &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">val</span> a = Container&lt;String&gt;()<br><span class="hljs-keyword">val</span> b: String = a.<span class="hljs-keyword">get</span>()<br><span class="hljs-keyword">val</span> c: Any = a.<span class="hljs-keyword">get</span>()<br></code></pre></td></tr></table></figure><p>This time, <code>Container</code> class is used as <code>producer</code>, it may return any super class of T, hence the return value can be assigned to the variable <code>b</code> and <code>c</code>.  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>development</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>kotlin</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Thought after kill-that-shi-jia-zhuang-ian</title>
     <link href="/2023/2023-11-01-thought-for-kill-that-shi-jia-zhuang-ian/"/>
     <url>/2023/2023-11-01-thought-for-kill-that-shi-jia-zhuang-ian/</url>
@@ -42,31 +67,6 @@
       <tag>javascript</tag>
       
       <tag>nio</tag>
-      
-      <tag>kotlin</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Kotlin generics</title>
-    <link href="/2024/2024-03-13-kotlin-generics/"/>
-    <url>/2024/2024-03-13-kotlin-generics/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="kotlin-generics-variance"><a href="#kotlin-generics-variance" class="headerlink" title="kotlin generics variance"></a>kotlin generics variance</h1><p>Similar to what Java provisions, kotlin support generics and also variance, but is easier to understand and use.  </p><p>For instance we have a class <code>Container</code> that accepts <code>T</code> is type parameter.  </p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span>&lt;<span class="hljs-type">T</span>&gt;<br></code></pre></td></tr></table></figure><p>The class <code>Container</code> itself can have inheritance and everything, but when creating instance, it is not the case.  </p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> a: Container&lt;String&gt; = Container&lt;String&gt;()<br><span class="hljs-keyword">val</span> b: Container&lt;Any&gt; = a <span class="hljs-comment">// compilation error here</span><br></code></pre></td></tr></table></figure><p>Would result into error below:  </p><blockquote><p>Type mismatch.<br>Required:  Container<Any><br>Found:  Container<String></p></blockquote><p>This is because <code>Container&lt;Any&gt;</code> is <code>not</code> the parent class of <code>Container&lt;String&gt;</code>.  </p><p>But in reality, there are many situations that we would want our class to behave as a generic container to deal with certain types and its inheritance, there comes the <code>variance</code> conception.  </p><h2 id="in"><a href="#in" class="headerlink" title="in"></a>in</h2><p>This is to denote the generic type can only be used as input parameter, but can never return.</p><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span>&lt;<span class="hljs-type">in T</span>&gt; &#123;<br>  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">data</span>: <span class="hljs-type">T</span>)</span></span> &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">val</span> a = Container&lt;Any&gt;()<br>a.add(<span class="hljs-string">&quot;string&quot;</span>)<br>a.add(<span class="hljs-number">1</span> to <span class="hljs-number">2</span>)<br></code></pre></td></tr></table></figure><p>Here the class <code>Container</code> is used as <code>consumer</code> of type <code>T</code>, thus any type that extends T can be  passed as function parameter, but never as return value.</p><h2 id="out"><a href="#out" class="headerlink" title="out"></a>out</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Container</span>&lt;<span class="hljs-type">out T</span>&gt; &#123;<br>  <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">get</span><span class="hljs-params">()</span></span>: T &#123;&#125;<br>&#125;<br><br><span class="hljs-keyword">val</span> a = Container&lt;String&gt;()<br><span class="hljs-keyword">val</span> b: String = a.<span class="hljs-keyword">get</span>()<br><span class="hljs-keyword">val</span> c: Any = a.<span class="hljs-keyword">get</span>()<br></code></pre></td></tr></table></figure><p>This time, <code>Container</code> class is used as <code>producer</code>, it may return any super class of T, hence the return value can be assigned to the variable <code>b</code> and <code>c</code>.  </p>]]></content>
-    
-    
-    <categories>
-      
-      <category>development</category>
-      
-    </categories>
-    
-    
-    <tags>
       
       <tag>kotlin</tag>
       
@@ -229,6 +229,31 @@
   
   
   <entry>
+    <title>SSL Certificate</title>
+    <link href="/2022/2022-09-06-ssl-certificate/"/>
+    <url>/2022/2022-09-06-ssl-certificate/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h2 id="x-509"><a href="#x-509" class="headerlink" title="x.509"></a>x.509</h2><p>Format of public key certificate standard. Contains public key along with other information depicting the issuer etc.,</p><h2 id="DER"><a href="#DER" class="headerlink" title="DER"></a>DER</h2><p>Binary encoding format to store data, not only <code>x.509</code> but also <code>PKCS8</code> in file.  The result can not be viewed in text editor as it is binary</p><h2 id="PKCS8-PKCS12"><a href="#PKCS8-PKCS12" class="headerlink" title="PKCS8, PKCS12"></a>PKCS8, PKCS12</h2><p>Standard syntax for persisting private key information.<br>It is typically exchanged by using <code>PEM</code> encoding format</p><h2 id="PEM"><a href="#PEM" class="headerlink" title="PEM"></a>PEM</h2><p>Base encoding of DER certificate, can also encode others like private and public key etc.,</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">-----BEGIN PUBLIC KEY-----<br>...Base64 encoding of the DER encoded certificate...<br>-----END PUBLIC KEY-----<br></code></pre></td></tr></table></figure><p>Usually begin with <code>-----BEGIN</code> and end with <code>-----END</code></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>operation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>security</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>OpenSSL Usage</title>
     <link href="/2022/2022-09-06-openssl-usage/"/>
     <url>/2022/2022-09-06-openssl-usage/</url>
@@ -248,31 +273,6 @@
       <tag>security</tag>
       
       <tag>openssl</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>SSL Certificate</title>
-    <link href="/2022/2022-09-06-ssl-certificate/"/>
-    <url>/2022/2022-09-06-ssl-certificate/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h2 id="x-509"><a href="#x-509" class="headerlink" title="x.509"></a>x.509</h2><p>Format of public key certificate standard. Contains public key along with other information depicting the issuer etc.,</p><h2 id="DER"><a href="#DER" class="headerlink" title="DER"></a>DER</h2><p>Binary encoding format to store data, not only <code>x.509</code> but also <code>PKCS8</code> in file.  The result can not be viewed in text editor as it is binary</p><h2 id="PKCS8-PKCS12"><a href="#PKCS8-PKCS12" class="headerlink" title="PKCS8, PKCS12"></a>PKCS8, PKCS12</h2><p>Standard syntax for persisting private key information.<br>It is typically exchanged by using <code>PEM</code> encoding format</p><h2 id="PEM"><a href="#PEM" class="headerlink" title="PEM"></a>PEM</h2><p>Base encoding of DER certificate, can also encode others like private and public key etc.,</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">-----BEGIN PUBLIC KEY-----<br>...Base64 encoding of the DER encoded certificate...<br>-----END PUBLIC KEY-----<br></code></pre></td></tr></table></figure><p>Usually begin with <code>-----BEGIN</code> and end with <code>-----END</code></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>operation</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>security</tag>
       
     </tags>
     
@@ -1118,11 +1118,11 @@
   
   
   <entry>
-    <title>Java NIO Channel</title>
-    <link href="/2020/2020-03-08-java-nio-channel/"/>
-    <url>/2020/2020-03-08-java-nio-channel/</url>
+    <title>Java NIO Pipe</title>
+    <link href="/2020/2020-03-08-java-nio-pipe/"/>
+    <url>/2020/2020-03-08-java-nio-pipe/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><code>Channel</code> is a <code>stream</code> kind of representation in <code>NIO</code>. It is a representation of hardware, file, network device or other program.</p><p>There are several different channel that loads data differently.</p><ul><li>FileChannel</li><li>DatagramChannel</li><li>SocketChannel</li><li>ServerSocketChannel</li></ul><p>Unlike stream object, which can only input or output one at a time.   A single Channel object can do both read and write simutanously.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">RandomAccessFile</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RandomAccessFile</span>(<span class="hljs-string">&quot;data.md&quot;</span>, <span class="hljs-string">&quot;rw&quot;</span>);<br>     <span class="hljs-type">FileChannel</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> file.getChannel()) &#123;<br>  <span class="hljs-keyword">final</span> <span class="hljs-type">ByteBuffer</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> ByteBuffer.allocate(<span class="hljs-number">64</span>);<br>  b.clear();<br>  System.out.println(<span class="hljs-string">&quot;Read &quot;</span> + c.read(b));<br>  b.flip();<br>  System.out.println(<span class="hljs-string">&quot;Write &quot;</span> + c.write(b));<br>&#125;<br></code></pre></td></tr></table></figure><p>From the snippet above, we can tell that a single channel object can do both read and write.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Pipe is another channel used for communicate between threads.<br>It has 2 ends, <code>source</code> for read only, and <code>sink</code> for write only.</p><h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><p>Simply use <code>open</code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Pipe</span> <span class="hljs-variable">pipe</span> <span class="hljs-operator">=</span> Pipe.open();<br></code></pre></td></tr></table></figure><h2 id="Write"><a href="#Write" class="headerlink" title="Write"></a>Write</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// get the sink/write end of pipe</span><br>Pipe.<span class="hljs-type">SinkChannel</span> <span class="hljs-variable">sink</span> <span class="hljs-operator">=</span> pipe.sink();<br><span class="hljs-type">String</span> <span class="hljs-variable">newData</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Rugal Bernstein:&quot;</span> + System.currentTimeMillis();<br><br><span class="hljs-type">ByteBuffer</span> <span class="hljs-variable">buf</span> <span class="hljs-operator">=</span> ByteBuffer.allocate(<span class="hljs-number">48</span>);<br>buf.clear();<br>buf.put(newData.getBytes());<br>buf.flip();<br><br><span class="hljs-keyword">while</span> (buf.hasRemaining()) &#123;<br>  <span class="hljs-comment">// same as other channel, just write to it</span><br>  sink.write(buf);<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// get source/read end of pipe</span><br>Pipe.<span class="hljs-type">SourceChannel</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> pipe.source();<br>buf.clear();<br><span class="hljs-comment">// same as other channel, simply read it into byte buffer</span><br>source.read(buf);<br>System.out.println(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(buf.array()));<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -1145,11 +1145,11 @@
   
   
   <entry>
-    <title>Java NIO Pipe</title>
-    <link href="/2020/2020-03-08-java-nio-pipe/"/>
-    <url>/2020/2020-03-08-java-nio-pipe/</url>
+    <title>Java NIO Channel</title>
+    <link href="/2020/2020-03-08-java-nio-channel/"/>
+    <url>/2020/2020-03-08-java-nio-channel/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>Pipe is another channel used for communicate between threads.<br>It has 2 ends, <code>source</code> for read only, and <code>sink</code> for write only.</p><h2 id="Create"><a href="#Create" class="headerlink" title="Create"></a>Create</h2><p>Simply use <code>open</code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Pipe</span> <span class="hljs-variable">pipe</span> <span class="hljs-operator">=</span> Pipe.open();<br></code></pre></td></tr></table></figure><h2 id="Write"><a href="#Write" class="headerlink" title="Write"></a>Write</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// get the sink/write end of pipe</span><br>Pipe.<span class="hljs-type">SinkChannel</span> <span class="hljs-variable">sink</span> <span class="hljs-operator">=</span> pipe.sink();<br><span class="hljs-type">String</span> <span class="hljs-variable">newData</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Rugal Bernstein:&quot;</span> + System.currentTimeMillis();<br><br><span class="hljs-type">ByteBuffer</span> <span class="hljs-variable">buf</span> <span class="hljs-operator">=</span> ByteBuffer.allocate(<span class="hljs-number">48</span>);<br>buf.clear();<br>buf.put(newData.getBytes());<br>buf.flip();<br><br><span class="hljs-keyword">while</span> (buf.hasRemaining()) &#123;<br>  <span class="hljs-comment">// same as other channel, just write to it</span><br>  sink.write(buf);<br>&#125;<br></code></pre></td></tr></table></figure><h2 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// get source/read end of pipe</span><br>Pipe.<span class="hljs-type">SourceChannel</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> pipe.source();<br>buf.clear();<br><span class="hljs-comment">// same as other channel, simply read it into byte buffer</span><br>source.read(buf);<br>System.out.println(<span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(buf.array()));<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><code>Channel</code> is a <code>stream</code> kind of representation in <code>NIO</code>. It is a representation of hardware, file, network device or other program.</p><p>There are several different channel that loads data differently.</p><ul><li>FileChannel</li><li>DatagramChannel</li><li>SocketChannel</li><li>ServerSocketChannel</li></ul><p>Unlike stream object, which can only input or output one at a time.   A single Channel object can do both read and write simutanously.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span> (<span class="hljs-type">RandomAccessFile</span> <span class="hljs-variable">file</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RandomAccessFile</span>(<span class="hljs-string">&quot;data.md&quot;</span>, <span class="hljs-string">&quot;rw&quot;</span>);<br>     <span class="hljs-type">FileChannel</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> file.getChannel()) &#123;<br>  <span class="hljs-keyword">final</span> <span class="hljs-type">ByteBuffer</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> ByteBuffer.allocate(<span class="hljs-number">64</span>);<br>  b.clear();<br>  System.out.println(<span class="hljs-string">&quot;Read &quot;</span> + c.read(b));<br>  b.flip();<br>  System.out.println(<span class="hljs-string">&quot;Write &quot;</span> + c.write(b));<br>&#125;<br></code></pre></td></tr></table></figure><p>From the snippet above, we can tell that a single channel object can do both read and write.</p>]]></content>
     
     
     <categories>
@@ -2137,25 +2137,6 @@
   
   
   <entry>
-    <title>Coast to Coast</title>
-    <link href="/2016/2016-04-15-coast-to-coast/"/>
-    <url>/2016/2016-04-15-coast-to-coast/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>曾经以为，咫尺就是我在车库里帮你开不了的锁，天涯就是那一座弁山<br>曾经以为，咫尺就是在班里见到了你，天涯就是看你和男朋友有说有笑<br>曾经以为，咫尺就是看着你从公交车上下来，天涯就是含泪送你上车  </p><hr><p>后来，看着手机里的可爱卖萌的你，仿佛手指都能戳到，一戳好像小脸还会凹进去  </p><pre><code class="hljs">咫尺</code></pre><p>可隔着薄薄的手机屏幕，就是隔着千山万水<br>想你的时候不能说，因为说出来便有了无法拥抱的遗憾<br>看你难过的时候不能只能口头安慰你，真希望开门就是机场，半个小时后就能在你身边<br>这种无奈的挣扎，才是  </p><pre><code class="hljs">天涯</code></pre><hr><p>然而人生在世，最有成就感的就是通过艰辛努力达成了梦想<br>那不断的努力，无怨无悔的尝试，毕竟如此聪明的你，上苍终究还是让你愿望成真<br>这才能让你拥有真正的力量，真正的成长<br>这才是我的好宝宝  </p><p>现在春风和夏风交织着，蓝到寂寞的天空倒映出了微笑的嘴角<br>恍惚间，那个和我对话的声音，仿似从手机话筒中传来，然而音质却好了太多   </p><p>感谢你陪我走过这一段人生路，那段不堪回首的痛苦岁月，那段曾差点让我放弃希望的悲凉时光  </p><pre><code class="hljs">因为有你，幸福便近在咫尺</code></pre><p>也很期待你和我将要面对道路，有你在的每一天都是新鲜的，是幸福的，是吸进奶酪面包香气的甜蜜和醉人  </p><pre><code class="hljs">所以有你，苦痛便远去天涯</code></pre><p>好嘛，不用想了，我马上就来抱你!  </p>]]></content>
-    
-    
-    <categories>
-      
-      <category>myself</category>
-      
-    </categories>
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>PostgreSQL Continuous Archive</title>
     <link href="/2016/2016-04-15-postgresql-continuous-archive/"/>
     <url>/2016/2016-04-15-postgresql-continuous-archive/</url>
@@ -2175,6 +2156,25 @@
       <tag>postgresql</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Coast to Coast</title>
+    <link href="/2016/2016-04-15-coast-to-coast/"/>
+    <url>/2016/2016-04-15-coast-to-coast/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>曾经以为，咫尺就是我在车库里帮你开不了的锁，天涯就是那一座弁山<br>曾经以为，咫尺就是在班里见到了你，天涯就是看你和男朋友有说有笑<br>曾经以为，咫尺就是看着你从公交车上下来，天涯就是含泪送你上车  </p><hr><p>后来，看着手机里的可爱卖萌的你，仿佛手指都能戳到，一戳好像小脸还会凹进去  </p><pre><code class="hljs">咫尺</code></pre><p>可隔着薄薄的手机屏幕，就是隔着千山万水<br>想你的时候不能说，因为说出来便有了无法拥抱的遗憾<br>看你难过的时候不能只能口头安慰你，真希望开门就是机场，半个小时后就能在你身边<br>这种无奈的挣扎，才是  </p><pre><code class="hljs">天涯</code></pre><hr><p>然而人生在世，最有成就感的就是通过艰辛努力达成了梦想<br>那不断的努力，无怨无悔的尝试，毕竟如此聪明的你，上苍终究还是让你愿望成真<br>这才能让你拥有真正的力量，真正的成长<br>这才是我的好宝宝  </p><p>现在春风和夏风交织着，蓝到寂寞的天空倒映出了微笑的嘴角<br>恍惚间，那个和我对话的声音，仿似从手机话筒中传来，然而音质却好了太多   </p><p>感谢你陪我走过这一段人生路，那段不堪回首的痛苦岁月，那段曾差点让我放弃希望的悲凉时光  </p><pre><code class="hljs">因为有你，幸福便近在咫尺</code></pre><p>也很期待你和我将要面对道路，有你在的每一天都是新鲜的，是幸福的，是吸进奶酪面包香气的甜蜜和醉人  </p><pre><code class="hljs">所以有你，苦痛便远去天涯</code></pre><p>好嘛，不用想了，我马上就来抱你!  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>myself</category>
+      
+    </categories>
+    
     
   </entry>
   
@@ -2912,31 +2912,6 @@
   
   
   <entry>
-    <title>postgresql High Availability solutions summary</title>
-    <link href="/2015/2015-08-02-postgresql-high-availability-solutions-summary/"/>
-    <url>/2015/2015-08-02-postgresql-high-availability-solutions-summary/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h2 id="Shared-Disk-Failover"><a href="#Shared-Disk-Failover" class="headerlink" title="Shared Disk Failover"></a>Shared Disk Failover</h2><p>Only one copy of the database on shared file system.</p><ol><li>No data loss if failover happens.</li><li>If the shared disk array fails or becomes corrupt, all database servers are nonfunctional. </li><li>Another issue is that the standby server should never access the shared storage while the primary server is running.</li><li><code>NAS</code> could be the solution.</li></ol><h2 id="File-System-Replication"><a href="#File-System-Replication" class="headerlink" title="File System Replication"></a>File System Replication</h2><p>Upgraded version of <code>Shared Disk Failover</code> solution. File system are mirrored to a file system residing on another computer.</p><ol><li>Writes to the standby must be done in the same order as those on the master.</li><li><code>DRBD</code> is a popular file system replication solution for Linux</li></ol><h2 id="Transaction-Log-Shipping"><a href="#Transaction-Log-Shipping" class="headerlink" title="Transaction Log Shipping"></a>Transaction Log Shipping</h2><p>Keep current by reading a stream of WAL records. </p><ol><li>If the main server fails, the standby contains <code>almost</code> all of the data of the main server, and can be quickly made the new master database server.</li><li>This can be synchronous or asynchronous and can only be done for the entire database server.</li><li>A standby server can also be used for read-only queries, in which case it is called a Hot Standby server</li></ol><h3 id="File-based-log-shipping"><a href="#File-based-log-shipping" class="headerlink" title="File-based log shipping"></a>File-based log shipping</h3><ol><li>Transferring WAL records one file (WAL segment) at a time. </li><li>The bandwidth required for this technique varies according to the transaction rate of the primary server. </li><li>Log shipping is <code>asynchronous</code>, i.e., the WAL records are shipped after transaction commit. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost. The size of the data loss window in file-based log shipping can be limited by use of the <code>archive_timeout</code> parameter, which can be set as low as a few seconds. </li><li>However such a low setting will substantially increase the bandwidth required for file shipping.</li></ol><h3 id="Streaming-replication"><a href="#Streaming-replication" class="headerlink" title="Streaming replication"></a>Streaming replication</h3><ol><li>Streaming replication allows a standby server to stay more up-to-date than is possible with file-based log shipping. </li><li>The standby connects to the primary, which streams WAL records to the standby as they are generated, without waiting for the WAL file to be filled.</li><li>Streams WAL changes incrementally over a network connection.</li><li>Record-based log shipping is more granular.</li><li>Streaming replication is <code>asynchronous</code> by <code>default</code>, in which case there is a small delay between committing a transaction in the primary and the changes becoming visible in the standby.</li><li>This delay is however much smaller than with file-based log shipping, typically under one second.</li><li>With streaming replication, <code>archive_timeout</code> is not required to reduce the data loss window</li></ol><h2 id="Trigger-Based-Master-Standby-Replication"><a href="#Trigger-Based-Master-Standby-Replication" class="headerlink" title="Trigger-Based Master-Standby Replication"></a>Trigger-Based Master-Standby Replication</h2><p>Master-standby replication setup sends all data modification queries to the master server.</p><ol><li>The master server <code>asynchronously</code> sends data changes to the standby server.</li><li>The standby can answer read-only queries while the master server is running. </li><li>The standby server is ideal for data warehouse queries.</li><li><code>Slony-I</code> is an example of this type of replication.</li><li>Because it updates the standby server asynchronously (in batches), there is possible data loss during failover.</li></ol><h2 id="Statement-Based-Replication-Middleware"><a href="#Statement-Based-Replication-Middleware" class="headerlink" title="Statement-Based Replication Middleware"></a>Statement-Based Replication Middleware</h2><p>With statement-based replication middleware, a program intercepts every SQL query and sends it to one or all servers.</p><ol><li>Each server operates independently. </li><li>Read-write queries must be sent to all servers, so that every server receives any changes. </li><li>But read-only queries can be sent to just one server, allowing the read workload to be distributed among them.</li><li>If query encounter situation such as <code>RANDOM()</code> which each server will generate different results, this might cause problem. Either the <code>middleware</code> or the application must query such values from a single server and then use those values in write queries. Another option is to use this replication option with a traditional master-standby setup.</li><li>Care must also be taken that all transactions either commit or abort on all servers, perhaps using two-phase commit.</li><li><code>Pgpool-II</code> and Continuent Tungsten are examples of this type of replication.</li></ol><h2 id="Asynchronous-Multimaster-Replication"><a href="#Asynchronous-Multimaster-Replication" class="headerlink" title="Asynchronous Multimaster Replication"></a>Asynchronous Multimaster Replication</h2><ol><li>Each server works independently, and periodically communicates with the other servers to identify conflicting transactions. </li><li>The conflicts can be resolved by users or conflict resolution rules. </li><li><code>Bucardo</code> is an example of this type of replication.</li></ol><h2 id="Synchronous-Multimaster-Replication"><a href="#Synchronous-Multimaster-Replication" class="headerlink" title="Synchronous Multimaster Replication"></a>Synchronous Multimaster Replication</h2><ol><li>Each server can accept write requests, and modified data is transmitted from the original server to every other server before each transaction commits. </li><li>Heavy write activity can cause excessive locking, leading to poor performance, often worse than that of a single server.</li><li>Read requests can be sent to any server.</li><li>Synchronous multimaster replication is best for mostly read workloads.</li><li>though its big advantage is that any server can accept write requests — there is no need to partition workloads between master and standby servers.</li><li>Because the data changes are sent from one server to another, there is no problem with non-deterministic functions like random().</li><li>PostgreSQL does not offer this type of replication, though PostgreSQL two-phase commit (PREPARE TRANSACTION and COMMIT PREPARED) can be used to implement this in application code or middleware.</li></ol><h2 id="Data-Partitioning"><a href="#Data-Partitioning" class="headerlink" title="Data Partitioning"></a>Data Partitioning</h2><ol><li>Data partitioning splits tables into data sets. </li><li>Each set can be modified by only one server.</li><li>If queries combining data from different servers are necessary, an application can query both servers, or master&#x2F;standby replication can be used to keep a read-only copy of the other data of server on each server.</li></ol><h2 id="Multiple-Server-Parallel-Query-Execution"><a href="#Multiple-Server-Parallel-Query-Execution" class="headerlink" title="Multiple-Server Parallel Query Execution"></a>Multiple-Server Parallel Query Execution</h2><p>This solution allows multiple servers to work concurrently on a single query.</p><ol><li>It is usually accomplished by splitting the data among servers and having each server execute its part of the query and return results to a central server where they are combined and returned to the user. </li><li><code>Pgpool-II</code> has this capability. </li><li>Also, this can be implemented using the <code>PL/Proxy</code> tool set.</li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>operation</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>postgresql</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Recovery procedure of Postgresql</title>
     <link href="/2015/2015-08-02-recovery-procedure-of-postgresql/"/>
     <url>/2015/2015-08-02-recovery-procedure-of-postgresql/</url>
@@ -2979,6 +2954,31 @@
     <tags>
       
       <tag>network</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>postgresql High Availability solutions summary</title>
+    <link href="/2015/2015-08-02-postgresql-high-availability-solutions-summary/"/>
+    <url>/2015/2015-08-02-postgresql-high-availability-solutions-summary/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><h2 id="Shared-Disk-Failover"><a href="#Shared-Disk-Failover" class="headerlink" title="Shared Disk Failover"></a>Shared Disk Failover</h2><p>Only one copy of the database on shared file system.</p><ol><li>No data loss if failover happens.</li><li>If the shared disk array fails or becomes corrupt, all database servers are nonfunctional. </li><li>Another issue is that the standby server should never access the shared storage while the primary server is running.</li><li><code>NAS</code> could be the solution.</li></ol><h2 id="File-System-Replication"><a href="#File-System-Replication" class="headerlink" title="File System Replication"></a>File System Replication</h2><p>Upgraded version of <code>Shared Disk Failover</code> solution. File system are mirrored to a file system residing on another computer.</p><ol><li>Writes to the standby must be done in the same order as those on the master.</li><li><code>DRBD</code> is a popular file system replication solution for Linux</li></ol><h2 id="Transaction-Log-Shipping"><a href="#Transaction-Log-Shipping" class="headerlink" title="Transaction Log Shipping"></a>Transaction Log Shipping</h2><p>Keep current by reading a stream of WAL records. </p><ol><li>If the main server fails, the standby contains <code>almost</code> all of the data of the main server, and can be quickly made the new master database server.</li><li>This can be synchronous or asynchronous and can only be done for the entire database server.</li><li>A standby server can also be used for read-only queries, in which case it is called a Hot Standby server</li></ol><h3 id="File-based-log-shipping"><a href="#File-based-log-shipping" class="headerlink" title="File-based log shipping"></a>File-based log shipping</h3><ol><li>Transferring WAL records one file (WAL segment) at a time. </li><li>The bandwidth required for this technique varies according to the transaction rate of the primary server. </li><li>Log shipping is <code>asynchronous</code>, i.e., the WAL records are shipped after transaction commit. As a result, there is a window for data loss should the primary server suffer a catastrophic failure; transactions not yet shipped will be lost. The size of the data loss window in file-based log shipping can be limited by use of the <code>archive_timeout</code> parameter, which can be set as low as a few seconds. </li><li>However such a low setting will substantially increase the bandwidth required for file shipping.</li></ol><h3 id="Streaming-replication"><a href="#Streaming-replication" class="headerlink" title="Streaming replication"></a>Streaming replication</h3><ol><li>Streaming replication allows a standby server to stay more up-to-date than is possible with file-based log shipping. </li><li>The standby connects to the primary, which streams WAL records to the standby as they are generated, without waiting for the WAL file to be filled.</li><li>Streams WAL changes incrementally over a network connection.</li><li>Record-based log shipping is more granular.</li><li>Streaming replication is <code>asynchronous</code> by <code>default</code>, in which case there is a small delay between committing a transaction in the primary and the changes becoming visible in the standby.</li><li>This delay is however much smaller than with file-based log shipping, typically under one second.</li><li>With streaming replication, <code>archive_timeout</code> is not required to reduce the data loss window</li></ol><h2 id="Trigger-Based-Master-Standby-Replication"><a href="#Trigger-Based-Master-Standby-Replication" class="headerlink" title="Trigger-Based Master-Standby Replication"></a>Trigger-Based Master-Standby Replication</h2><p>Master-standby replication setup sends all data modification queries to the master server.</p><ol><li>The master server <code>asynchronously</code> sends data changes to the standby server.</li><li>The standby can answer read-only queries while the master server is running. </li><li>The standby server is ideal for data warehouse queries.</li><li><code>Slony-I</code> is an example of this type of replication.</li><li>Because it updates the standby server asynchronously (in batches), there is possible data loss during failover.</li></ol><h2 id="Statement-Based-Replication-Middleware"><a href="#Statement-Based-Replication-Middleware" class="headerlink" title="Statement-Based Replication Middleware"></a>Statement-Based Replication Middleware</h2><p>With statement-based replication middleware, a program intercepts every SQL query and sends it to one or all servers.</p><ol><li>Each server operates independently. </li><li>Read-write queries must be sent to all servers, so that every server receives any changes. </li><li>But read-only queries can be sent to just one server, allowing the read workload to be distributed among them.</li><li>If query encounter situation such as <code>RANDOM()</code> which each server will generate different results, this might cause problem. Either the <code>middleware</code> or the application must query such values from a single server and then use those values in write queries. Another option is to use this replication option with a traditional master-standby setup.</li><li>Care must also be taken that all transactions either commit or abort on all servers, perhaps using two-phase commit.</li><li><code>Pgpool-II</code> and Continuent Tungsten are examples of this type of replication.</li></ol><h2 id="Asynchronous-Multimaster-Replication"><a href="#Asynchronous-Multimaster-Replication" class="headerlink" title="Asynchronous Multimaster Replication"></a>Asynchronous Multimaster Replication</h2><ol><li>Each server works independently, and periodically communicates with the other servers to identify conflicting transactions. </li><li>The conflicts can be resolved by users or conflict resolution rules. </li><li><code>Bucardo</code> is an example of this type of replication.</li></ol><h2 id="Synchronous-Multimaster-Replication"><a href="#Synchronous-Multimaster-Replication" class="headerlink" title="Synchronous Multimaster Replication"></a>Synchronous Multimaster Replication</h2><ol><li>Each server can accept write requests, and modified data is transmitted from the original server to every other server before each transaction commits. </li><li>Heavy write activity can cause excessive locking, leading to poor performance, often worse than that of a single server.</li><li>Read requests can be sent to any server.</li><li>Synchronous multimaster replication is best for mostly read workloads.</li><li>though its big advantage is that any server can accept write requests — there is no need to partition workloads between master and standby servers.</li><li>Because the data changes are sent from one server to another, there is no problem with non-deterministic functions like random().</li><li>PostgreSQL does not offer this type of replication, though PostgreSQL two-phase commit (PREPARE TRANSACTION and COMMIT PREPARED) can be used to implement this in application code or middleware.</li></ol><h2 id="Data-Partitioning"><a href="#Data-Partitioning" class="headerlink" title="Data Partitioning"></a>Data Partitioning</h2><ol><li>Data partitioning splits tables into data sets. </li><li>Each set can be modified by only one server.</li><li>If queries combining data from different servers are necessary, an application can query both servers, or master&#x2F;standby replication can be used to keep a read-only copy of the other data of server on each server.</li></ol><h2 id="Multiple-Server-Parallel-Query-Execution"><a href="#Multiple-Server-Parallel-Query-Execution" class="headerlink" title="Multiple-Server Parallel Query Execution"></a>Multiple-Server Parallel Query Execution</h2><p>This solution allows multiple servers to work concurrently on a single query.</p><ol><li>It is usually accomplished by splitting the data among servers and having each server execute its part of the query and return results to a central server where they are combined and returned to the user. </li><li><code>Pgpool-II</code> has this capability. </li><li>Also, this can be implemented using the <code>PL/Proxy</code> tool set.</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>operation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>postgresql</tag>
       
     </tags>
     
@@ -3066,33 +3066,6 @@
   
   
   <entry>
-    <title>complexity level problem</title>
-    <link href="/2015/2015-07-17-complexity-level-problem/"/>
-    <url>/2015/2015-07-17-complexity-level-problem/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><a href="http://www.geeksforgeeks.org/np-completeness-set-1/">Geeks for Geeks</a>  </p><h1 id="P"><a href="#P" class="headerlink" title="P"></a>P</h1><p>Such like <code>Negtive weight cycle detection</code> problem.<br>Exists a polynomial algorithm to solve this problem.<br>is set of problems that can be solved by a <a href="!--swig%EF%BF%BC0--">deterministic Turing machine</a> in Polynomial time.  </p><h1 id="NP"><a href="#NP" class="headerlink" title="NP"></a>NP</h1><p>Such as <code>Tetrics</code> problem.<br>Exists a polynomial algorithm to verify this problem.<br>is set of decision problems that can be solved by a <a href="!--swig%EF%BF%BC1--">Non-deterministic Turing Machine</a> in Polynomial time.<br>Informally, NP is set of decision problems which can be solved by a polynomial time via a “Lucky Algorithm”, a magical algorithm that always makes a right guess among the given set of choices.<br>Hence NP is the super set of P.  </p><h1 id="NP-Complete"><a href="#NP-Complete" class="headerlink" title="NP-Complete"></a>NP-Complete</h1><p>Such like <code>SAT</code>, <code>Mine sweep</code>, <code>Sudoku</code>, <code>Travel sales path</code> problem.  </p><ol><li>Is an NP problem.</li><li>any NP problem could be reduced to this problem.</li></ol><h1 id="NP-hard"><a href="#NP-hard" class="headerlink" title="NP-hard"></a>NP-hard</h1><p>Such as <code>Tetrics</code> problem.  </p><ol><li>any NP problem could be reduced to this problem.</li></ol><p>Hence NP-Hard is the super set of NP-Complete.  </p><h1 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h1><p>Such as <code>Chess</code> problem.<br>Means could solve a problem in exponetial time.<br>Apparantly EXP is the super set of NP.  </p><h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><p>The problem is recursive problem, which means it could be solved in finite time.<br>But unfortunately most of problems are not in R, for example <code>halting</code> problem is not in R.<br>Apparantly R is the super set of EXP.  </p>]]></content>
-    
-    
-    <categories>
-      
-      <category>study</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>algorithm</tag>
-      
-      <tag>math</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>concurrent read level</title>
     <link href="/2015/2015-07-17-concurrent-read-level/"/>
     <url>/2015/2015-07-17-concurrent-read-level/</url>
@@ -3112,6 +3085,33 @@
       <tag>postgresql</tag>
       
       <tag>database</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>complexity level problem</title>
+    <link href="/2015/2015-07-17-complexity-level-problem/"/>
+    <url>/2015/2015-07-17-complexity-level-problem/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p><a href="http://www.geeksforgeeks.org/np-completeness-set-1/">Geeks for Geeks</a>  </p><h1 id="P"><a href="#P" class="headerlink" title="P"></a>P</h1><p>Such like <code>Negtive weight cycle detection</code> problem.<br>Exists a polynomial algorithm to solve this problem.<br>is set of problems that can be solved by a <a href="!--swig%EF%BF%BC0--">deterministic Turing machine</a> in Polynomial time.  </p><h1 id="NP"><a href="#NP" class="headerlink" title="NP"></a>NP</h1><p>Such as <code>Tetrics</code> problem.<br>Exists a polynomial algorithm to verify this problem.<br>is set of decision problems that can be solved by a <a href="!--swig%EF%BF%BC1--">Non-deterministic Turing Machine</a> in Polynomial time.<br>Informally, NP is set of decision problems which can be solved by a polynomial time via a “Lucky Algorithm”, a magical algorithm that always makes a right guess among the given set of choices.<br>Hence NP is the super set of P.  </p><h1 id="NP-Complete"><a href="#NP-Complete" class="headerlink" title="NP-Complete"></a>NP-Complete</h1><p>Such like <code>SAT</code>, <code>Mine sweep</code>, <code>Sudoku</code>, <code>Travel sales path</code> problem.  </p><ol><li>Is an NP problem.</li><li>any NP problem could be reduced to this problem.</li></ol><h1 id="NP-hard"><a href="#NP-hard" class="headerlink" title="NP-hard"></a>NP-hard</h1><p>Such as <code>Tetrics</code> problem.  </p><ol><li>any NP problem could be reduced to this problem.</li></ol><p>Hence NP-Hard is the super set of NP-Complete.  </p><h1 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h1><p>Such as <code>Chess</code> problem.<br>Means could solve a problem in exponetial time.<br>Apparantly EXP is the super set of NP.  </p><h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><p>The problem is recursive problem, which means it could be solved in finite time.<br>But unfortunately most of problems are not in R, for example <code>halting</code> problem is not in R.<br>Apparantly R is the super set of EXP.  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>study</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>algorithm</tag>
+      
+      <tag>math</tag>
       
     </tags>
     
@@ -3397,11 +3397,11 @@
   
   
   <entry>
-    <title>HDFS Permission denied</title>
-    <link href="/2015/2015-04-14-hdfs-permission-denied/"/>
-    <url>/2015/2015-04-14-hdfs-permission-denied/</url>
+    <title>spark over YARN</title>
+    <link href="/2015/2015-04-14-spark-over-yarn/"/>
+    <url>/2015/2015-04-14-spark-over-yarn/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>While developing hadoop or using HDFS, I want to access HDFS without permission problem for convenience.<br>So we could add one property in <code>conf/hdfs-site.xml</code> file.  </p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.permissions<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure><p>So that any access will not be block, but you need to disable this feature in product enviornment!</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>I don’t know why a lot of people start using <code>Spark</code>, but it is very easy to integrate it with <code>YARN</code>.  </p><ol><li><p>Deploy you <code>Yarn</code> and <code>HDFS</code> as usual, let’s say configuration folder is at <code>$HADOOP_HOME/conf</code> where <code>core_site.xml</code> and other files could be found.  </p></li><li><p>Unzip you <code>Spark</code> binary file and set the <code>$HADOOP_CONF_DIR</code> variables correctly in <code>conf/spark-env.sh</code>.  </p><pre><code class="hljs"> export HADOOP_HOME=/path/to/hadoop   export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</code></pre></li><li><p>Yeah, configuration completed, easy isn’t it?</p></li><li><p>Test, use command and example jar file in spark</p><pre><code class="hljs"> ./bin/spark-submit --class org.apache.spark.examples.SparkPi \     --master yarn-cluster \     --num-executors 3 \     --driver-memory 4g \     --executor-memory 2g \     --executor-cores 1 \     lib/spark-examples*.jar \     10</code></pre></li></ol><p>It is really nice and easy!</p>]]></content>
     
     
     <categories>
@@ -3422,11 +3422,11 @@
   
   
   <entry>
-    <title>spark over YARN</title>
-    <link href="/2015/2015-04-14-spark-over-yarn/"/>
-    <url>/2015/2015-04-14-spark-over-yarn/</url>
+    <title>HDFS Permission denied</title>
+    <link href="/2015/2015-04-14-hdfs-permission-denied/"/>
+    <url>/2015/2015-04-14-hdfs-permission-denied/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>I don’t know why a lot of people start using <code>Spark</code>, but it is very easy to integrate it with <code>YARN</code>.  </p><ol><li><p>Deploy you <code>Yarn</code> and <code>HDFS</code> as usual, let’s say configuration folder is at <code>$HADOOP_HOME/conf</code> where <code>core_site.xml</code> and other files could be found.  </p></li><li><p>Unzip you <code>Spark</code> binary file and set the <code>$HADOOP_CONF_DIR</code> variables correctly in <code>conf/spark-env.sh</code>.  </p><pre><code class="hljs"> export HADOOP_HOME=/path/to/hadoop   export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop</code></pre></li><li><p>Yeah, configuration completed, easy isn’t it?</p></li><li><p>Test, use command and example jar file in spark</p><pre><code class="hljs"> ./bin/spark-submit --class org.apache.spark.examples.SparkPi \     --master yarn-cluster \     --num-executors 3 \     --driver-memory 4g \     --executor-memory 2g \     --executor-cores 1 \     lib/spark-examples*.jar \     10</code></pre></li></ol><p>It is really nice and easy!</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>While developing hadoop or using HDFS, I want to access HDFS without permission problem for convenience.<br>So we could add one property in <code>conf/hdfs-site.xml</code> file.  </p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>dfs.permissions<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br></code></pre></td></tr></table></figure><p>So that any access will not be block, but you need to disable this feature in product enviornment!</p>]]></content>
     
     
     <categories>
@@ -3526,31 +3526,6 @@
   
   
   <entry>
-    <title>change keyboard layout in linux</title>
-    <link href="/2015/2015-01-16-change-keyboard-layout-in-linux/"/>
-    <url>/2015/2015-01-16-change-keyboard-layout-in-linux/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>If it was not <code>Dvorak</code> is much better than <code>qwerty</code> I wont mention this post.<br>Yes you could do almost everything in command line, even change keyboard layout or printing.  </p><pre><code class="hljs">setxkbmap dvorksetxkbmap ussetxkbmap spanish</code></pre><p>Thats all, Easy piecy!</p>]]></content>
-    
-    
-    <categories>
-      
-      <category>operation</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>linux</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>execute and import python in python shell</title>
     <link href="/2015/2015-01-16-execute-and-import-python-in-python-shell/"/>
     <url>/2015/2015-01-16-execute-and-import-python-in-python-shell/</url>
@@ -3568,6 +3543,31 @@
     <tags>
       
       <tag>python</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>change keyboard layout in linux</title>
+    <link href="/2015/2015-01-16-change-keyboard-layout-in-linux/"/>
+    <url>/2015/2015-01-16-change-keyboard-layout-in-linux/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text&#x2F;css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><p>If it was not <code>Dvorak</code> is much better than <code>qwerty</code> I wont mention this post.<br>Yes you could do almost everything in command line, even change keyboard layout or printing.  </p><pre><code class="hljs">setxkbmap dvorksetxkbmap ussetxkbmap spanish</code></pre><p>Thats all, Easy piecy!</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>operation</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>linux</tag>
       
     </tags>
     
